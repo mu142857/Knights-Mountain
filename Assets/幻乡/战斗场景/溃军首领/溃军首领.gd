@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D # 奥斯卡画的溃军首领
 
 var scene_startx: float = 0.0
 var scene_endx: float = 1400.0

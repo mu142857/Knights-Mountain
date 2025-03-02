@@ -1,7 +1,9 @@
-[gd_scene load_steps=153 format=3 uid="uid://bpn0kvochk855"]
+[gd_scene load_steps=155 format=3 uid="uid://bpn0kvochk855"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_55vj1"]
 [ext_resource type="Texture2D" uid="uid://b3ensq6hw3khh" path="res://Assets/幻乡/战斗场景/墨影/黑影子怪.png" id="1_j7sgg"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/墨影/墨影state_machine.gd" id="3_k1kd4"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/墨影/墨影idle.gd" id="4_0k3l1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f5li2"]
 shader = ExtResource("1_55vj1")
@@ -1150,6 +1152,10 @@ shape = SubResource("RectangleShape2D_ifw5a")
 debug_color = Color(0, 0.534579, 0.980341, 0.12549)
 
 [node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_k1kd4")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_0k3l1")
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
