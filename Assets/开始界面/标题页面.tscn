@@ -1,0 +1,201 @@
+[gd_scene load_steps=18 format=3 uid="uid://b435a81uhr47t"]
+
+[ext_resource type="Texture2D" uid="uid://d2s00vcxro3l8" path="res://Assets/开始界面/关卡选择.png" id="1_1mpil"]
+[ext_resource type="Script" path="res://Assets/开始界面/标题页面.gd" id="1_rhlm7"]
+[ext_resource type="Texture2D" uid="uid://crlol4hflnmw2" path="res://Assets/开始界面/细节/树叶.png" id="3_mh483"]
+[ext_resource type="Shader" path="res://Assets/开始界面/水面.gdshader" id="5_jtrh8"]
+[ext_resource type="Texture2D" uid="uid://dj4r4qumrffbe" path="res://Assets/开始界面/Water.png" id="6_ems7a"]
+[ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="6_g2sl6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b4ece"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_ej70d"]
+offsets = PackedFloat32Array(0, 0.0972644, 0.665653, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2un5l"]
+gradient = SubResource("Gradient_ej70d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_avhdw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 20, 1)
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(-5, 2.5, 0)
+scale_min = 0.4
+color_ramp = SubResource("GradientTexture1D_2un5l")
+anim_offset_max = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rdllm"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bv2ag"]
+seamless = true
+noise = SubResource("FastNoiseLite_rdllm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7gyu8"]
+shader = ExtResource("5_jtrh8")
+shader_parameter/water_colour = Color(0, 0.12, 0.2, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_bv2ag")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x61xv"]
+load_path = "res://.godot/imported/文字背景.png-21c2aa77042e5eb0fbf2fe35b9ef7f17.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wot1"]
+size = Vector2(435.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf31b"]
+size = Vector2(435.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydlu3"]
+size = Vector2(435.5, 68)
+
+[node name="标题页面" type="Node2D"]
+script = ExtResource("1_rhlm7")
+
+[node name="背景图" type="Node2D" parent="."]
+
+[node name="关卡选择" type="Sprite2D" parent="背景图"]
+position = Vector2(862, 295)
+scale = Vector2(6.73125, 6.73125)
+texture = ExtResource("1_1mpil")
+
+[node name="蓝图" type="Sprite2D" parent="背景图"]
+position = Vector2(308.294, 409.816)
+scale = Vector2(6.857, 9.91882)
+texture = ExtResource("1_1mpil")
+region_enabled = true
+region_rect = Rect2(0, 0, 116, 94.25)
+
+[node name="大树落叶" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_b4ece")
+position = Vector2(1029, 610)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_avhdw")
+texture = ExtResource("3_mh483")
+lifetime = 15.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="water" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7gyu8")
+position = Vector2(693, 882.47)
+scale = Vector2(3.00977, 0.570141)
+texture = ExtResource("6_ems7a")
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 286.233)
+
+[node name="按钮背景" type="Node2D" parent="."]
+
+[node name="开始Sprite2D" type="Sprite2D" parent="按钮背景"]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(266.954, 383.144)
+scale = Vector2(3.36307, 3.07784)
+texture = SubResource("CompressedTexture2D_x61xv")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 22.25)
+
+[node name="人员Sprite2D" type="Sprite2D" parent="按钮背景"]
+modulate = Color(1, 0.705882, 1, 1)
+position = Vector2(266.954, 521.144)
+scale = Vector2(3.36307, 3.07784)
+texture = SubResource("CompressedTexture2D_x61xv")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 22.25)
+
+[node name="退出Sprite2D" type="Sprite2D" parent="按钮背景"]
+modulate = Color(1, 0.705882, 1, 1)
+position = Vector2(265.954, 657.144)
+scale = Vector2(3.36307, 3.07784)
+texture = SubResource("CompressedTexture2D_x61xv")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 22.25)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="大标题" type="Label" parent="CanvasLayer"]
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 1060.0
+offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("6_g2sl6")
+theme_override_font_sizes/font_size = 160
+text = "这是一个标题"
+
+[node name="开始游戏" type="Button" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 349.0
+offset_right = 435.0
+offset_bottom = 417.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("6_g2sl6")
+theme_override_font_sizes/font_size = 60
+text = "    →开始旅途     "
+flat = true
+
+[node name="人员名单" type="Button" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 487.0
+offset_right = 435.0
+offset_bottom = 555.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("6_g2sl6")
+theme_override_font_sizes/font_size = 60
+text = "    →制作人员    "
+flat = true
+
+[node name="退出游戏" type="Button" parent="CanvasLayer"]
+offset_left = -2.0
+offset_top = 623.0
+offset_right = 434.0
+offset_bottom = 691.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("6_g2sl6")
+theme_override_font_sizes/font_size = 60
+text = "    →退出游戏   "
+flat = true
+
+[node name="鼠标判定" type="Node2D" parent="."]
+
+[node name="开始按钮判定" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="鼠标判定/开始按钮判定"]
+position = Vector2(217.25, 383)
+shape = SubResource("RectangleShape2D_3wot1")
+debug_color = Color(0.761555, 0.40539, 0.530763, 0.42)
+
+[node name="人员按钮判定" type="Area2D" parent="鼠标判定"]
+position = Vector2(0, 138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="鼠标判定/人员按钮判定"]
+position = Vector2(217.25, 383)
+shape = SubResource("RectangleShape2D_pf31b")
+debug_color = Color(0.761555, 0.40539, 0.530763, 0.42)
+
+[node name="退出游戏判定" type="Area2D" parent="鼠标判定"]
+position = Vector2(-1, 274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="鼠标判定/退出游戏判定"]
+position = Vector2(217.25, 383)
+shape = SubResource("RectangleShape2D_ydlu3")
+debug_color = Color(0.761555, 0.40539, 0.530763, 0.42)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/开始游戏" to="." method="_on_开始游戏_pressed"]
+[connection signal="pressed" from="CanvasLayer/人员名单" to="." method="_on_人员名单_pressed"]
+[connection signal="pressed" from="CanvasLayer/退出游戏" to="." method="_on_退出游戏_pressed"]
+[connection signal="mouse_entered" from="鼠标判定/开始按钮判定" to="." method="_on_开始按钮判定_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/开始按钮判定" to="." method="_on_开始按钮判定_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/人员按钮判定" to="." method="_on_人员按钮判定_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/人员按钮判定" to="." method="_on_人员按钮判定_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/退出游戏判定" to="." method="_on_退出游戏判定_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/退出游戏判定" to="." method="_on_退出游戏判定_mouse_exited"]

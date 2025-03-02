@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://ce2eta6b4wahs"]
+
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.gd" id="1_lfyva"]
+[ext_resource type="Texture2D" uid="uid://b0wre7odp3p3c" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林4火球-Sheet.png" id="1_yej18"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/火焰拖尾.gd" id="3_wwkpy"]
+
+[sub_resource type="Curve" id="Curve_7y267"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.842697, 0.729814), 2.01814, 2.01814, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_hr0ae"]
+offsets = PackedFloat32Array(0, 0.536496, 1)
+colors = PackedColorArray(1, 0, 0, 0, 0.835294, 0, 0, 0.313726, 1, 0.745098, 0, 0.392157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hc3b"]
+atlas = ExtResource("1_yej18")
+region = Rect2(54, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptl62"]
+atlas = ExtResource("1_yej18")
+region = Rect2(108, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4c8j"]
+atlas = ExtResource("1_yej18")
+region = Rect2(162, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m15uq"]
+atlas = ExtResource("1_yej18")
+region = Rect2(216, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdgq5"]
+atlas = ExtResource("1_yej18")
+region = Rect2(270, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov40y"]
+atlas = ExtResource("1_yej18")
+region = Rect2(324, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv2wq"]
+atlas = ExtResource("1_yej18")
+region = Rect2(378, 0, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bij1"]
+atlas = ExtResource("1_yej18")
+region = Rect2(0, 54, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4syf"]
+atlas = ExtResource("1_yej18")
+region = Rect2(54, 54, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1dsc"]
+atlas = ExtResource("1_yej18")
+region = Rect2(108, 54, 54, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpslr"]
+atlas = ExtResource("1_yej18")
+region = Rect2(0, 0, 54, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d23is"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hc3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptl62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4c8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m15uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdgq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov40y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv2wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bij1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4syf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1dsc")
+}],
+"loop": false,
+"name": &"Destroy",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpslr")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q6nf"]
+radius = 5.0
+
+[node name="哥布林火球" type="Area2D"]
+script = ExtResource("1_lfyva")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width_curve = SubResource("Curve_7y267")
+default_color = Color(0.938573, 0.325787, 1.15514e-06, 1)
+gradient = SubResource("Gradient_hr0ae")
+script = ExtResource("3_wwkpy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_d23is")
+animation = &"Destroy"
+autoplay = "Fly"
+offset = Vector2(-0.5, -16.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_8q6nf")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

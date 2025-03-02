@@ -1,0 +1,431 @@
+[gd_scene load_steps=40 format=3 uid="uid://b3c7r6dxte3vv"]
+
+[ext_resource type="Script" path="res://Assets/开始界面/关卡选择.gd" id="1_kpq8a"]
+[ext_resource type="Texture2D" uid="uid://b6nmxxom4qvvw" path="res://Assets/开始界面/Day.png" id="1_pru8y"]
+[ext_resource type="Texture2D" uid="uid://bvwmgaru8yw36" path="res://Assets/开始界面/Wood.png" id="1_ubesa"]
+[ext_resource type="Texture2D" uid="uid://bcsh27osk5krk" path="res://Assets/开始界面/Night.png" id="2_lk3uc"]
+[ext_resource type="Texture2D" uid="uid://dtd8lsvl1wk6a" path="res://Assets/开始界面/Gold.png" id="3_lhlp6"]
+[ext_resource type="Texture2D" uid="uid://dj4r4qumrffbe" path="res://Assets/开始界面/Water.png" id="5_xr030"]
+[ext_resource type="Texture2D" uid="uid://yx6u58xfo8wb" path="res://Assets/开始界面/Fire.png" id="6_fpxea"]
+[ext_resource type="Texture2D" uid="uid://dftw0mtcnyvsn" path="res://Assets/开始界面/Earth.png" id="7_hqo05"]
+[ext_resource type="Texture2D" uid="uid://cel1cqll32hwg" path="res://Assets/开始界面/Airship.png" id="8_xeu0e"]
+[ext_resource type="Texture2D" uid="uid://1nusxuvwbhk5" path="res://Assets/开始界面/Lower City.png" id="9_nemjp"]
+[ext_resource type="Shader" path="res://Assets/开始界面/水面.gdshader" id="10_m3amg"]
+[ext_resource type="Texture2D" uid="uid://bi3sdlgolsr0y" path="res://Assets/开始界面/细节/灯塔.jpg" id="12_a8yji"]
+[ext_resource type="Texture2D" uid="uid://w1s15amfqnbj" path="res://Assets/开始界面/细节/点光源.jpg" id="12_mb8hq"]
+[ext_resource type="Texture2D" uid="uid://crlol4hflnmw2" path="res://Assets/开始界面/细节/树叶.png" id="14_t6fc8"]
+[ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="15_v2bpm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vqsve"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_wsiw5"]
+offsets = PackedFloat32Array(0, 0.151976, 0.835866, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sbagv"]
+gradient = SubResource("Gradient_wsiw5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1uedg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(105, 10, 1)
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 30, 0)
+scale_min = 0.4
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_sbagv")
+anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_i6h0u"]
+offsets = PackedFloat32Array(0, 0.255319, 0.802432, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nnbni"]
+gradient = SubResource("Gradient_i6h0u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5rny"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 1)
+direction = Vector3(-100, 0, 0)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 30, 0)
+scale_min = 0.4
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_nnbni")
+anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_lknn2"]
+offsets = PackedFloat32Array(0, 0.227964, 0.796353, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ttk71"]
+gradient = SubResource("Gradient_lknn2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eh3jg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 1)
+direction = Vector3(-100, 0, 0)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 30, 0)
+scale_min = 0.4
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_ttk71")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mua7q"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_bbm4x"]
+min_value = 0.05
+max_value = 0.3
+_data = [Vector2(0, 0), 0.0, 1.82036, 0, 0, Vector2(1e-05, 0.05), 0.0, 0.0, 0, 0, Vector2(0.501292, 0.3), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.05), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.74891, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_oxyhy"]
+curve = SubResource("Curve_bbm4x")
+
+[sub_resource type="Gradient" id="Gradient_q3h47"]
+colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_orc4p"]
+gradient = SubResource("Gradient_q3h47")
+
+[sub_resource type="Curve" id="Curve_hh8du"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1xdnq"]
+max_value = 30.0
+_data = [Vector2(0, 15.6699), 0.0, 60.3381, 0, 0, Vector2(0.503311, 30), -4.34217, -4.34217, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_b5o0k"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_0m8ce"]
+curve_x = SubResource("Curve_hh8du")
+curve_y = SubResource("Curve_1xdnq")
+curve_z = SubResource("Curve_b5o0k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ikmb"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape_scale = Vector3(700, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_0m8ce")
+color_ramp = SubResource("GradientTexture1D_orc4p")
+alpha_curve = SubResource("CurveTexture_oxyhy")
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mblcn"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n1ggd"]
+seamless = true
+noise = SubResource("FastNoiseLite_mblcn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vw6s"]
+shader = ExtResource("10_m3amg")
+shader_parameter/water_colour = Color(0, 0.12, 0.2, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_n1ggd")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cgm4"]
+load_path = "res://.godot/imported/Lower City.png-37175eb9fe452d406797a17ad03d1e88.ctex"
+
+[node name="关卡选择" type="Node2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_kpq8a")
+
+[node name="深色背景" type="Node2D" parent="."]
+modulate = Color(0.44, 0.44, 0.44, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="深色背景"]
+self_modulate = Color(0.392157, 0.392157, 0.392157, 1)
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("2_lk3uc")
+
+[node name="关卡" type="Node2D" parent="."]
+
+[node name="日" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("1_pru8y")
+
+[node name="夜" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("2_lk3uc")
+
+[node name="落叶" type="Node2D" parent="关卡/夜"]
+position = Vector2(-65.3125, 149.687)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+
+[node name="大树落叶" type="GPUParticles2D" parent="关卡/夜/落叶"]
+material = SubResource("CanvasItemMaterial_vqsve")
+position = Vector2(-0.950908, 6.00959)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_1uedg")
+texture = ExtResource("14_t6fc8")
+lifetime = 4.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="小枝落叶右" type="GPUParticles2D" parent="关卡/夜/落叶"]
+material = SubResource("CanvasItemMaterial_vqsve")
+position = Vector2(139.202, -98.1411)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_y5rny")
+texture = ExtResource("14_t6fc8")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="小枝落叶左" type="GPUParticles2D" parent="关卡/夜/落叶"]
+material = SubResource("CanvasItemMaterial_vqsve")
+position = Vector2(-38.5464, -66.6872)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_eh3jg")
+texture = ExtResource("14_t6fc8")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="金" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("3_lhlp6")
+
+[node name="木" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("1_ubesa")
+
+[node name="落叶" type="Node2D" parent="关卡/木"]
+position = Vector2(-65.3125, 149.687)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+
+[node name="大树落叶" type="GPUParticles2D" parent="关卡/木/落叶"]
+material = SubResource("CanvasItemMaterial_vqsve")
+position = Vector2(-0.950908, 6.00959)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_1uedg")
+texture = ExtResource("14_t6fc8")
+lifetime = 4.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="小枝落叶右" type="GPUParticles2D" parent="关卡/木/落叶"]
+material = SubResource("CanvasItemMaterial_vqsve")
+position = Vector2(139.202, -98.1411)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_y5rny")
+texture = ExtResource("14_t6fc8")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="小枝落叶左" type="GPUParticles2D" parent="关卡/木/落叶"]
+material = SubResource("CanvasItemMaterial_vqsve")
+position = Vector2(-38.5464, -66.6872)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_eh3jg")
+texture = ExtResource("14_t6fc8")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="水" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("5_xr030")
+
+[node name="火" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("6_fpxea")
+
+[node name="土" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("7_hqo05")
+
+[node name="飞艇" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("8_xeu0e")
+
+[node name="下城" type="Sprite2D" parent="关卡"]
+position = Vector2(700, 0)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("9_nemjp")
+
+[node name="灯光" type="Node2D" parent="."]
+
+[node name="灯塔" type="PointLight2D" parent="灯光"]
+position = Vector2(1351, 793)
+rotation = -1.10158
+scale = Vector2(1.64764, 2.45101)
+color = Color(0.78, 0.78, 0.1326, 1)
+energy = 2.2
+texture = ExtResource("12_a8yji")
+metadata/_edit_lock_ = true
+
+[node name="码头吊灯" type="PointLight2D" parent="灯光"]
+position = Vector2(1057, 552)
+scale = Vector2(0.406667, 0.406667)
+color = Color(1, 0.278431, 0.243137, 1)
+energy = 1.5
+texture = ExtResource("12_mb8hq")
+
+[node name="火山口" type="PointLight2D" parent="灯光"]
+position = Vector2(780, 337)
+scale = Vector2(0.473502, 0.215446)
+color = Color(1, 0.366667, 0.24, 1)
+energy = 1.5
+texture = ExtResource("12_mb8hq")
+
+[node name="雨" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mua7q")
+position = Vector2(700, 200)
+amount = 2000
+process_material = SubResource("ParticleProcessMaterial_1ikmb")
+preprocess = 0.5
+collision_base_size = 90.0
+visibility_rect = Rect2(-350, -200, 700, 400)
+
+[node name="鼠标判定" type="Node2D" parent="."]
+
+[node name="下城" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/下城"]
+position = Vector2(24, 143)
+scale = Vector2(0.960991, 0.817953)
+polygon = PackedVector2Array(220, 798, 1091, 799, 1112.39, 749.432, 1082.22, 737.207, 1022.9, 540.374, 915.722, 547.709, 900.113, 539.151, 895.95, 547.709, 898.031, 639.401, 890.747, 707.865, 612.909, 706.642, 605.625, 688.304, 551.514, 688.304, 539.577, 707.865, 260.148, 707.865, 260.148, 749.432, 213, 753, 222, 769)
+
+[node name="金" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/金"]
+polygon = PackedVector2Array(598, 698, 613, 699, 620, 713, 872, 714, 880, 672, 880, 578, 859, 548, 737, 548, 729, 528, 745, 508, 744, 482, 715, 480, 699, 463, 696, 428, 680, 415, 663, 418, 656, 435, 652, 459, 639, 473, 602, 478, 605, 511, 617, 523, 623, 547)
+
+[node name="木" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/木"]
+polygon = PackedVector2Array(281, 715, 540, 715, 551, 700, 592, 702, 616, 536, 590, 509, 591, 467, 599, 466, 597, 447, 592, 445, 638, 423, 659, 400, 658, 373, 620, 373, 597, 394, 571, 413, 565, 337, 538, 314, 513, 336, 499, 415, 484, 415, 484, 385, 443, 388, 421, 404, 418, 427, 460, 452, 400, 472, 397, 498, 332, 502, 298, 560)
+
+[node name="水" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/水"]
+polygon = PackedVector2Array(903, 584, 990, 579, 992, 533, 1038, 523, 1040, 571, 1104, 570, 1161, 362, 939, 291, 918, 318, 866, 349, 853, 370, 849, 396, 815, 453, 818, 533, 866, 544, 884, 576)
+
+[node name="火" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/火"]
+polygon = PackedVector2Array(855, 162, 857, 171, 880, 190, 892, 181, 933, 218, 940, 249, 899, 328, 863, 347, 849, 372, 846, 395, 812, 450, 813, 542, 740, 545, 733, 530, 750, 507, 747, 479, 717, 476, 703, 460, 699, 424, 679, 411, 699, 376, 720, 279, 750, 312, 813, 310, 828, 257, 815, 237, 829, 192)
+
+[node name="土" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/土"]
+polygon = PackedVector2Array(415, 357, 431, 288, 467, 286, 501, 184, 535, 182, 550, 131, 668, 142, 692, 163, 678, 215, 670, 266, 669, 313, 697, 363, 677, 410, 653, 418, 664, 400, 662, 369, 620, 370, 573, 408, 567, 334, 537, 309, 508, 337, 497, 411, 488, 411, 486, 380, 440, 386, 417, 404, 414, 428, 450, 450, 396, 469, 394, 494, 359, 496)
+
+[node name="飞艇" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/飞艇"]
+polygon = PackedVector2Array(202, 407, 256, 423, 292, 424, 316, 395, 353, 385, 356, 351, 306, 335, 304, 308, 243, 308, 237, 330, 203, 322, 172, 362)
+
+[node name="其他" type="Area2D" parent="鼠标判定"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="鼠标判定/其他"]
+polygon = PackedVector2Array(234, 802, 1076, 801, 1097, 755, 1065, 739, 1012, 583, 995, 579, 996, 536, 1033, 530, 1036, 574, 1107, 574, 1165, 361, 941, 288, 922, 302, 943, 252, 935, 215, 893, 178, 880, 185, 860, 169, 853, 156, 827, 191, 812, 234, 824, 255, 810, 307, 751, 310, 717, 272, 700, 360, 672, 313, 676, 247, 696, 162, 668, 138, 547, 128, 532, 179, 498, 181, 465, 282, 429, 286, 412, 357, 356, 493, 296, 426, 317, 399, 360, 389, 360, 347, 309, 332, 307, 301, 240, 304, 235, 325, 200, 318, 167, 361, 199, 410, 256, 427, 313, 427, 356, 498, 327, 498, 293, 564, 276, 710, 264, 727, 264, 747, 204, 750, 213, 800, -28, 808, -53, -59, 1482, -39, 1420, 928, -34, 938, 1, 808, 206, 801)
+
+[node name="water" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0vw6s")
+position = Vector2(693, 882.47)
+scale = Vector2(3.00977, 0.570141)
+texture = ExtResource("5_xr030")
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 286.233)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="大标题" type="Label" parent="CanvasLayer"]
+offset_left = 931.0
+offset_top = 49.0
+offset_right = 1332.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("15_v2bpm")
+theme_override_font_sizes/font_size = 100
+text = "梦幻之乡"
+
+[node name="战斗关卡" type="Label" parent="CanvasLayer"]
+offset_left = 1159.0
+offset_top = 519.0
+offset_right = 1286.0
+offset_bottom = 556.0
+theme_override_fonts/font = ExtResource("15_v2bpm")
+theme_override_font_sizes/font_size = 30
+text = "战斗关卡"
+
+[node name="关卡1标题" type="Label" parent="CanvasLayer"]
+offset_left = 1159.0
+offset_top = 567.0
+offset_right = 1319.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("15_v2bpm")
+theme_override_font_sizes/font_size = 40
+text = "→破巷街
+"
+
+[node name="关卡2标题" type="Label" parent="CanvasLayer"]
+offset_left = 1159.0
+offset_top = 622.0
+offset_right = 1319.0
+offset_bottom = 662.0
+theme_override_fonts/font = ExtResource("15_v2bpm")
+theme_override_font_sizes/font_size = 40
+text = "→残灯坊"
+
+[node name="开始时渐变" type="Sprite2D" parent="."]
+position = Vector2(694.9, 442.6)
+scale = Vector2(3.35615, 3.6)
+texture = SubResource("CompressedTexture2D_2cgm4")
+region_enabled = true
+region_rect = Rect2(0, 0, 447.978, 288.064)
+
+[connection signal="mouse_entered" from="鼠标判定/下城" to="." method="_on_下城_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/下城" to="." method="_on_下城_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/金" to="." method="_on_金_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/金" to="." method="_on_金_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/木" to="." method="_on_木_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/木" to="." method="_on_木_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/水" to="." method="_on_水_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/水" to="." method="_on_水_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/火" to="." method="_on_火_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/火" to="." method="_on_火_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/土" to="." method="_on_土_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/土" to="." method="_on_土_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/飞艇" to="." method="_on_飞艇_mouse_entered"]
+[connection signal="mouse_exited" from="鼠标判定/飞艇" to="." method="_on_飞艇_mouse_exited"]
+[connection signal="mouse_entered" from="鼠标判定/其他" to="." method="_on_其他_mouse_entered"]

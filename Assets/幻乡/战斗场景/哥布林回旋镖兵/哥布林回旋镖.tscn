@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceygx6nugqvyl"]
+
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖.gd" id="1_8iw74"]
+[ext_resource type="Texture2D" uid="uid://dvjs6sn1kcgrv" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/回旋镖.png" id="1_t8j5k"]
+
+[node name="哥布林回旋镖" type="Area2D"]
+script = ExtResource("1_8iw74")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.84, 1.84)
+texture = ExtResource("1_t8j5k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, 0, 0, -6, 9, 0, 13, 0, 0, -9, -13, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://bot6o13yrt6v0"]
+
+[ext_resource type="Texture2D" uid="uid://dgn2jjsmrmdve" path="res://Assets/主角/刀光-Sheet.png" id="1_vb8by"]
+[ext_resource type="Script" path="res://Assets/主角/刀光.gd" id="2_4wjym"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0eqv"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(0, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugwdq"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(600, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk51e"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(1200, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q8lr"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(1800, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83xlh"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(2400, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utihb"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(3000, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6faac"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(3600, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rmpo"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(4200, 0, 600, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhv1n"]
+atlas = ExtResource("1_vb8by")
+region = Rect2(0, 200, 600, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_te2rp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0eqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugwdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk51e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q8lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83xlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utihb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6faac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rmpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhv1n")
+}],
+"loop": false,
+"name": &"Default",
+"speed": 30.0
+}]
+
+[node name="刀光" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_te2rp")
+animation = &"Default"
+autoplay = "Default"
+offset = Vector2(-17, -1)
+script = ExtResource("2_4wjym")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

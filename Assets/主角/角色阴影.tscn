@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cenl1hb6qayhf"]
+
+[ext_resource type="Script" path="res://Assets/主角/角色阴影.gd" id="1_ke2pq"]
+[ext_resource type="Texture2D" uid="uid://v232vsxo614x" path="res://Assets/主角/阴影.png" id="1_wn113"]
+
+[node name="角色阴影" type="Node2D"]
+script = ExtResource("1_ke2pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(0.0079422, 0.0914688)
+scale = Vector2(-0.608416, -0.878389)
+texture = ExtResource("1_wn113")
+offset = Vector2(0.0130539, -9.00345)

@@ -1,0 +1,196 @@
+[gd_scene load_steps=29 format=3 uid="uid://n35vps6snvti"]
+
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/执杖影子怪/执法杖影子怪子弹.gd" id="1_bd84i"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/执杖影子怪/子弹轨迹.gd" id="2_fc4pu"]
+[ext_resource type="Texture2D" uid="uid://0ncpetk3v8v" path="res://Assets/幻乡/战斗场景/执杖影子怪/执杖幽灵子弹.png" id="2_sujjg"]
+
+[sub_resource type="Curve" id="Curve_8383x"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0786517, 0.328789), 2.24617, 2.24617, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_sxod5"]
+offsets = PackedFloat32Array(0, 0.193431, 1)
+colors = PackedColorArray(0.231373, 0.133333, 0.239216, 0, 0.375962, 0.160485, 0.111014, 0.313726, 0.143186, 0.0218557, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll7d8"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(0, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obbpk"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(100, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6h5o"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(200, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhiol"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(300, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1cdu"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(400, 0, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2p8g"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(0, 70, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0xdb"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(100, 70, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk1la"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(200, 70, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fnh1"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(300, 70, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o76xa"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(400, 70, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3ao5"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(0, 140, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sbjh"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(100, 140, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71jh5"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(200, 140, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic81i"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(300, 140, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roro4"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(400, 140, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4skn"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(0, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx66q"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(100, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5qeh"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(200, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4h8d"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(300, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujkaf"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(400, 210, 100, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlux0"]
+atlas = ExtResource("2_sujjg")
+region = Rect2(0, 280, 100, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvc1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll7d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obbpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhiol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1cdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2p8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0xdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk1la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fnh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o76xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3ao5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sbjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71jh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic81i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roro4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4skn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx66q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5qeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4h8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujkaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlux0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03hlc"]
+radius = 4.0
+
+[node name="执法杖影子怪子弹" type="Area2D"]
+script = ExtResource("1_bd84i")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 20.0
+width_curve = SubResource("Curve_8383x")
+default_color = Color(0.372988, 0.261847, 0.295672, 1)
+gradient = SubResource("Gradient_sxod5")
+script = ExtResource("2_fc4pu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yvc1k")
+autoplay = "default"
+frame = 20
+frame_progress = 1.0
+offset = Vector2(2, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_03hlc")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

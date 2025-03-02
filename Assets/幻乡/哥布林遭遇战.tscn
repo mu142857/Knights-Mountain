@@ -1,0 +1,655 @@
+[gd_scene load_steps=47 format=4 uid="uid://dlncgaikaaa05"]
+
+[ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://Assets/主游戏/大树摇晃.tres" id="1_6x2dn"]
+[ext_resource type="Texture2D" uid="uid://6ff20khf0qrt" path="res://Assets/幻乡/战斗场景/场景元素/森林阔叶木.png" id="1_6860o"]
+[ext_resource type="Texture2D" uid="uid://c8by3lncgb21u" path="res://Assets/幻乡/战斗场景/场景元素/ForestBackground.png" id="1_ev6x0"]
+[ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="1_ey1qf"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗管理器/哥布林遭遇战.gd" id="1_hbqgv"]
+[ext_resource type="Texture2D" uid="uid://d0kvuyv1a4dmr" path="res://Assets/幻乡/战斗场景/场景元素/碑3.png" id="2_ffcwh"]
+[ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="2_vx5bm"]
+[ext_resource type="Shader" uid="uid://cqtkbi1ocysrj" path="res://Assets/主游戏/树木摇晃.tres" id="3_bt752"]
+[ext_resource type="Texture2D" uid="uid://308vjheb8yfv" path="res://Assets/幻乡/战斗场景/场景元素/长条树叶.png" id="3_ndy3g"]
+[ext_resource type="Texture2D" uid="uid://cfpeyo5io2m7b" path="res://Assets/幻乡/战斗场景/场景元素/森林针叶树木.png" id="3_wc8c2"]
+[ext_resource type="Texture2D" uid="uid://dvqxuwbkrdjed" path="res://Assets/幻乡/战斗场景/场景元素/树叶.png" id="5_3wbjt"]
+[ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="6_dgfxq"]
+[ext_resource type="Texture2D" uid="uid://du2phfn7gbfp4" path="res://Assets/幻乡/战斗场景/场景元素/岩5.png" id="8_jaqti"]
+[ext_resource type="Texture2D" uid="uid://2iroohomhmm3" path="res://Assets/幻乡/战斗场景/场景元素/森林灌木.png" id="9_1ygpr"]
+[ext_resource type="Texture2D" uid="uid://kqxaawbvt7h8" path="res://Assets/幻乡/战斗场景/场景元素/岩3.png" id="9_2gqvo"]
+[ext_resource type="Shader" uid="uid://dmmbxhdk10gbn" path="res://Assets/主游戏/灌木摆动.tres" id="9_55rx0"]
+[ext_resource type="Texture2D" uid="uid://djndtl05q250u" path="res://Assets/幻乡/战斗场景/场景元素/果实灌木.png" id="9_6062f"]
+[ext_resource type="Shader" uid="uid://wi18evqtb8eg" path="res://Assets/主游戏/低矮灌木摇晃.tres" id="12_44608"]
+[ext_resource type="Texture2D" uid="uid://cmkcmsfnxoqou" path="res://Assets/幻乡/战斗场景/场景元素/岩4.png" id="12_klvbp"]
+[ext_resource type="Texture2D" uid="uid://c8berf75hpyi6" path="res://Assets/幻乡/战斗场景/场景元素/岩2.png" id="13_s6j0s"]
+[ext_resource type="Texture2D" uid="uid://6opl7vbcm3v5" path="res://Assets/幻乡/战斗场景/场景元素/岩1.png" id="14_gu387"]
+[ext_resource type="Texture2D" uid="uid://f15cjmixdbwe" path="res://Assets/幻乡/战斗场景/场景元素/草6.png" id="15_r5dlk"]
+[ext_resource type="Texture2D" uid="uid://b7m5ba23fm3xt" path="res://Assets/幻乡/战斗场景/场景元素/草5.png" id="16_47j70"]
+[ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="18_rvytg"]
+[ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="19_c66r5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0e7j"]
+shader = ExtResource("12_44608")
+shader_parameter/WindStrength = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d87f1"]
+shader = ExtResource("1_6x2dn")
+shader_parameter/WindStrength = 10.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y8is7"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_tepy3"]
+offsets = PackedFloat32Array(0, 0.311927, 0.568807, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f5amf"]
+gradient = SubResource("Gradient_tepy3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_it1id"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(105, 10, 1)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 10, 0)
+scale_min = 1.2
+scale_max = 1.3
+color_ramp = SubResource("GradientTexture1D_f5amf")
+anim_offset_max = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsm8h"]
+shader = ExtResource("3_bt752")
+shader_parameter/WindStrength = 10.0
+
+[sub_resource type="Gradient" id="Gradient_wrfpu"]
+offsets = PackedFloat32Array(0, 0.307339, 0.62844, 0.866973, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 0.163456, 0.0421156, 1, 1, 0.189723, 0.848036, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u7of4"]
+gradient = SubResource("Gradient_wrfpu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtljr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(105, 10, 1)
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 30, 0)
+scale_min = 0.8
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_u7of4")
+anim_offset_max = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7n1rn"]
+shader = ExtResource("12_44608")
+shader_parameter/WindStrength = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dsu6"]
+shader = ExtResource("9_55rx0")
+shader_parameter/WindStrength = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0nwv"]
+shader = ExtResource("12_44608")
+shader_parameter/WindStrength = 6.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82b0d"]
+texture = ExtResource("1_ey1qf")
+25:9/0 = 0
+26:9/0 = 0
+27:9/0 = 0
+24:10/0 = 0
+25:10/0 = 0
+26:10/0 = 0
+27:10/0 = 0
+24:11/0 = 0
+25:11/0 = 0
+26:11/0 = 0
+27:11/0 = 0
+28:11/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+20:12/0 = 0
+21:12/0 = 0
+22:12/0 = 0
+23:12/0 = 0
+24:12/0 = 0
+25:12/0 = 0
+26:12/0 = 0
+27:12/0 = 0
+28:12/0 = 0
+9:13/0 = 0
+9:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:13/0 = 0
+10:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:13/0 = 0
+11:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:13/0 = 0
+12:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:13/0 = 0
+13:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:13/0 = 0
+14:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:13/0 = 0
+15:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:13/0 = 0
+16:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:13/0 = 0
+17:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+18:13/0 = 0
+18:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:13/0 = 0
+19:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:13/0 = 0
+20:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+21:13/0 = 0
+21:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+22:13/0 = 0
+22:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+23:13/0 = 0
+23:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+24:13/0 = 0
+24:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+25:13/0 = 0
+25:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+26:13/0 = 0
+26:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:13/0 = 0
+27:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:13/0 = 0
+28:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:14/0 = 0
+9:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:14/0 = 0
+10:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:14/0 = 0
+11:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:14/0 = 0
+12:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:14/0 = 0
+13:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:14/0 = 0
+14:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:14/0 = 0
+15:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:14/0 = 0
+16:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:14/0 = 0
+17:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+18:14/0 = 0
+18:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:14/0 = 0
+19:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:14/0 = 0
+20:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+21:14/0 = 0
+21:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+22:14/0 = 0
+22:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+23:14/0 = 0
+23:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+24:14/0 = 0
+24:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+25:14/0 = 0
+25:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+26:14/0 = 0
+26:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:14/0 = 0
+27:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:14/0 = 0
+28:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:29/0 = 0
+12:29/0 = 0
+13:29/0 = 0
+1:30/0 = 0
+1:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+2:30/0 = 0
+2:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+3:30/0 = 0
+3:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+4:30/0 = 0
+4:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+6:30/0 = 0
+6:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+7:30/0 = 0
+7:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+8:30/0 = 0
+8:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+9:30/0 = 0
+9:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+10:30/0 = 0
+10:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.625, 4.25, 8, 4.1875, 8, 8, -8, 8)
+11:30/0 = 0
+11:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 4.25, 8, -8, 8, 8, -8, 8)
+12:30/0 = 0
+12:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:30/0 = 0
+13:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:31/0 = 0
+1:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:31/0 = 0
+2:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:31/0 = 0
+3:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:31/0 = 0
+4:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:31/0 = 0
+6:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:31/0 = 0
+7:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:31/0 = 0
+8:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:31/0 = 0
+9:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:31/0 = 0
+10:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:31/0 = 0
+11:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:31/0 = 0
+12:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:31/0 = 0
+13:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:32/0 = 0
+1:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:32/0 = 0
+2:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:32/0 = 0
+3:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:32/0 = 0
+4:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:32/0 = 0
+6:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:32/0 = 0
+7:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:32/0 = 0
+8:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:32/0 = 0
+9:32/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:33/0 = 0
+6:33/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1, 8, -1.0625, 8, 8, -8, 8)
+7:33/0 = 0
+7:33/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1, 8, -1.0625, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_1nn5d"]
+physics_layer_0/collision_layer = 31
+physics_layer_0/collision_mask = 31
+sources/0 = SubResource("TileSetAtlasSource_82b0d")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_421ah"]
+load_path = "res://.godot/imported/草6.png-6c1f12efe2aaf9a7281371a2d729ad88.ctex"
+
+[sub_resource type="Gradient" id="Gradient_5k8yj"]
+offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_20qya"]
+gradient = SubResource("Gradient_5k8yj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_epqam"]
+offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_angd0"]
+gradient = SubResource("Gradient_epqam")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bcmaq"]
+
+[node name="哥布林遭遇战" type="Node2D"]
+script = ExtResource("1_hbqgv")
+
+[node name="背景" type="Node2D" parent="."]
+
+[node name="ForestBackground" type="Sprite2D" parent="背景"]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+position = Vector2(698, 561)
+scale = Vector2(5.875, 6.13218)
+texture = ExtResource("1_ev6x0")
+region_rect = Rect2(0, 0, 240, 174.25)
+
+[node name="ColorRect" type="ColorRect" parent="背景"]
+offset_left = -47.0
+offset_top = -1.0
+offset_right = 1410.0
+offset_bottom = 914.0
+color = Color(0.0887607, 0.095185, 0.0819063, 0.529412)
+
+[node name="碑3" type="Sprite2D" parent="."]
+position = Vector2(408, 761)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ffcwh")
+
+[node name="树木" type="Node2D" parent="."]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+
+[node name="果实灌木3" type="Sprite2D" parent="树木"]
+modulate = Color(0.392157, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_o0e7j")
+position = Vector2(248, 748)
+scale = Vector2(-2.25, 2.25)
+texture = ExtResource("9_6062f")
+
+[node name="森林阔叶木" type="Sprite2D" parent="树木"]
+modulate = Color(1, 0.713726, 1, 1)
+material = SubResource("ShaderMaterial_d87f1")
+position = Vector2(368, -297)
+scale = Vector2(2.525, 2.525)
+texture = ExtResource("1_6860o")
+
+[node name="大树落叶" type="GPUParticles2D" parent="树木/森林阔叶木"]
+material = SubResource("CanvasItemMaterial_y8is7")
+position = Vector2(-110.099, 128.713)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_it1id")
+texture = ExtResource("3_ndy3g")
+lifetime = 10.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="大树落叶2" type="GPUParticles2D" parent="树木/森林阔叶木"]
+material = SubResource("CanvasItemMaterial_y8is7")
+position = Vector2(14.6534, 153.267)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_it1id")
+texture = ExtResource("3_ndy3g")
+lifetime = 10.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="森林针叶树木1" type="Sprite2D" parent="树木"]
+modulate = Color(0.509804, 0.509804, 0.509804, 1)
+material = SubResource("ShaderMaterial_vsm8h")
+position = Vector2(1330, 450)
+scale = Vector2(2.525, 2.525)
+texture = ExtResource("3_wc8c2")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 328.248)
+
+[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木1"]
+material = SubResource("CanvasItemMaterial_y8is7")
+position = Vector2(-43.9604, -17.8218)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_rtljr")
+texture = ExtResource("5_3wbjt")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="森林针叶树木3" type="Sprite2D" parent="树木"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_vsm8h")
+position = Vector2(915, 465)
+scale = Vector2(2.525, 2.525)
+texture = ExtResource("3_wc8c2")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 325.076)
+
+[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木3"]
+material = SubResource("CanvasItemMaterial_y8is7")
+position = Vector2(-43.9604, -17.8218)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_rtljr")
+texture = ExtResource("5_3wbjt")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="果实灌木" type="Sprite2D" parent="树木"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_7n1rn")
+position = Vector2(886, 752)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("9_6062f")
+
+[node name="森林灌木" type="Sprite2D" parent="树木"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_1dsu6")
+position = Vector2(684, 716)
+scale = Vector2(2.525, 2.525)
+texture = ExtResource("9_1ygpr")
+
+[node name="森林灌木2" type="Sprite2D" parent="树木"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_1dsu6")
+position = Vector2(1166, 772)
+scale = Vector2(-2.525, 2.525)
+texture = ExtResource("9_1ygpr")
+
+[node name="果实灌木2" type="Sprite2D" parent="树木"]
+modulate = Color(0.784314, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_c0nwv")
+position = Vector2(1350, 750)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("9_6062f")
+
+[node name="森林针叶树木2" type="Sprite2D" parent="树木"]
+material = SubResource("ShaderMaterial_vsm8h")
+position = Vector2(1127, 491)
+scale = Vector2(2.525, 2.525)
+texture = ExtResource("3_wc8c2")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木2"]
+material = SubResource("CanvasItemMaterial_y8is7")
+position = Vector2(-43.9604, -17.8218)
+rotation = 0.00817382
+scale = Vector2(0.3125, 0.3125)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_rtljr")
+texture = ExtResource("5_3wbjt")
+lifetime = 6.0
+visibility_rect = Rect2(-100, 10, 200, 20)
+
+[node name="背景装饰物" type="Node2D" parent="."]
+modulate = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="岩5-1" type="Sprite2D" parent="背景装饰物"]
+position = Vector2(1310, 790)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_jaqti")
+
+[node name="岩3-1" type="Sprite2D" parent="背景装饰物"]
+position = Vector2(1053, 778)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_2gqvo")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+tile_map_data = PackedByteArray("AABIADQAAAAJAAwAAABIADUAAAAJAA0AAABIADYAAAAJAA4AAABJADQAAAAKAAwAAABJADUAAAAKAA0AAABJADYAAAAKAA4AAABKADQAAAAJAAwAAABKADUAAAAJAA0AAABKADYAAAAJAA4AAABLADQAAAAKAAwAAABLADUAAAAKAA0AAABLADYAAAAKAA4AAABMADQAAAAJAAwAAABMADUAAAAJAA0AAABMADYAAAAJAA4AAABNADQAAAAKAAwAAABNADUAAAAKAA0AAABNADYAAAAKAA4AAABOADQAAAAJAAwAAABOADUAAAAJAA0AAABOADYAAAAJAA4AAABPADQAAAAKAAwAAABPADUAAAAKAA0AAABPADYAAAAKAA4AAABQADQAAAAJAAwAAABQADUAAAAJAA0AAABQADYAAAAJAA4AAABRADQAAAAKAAwAAABRADUAAAAKAA0AAABRADYAAAAKAA4AAABSADQAAAAJAAwAAABSADUAAAAJAA0AAABSADYAAAAJAA4AAABTADQAAAAYAAwAAABTADUAAAAYAA0AAABTADYAAAAYAA4AAABUADQAAAAZAAwAAABUADUAAAAZAA0AAABUADYAAAAZAA4AAABVADQAAAAaAAwAAABVADUAAAAaAA0AAABVADYAAAAaAA4AAABWADQAAAAbAAwAAABWADUAAAAbAA0AAABWADYAAAAbAA4AAABGADQAAAAJAAwAAABGADUAAAAJAA0AAABGADYAAAAJAA4AAABHADQAAAAKAAwAAABHADUAAAAKAA0AAABHADYAAAAKAA4AAABEADQAAAAJAAwAAABEADUAAAAJAA0AAABEADYAAAAJAA4AAABFADQAAAAKAAwAAABFADUAAAAKAA0AAABFADYAAAAKAA4AAABCADQAAAAJAAwAAABCADUAAAAJAA0AAABCADYAAAAJAA4AAABDADQAAAAKAAwAAABDADUAAAAKAA0AAABDADYAAAAKAA4AAABAADQAAAAJAAwAAABAADUAAAAJAA0AAABAADYAAAAJAA4AAABBADQAAAAKAAwAAABBADUAAAAKAA0AAABBADYAAAAKAA4AAAA+ADQAAAAJAAwAAAA+ADUAAAAJAA0AAAA+ADYAAAAJAA4AAAA/ADQAAAAKAAwAAAA/ADUAAAAKAA0AAAA/ADYAAAAKAA4AAAA8ADQAAAAJAAwAAAA8ADUAAAAJAA0AAAA8ADYAAAAJAA4AAAA9ADQAAAAKAAwAAAA9ADUAAAAKAA0AAAA9ADYAAAAKAA4AAAA6ADQAAAAJAAwAAAA6ADUAAAAJAA0AAAA6ADYAAAAJAA4AAAA7ADQAAAAKAAwAAAA7ADUAAAAKAA0AAAA7ADYAAAAKAA4AAAA4ADQAAAAJAAwAAAA4ADUAAAAJAA0AAAA4ADYAAAAJAA4AAAA5ADQAAAAKAAwAAAA5ADUAAAAKAA0AAAA5ADYAAAAKAA4AAAA2ADQAAAAJAAwAAAA2ADUAAAAJAA0AAAA2ADYAAAAJAA4AAAA3ADQAAAAKAAwAAAA3ADUAAAAKAA0AAAA3ADYAAAAKAA4AAAA0ADQAAAAJAAwAAAA0ADUAAAAJAA0AAAA0ADYAAAAJAA4AAAA1ADQAAAAKAAwAAAA1ADUAAAAKAA0AAAA1ADYAAAAKAA4AAAAyADQAAAAJAAwAAAAyADUAAAAJAA0AAAAyADYAAAAJAA4AAAAzADQAAAAKAAwAAAAzADUAAAAKAA0AAAAzADYAAAAKAA4AAAAwADQAAAAJAAwAAAAwADUAAAAJAA0AAAAwADYAAAAJAA4AAAAxADQAAAAKAAwAAAAxADUAAAAKAA0AAAAxADYAAAAKAA4AAAAuADQAAAAJAAwAAAAuADUAAAAJAA0AAAAuADYAAAAJAA4AAAAvADQAAAAKAAwAAAAvADUAAAAKAA0AAAAvADYAAAAKAA4AAAAsADQAAAAJAAwAAAAsADUAAAAJAA0AAAAsADYAAAAJAA4AAAAtADQAAAAKAAwAAAAtADUAAAAKAA0AAAAtADYAAAAKAA4AAAAqADQAAAAJAAwAAAAqADUAAAAJAA0AAAAqADYAAAAJAA4AAAArADQAAAAKAAwAAAArADUAAAAKAA0AAAArADYAAAAKAA4AAAAoADQAAAAJAAwAAAAoADUAAAAJAA0AAAAoADYAAAAJAA4AAAApADQAAAAKAAwAAAApADUAAAAKAA0AAAApADYAAAAKAA4AAAAmADQAAAAJAAwAAAAmADUAAAAJAA0AAAAmADYAAAAJAA4AAAAnADQAAAAKAAwAAAAnADUAAAAKAA0AAAAnADYAAAAKAA4AAAAkADQAAAAJAAwAAAAkADUAAAAJAA0AAAAkADYAAAAJAA4AAAAlADQAAAAKAAwAAAAlADUAAAAKAA0AAAAlADYAAAAKAA4AAAAiADQAAAAJAAwAAAAiADUAAAAJAA0AAAAiADYAAAAJAA4AAAAjADQAAAAKAAwAAAAjADUAAAAKAA0AAAAjADYAAAAKAA4AAAAgADQAAAAJAAwAAAAgADUAAAAJAA0AAAAgADYAAAAJAA4AAAAhADQAAAAKAAwAAAAhADUAAAAKAA0AAAAhADYAAAAKAA4AAAAeADQAAAAJAAwAAAAeADUAAAAJAA0AAAAeADYAAAAJAA4AAAAfADQAAAAKAAwAAAAfADUAAAAKAA0AAAAfADYAAAAKAA4AAAAcADQAAAAJAAwAAAAcADUAAAAJAA0AAAAcADYAAAAJAA4AAAAdADQAAAAKAAwAAAAdADUAAAAKAA0AAAAdADYAAAAKAA4AAAAaADQAAAAJAAwAAAAaADUAAAAJAA0AAAAaADYAAAAJAA4AAAAbADQAAAAKAAwAAAAbADUAAAAKAA0AAAAbADYAAAAKAA4AAAAYADQAAAAJAAwAAAAYADUAAAAJAA0AAAAYADYAAAAJAA4AAAAZADQAAAAKAAwAAAAZADUAAAAKAA0AAAAZADYAAAAKAA4AAAAWADQAAAAJAAwAAAAWADUAAAAJAA0AAAAWADYAAAAJAA4AAAAXADQAAAAKAAwAAAAXADUAAAAKAA0AAAAXADYAAAAKAA4AAAAUADQAAAAJAAwAAAAUADUAAAAJAA0AAAAUADYAAAAJAA4AAAAVADQAAAAKAAwAAAAVADUAAAAKAA0AAAAVADYAAAAKAA4AAAASADQAAAAJAAwAAAASADUAAAAJAA0AAAASADYAAAAJAA4AAAATADQAAAAKAAwAAAATADUAAAAKAA0AAAATADYAAAAKAA4AAAAQADQAAAAJAAwAAAAQADUAAAAJAA0AAAAQADYAAAAJAA4AAAARADQAAAAKAAwAAAARADUAAAAKAA0AAAARADYAAAAKAA4AAAAOADQAAAAJAAwAAAAOADUAAAAJAA0AAAAOADYAAAAJAA4AAAAPADQAAAAKAAwAAAAPADUAAAAKAA0AAAAPADYAAAAKAA4AAAAMADQAAAAJAAwAAAAMADUAAAAJAA0AAAAMADYAAAAJAA4AAAANADQAAAAKAAwAAAANADUAAAAKAA0AAAANADYAAAAKAA4AAAAKADQAAAAJAAwAAAAKADUAAAAJAA0AAAAKADYAAAAJAA4AAAALADQAAAAKAAwAAAALADUAAAAKAA0AAAALADYAAAAKAA4AAAAIADQAAAAJAAwAAAAIADUAAAAJAA0AAAAIADYAAAAJAA4AAAAJADQAAAAKAAwAAAAJADUAAAAKAA0AAAAJADYAAAAKAA4AAAAGADQAAAAJAAwAAAAGADUAAAAJAA0AAAAGADYAAAAJAA4AAAAHADQAAAAKAAwAAAAHADUAAAAKAA0AAAAHADYAAAAKAA4AAAAEADQAAAAcAAwAAAAEADUAAAAcAA0AAAAEADYAAAAcAA4AAAAFADQAAAAKAAwAAAAFADUAAAAKAA0AAAAFADYAAAAKAA4AAAACADQAAAAaAAwAAAACADUAAAAaAA0AAAACADYAAAAaAA4AAAADADQAAAAbAAwAAAADADUAAAAbAA0AAAADADYAAAAbAA4AAAAAADQAAAAYAAwAAAAAADUAAAAYAA0AAAAAADYAAAAYAA4AAAABADQAAAAZAAwAAAABADUAAAAZAA0AAAABADYAAAAZAA4AAABXADQAAAAcAAwAAABXADUAAAAcAA0AAABXADYAAAAcAA4AAABYADQAAAAKAAwAAABYADUAAAAKAA0AAABYADYAAAAKAA4AAABTADIAAAAYAAoAAABTADMAAAAYAAsAAABUADEAAAAZAAkAAABUADIAAAAZAAoAAABUADMAAAAZAAsAAABVADEAAAAaAAkAAABVADIAAAAaAAoAAABVADMAAAAaAAsAAABWADEAAAAbAAkAAABWADIAAAAbAAoAAABWADMAAAAbAAsAAABXADMAAAAcAAsAAAAAADIAAAAYAAoAAAAAADMAAAAYAAsAAAABADEAAAAZAAkAAAABADIAAAAZAAoAAAABADMAAAAZAAsAAAACADEAAAAaAAkAAAACADIAAAAaAAoAAAACADMAAAAaAAsAAAADADEAAAAbAAkAAAADADIAAAAbAAoAAAADADMAAAAbAAsAAAAEADMAAAAcAAsAAAAUADgAAAAJAAwAAAAUADkAAAAJAA0AAAAUADoAAAAJAA4AAAAVADgAAAAKAAwAAAAVADkAAAAKAA0AAAAVADoAAAAKAA4AAAD+/zQAAAAJAAwAAAD+/zUAAAAJAA0AAAD+/zYAAAAJAA4AAAD//zQAAAAKAAwAAAD//zUAAAAKAA0AAAD//zYAAAAKAA4AAAD8/zQAAAAJAAwAAAD8/zUAAAAJAA0AAAD8/zYAAAAJAA4AAAD9/zQAAAAKAAwAAAD9/zUAAAAKAA0AAAD9/zYAAAAKAA4AAAD6/zQAAAAJAAwAAAD6/zUAAAAJAA0AAAD6/zYAAAAJAA4AAAD7/zQAAAAKAAwAAAD7/zUAAAAKAA0AAAD7/zYAAAAKAA4AAAD4/zQAAAAJAAwAAAD4/zUAAAAJAA0AAAD4/zYAAAAJAA4AAAD5/zQAAAAKAAwAAAD5/zUAAAAKAA0AAAD5/zYAAAAKAA4AAAD2/zQAAAAJAAwAAAD2/zUAAAAJAA0AAAD2/zYAAAAJAA4AAAD3/zQAAAAKAAwAAAD3/zUAAAAKAA0AAAD3/zYAAAAKAA4AAAD0/zQAAAAJAAwAAAD0/zUAAAAJAA0AAAD0/zYAAAAJAA4AAAD1/zQAAAAKAAwAAAD1/zUAAAAKAA0AAAD1/zYAAAAKAA4AAADy/zQAAAAJAAwAAADy/zUAAAAJAA0AAADy/zYAAAAJAA4AAADz/zQAAAAKAAwAAADz/zUAAAAKAA0AAADz/zYAAAAKAA4AAADw/zQAAAAJAAwAAADw/zUAAAAJAA0AAADw/zYAAAAJAA4AAADx/zQAAAAKAAwAAADx/zUAAAAKAA0AAADx/zYAAAAKAA4AAADu/zQAAAAJAAwAAADu/zUAAAAJAA0AAADu/zYAAAAJAA4AAADv/zQAAAAKAAwAAADv/zUAAAAKAA0AAADv/zYAAAAKAA4AAADs/zQAAAAJAAwAAADs/zUAAAAJAA0AAADs/zYAAAAJAA4AAADt/zQAAAAKAAwAAADt/zUAAAAKAA0AAADt/zYAAAAKAA4AAABZADQAAAAJAAwAAABZADUAAAAJAA0AAABZADYAAAAJAA4AAABaADQAAAAKAAwAAABaADUAAAAKAA0AAABaADYAAAAKAA4AAABbADQAAAAJAAwAAABbADUAAAAJAA0AAABbADYAAAAJAA4AAABcADQAAAAKAAwAAABcADUAAAAKAA0AAABcADYAAAAKAA4AAABdADQAAAAJAAwAAABdADUAAAAJAA0AAABdADYAAAAJAA4AAABeADQAAAAKAAwAAABeADUAAAAKAA0AAABeADYAAAAKAA4AAABfADQAAAAJAAwAAABfADUAAAAJAA0AAABfADYAAAAJAA4AAABgADQAAAAKAAwAAABgADUAAAAKAA0AAABgADYAAAAKAA4AAABhADQAAAAJAAwAAABhADUAAAAJAA0AAABhADYAAAAJAA4AAABiADQAAAAKAAwAAABiADUAAAAKAA0AAABiADYAAAAKAA4AAABjADQAAAAJAAwAAABjADUAAAAJAA0AAABjADYAAAAJAA4AAABkADQAAAAKAAwAAABkADUAAAAKAA0AAABkADYAAAAKAA4AAABlADQAAAAJAAwAAABlADUAAAAJAA0AAABlADYAAAAJAA4AAABmADQAAAAKAAwAAABmADUAAAAKAA0AAABmADYAAAAKAA4AAABnADQAAAAJAAwAAABnADUAAAAJAA0AAABnADYAAAAJAA4AAABoADQAAAAKAAwAAABoADUAAAAKAA0AAABoADYAAAAKAA4AAABpADQAAAAJAAwAAABpADUAAAAJAA0AAABpADYAAAAJAA4AAABqADQAAAAKAAwAAABqADUAAAAKAA0AAABqADYAAAAKAA4AAABrADQAAAAJAAwAAABrADUAAAAJAA0AAABrADYAAAAJAA4AAABsADQAAAAKAAwAAABsADUAAAAKAA0AAABsADYAAAAKAA4AAAA=")
+tile_set = SubResource("TileSet_1nn5d")
+
+[node name="Black" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(711.25, 976)
+scale = Vector2(5.49614, 1)
+texture = ExtResource("2_vx5bm")
+
+[node name="后装饰物" type="Node2D" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="岩4-1" type="Sprite2D" parent="后装饰物"]
+position = Vector2(124, 807)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_klvbp")
+
+[node name="岩4-2" type="Sprite2D" parent="后装饰物"]
+position = Vector2(1253, 807)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_klvbp")
+
+[node name="岩2-1" type="Sprite2D" parent="后装饰物"]
+position = Vector2(1031, 819)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_s6j0s")
+
+[node name="岩2-2" type="Sprite2D" parent="后装饰物"]
+position = Vector2(1285, 817)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_s6j0s")
+
+[node name="岩2-3" type="Sprite2D" parent="后装饰物"]
+position = Vector2(838, 813)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_s6j0s")
+
+[node name="岩1-1" type="Sprite2D" parent="后装饰物"]
+position = Vector2(818, 811)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_gu387")
+
+[node name="岩1-2" type="Sprite2D" parent="后装饰物"]
+position = Vector2(77, 810)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_gu387")
+
+[node name="岩1-3" type="Sprite2D" parent="后装饰物"]
+position = Vector2(885, 810)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_gu387")
+
+[node name="草6-1" type="Sprite2D" parent="后装饰物"]
+position = Vector2(866.6, 820)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("15_r5dlk")
+
+[node name="草6-2" type="Sprite2D" parent="后装饰物"]
+position = Vector2(1153.6, 818)
+scale = Vector2(0.18, 0.18)
+texture = SubResource("CompressedTexture2D_421ah")
+
+[node name="草6-3" type="Sprite2D" parent="后装饰物"]
+position = Vector2(804.6, 827)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("16_47j70")
+
+[node name="草6-4" type="Sprite2D" parent="后装饰物"]
+position = Vector2(1052.6, 826)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("16_47j70")
+
+[node name="草6-5" type="Sprite2D" parent="后装饰物"]
+position = Vector2(1263.6, 831)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("16_47j70")
+
+[node name="草6-6" type="Sprite2D" parent="后装饰物"]
+position = Vector2(92.6, 828)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("16_47j70")
+
+[node name="草6-7" type="Sprite2D" parent="后装饰物"]
+position = Vector2(164.6, 826)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("16_47j70")
+
+[node name="草6-8" type="Sprite2D" parent="后装饰物"]
+position = Vector2(589.6, 826)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("16_47j70")
+
+[node name="战斗主角" parent="." instance=ExtResource("6_dgfxq")]
+position = Vector2(168, 527)
+
+[node name="PointLight2D2" type="PointLight2D" parent="战斗主角"]
+visible = false
+position = Vector2(-1.90735e-06, -69)
+scale = Vector2(2, 2)
+color = Color(1, 1, 0.6, 1)
+energy = 0.6
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_20qya")
+texture_scale = 8.0
+metadata/_edit_lock_ = true
+
+[node name="太阳" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(2045, -100)
+scale = Vector2(2, 2)
+color = Color(1, 1, 0.980392, 1)
+energy = 0.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_angd0")
+texture_scale = 8.0
+
+[node name="前装饰物" type="Node2D" parent="."]
+modulate = Color(0.627635, 0.627635, 0.627635, 1)
+
+[node name="草6-1" type="Sprite2D" parent="前装饰物"]
+position = Vector2(1093, 830)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_r5dlk")
+
+[node name="草4-1" type="Sprite2D" parent="前装饰物"]
+position = Vector2(826, 841)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_rvytg")
+
+[node name="草4-2" type="Sprite2D" parent="前装饰物"]
+position = Vector2(127, 842)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_rvytg")
+
+[node name="草4-3" type="Sprite2D" parent="前装饰物"]
+position = Vector2(1021, 841)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_rvytg")
+
+[node name="草4-4" type="Sprite2D" parent="前装饰物"]
+position = Vector2(1225, 842)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_rvytg")
+
+[node name="草3-1" type="Sprite2D" parent="前装饰物"]
+position = Vector2(270, 839)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_c66r5")
+
+[node name="草3-2" type="Sprite2D" parent="前装饰物"]
+position = Vector2(913, 841)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_c66r5")
+
+[node name="碰撞箱" type="StaticBody2D" parent="."]
+position = Vector2(0, 784)
+rotation = 1.5708
+collision_layer = 20
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="碰撞箱"]
+physics_interpolation_mode = 1
+position = Vector2(0, 3)
+shape = SubResource("WorldBoundaryShape2D_bcmaq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="碰撞箱"]
+position = Vector2(0, -1403)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_bcmaq")
+
+[node name="出怪点1" type="Node2D" parent="."]
+position = Vector2(734, 21)
