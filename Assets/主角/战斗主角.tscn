@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bchmoxr8a01g4"]
+[gd_scene load_steps=63 format=3 uid="uid://bchmoxr8a01g4"]
 
 [ext_resource type="Texture2D" uid="uid://b5207a27xy6my" path="res://Assets/主角/主角.png" id="1_3nhp2"]
 [ext_resource type="Script" path="res://Assets/主角/战斗主角.gd" id="1_xeuqt"]
@@ -387,9 +387,13 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_xe66p"]
+resource_name = "Run"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_03guv"]
 _data = {
-"Attack1": SubResource("Animation_udwxq")
+"Attack1": SubResource("Animation_udwxq"),
+"Run": SubResource("Animation_xe66p")
 }
 
 [node name="战斗主角" type="CharacterBody2D"]
@@ -400,8 +404,9 @@ script = ExtResource("1_xeuqt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -39)
 sprite_frames = SubResource("SpriteFrames_v5g51")
-animation = &"Fall"
+animation = &"RunLoop"
 autoplay = "Idle"
+frame_progress = 0.647139
 offset = Vector2(35, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
