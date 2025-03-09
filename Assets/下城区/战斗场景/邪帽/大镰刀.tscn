@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://cvp6hclut8npp"]
+
+[ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_0o4g4"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/火焰拖尾.gd" id="2_5q3cu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m226w"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(4200, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvp1a"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(4900, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxs16"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(0, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqy3o"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(2100, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ihu"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(2800, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr0ys"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(3500, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3gub"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(700, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58v4q"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(1400, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgyeo"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(2100, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgdfw"]
+atlas = ExtResource("1_0o4g4")
+region = Rect2(2800, 1400, 700, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08fn6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m226w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvp1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxs16")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqy3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ihu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr0ys")
+}],
+"loop": true,
+"name": &"Start",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3gub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58v4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgyeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgdfw")
+}],
+"loop": false,
+"name": &"Stop",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_html4"]
+radius = 44.0
+
+[sub_resource type="Curve" id="Curve_fmrlp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.508427, 0.5), 2.01814, 2.01814, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_88vv3"]
+offsets = PackedFloat32Array(0, 0.536496, 1)
+colors = PackedColorArray(0.552941, 0, 0, 0, 0.835294, 0, 0, 0.313726, 0.980392, 0.298039, 0.129412, 0.392157)
+
+[node name="大镰刀" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-111, 11)
+sprite_frames = SubResource("SpriteFrames_08fn6")
+animation = &"Start"
+frame_progress = 0.280542
+offset = Vector2(268, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_html4")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 50.0
+width_curve = SubResource("Curve_fmrlp")
+default_color = Color(0.938573, 0.325787, 1.15514e-06, 1)
+gradient = SubResource("Gradient_88vv3")
+script = ExtResource("2_5q3cu")

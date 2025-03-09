@@ -1,6 +1,25 @@
-[gd_scene load_steps=59 format=3 uid="uid://dkm5v6nxm4j6m"]
+[gd_scene load_steps=94 format=3 uid="uid://dkm5v6nxm4j6m"]
 
+[ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_gehog"]
 [ext_resource type="Texture2D" uid="uid://b2hb4bxpex3pc" path="res://Assets/下城区/战斗场景/邪帽/邪教boss-Sheet.png" id="1_jgt6x"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽state_machine.gd" id="3_vv8oe"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽idle.gd" id="4_oigtf"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽appear.gd" id="5_umpyg"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽disappear.gd" id="6_8xh53"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽prominence.gd" id="7_q6pvr"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽skill_start.gd" id="8_e2tas"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽skill_end.gd" id="9_ukgfo"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽dive_down.gd" id="10_his8t"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽long_scythe.gd" id="11_ts3rv"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽big_sickle.gd" id="12_2jt3t"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽medium_sickle.gd" id="13_4h7cv"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽small_sickle.gd" id="14_p7x68"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽death.gd" id="15_46qxf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2f2"]
+shader = ExtResource("1_gehog")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(0.87, 0.6438, 0.7192, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkuow"]
 atlas = ExtResource("1_jgt6x")
@@ -81,6 +100,70 @@ region = Rect2(1400, 700, 700, 700)
 [sub_resource type="AtlasTexture" id="AtlasTexture_481l0"]
 atlas = ExtResource("1_jgt6x")
 region = Rect2(2100, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eq7o"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(0, 2800, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y4ht"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(700, 2800, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwe2j"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(1400, 2800, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5sp0"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(4200, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n58lb"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(4900, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfxk2"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(0, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1mgk"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(700, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qjkr"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(1400, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hip0a"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(2100, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iati6"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(2800, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd26s"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(3500, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iulf0"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(4200, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqim8"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(4900, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl3tq"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(2100, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ce41"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(2800, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpxen"]
+atlas = ExtResource("1_jgt6x")
+region = Rect2(3500, 1400, 700, 700)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nccf2"]
 atlas = ExtResource("1_jgt6x")
@@ -306,6 +389,69 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7eq7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y4ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwe2j")
+}],
+"loop": false,
+"name": &"SkillEnd",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5sp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n58lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfxk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1mgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qjkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hip0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iati6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd26s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iulf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqim8")
+}],
+"loop": true,
+"name": &"SkillLoop",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl3tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ce41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpxen")
+}],
+"loop": false,
+"name": &"SkillStart",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nccf2")
 }, {
 "duration": 1.0,
@@ -415,23 +561,111 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaw6h"]
+size = Vector2(168, 248)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53gmg"]
 size = Vector2(4737, 5331)
+
+[sub_resource type="Animation" id="Animation_aqkn5"]
+resource_name = "HitFlash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_15jx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
+_data = {
+"HitFlash": SubResource("Animation_aqkn5"),
+"RESET": SubResource("Animation_15jx2")
+}
 
 [node name="邪帽" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -160)
+material = SubResource("ShaderMaterial_uk2f2")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bytjw")
-animation = &"Prominence"
-frame = 11
-frame_progress = 1.0
+animation = &"SkillEnd"
+offset = Vector2(1.5, -80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -124)
+shape = SubResource("RectangleShape2D_jaw6h")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_vv8oe")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_oigtf")
+
+[node name="Appear" type="Node" parent="StateMachine"]
+script = ExtResource("5_umpyg")
+
+[node name="Disappear" type="Node" parent="StateMachine"]
+script = ExtResource("6_8xh53")
+
+[node name="Prominence" type="Node" parent="StateMachine"]
+script = ExtResource("7_q6pvr")
+
+[node name="SkillStart" type="Node" parent="StateMachine"]
+script = ExtResource("8_e2tas")
+
+[node name="SkillEnd" type="Node" parent="StateMachine"]
+script = ExtResource("9_ukgfo")
+
+[node name="DiveDown" type="Node" parent="StateMachine"]
+script = ExtResource("10_his8t")
+
+[node name="LongScythe" type="Node" parent="StateMachine"]
+script = ExtResource("11_ts3rv")
+
+[node name="BigSickle" type="Node" parent="StateMachine"]
+script = ExtResource("12_2jt3t")
+
+[node name="MediumSickle" type="Node" parent="StateMachine"]
+script = ExtResource("13_4h7cv")
+
+[node name="SmallSickle" type="Node" parent="StateMachine"]
+script = ExtResource("14_p7x68")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("15_46qxf")
 
 [node name="PlayerCheck" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
 shape = SubResource("RectangleShape2D_53gmg")
 debug_color = Color(0.290528, 0.569251, 0.739615, 0.12549)
+
+[node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_cx86o")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

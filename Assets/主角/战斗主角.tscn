@@ -406,7 +406,7 @@ position = Vector2(0, -39)
 sprite_frames = SubResource("SpriteFrames_v5g51")
 animation = &"RunLoop"
 autoplay = "Idle"
-frame_progress = 0.647139
+frame_progress = 0.320816
 offset = Vector2(35, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
