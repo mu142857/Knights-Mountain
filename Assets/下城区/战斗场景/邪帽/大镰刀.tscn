@@ -1,8 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvp6hclut8npp"]
+[gd_scene load_steps=19 format=3 uid="uid://cvp6hclut8npp"]
 
 [ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_0o4g4"]
 [ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/大镰刀.gd" id="1_uejp3"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/火焰拖尾.gd" id="2_5q3cu"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/轨迹.gd" id="3_p50xy"]
+
+[sub_resource type="Curve" id="Curve_brggg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.331461, 0.105051), 0.484885, 0.484885, 0, 0, Vector2(0.685393, 0.407242), 1.17234, 1.17234, 0, 0, Vector2(1, 0.990683), 2.82116, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_anpin"]
+offsets = PackedFloat32Array(0, 0.645985, 1)
+colors = PackedColorArray(0.787862, 0.357487, 0.170654, 0, 0.79, 0.342333, 0, 0.745098, 0.19, 0, 0.00950004, 0.745098)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m226w"]
 atlas = ExtResource("1_0o4g4")
@@ -87,7 +95,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bgdfw")
 }],
-"loop": true,
+"loop": false,
 "name": &"Stop",
 "speed": 10.0
 }]
@@ -95,32 +103,43 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_html4"]
 radius = 44.0
 
-[sub_resource type="Curve" id="Curve_fmrlp"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.508427, 0.5), 2.01814, 2.01814, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_88vv3"]
-offsets = PackedFloat32Array(0, 0.536496, 1)
-colors = PackedColorArray(0.552941, 0, 0, 0, 0.835294, 0, 0, 0.313726, 0.980392, 0.298039, 0.129412, 0.392157)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljwns"]
+size = Vector2(4737, 5331)
 
 [node name="大镰刀" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_uejp3")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 130.0
+width_curve = SubResource("Curve_brggg")
+default_color = Color(0.372988, 0.261847, 0.295672, 1)
+gradient = SubResource("Gradient_anpin")
+script = ExtResource("3_p50xy")
+point_count = 55
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_08fn6")
-animation = &"Spin"
+animation = &"Stop"
 offset = Vector2(155, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -48)
 shape = SubResource("CircleShape2D_html4")
 
-[node name="Node" type="Node" parent="."]
+[node name="PlayerCheck" type="Area2D" parent="."]
 
-[node name="Line2D" type="Line2D" parent="Node"]
-width = 50.0
-width_curve = SubResource("Curve_fmrlp")
-default_color = Color(0.938573, 0.325787, 1.15514e-06, 1)
-gradient = SubResource("Gradient_88vv3")
-script = ExtResource("2_5q3cu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(2.5, 5.5)
+shape = SubResource("RectangleShape2D_ljwns")
+debug_color = Color(0.633061, 0.476976, 0.620167, 0.12549)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

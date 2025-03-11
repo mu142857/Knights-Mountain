@@ -1,0 +1,142 @@
+[gd_scene load_steps=19 format=3 uid="uid://bd5pf6qa0i512"]
+
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/中镰刀.gd" id="1_a24bj"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/中轨迹.gd" id="2_0g1tu"]
+[ext_resource type="Texture2D" uid="uid://c70rhehhqcvd7" path="res://Assets/下城区/战斗场景/邪帽/中等镰刀.png" id="3_6enjv"]
+
+[sub_resource type="Curve" id="Curve_y4jak"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.331461, 0.105051), 0.484885, 0.484885, 0, 0, Vector2(0.685393, 0.407242), 1.17234, 1.17234, 0, 0, Vector2(1, 0.990683), 2.82116, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_rtpok"]
+offsets = PackedFloat32Array(0, 0.627737, 1)
+colors = PackedColorArray(0.617559, 0.474532, 0.289339, 0, 0.896892, 0.638699, 0.620248, 0.588235, 0.813692, 0.389306, 0.333563, 0.745098)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60cew"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(2100, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k55k"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(2800, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqecw"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(3500, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w27ji"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(0, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl0g5"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(700, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsw0j"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(1400, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w6e7"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(4200, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bftwx"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(4900, 0, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5078"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(0, 700, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylacd"]
+atlas = ExtResource("3_6enjv")
+region = Rect2(700, 700, 700, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hp13o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60cew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k55k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqecw")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w27ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl0g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsw0j")
+}],
+"loop": false,
+"name": &"Start",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w6e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bftwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5078")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylacd")
+}],
+"loop": false,
+"name": &"Stop",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vh4na"]
+radius = 33.0151
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5045y"]
+size = Vector2(4737, 5331)
+
+[node name="中镰刀" type="Area2D"]
+script = ExtResource("1_a24bj")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 80.0
+width_curve = SubResource("Curve_y4jak")
+default_color = Color(0.372988, 0.261847, 0.295672, 1)
+gradient = SubResource("Gradient_rtpok")
+script = ExtResource("2_0g1tu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37)
+sprite_frames = SubResource("SpriteFrames_hp13o")
+animation = &"Spin"
+offset = Vector2(14, -38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -38)
+shape = SubResource("CircleShape2D_vh4na")
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(0, -38)
+shape = SubResource("RectangleShape2D_5045y")
+debug_color = Color(0.633061, 0.476976, 0.620167, 0.12549)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

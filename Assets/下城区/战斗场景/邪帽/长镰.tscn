@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://vej2mo6hhmth"]
+[gd_scene load_steps=15 format=3 uid="uid://vej2mo6hhmth"]
 
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/长镰.gd" id="1_mwqv0"]
 [ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_pc2dr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3tn5"]
@@ -88,6 +89,7 @@ animations = [{
 }]
 
 [node name="长镰刀" type="Area2D"]
+script = ExtResource("1_mwqv0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0lpov")
@@ -100,3 +102,5 @@ offset = Vector2(17, -41)
 polygon = PackedVector2Array(-180, 5, -49, 73, 13, 79, 187, 3, 245, -80, 185, -163, 56, -152, 125, -111, 146, -58, 39, 12)
 
 [node name="Node" type="Node" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

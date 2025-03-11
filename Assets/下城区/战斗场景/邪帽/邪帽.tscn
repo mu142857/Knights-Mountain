@@ -613,7 +613,7 @@ material = SubResource("ShaderMaterial_uk2f2")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bytjw")
 animation = &"SkillEnd"
-offset = Vector2(1.5, -80)
+offset = Vector2(1.5, -76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -124)
@@ -655,6 +655,9 @@ one_shot = true
 [node name="SprintAttack(7)" type="Node" parent="StateMachine"]
 script = ExtResource("11_ag0kv")
 
+[node name="Timer" type="Timer" parent="StateMachine/SprintAttack(7)"]
+one_shot = true
+
 [node name="Death(8)" type="Node" parent="StateMachine"]
 script = ExtResource("15_46qxf")
 
@@ -684,3 +687,4 @@ libraries = {
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Skill(6)/Timer" to="StateMachine/Skill(6)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Skill(6)/ChangerTimer" to="StateMachine/Skill(6)" method="_on_changer_timer_timeout"]
+[connection signal="timeout" from="StateMachine/SprintAttack(7)/Timer" to="StateMachine/SprintAttack(7)" method="_on_timer_timeout"]

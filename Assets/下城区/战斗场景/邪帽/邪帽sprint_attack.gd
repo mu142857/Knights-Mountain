@@ -22,6 +22,7 @@ func enter():
 		health_stage = 4
 	else:
 		health_stage = 5
+	$Timer.start(randf_range(0, 0.5))
 
 func process():
 	monster.velocity.x = monster.direct.x * (speed + acc() / 1.3)
@@ -47,13 +48,22 @@ func acc():
 func enter_enderground_fire_stage():
 	if health_stage == 1:
 		if monster.health <= 1600:
-			monster.ready_to_underground_fire = true
+			monster.ready_to_underground_fire = false#true
 	elif health_stage == 2:
 		if monster.health <= 1200:
-			monster.ready_to_underground_fire = true
+			monster.ready_to_underground_fire = false#true
 	elif health_stage == 3:
 		if monster.health <= 800:
-			monster.ready_to_underground_fire = true
+			monster.ready_to_underground_fire = false#true
 	elif health_stage == 4:
 		if monster.health <= 400:
-			monster.ready_to_underground_fire = true
+			monster.ready_to_underground_fire = false#true
+			
+func scythe():
+	var sce = preload("res://Assets/下城区/战斗场景/邪帽/长镰.tscn").instantiate()
+	sce.position = Vector2(0, -50)
+	sce.scale = ani_2D.scale / 4
+	ani_2D.add_child(sce)
+
+func _on_timer_timeout() -> void:
+	scythe()

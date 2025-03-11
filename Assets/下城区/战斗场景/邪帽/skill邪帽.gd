@@ -28,7 +28,14 @@ func enter():
 
 func process():
 	if skill_ready and skills_count < number_of_skills:
-		test_skill()
+		#test_skill()
+		var chance = randi_range(0, 2)
+		if chance == 0:
+			big_sickle()
+		elif chance == 1:
+			small_sickle()
+		else:
+			mid_sickle()
 	elif skills_count >= number_of_skills and !change_timer_started:
 		change_timer_started = true
 		var cooldown = monster.health / 1500
@@ -49,6 +56,38 @@ func test_skill():
 	sce2.setup(monster.global_position - Vector2(0, 100), true, 840)
 	monster.get_parent().add_child(sce2)
 
+func big_sickle():
+	skill_ready = false
+	var cooldown = monster.health / 2100
+	$Timer.start(0.4 + cooldown)
+	skills_count += 1
+	var sce = preload("res://Assets/下城区/战斗场景/邪帽/大镰刀.tscn").instantiate()
+	sce.global_position = monster.global_position
+	monster.get_parent().add_child(sce)
+	
+func small_sickle():
+	skill_ready = false
+	var cooldown = monster.health / 2100
+	$Timer.start(0.8 + cooldown)
+	skills_count += 1
+	var sce1 = preload("res://Assets/下城区/战斗场景/邪帽/小镰刀.tscn").instantiate()
+	sce1.global_position = monster.global_position
+	sce1._direction = 1
+	monster.get_parent().add_child(sce1)
+	var sce2 = preload("res://Assets/下城区/战斗场景/邪帽/小镰刀.tscn").instantiate()
+	sce2.global_position = monster.global_position
+	sce2._direction = -1
+	monster.get_parent().add_child(sce2)
+	
+func mid_sickle():
+	skill_ready = false
+	var cooldown = monster.health / 2100
+	$Timer.start(0.55 + cooldown)
+	skills_count += 1
+	var sce = preload("res://Assets/下城区/战斗场景/邪帽/中镰刀.tscn").instantiate()
+	sce.global_position = monster.global_position
+	monster.get_parent().add_child(sce)
+	
 func _on_timer_timeout() -> void:
 	skill_ready = true
 
