@@ -15,7 +15,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d0i5"]
 resource_local_to_scene = true
 shader = ExtResource("2_xhkb6")
-shader_parameter/Enabled = true
+shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.498575, 0.764874, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0723c"]
