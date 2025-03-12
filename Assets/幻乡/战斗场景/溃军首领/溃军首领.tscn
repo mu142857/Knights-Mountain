@@ -1135,9 +1135,9 @@ script = ExtResource("1_75yil")
 material = SubResource("ShaderMaterial_4d0i5")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qm6ns")
-animation = &"Attack"
 autoplay = "Fall"
-frame = 16
+frame = 52
+frame_progress = 0.548015
 offset = Vector2(-20, -50.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

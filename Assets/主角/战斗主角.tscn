@@ -404,9 +404,10 @@ script = ExtResource("1_xeuqt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -39)
 sprite_frames = SubResource("SpriteFrames_v5g51")
-animation = &"RunLoop"
+animation = &"Sprint"
 autoplay = "Idle"
-frame_progress = 0.320816
+frame = 7
+frame_progress = 1.0
 offset = Vector2(35, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

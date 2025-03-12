@@ -612,7 +612,7 @@ script = ExtResource("1_1pse0")
 material = SubResource("ShaderMaterial_uk2f2")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bytjw")
-animation = &"SkillEnd"
+frame_progress = 0.856904
 offset = Vector2(1.5, -76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

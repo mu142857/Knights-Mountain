@@ -383,7 +383,7 @@ visibility_rect = Rect2(-100, 10, 200, 20)
 [node name="森林针叶树木1" type="Sprite2D" parent="树木"]
 modulate = Color(0.509804, 0.509804, 0.509804, 1)
 material = SubResource("ShaderMaterial_vsm8h")
-position = Vector2(1330, 450)
+position = Vector2(1596, 481.1)
 scale = Vector2(2.525, 2.525)
 texture = ExtResource("3_wc8c2")
 region_enabled = true
@@ -391,7 +391,7 @@ region_rect = Rect2(0, 0, 400, 328.248)
 
 [node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木1"]
 material = SubResource("CanvasItemMaterial_y8is7")
-position = Vector2(-43.9604, -17.8218)
+position = Vector2(-93.4653, -28.5545)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
@@ -403,7 +403,7 @@ visibility_rect = Rect2(-100, 10, 200, 20)
 [node name="森林针叶树木3" type="Sprite2D" parent="树木"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_vsm8h")
-position = Vector2(915, 465)
+position = Vector2(1181, 496.1)
 scale = Vector2(2.525, 2.525)
 texture = ExtResource("3_wc8c2")
 region_enabled = true
@@ -411,7 +411,7 @@ region_rect = Rect2(0, 0, 400, 325.076)
 
 [node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木3"]
 material = SubResource("CanvasItemMaterial_y8is7")
-position = Vector2(-43.9604, -17.8218)
+position = Vector2(-106.931, -22.2178)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
@@ -450,7 +450,7 @@ texture = ExtResource("9_6062f")
 
 [node name="森林针叶树木2" type="Sprite2D" parent="树木"]
 material = SubResource("ShaderMaterial_vsm8h")
-position = Vector2(1127, 491)
+position = Vector2(1405, 491)
 scale = Vector2(2.525, 2.525)
 texture = ExtResource("3_wc8c2")
 region_enabled = true
@@ -458,7 +458,7 @@ region_rect = Rect2(0, 0, 400, 324.438)
 
 [node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木2"]
 material = SubResource("CanvasItemMaterial_y8is7")
-position = Vector2(-43.9604, -17.8218)
+position = Vector2(-113.267, -38.0198)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
