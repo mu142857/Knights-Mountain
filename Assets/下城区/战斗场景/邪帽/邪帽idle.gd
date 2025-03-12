@@ -11,7 +11,7 @@ func enter():
 		$Timer.start(0)
 		return
 	elif !monster.health >= 1990:
-		var time = monster.health / 1000
+		var time = monster.health / 1500
 		$Timer.start(time)
 	ani_2D.play("Idle")
 	

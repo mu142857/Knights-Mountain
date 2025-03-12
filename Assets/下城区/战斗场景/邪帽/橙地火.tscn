@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0jjh8x4gfo2r"]
+
+[ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_io7sw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjxjt"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(3500, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlme7"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(4200, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n88xg"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(4900, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg8d1"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(0, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtiax"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(700, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gc10"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(1400, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irmmd"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(2100, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0rsy"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(2800, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jbr4"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(3500, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evxmf"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(4200, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wji8r"]
+atlas = ExtResource("1_io7sw")
+region = Rect2(4900, 2100, 700, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghvkn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjxjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlme7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n88xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg8d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtiax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gc10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irmmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0rsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jbr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evxmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wji8r")
+}],
+"loop": true,
+"name": &"Start",
+"speed": 5.0
+}]
+
+[node name="橙地火" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ghvkn")
+animation = &"Start"
+frame_progress = 0.947448

@@ -70,7 +70,7 @@ shader_parameter/WindStrength = 10.0
 offsets = PackedFloat32Array(0, 0.307339, 0.62844, 0.866973, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 0.163456, 0.0421156, 1, 1, 0.189723, 0.848036, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_u7of4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7gomi"]
 gradient = SubResource("Gradient_wrfpu")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtljr"]
@@ -86,7 +86,7 @@ angular_velocity_max = 50.0
 gravity = Vector3(0, 30, 0)
 scale_min = 0.8
 scale_max = 1.2
-color_ramp = SubResource("GradientTexture1D_u7of4")
+color_ramp = SubResource("GradientTexture1D_7gomi")
 anim_offset_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7n1rn"]
@@ -295,12 +295,12 @@ sources/0 = SubResource("TileSetAtlasSource_82b0d")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_421ah"]
 load_path = "res://.godot/imported/草6.png-6c1f12efe2aaf9a7281371a2d729ad88.ctex"
 
-[sub_resource type="Gradient" id="Gradient_5k8yj"]
+[sub_resource type="Gradient" id="Gradient_atb38"]
 offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_20qya"]
-gradient = SubResource("Gradient_5k8yj")
+gradient = SubResource("Gradient_atb38")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -486,8 +486,8 @@ tile_map_data = PackedByteArray("AABIADQAAAAJAAwAAABIADUAAAAJAA0AAABIADYAAAAJAA4
 tile_set = SubResource("TileSet_1nn5d")
 
 [node name="Black" type="Sprite2D" parent="TileMapLayer"]
-position = Vector2(711.25, 976)
-scale = Vector2(5.49614, 1)
+position = Vector2(704.5, 976)
+scale = Vector2(7.18533, 1)
 texture = ExtResource("2_vx5bm")
 
 [node name="后装饰物" type="Node2D" parent="."]

@@ -12,7 +12,7 @@ var state: State = State.INITIAL
 # 追踪阶段参数
 # -----------------------------
 var track_speed: float = 900.0        # 追踪阶段移动速度
-var track_turn_rate: float = 0.01     # 追踪阶段每帧转向比率
+var track_turn_rate: float = 0.12     # 追踪阶段每帧转向比率
 
 # -----------------------------
 # 初始阶段（炫酷旋转）参数

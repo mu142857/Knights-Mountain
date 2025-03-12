@@ -10,7 +10,7 @@ func enter():
 	#Game.shake_camera(30)
 	#Game.flash(1.1, Color(0.6, 0.6, 0.6))
 	ani_2D.play("Idle")
-	speed = 40 + (2000 - monster.health) / 40
+	speed = 40 + (2000 - monster.health) / 10
 	var initial_health: float = monster.health
 	if initial_health > 1600:
 		health_stage = 1

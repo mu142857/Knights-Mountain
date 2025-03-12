@@ -3,7 +3,7 @@ extends Area2D
 @onready var detection_range: Area2D = $PlayerCheck  # 玩家检测区域
 var player: CharacterBody2D = null
 
-@export var flight_time: float = 0.75      # 子弹飞行总时间（秒）
+@export var flight_time: float = 0.7      # 子弹飞行总时间（秒）
 var the_gravity: float = 6000.0       # 重力（像素/秒²）
 
 var start_pos: Vector2                  # 子弹起始位置
@@ -50,12 +50,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		# 使用和之前相同的方式检测玩家
 		find_player()
 		if player:
-			target_pos = player.global_position
+			target_pos = player.global_position + Vector2(randi_range(-175, 175), 0)
 		else:
 			target_pos = self.global_position  # 如果没有检测到玩家，就默认目标位置为自身（避免错误）
 	
 		# 计算初始速度
-		# 水平速度： vx = (目标x - 起始x) / flight_time
+		# 水平速度： vx = (目标x - 起始x) / flight_timed
 		# 垂直速度： vy = (目标y - 起始y - 0.5 * gravity * flight_time²) / flight_time
 		velocity.x = (target_pos.x - start_pos.x) / flight_time
 		velocity.y = (target_pos.y - start_pos.y - 0.5 * the_gravity * flight_time * flight_time) / flight_time

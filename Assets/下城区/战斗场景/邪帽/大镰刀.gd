@@ -5,7 +5,7 @@ var player: CharacterBody2D = null
 
 # 子弹参数
 var speed: float = 400.0           # 移动速度
-var turn_rate: float = 0.15        # 每帧转向比例（0~1），数值越低转向越慢
+var turn_rate: float = 0.18        # 每帧转向比例（0~1），数值越低转向越慢
 
 func _ready() -> void:
 	$Timer.start(5)
