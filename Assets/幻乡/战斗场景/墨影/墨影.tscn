@@ -1172,8 +1172,10 @@ modulate = Color(1, 1, 1, 0.588235)
 material = SubResource("ShaderMaterial_f5li2")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_7v8pw")
-animation = &"Tornado"
+animation = &"Attack3"
 autoplay = "Idle"
+frame = 8
+frame_progress = 1.0
 offset = Vector2(4, -46.6667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1193,28 +1195,28 @@ debug_color = Color(0, 0.534579, 0.980341, 0.12549)
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_k1kd4")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle(0)" type="Node" parent="StateMachine"]
 script = ExtResource("4_0k3l1")
 
-[node name="Fall" type="Node" parent="StateMachine"]
+[node name="Fall(1)" type="Node" parent="StateMachine"]
 script = ExtResource("7_axtl0")
 
-[node name="Fly" type="Node" parent="StateMachine"]
+[node name="Fly(2)" type="Node" parent="StateMachine"]
 script = ExtResource("8_wgcnw")
 
-[node name="Sprint" type="Node" parent="StateMachine"]
+[node name="Sprint(3)" type="Node" parent="StateMachine"]
 script = ExtResource("9_p52t4")
 
-[node name="Tornado" type="Node" parent="StateMachine"]
+[node name="Tornado(4)" type="Node" parent="StateMachine"]
 script = ExtResource("10_vor1u")
 
-[node name="Attack1" type="Node" parent="StateMachine"]
+[node name="Attack1(5)" type="Node" parent="StateMachine"]
 script = ExtResource("11_a6eqx")
 
-[node name="Attack2" type="Node" parent="StateMachine"]
+[node name="Attack2(6)" type="Node" parent="StateMachine"]
 script = ExtResource("12_vhyjb")
 
-[node name="Attack3" type="Node" parent="StateMachine"]
+[node name="Attack3(7)" type="Node" parent="StateMachine"]
 script = ExtResource("13_2okt0")
 
 [node name="Death" type="Node" parent="StateMachine"]

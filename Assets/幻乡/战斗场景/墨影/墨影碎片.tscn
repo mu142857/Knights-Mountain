@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cw2py3l2b1u"]
+
+[ext_resource type="Texture2D" uid="uid://dkyr7g0b8p0fr" path="res://Assets/幻乡/战斗场景/墨影/石头.png" id="1_jvxj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeivg"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(0, 0, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy36j"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(300, 0, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s82ul"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(600, 0, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gqhh"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(0, 130, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk8rn"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(300, 130, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v4if"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(600, 130, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y0h0"]
+atlas = ExtResource("1_jvxj1")
+region = Rect2(0, 260, 300, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdm7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeivg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy36j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s82ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gqhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk8rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v4if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y0h0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -60)
+sprite_frames = SubResource("SpriteFrames_qdm7u")
+frame_progress = 0.847412
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-70, -2, -112, -29, -80, -77, 0, -18, 84, -79, 119, -24, 62, -1)

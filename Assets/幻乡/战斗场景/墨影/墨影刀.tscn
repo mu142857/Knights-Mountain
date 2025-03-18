@@ -1,7 +1,84 @@
-[gd_scene format=3 uid="uid://bakfgx7gdneor"]
+[gd_scene load_steps=11 format=3 uid="uid://bakfgx7gdneor"]
+
+[ext_resource type="Texture2D" uid="uid://dfvjasqlk2jo8" path="res://Assets/幻乡/战斗场景/墨影/刀雨.png" id="1_xs4ha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdhvm"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(600, 130, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee6j6"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(0, 0, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixlnh"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(300, 0, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7bw1"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(600, 0, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oby0"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(0, 130, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocwqx"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(300, 130, 300, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0634a"]
+atlas = ExtResource("1_xs4ha")
+region = Rect2(600, 130, 300, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o71bk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdhvm")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee6j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixlnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7bw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oby0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocwqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0634a")
+}],
+"loop": false,
+"name": &"Start",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enm3v"]
+size = Vector2(52, 63.25)
 
 [node name="墨影刀" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.35, 1.35)
+sprite_frames = SubResource("SpriteFrames_o71bk")
+animation = &"Fall"
+offset = Vector2(0, -56)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2Dl" type="CollisionShape2D" parent="."]
+position = Vector2(-116, -51.375)
+shape = SubResource("RectangleShape2D_enm3v")
+
+[node name="CollisionShape2Dr" type="CollisionShape2D" parent="."]
+position = Vector2(116, -51.375)
+shape = SubResource("RectangleShape2D_enm3v")

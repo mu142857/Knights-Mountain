@@ -16,7 +16,7 @@ func process():
 		return
 	elif Input.is_action_just_pressed("horizontal_sprint") and $"../Sprint".ready_to_sprint:
 		get_parent().change_state(9)
-		return
+		returna
 	elif Input.is_action_just_pressed("horizontal_attack1"):
 		get_parent().change_state(8)
 		return
