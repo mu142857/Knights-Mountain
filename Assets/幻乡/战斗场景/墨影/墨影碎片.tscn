@@ -64,7 +64,7 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -60)
 sprite_frames = SubResource("SpriteFrames_qdm7u")
-frame_progress = 0.847412
+frame_progress = 0.670973
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-70, -2, -112, -29, -80, -77, 0, -18, 84, -79, 119, -24, 62, -1)

@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://dg072sj5c4k44"]
+
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/地火.gd" id="1_rjnfi"]
+[ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_ywxey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5asg2"]
+atlas = ExtResource("1_ywxey")
+region = Rect2(4900, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d8kp"]
+atlas = ExtResource("1_ywxey")
+region = Rect2(0, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5x8g"]
+atlas = ExtResource("1_ywxey")
+region = Rect2(700, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67vpu"]
+atlas = ExtResource("1_ywxey")
+region = Rect2(1400, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqlv5"]
+atlas = ExtResource("1_ywxey")
+region = Rect2(3500, 1400, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqok2"]
+atlas = ExtResource("1_ywxey")
+region = Rect2(4200, 1400, 700, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fajaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5asg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d8kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5x8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67vpu")
+}],
+"loop": false,
+"name": &"Fire",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqlv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqok2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqlv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqok2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqlv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqok2")
+}],
+"loop": false,
+"name": &"Ready",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v84fo"]
+size = Vector2(24, 189)
+
+[node name="地火" type="Area2D"]
+script = ExtResource("1_rjnfi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_fajaj")
+animation = &"Fire"
+offset = Vector2(38, -46)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -94.5)
+shape = SubResource("RectangleShape2D_v84fo")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -48,16 +48,16 @@ func acc():
 func enter_enderground_fire_stage():
 	if health_stage == 1:
 		if monster.health <= 1600:
-			monster.ready_to_underground_fire = false#true
+			monster.ready_to_underground_fire = true
 	elif health_stage == 2:
 		if monster.health <= 1200:
-			monster.ready_to_underground_fire = false#true
+			monster.ready_to_underground_fire = true
 	elif health_stage == 3:
 		if monster.health <= 800:
-			monster.ready_to_underground_fire = false#true
+			monster.ready_to_underground_fire = true
 	elif health_stage == 4:
 		if monster.health <= 400:
-			monster.ready_to_underground_fire = false#true
+			monster.ready_to_underground_fire = true
 			
 func scythe():
 	var sce = preload("res://Assets/下城区/战斗场景/邪帽/长镰.tscn").instantiate()
