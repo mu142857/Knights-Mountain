@@ -4,9 +4,11 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 
 var speed: float = 0.0
-var health_stage: int = 0.0
+var health_stage: int = 1
+var last_health_stage: int = 1
 
 func enter():
+	#print(health_stage)
 	#Game.shake_camera(30)
 	#Game.flash(1.1, Color(0.6, 0.6, 0.6))
 	ani_2D.play("Idle")
@@ -39,25 +41,15 @@ func process():
 		get_parent().change_state(0)
 
 func exit():
-	pass
+	last_health_stage = health_stage
 
 func acc():
 	var diff = ((monster.scene_endx - monster.scene_startx) / 2 + monster.scene_startx)
 	return diff - abs(monster.global_position.x - diff)
 
 func enter_enderground_fire_stage():
-	if health_stage == 1:
-		if monster.health <= 1600:
-			monster.ready_to_underground_fire = true
-	elif health_stage == 2:
-		if monster.health <= 1200:
-			monster.ready_to_underground_fire = true
-	elif health_stage == 3:
-		if monster.health <= 800:
-			monster.ready_to_underground_fire = true
-	elif health_stage == 4:
-		if monster.health <= 400:
-			monster.ready_to_underground_fire = true
+	if last_health_stage != health_stage:
+		monster.ready_to_underground_fire = true
 			
 func scythe():
 	var sce = preload("res://Assets/下城区/战斗场景/邪帽/长镰.tscn").instantiate()

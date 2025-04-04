@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://xiv1thb8i0wb"]
+
+[ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_nxrag"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/火矢.gd" id="1_qqhmv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nipl8"]
+atlas = ExtResource("1_nxrag")
+region = Rect2(3500, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0f40"]
+atlas = ExtResource("1_nxrag")
+region = Rect2(4200, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m5q4"]
+atlas = ExtResource("1_nxrag")
+region = Rect2(2800, 2100, 700, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_166ki"]
+atlas = ExtResource("1_nxrag")
+region = Rect2(2100, 2100, 700, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckwls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nipl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0f40")
+}],
+"loop": false,
+"name": &"End",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m5q4")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_166ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_166ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_166ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_166ki")
+}],
+"loop": false,
+"name": &"Ready",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_xq05r"]
+resource_name = "Arrow"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Ready", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u23qm"]
+_data = {
+"Arrow": SubResource("Animation_xq05r")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78i7u"]
+size = Vector2(2, 99)
+
+[node name="火矢" type="Area2D"]
+script = ExtResource("1_qqhmv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ckwls")
+animation = &"End"
+frame = 1
+frame_progress = 1.0
+offset = Vector2(43, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u23qm")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -49.5)
+shape = SubResource("RectangleShape2D_78i7u")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
