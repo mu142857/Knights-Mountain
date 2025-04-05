@@ -24,6 +24,10 @@ func _physics_process(delta: float) -> void:
 		Game.flash(0.2, Color(3.0, 0.6, 0.58))
 		self.global_position.y = 845
 		self.rotation_degrees = 0
+		var expl = preload("res://Assets/下城区/战斗场景/邪帽/中等爆炸.tscn").instantiate()
+		expl.position = self.global_position
+		expl.emitting = true
+		get_tree().current_scene.add_child(expl)
 		$AnimatedSprite2D.play("Stop")
 		return
 	elif self.global_position.y >= 810:

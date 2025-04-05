@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://84pk1oka32tp"]
+[gd_scene load_steps=25 format=4 uid="uid://84pk1oka32tp"]
 
 [ext_resource type="Script" path="res://Assets/下城区/战斗管理器/墨晶林.gd" id="1_1xqaf"]
 [ext_resource type="Texture2D" uid="uid://7k42mypanxc8" path="res://Assets/下城区/战斗场景/场景元素/水晶枯萎木.png" id="1_i2m2a"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="4_58jt1"]
 [ext_resource type="Shader" uid="uid://dmmbxhdk10gbn" path="res://Assets/主游戏/灌木摆动.tres" id="5_wby64"]
 [ext_resource type="Texture2D" uid="uid://d1arjn62g8rhl" path="res://Assets/下城区/战斗场景/场景元素/水晶树叶.png" id="7_376rv"]
+[ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="10_qk2cv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xt35h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wamu2"]
 shader = ExtResource("3_r4blk")
@@ -188,11 +191,14 @@ fill_to = Vector2(0.5, 0)
 script = ExtResource("1_1xqaf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xt35h")
 offset_left = -145.0
 offset_top = -264.0
 offset_right = 1606.0
 offset_bottom = 915.0
-color = Color(0.0574098, 0.0209651, 0.0521344, 1)
+color = Color(0.05, 0.0445, 0.0492667, 1)
+
+[node name="云雾" parent="." instance=ExtResource("10_qk2cv")]
 
 [node name="碑3" type="Sprite2D" parent="."]
 position = Vector2(153, 757)

@@ -4,6 +4,7 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 
 func enter():
+	$"../../技能汲取特效".modulate.a = 0.2
 	#Game.shake_camera(30)
 	#Game.flash(1.1, Color(0.6, 0.6, 0.6))
 	monster.show()

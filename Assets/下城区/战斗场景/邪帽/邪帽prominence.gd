@@ -9,6 +9,10 @@ func enter():
 	pass
 
 func process():
+
+	if $"../../技能汲取特效".modulate.a > 0.0:
+		$"../../技能汲取特效".modulate.a -= 0.03
+			
 	if !monster.is_on_floor() or monster.global_position.y < 700:
 		monster.velocity.y = 12000
 		monster.move_and_slide()

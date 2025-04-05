@@ -137,5 +137,6 @@ debug_color = Color(0.633061, 0.476976, 0.620167, 0.12549)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

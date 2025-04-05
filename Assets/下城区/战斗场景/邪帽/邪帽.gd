@@ -14,6 +14,9 @@ func _ready() -> void:
 	add_to_group("monster")
 	$StateMachine.change_state(0)
 	$ArrowTimer.start(3)
+	
+	#隐藏特效
+	$"技能汲取特效".modulate.a = 0
 
 func take_hit(value: int):
 	
@@ -30,6 +33,7 @@ func take_hit(value: int):
 func _physics_process(delta: float) -> void:
 	#print($AnimatedSprite2D.animation)
 	#print(health)
+	#print($"技能汲取特效".modulate.a)
 	pass
 
 func _on_arrow_timer_timeout() -> void:
@@ -53,7 +57,7 @@ func archery(player):
 	var sce8 = preload("res://Assets/下城区/战斗场景/邪帽/火矢.tscn").instantiate()
 	
 	if self.health >= 1500:
-		archery_duration = 2.4
+		archery_duration = 2.8
 		
 		var x1 = player.global_position.x + 65
 		var x2 = player.global_position.x - 65
@@ -63,7 +67,7 @@ func archery(player):
 		self.get_parent().add_child(sce2)
 		
 	elif self.health >= 1000:
-		archery_duration = 3
+		archery_duration = 4
 		
 		var x1 = player.global_position.x + 80
 		var x2 = player.global_position.x - 80
@@ -79,7 +83,7 @@ func archery(player):
 		self.get_parent().add_child(sce6)
 		
 	elif self.health >= 500:
-		archery_duration = 4.2
+		archery_duration = 5
 
 		var x1 = player.global_position.x + 90
 		var x2 = player.global_position.x - 90
@@ -101,7 +105,7 @@ func archery(player):
 		self.get_parent().add_child(sce8)
 		
 	elif self.health >= 0:
-		archery_duration = 4.4
+		archery_duration = 6
 
 		var x1 = player.global_position.x + 160
 		var x2 = player.global_position.x - 160

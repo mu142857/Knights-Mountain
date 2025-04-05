@@ -122,6 +122,7 @@ script = ExtResource("2_0g1tu")
 position = Vector2(0, -37)
 sprite_frames = SubResource("SpriteFrames_hp13o")
 animation = &"Spin"
+frame_progress = 0.944426
 offset = Vector2(14, -38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

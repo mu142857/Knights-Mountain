@@ -11,6 +11,7 @@ func _ready() -> void:
 	#summon_monsters(goblin_test3, $"出怪点1")
 	var mao = preload("res://Assets/下城区/战斗场景/邪帽/邪帽.tscn").instantiate()
 	summon_monsters(mao, $"出怪点1")
+	
 
 func _process(delta: float) -> void:
 	pass

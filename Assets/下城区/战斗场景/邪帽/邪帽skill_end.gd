@@ -11,7 +11,8 @@ func enter():
 	ani_2D.play("SkillEnd")
 
 func process():
-	pass
+	if $"../../技能汲取特效".modulate.a > 0.0:
+		$"../../技能汲取特效".modulate.a -= 0.03
 
 func exit():
 	pass

@@ -27,6 +27,10 @@ func enter():
 	$Timer.start(randf_range(0, 0.5))
 
 func process():
+	
+	if $"../../技能汲取特效".modulate.a > 0.0:
+		$"../../技能汲取特效".modulate.a -= 0.03
+		
 	monster.velocity.x = monster.direct.x * (speed + acc() / 1.3)
 	monster.velocity.y += 15
 	monster.move_and_slide()

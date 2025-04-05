@@ -125,3 +125,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	self.queue_free()
+
+
+func _on_animated_sprite_2d_animation_changed() -> void:
+	if $AnimatedSprite2D.animation == "Stop":
+		var expl = preload("res://Assets/下城区/战斗场景/邪帽/镰刀爆炸.tscn").instantiate()
+		expl.position = self.global_position
+		expl.emitting = true
+		get_tree().current_scene.add_child(expl)

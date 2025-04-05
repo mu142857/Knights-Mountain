@@ -58,6 +58,7 @@ var current_group_index = 0
 func enter():
 	#Game.shake_camera(30)
 	#Game.flash(1.1, Color(0.6, 0.6, 0.6))
+	
 	change_timer_started = false
 	if monster.health >= 1500:
 		number_of_skills = 3
@@ -88,6 +89,11 @@ func enter():
 	current_group_index = 0
 
 func process():
+	
+	if 	$"../../技能汲取特效".modulate.a < 1:
+			$"../../技能汲取特效".modulate.a += 0.008
+	else:
+		$"../../技能汲取特效".modulate.a = 1
 	# 当技能可释放且还没走完预设的技能组时，按组合顺序释放技能
 	if skill_ready and current_group_index < number_of_skills:
 		var current_skill = chosen_group[current_group_index]

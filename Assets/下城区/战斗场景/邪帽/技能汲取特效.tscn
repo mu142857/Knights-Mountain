@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2rnw78ku4o2e"]
+
+[sub_resource type="Gradient" id="Gradient_h86y3"]
+offsets = PackedFloat32Array(0, 0.261468, 0.651376, 0.852941, 1)
+colors = PackedColorArray(0, 0.551297, 0.673163, 0, 0.304, 0, 0.96, 0.784314, 1, 0.86, 0.897333, 0.921569, 0.86, 0, 0.458667, 0.921569, 1, 0.76, 0.76, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_krvtq"]
+gradient = SubResource("Gradient_h86y3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vojjv"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 800.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -200.0
+radial_accel_max = -200.0
+scale_max = 5.0
+color = Color(1, 1, 1, 0.784314)
+color_ramp = SubResource("GradientTexture1D_krvtq")
+
+[node name="技能汲取特效" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 600
+process_material = SubResource("ParticleProcessMaterial_vojjv")
+lifetime = 2.4
