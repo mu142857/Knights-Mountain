@@ -57,7 +57,7 @@ func archery(player):
 	var sce8 = preload("res://Assets/下城区/战斗场景/邪帽/火矢.tscn").instantiate()
 	
 	if self.health >= 1500:
-		archery_duration = 2.8
+		archery_duration = 3
 		
 		var x1 = player.global_position.x + 65
 		var x2 = player.global_position.x - 65
@@ -67,7 +67,7 @@ func archery(player):
 		self.get_parent().add_child(sce2)
 		
 	elif self.health >= 1000:
-		archery_duration = 4
+		archery_duration = 4.5
 		
 		var x1 = player.global_position.x + 80
 		var x2 = player.global_position.x - 80
@@ -83,7 +83,7 @@ func archery(player):
 		self.get_parent().add_child(sce6)
 		
 	elif self.health >= 500:
-		archery_duration = 5
+		archery_duration = 5.8
 
 		var x1 = player.global_position.x + 90
 		var x2 = player.global_position.x - 90
@@ -105,7 +105,7 @@ func archery(player):
 		self.get_parent().add_child(sce8)
 		
 	elif self.health >= 0:
-		archery_duration = 6
+		archery_duration = 6.2
 
 		var x1 = player.global_position.x + 160
 		var x2 = player.global_position.x - 160
