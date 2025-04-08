@@ -6,7 +6,6 @@ var num = 0
 
 func enter():
 	monster.hide()
-	print("in")
 	
 	var wait = monster.health / 40000
 	duration = 0.05 + wait
