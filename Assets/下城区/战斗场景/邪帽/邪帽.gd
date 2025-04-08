@@ -45,7 +45,7 @@ func _on_arrow_timer_timeout() -> void:
 					archery(i)
 	$ArrowTimer.start(archery_duration)
 
-func archery(player):
+func archery(player): # 召唤落箭技能
 	
 	var sce1 = preload("res://Assets/下城区/战斗场景/邪帽/火矢.tscn").instantiate()
 	var sce2 = preload("res://Assets/下城区/战斗场景/邪帽/火矢.tscn").instantiate()
