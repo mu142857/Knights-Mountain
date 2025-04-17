@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://d080ugkyp2dec"]
+
+[ext_resource type="Texture2D" uid="uid://ddoeojdydfij0" path="res://Assets/下城区/战斗场景/残灯車/残烟骑堡-Sheet.png" id="1_w1d2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksgly"]
+atlas = ExtResource("1_w1d2c")
+region = Rect2(0, 128, 226, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8foc4"]
+atlas = ExtResource("1_w1d2c")
+region = Rect2(226, 128, 226, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1cwb"]
+atlas = ExtResource("1_w1d2c")
+region = Rect2(452, 128, 226, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwydk"]
+atlas = ExtResource("1_w1d2c")
+region = Rect2(678, 128, 226, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mft4v"]
+atlas = ExtResource("1_w1d2c")
+region = Rect2(904, 128, 226, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utew8"]
+atlas = ExtResource("1_w1d2c")
+region = Rect2(1130, 128, 226, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dfq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksgly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8foc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1cwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwydk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mft4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utew8")
+}],
+"loop": true,
+"name": &"Slide",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5hvv"]
+size = Vector2(122, 222)
+
+[node name="残灯車" type="CharacterBody2D"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+collision_layer = 8
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_0dfq0")
+animation = &"Slide"
+autoplay = "Slide"
+frame_progress = 0.0826938
+offset = Vector2(-35.6667, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -111)
+shape = SubResource("RectangleShape2D_s5hvv")
+debug_color = Color(0, 0.595, 0.7, 0)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqn0mjn18rj4e"]
+[gd_scene load_steps=8 format=3 uid="uid://dqn0mjn18rj4e"]
 
 [ext_resource type="Texture2D" uid="uid://5ko346aakfbt" path="res://Assets/下城区/战斗场景/邪帽/爆炸粒子.png" id="1_61tap"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="2_hv4lg"]
 
 [sub_resource type="Gradient" id="Gradient_w3qq8"]
 offsets = PackedFloat32Array(0, 0.539924, 1)
@@ -39,3 +40,8 @@ texture = ExtResource("1_61tap")
 lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
+script = ExtResource("2_hv4lg")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

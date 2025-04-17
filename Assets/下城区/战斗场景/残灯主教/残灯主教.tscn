@@ -1,0 +1,123 @@
+[gd_scene load_steps=17 format=3 uid="uid://bexqf7w6lhpdc"]
+
+[ext_resource type="Texture2D" uid="uid://dvl22ya3rk1lq" path="res://Assets/下城区/战斗场景/残灯主教/残烟骑相-Sheet.png" id="1_786ab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epfdk"]
+atlas = ExtResource("1_786ab")
+region = Rect2(0, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx4v8"]
+atlas = ExtResource("1_786ab")
+region = Rect2(226, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b50sh"]
+atlas = ExtResource("1_786ab")
+region = Rect2(452, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bleln"]
+atlas = ExtResource("1_786ab")
+region = Rect2(678, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o33bo"]
+atlas = ExtResource("1_786ab")
+region = Rect2(904, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du5tg"]
+atlas = ExtResource("1_786ab")
+region = Rect2(1130, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhmvs"]
+atlas = ExtResource("1_786ab")
+region = Rect2(1582, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmnoc"]
+atlas = ExtResource("1_786ab")
+region = Rect2(0, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crvq5"]
+atlas = ExtResource("1_786ab")
+region = Rect2(226, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsk03"]
+atlas = ExtResource("1_786ab")
+region = Rect2(452, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hk0y"]
+atlas = ExtResource("1_786ab")
+region = Rect2(678, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amwyy"]
+atlas = ExtResource("1_786ab")
+region = Rect2(904, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srw04"]
+atlas = ExtResource("1_786ab")
+region = Rect2(1130, 256, 226, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0kq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epfdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx4v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b50sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bleln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o33bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du5tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhmvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmnoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crvq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsk03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hk0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amwyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srw04")
+}],
+"loop": true,
+"name": &"Test",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b5hq"]
+size = Vector2(146, 216)
+
+[node name="残灯主教" type="CharacterBody2D"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+collision_layer = 8
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_b0kq2")
+animation = &"Test"
+autoplay = "Test"
+frame_progress = 0.927316
+offset = Vector2(8.5, -91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_0b5hq")
+debug_color = Color(0, 0.85, 1, 0)
