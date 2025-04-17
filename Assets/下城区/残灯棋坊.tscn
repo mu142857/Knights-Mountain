@@ -1,3 +1,191 @@
-[gd_scene format=3 uid="uid://cp4gry5u8dfhe"]
+[gd_scene load_steps=17 format=3 uid="uid://cp4gry5u8dfhe"]
+
+[ext_resource type="Texture2D" uid="uid://bw3ee7h71k3ho" path="res://Assets/下城区/战斗场景/背景/残灯棋坊.png" id="1_womem"]
+[ext_resource type="Texture2D" uid="uid://bcksymasenrto" path="res://Assets/下城区/战斗场景/背景/残灯棋坊氛围滤镜.png" id="2_tvk7l"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/背景/场景蜡烛.gd" id="3_joubb"]
+
+[sub_resource type="Gradient" id="Gradient_j0y13"]
+offsets = PackedFloat32Array(0, 0.229358, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.14, 0.14, 0.14, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s37rp"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nry5v"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fkkgs"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qsfnp"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ol74y"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3f1w"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rffjn"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eowah"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t0wja"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_78aka"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cp74j"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h7xsc"]
+gradient = SubResource("Gradient_j0y13")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="残灯棋坊" type="Node2D"]
+
+[node name="残烟骑士教堂" type="Sprite2D" parent="."]
+position = Vector2(700, 450)
+texture = ExtResource("1_womem")
+
+[node name="烛光背景版" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 1422.0
+offset_bottom = 804.0
+color = Color(0.04, 0.04, 0.04, 0.333333)
+
+[node name="烛光" type="Node2D" parent="."]
+
+[node name="PointLight2D1" type="PointLight2D" parent="烛光"]
+position = Vector2(94, 141)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_s37rp")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D2" type="PointLight2D" parent="烛光"]
+position = Vector2(11, 141)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_nry5v")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D3" type="PointLight2D" parent="烛光"]
+position = Vector2(1307, 141)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_fkkgs")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D4" type="PointLight2D" parent="烛光"]
+position = Vector2(1389, 141)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_qsfnp")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D5" type="PointLight2D" parent="烛光"]
+position = Vector2(1204, 76)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_ol74y")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D6" type="PointLight2D" parent="烛光"]
+position = Vector2(1122, 76)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_s3f1w")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D7" type="PointLight2D" parent="烛光"]
+position = Vector2(278, 76)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_rffjn")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D8" type="PointLight2D" parent="烛光"]
+position = Vector2(196, 76)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_eowah")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D9" type="PointLight2D" parent="烛光"]
+position = Vector2(383, 115)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_t0wja")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D10" type="PointLight2D" parent="烛光"]
+position = Vector2(465, 115)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_78aka")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D11" type="PointLight2D" parent="烛光"]
+position = Vector2(935, 115)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_cp74j")
+script = ExtResource("3_joubb")
+
+[node name="PointLight2D12" type="PointLight2D" parent="烛光"]
+position = Vector2(1017, 115)
+scale = Vector2(5.23437, 5.23437)
+energy = 10.0
+texture = SubResource("GradientTexture2D_h7xsc")
+script = ExtResource("3_joubb")
+
+[node name="残烟骑士效果滤镜" type="Sprite2D" parent="."]
+position = Vector2(700, 450)
+texture = ExtResource("2_tvk7l")
+
+[node name="残烟骑士效果滤镜" type="Sprite2D" parent="残烟骑士效果滤镜"]
+position = Vector2(0, -442.126)
+scale = Vector2(1, 0.0392541)
+texture = ExtResource("2_tvk7l")
+region_enabled = true
+region_rect = Rect2(0, 0, 1400, 414.225)
