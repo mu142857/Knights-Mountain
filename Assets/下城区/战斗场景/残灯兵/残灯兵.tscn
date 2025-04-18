@@ -1,14 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://dkfo3fud7vmtj"]
+[gd_scene load_steps=32 format=3 uid="uid://dkfo3fud7vmtj"]
 
 [ext_resource type="Texture2D" uid="uid://d0ntpcl5yr5ty" path="res://Assets/下城区/战斗场景/残灯兵/残烟骑兵-Sheet.png" id="1_y07dg"]
 [ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵.gd" id="1_ywy13"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_cqk5g"]
 [ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="4_ld4en"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵wink(0).gd" id="5_v1y38"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵idle(1).gd" id="6_0iato"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵jump(2).gd" id="7_jmk7w"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵fall(3).gd" id="8_kew17"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵death(4).gd" id="9_vea16"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mpnqc"]
 shader = ExtResource("2_cqk5g")
 shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.72, 0.71652, 0.5112, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0psi"]
+atlas = ExtResource("1_y07dg")
+region = Rect2(1356, 128, 226, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwyld"]
 atlas = ExtResource("1_y07dg")
@@ -68,6 +77,14 @@ region = Rect2(1130, 128, 226, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5d1e6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0psi")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vwyld")
@@ -188,7 +205,7 @@ script = ExtResource("1_ywy13")
 material = SubResource("ShaderMaterial_mpnqc")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5d1e6")
-animation = &"Idle"
+animation = &"Death"
 offset = Vector2(-15, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -206,17 +223,28 @@ debug_color = Color(0.343, 0.549, 0.783, 0)
 script = ExtResource("4_ld4en")
 
 [node name="Wink(0)" type="Node" parent="StateMachine"]
+script = ExtResource("5_v1y38")
 
 [node name="Idle(1)" type="Node" parent="StateMachine"]
+script = ExtResource("6_0iato")
+
+[node name="Timer" type="Timer" parent="StateMachine/Idle(1)"]
 
 [node name="Jump(2)" type="Node" parent="StateMachine"]
+script = ExtResource("7_jmk7w")
 
 [node name="Fall(3)" type="Node" parent="StateMachine"]
+script = ExtResource("8_kew17")
 
 [node name="Death(4)" type="Node" parent="StateMachine"]
+script = ExtResource("9_vea16")
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_cx86o")
 }
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Wink(0)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Death(4)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="StateMachine/Idle(1)/Timer" to="StateMachine/Idle(1)" method="_on_timer_timeout"]
