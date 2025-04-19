@@ -3,6 +3,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func enter():
 	$"../../AnimatedSprite2D".play("Death")
+	Game.shake_camera(8)
+	var expl = preload("res://Assets/下城区/战斗场景/残灯兵/残灯兵死亡粒子.tscn").instantiate()
+	expl.position = $"../..".global_position + Vector2(0, -70)
+	expl.emitting = true
+	get_tree().current_scene.add_child(expl)
 	
 func process():
 	if !$"../..".is_on_floor():

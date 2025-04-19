@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://063dbfru21ks"]
+
+[ext_resource type="Texture2D" uid="uid://bqm7exlnpbj75" path="res://Assets/下城区/战斗场景/残灯马/马火球.png" id="1_fmvr0"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马火球.gd" id="1_i2sd3"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/中轨迹.gd" id="2_vtdx3"]
+
+[sub_resource type="Curve" id="Curve_pfnrf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.205798, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kc8gc"]
+offsets = PackedFloat32Array(0, 0.487179, 1)
+colors = PackedColorArray(0.784924, 0.366112, 0, 0, 1, 0.596078, 0, 0.27451, 0.890196, 0.14902, 0, 0.54902)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t33aa"]
+
+[node name="残灯马火球" type="Area2D"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+script = ExtResource("1_i2sd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_fmvr0")
+offset = Vector2(0.5, 0.5)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 20.0
+width_curve = SubResource("Curve_pfnrf")
+default_color = Color(0.869524, 0.43333, 0, 1)
+gradient = SubResource("Gradient_kc8gc")
+script = ExtResource("2_vtdx3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t33aa")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

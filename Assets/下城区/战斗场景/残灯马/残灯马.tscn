@@ -1,6 +1,91 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnvcigug7wip7"]
+[gd_scene load_steps=53 format=3 uid="uid://cnvcigug7wip7"]
 
 [ext_resource type="Texture2D" uid="uid://cgyr0pin1qdgu" path="res://Assets/下城区/战斗场景/残灯马/残烟马-Sheet.png" id="1_5mltv"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马.gd" id="1_7qusu"]
+[ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_ukhsd"]
+[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="2_jx1tc"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马idle(0).gd" id="3_4qml5"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马attack(1).gd" id="4_hfpkq"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马death(2).gd" id="5_j2yxl"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马jump(3).gd" id="7_8gten"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯马/残灯马fall(4).gd" id="8_yf76x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3ph6"]
+shader = ExtResource("1_ukhsd")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(0.723679, 0.598748, 0.797216, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51prx"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(904, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxmuy"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(1130, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcsi3"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(1356, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8hau"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(1582, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65x7o"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(0, 512, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prnby"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(226, 512, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0amvo"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(0, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nktt5"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(226, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf161"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(452, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrkuo"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(678, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d2pj"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(904, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydwlh"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(1130, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7pka"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(1356, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e7ce"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(1582, 0, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxeje"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(0, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrq2q"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(226, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obxe2"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(452, 256, 226, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n0kr"]
+atlas = ExtResource("1_5mltv")
+region = Rect2(678, 256, 226, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ig0u4"]
 atlas = ExtResource("1_5mltv")
@@ -78,6 +163,75 @@ region = Rect2(226, 512, 226, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_51prx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxmuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcsi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8hau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65x7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prnby")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0amvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nktt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf161")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrkuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d2pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydwlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7pka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e7ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxeje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrq2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obxe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n0kr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ig0u4")
 }, {
 "duration": 1.0,
@@ -139,20 +293,112 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp6mq"]
 size = Vector2(132, 216)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e02ad"]
+size = Vector2(11802, 10265)
+
+[sub_resource type="Animation" id="Animation_aqkn5"]
+resource_name = "HitFlash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_15jx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
+_data = {
+"HitFlash": SubResource("Animation_aqkn5"),
+"RESET": SubResource("Animation_15jx2")
+}
+
 [node name="残灯马" type="CharacterBody2D"]
-modulate = Color(0.4, 0.4, 0.4, 1)
 collision_layer = 8
 collision_mask = 4
+script = ExtResource("1_7qusu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_j3ph6")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_p74oc")
-animation = &"Test"
-autoplay = "Test"
-frame_progress = 0.64299
+animation = &"Attack"
+autoplay = "Idle"
 offset = Vector2(-37, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -108)
 shape = SubResource("RectangleShape2D_tp6mq")
 debug_color = Color(0.35, 0.48, 1, 0)
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+shape = SubResource("RectangleShape2D_e02ad")
+debug_color = Color(0.343, 0.549, 0.783, 0)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_jx1tc")
+
+[node name="Idle(0)" type="Node" parent="StateMachine"]
+script = ExtResource("3_4qml5")
+
+[node name="Timer" type="Timer" parent="StateMachine/Idle(0)"]
+one_shot = true
+
+[node name="Attack(1)" type="Node" parent="StateMachine"]
+script = ExtResource("4_hfpkq")
+
+[node name="Timer" type="Timer" parent="StateMachine/Attack(1)"]
+one_shot = true
+
+[node name="AttackDuration" type="Timer" parent="StateMachine/Attack(1)"]
+one_shot = true
+
+[node name="Death(2)" type="Node" parent="StateMachine"]
+script = ExtResource("5_j2yxl")
+
+[node name="Jump(3)" type="Node" parent="StateMachine"]
+script = ExtResource("7_8gten")
+
+[node name="Fall(4)" type="Node" parent="StateMachine"]
+script = ExtResource("8_yf76x")
+
+[node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_cx86o")
+}
+
+[node name="发射点" type="Node2D" parent="."]
+position = Vector2(47, -115)
+
+[node name="发射子弹点左" type="Node2D" parent="发射点"]
+position = Vector2(-94, 0)
+
+[node name="发射子弹点右" type="Node2D" parent="发射点"]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Death(2)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Attack(1)/Timer" to="StateMachine/Attack(1)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Attack(1)/AttackDuration" to="StateMachine/Attack(1)" method="_on_attack_duration_timeout"]

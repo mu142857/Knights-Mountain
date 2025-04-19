@@ -13,7 +13,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mpnqc"]
 shader = ExtResource("2_cqk5g")
 shader_parameter/Enabled = false
-shader_parameter/Tint = Color(0.72, 0.71652, 0.5112, 1)
+shader_parameter/Tint = Color(0.692029, 0.683477, 0.833673, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0psi"]
 atlas = ExtResource("1_y07dg")
@@ -205,7 +205,7 @@ script = ExtResource("1_ywy13")
 material = SubResource("ShaderMaterial_mpnqc")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5d1e6")
-animation = &"Death"
+animation = &"Jump"
 offset = Vector2(-15, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -229,6 +229,7 @@ script = ExtResource("5_v1y38")
 script = ExtResource("6_0iato")
 
 [node name="Timer" type="Timer" parent="StateMachine/Idle(1)"]
+one_shot = true
 
 [node name="Jump(2)" type="Node" parent="StateMachine"]
 script = ExtResource("7_jmk7w")

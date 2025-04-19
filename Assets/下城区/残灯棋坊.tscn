@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://cp4gry5u8dfhe"]
+[gd_scene load_steps=25 format=3 uid="uid://cp4gry5u8dfhe"]
 
+[ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="1_irkc6"]
 [ext_resource type="Texture2D" uid="uid://bw3ee7h71k3ho" path="res://Assets/下城区/战斗场景/背景/残灯棋坊.png" id="1_womem"]
 [ext_resource type="Texture2D" uid="uid://bcksymasenrto" path="res://Assets/下城区/战斗场景/背景/残灯棋坊氛围滤镜.png" id="2_tvk7l"]
 [ext_resource type="Script" path="res://Assets/下城区/战斗场景/背景/场景蜡烛.gd" id="3_joubb"]
@@ -89,6 +90,15 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5wfe"]
 
 [node name="残灯棋坊" type="Node2D"]
+
+[node name="云雾" parent="." instance=ExtResource("1_irkc6")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -250.0
+offset_top = -279.0
+offset_right = 1670.0
+offset_bottom = 1253.0
+color = Color(0, 0, 0, 1)
 
 [node name="残烟骑士教堂" type="Sprite2D" parent="."]
 position = Vector2(700, 450)
@@ -202,6 +212,8 @@ region_rect = Rect2(0, 0, 1400, 414.225)
 position = Vector2(216, 152)
 
 [node name="地板碰撞箱" type="StaticBody2D" parent="."]
+collision_layer = 20
+collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="地板碰撞箱"]
 position = Vector2(0, 900)
@@ -218,16 +230,19 @@ position = Vector2(700, 846)
 shape = SubResource("WorldBoundaryShape2D_l5wfe")
 
 [node name="残灯棋王" parent="." instance=ExtResource("5_xpaq8")]
+visible = false
 position = Vector2(1241, 849)
 
 [node name="残灯马" parent="." instance=ExtResource("6_267qc")]
-position = Vector2(694, 849)
+position = Vector2(686, 846)
 
 [node name="残灯兵" parent="." instance=ExtResource("7_7b8cp")]
 position = Vector2(532, 850)
 
 [node name="残灯主教" parent="." instance=ExtResource("8_pnr57")]
+visible = false
 position = Vector2(871, 847)
 
 [node name="残灯車" parent="." instance=ExtResource("9_yxbk8")]
-position = Vector2(1025, 810)
+visible = false
+position = Vector2(1029, 847)

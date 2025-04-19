@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs0votrlrw4a4"]
+
+[ext_resource type="Texture2D" uid="uid://c0hqi5pifbalw" path="res://Assets/下城区/战斗场景/残灯马/残烟马破碎.png" id="1_2eu6u"]
+[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="2_fqaie"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4rpfe"]
+particles_animation = true
+particles_anim_h_frames = 20
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_cko6o"]
+offsets = PackedFloat32Array(0, 0.865952)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wgwae"]
+gradient = SubResource("Gradient_cko6o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qy2m"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 200, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 700.0
+gravity = Vector3(0, 1500, 0)
+scale_min = 4.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_wgwae")
+anim_offset_max = 1.0
+
+[node name="死亡粒子" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_4rpfe")
+emitting = false
+amount = 70
+process_material = SubResource("ParticleProcessMaterial_8qy2m")
+texture = ExtResource("1_2eu6u")
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_fqaie")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
