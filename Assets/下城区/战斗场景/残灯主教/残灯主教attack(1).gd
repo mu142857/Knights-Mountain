@@ -52,7 +52,7 @@ func get_player_direction() -> Vector2:
 func calculate_target_position(pos: Vector2):
 	var diff: Vector2 = pos - $"../../主教激光瞄准线".global_position
 	var diff_sign: float = pos.x - $"../../主教激光瞄准线".global_position.x
-	var mul = 1000 / diff.x
+	var mul = 1400 / diff.x
 	if diff_sign < 0:
 		diff *= -mul
 	else:
