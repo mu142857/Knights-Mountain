@@ -1,21 +1,21 @@
 [gd_scene load_steps=63 format=3 uid="uid://bchmoxr8a01g4"]
 
 [ext_resource type="Texture2D" uid="uid://b5207a27xy6my" path="res://Assets/主角/主角.png" id="1_3nhp2"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角.gd" id="1_xeuqt"]
-[ext_resource type="Script" path="res://Assets/主游戏/状态机.gd" id="2_w70qe"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Idle.gd" id="3_04pd2"]
+[ext_resource type="Script" uid="uid://dhldqprmqtide" path="res://Assets/主角/战斗主角.gd" id="1_xeuqt"]
+[ext_resource type="Script" uid="uid://i3rdevrrpqbt" path="res://Assets/主游戏/状态机.gd" id="2_w70qe"]
+[ext_resource type="Script" uid="uid://c7m3newsaioy4" path="res://Assets/主角/战斗主角状态机/主角Idle.gd" id="3_04pd2"]
 [ext_resource type="Texture2D" uid="uid://cvcb70qqg6b8n" path="res://Assets/主角/主角3.png" id="3_ukuij"]
 [ext_resource type="Texture2D" uid="uid://dt1vei1c2tk4c" path="res://Assets/主角/主角2.png" id="3_xv64r"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Run_initial.gd" id="4_k3noe"]
+[ext_resource type="Script" uid="uid://c6pc5ryy2ejku" path="res://Assets/主角/战斗主角状态机/主角Run_initial.gd" id="4_k3noe"]
 [ext_resource type="Texture2D" uid="uid://c8w5yklh64012" path="res://Assets/主角/主角4.png" id="5_bb3jd"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Run_loop.gd" id="5_x4x2o"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Run_stop.gd" id="6_0beuy"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Jump.gd" id="7_aumen"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Fall.gd" id="8_axp1w"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Take_hit.gd" id="9_axokg"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Death.gd" id="10_t2jsg"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Attack_1.gd" id="14_wm271"]
-[ext_resource type="Script" path="res://Assets/主角/战斗主角状态机/主角Sprint.gd" id="16_1e2u8"]
+[ext_resource type="Script" uid="uid://dkaf6tsrab48p" path="res://Assets/主角/战斗主角状态机/主角Run_loop.gd" id="5_x4x2o"]
+[ext_resource type="Script" uid="uid://de4l4la3bjlll" path="res://Assets/主角/战斗主角状态机/主角Run_stop.gd" id="6_0beuy"]
+[ext_resource type="Script" uid="uid://c5dp1qi27fnt8" path="res://Assets/主角/战斗主角状态机/主角Jump.gd" id="7_aumen"]
+[ext_resource type="Script" uid="uid://qkdn5ev8362v" path="res://Assets/主角/战斗主角状态机/主角Fall.gd" id="8_axp1w"]
+[ext_resource type="Script" uid="uid://bw6qe8j3vk2dw" path="res://Assets/主角/战斗主角状态机/主角Take_hit.gd" id="9_axokg"]
+[ext_resource type="Script" uid="uid://c7jubkounbqps" path="res://Assets/主角/战斗主角状态机/主角Death.gd" id="10_t2jsg"]
+[ext_resource type="Script" uid="uid://cm7j8ikn71tlj" path="res://Assets/主角/战斗主角状态机/主角Attack_1.gd" id="14_wm271"]
+[ext_resource type="Script" uid="uid://d3f0nvi8x5mc0" path="res://Assets/主角/战斗主角状态机/主角Sprint.gd" id="16_1e2u8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee0e5"]
 atlas = ExtResource("3_ukuij")
@@ -392,8 +392,8 @@ resource_name = "Run"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_03guv"]
 _data = {
-"Attack1": SubResource("Animation_udwxq"),
-"Run": SubResource("Animation_xe66p")
+&"Attack1": SubResource("Animation_udwxq"),
+&"Run": SubResource("Animation_xe66p")
 }
 
 [node name="战斗主角" type="CharacterBody2D"]
@@ -474,7 +474,7 @@ script = ExtResource("16_1e2u8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_03guv")
+&"": SubResource("AnimationLibrary_03guv")
 }
 
 [node name="ShadowCreater" type="Timer" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="1_irkc6"]
 [ext_resource type="Texture2D" uid="uid://bw3ee7h71k3ho" path="res://Assets/下城区/战斗场景/背景/残灯棋坊.png" id="1_womem"]
 [ext_resource type="Texture2D" uid="uid://bcksymasenrto" path="res://Assets/下城区/战斗场景/背景/残灯棋坊氛围滤镜.png" id="2_tvk7l"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/背景/场景蜡烛.gd" id="3_joubb"]
+[ext_resource type="Script" uid="uid://balbecoy3vpck" path="res://Assets/下城区/战斗场景/背景/场景蜡烛.gd" id="3_joubb"]
 [ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="4_84o1m"]
 [ext_resource type="PackedScene" uid="uid://dc0urifofxfca" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.tscn" id="5_xpaq8"]
 [ext_resource type="PackedScene" uid="uid://cnvcigug7wip7" path="res://Assets/下城区/战斗场景/残灯马/残灯马.tscn" id="6_267qc"]
@@ -240,7 +240,6 @@ position = Vector2(686, 846)
 position = Vector2(532, 850)
 
 [node name="残灯主教" parent="." instance=ExtResource("8_pnr57")]
-visible = false
 position = Vector2(871, 847)
 
 [node name="残灯車" parent="." instance=ExtResource("9_yxbk8")]

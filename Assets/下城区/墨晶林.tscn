@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://84pk1oka32tp"]
 
-[ext_resource type="Script" path="res://Assets/下城区/战斗管理器/墨晶林.gd" id="1_1xqaf"]
+[ext_resource type="Script" uid="uid://b6ic5bpo3o6jj" path="res://Assets/下城区/战斗管理器/墨晶林.gd" id="1_1xqaf"]
 [ext_resource type="Texture2D" uid="uid://7k42mypanxc8" path="res://Assets/下城区/战斗场景/场景元素/水晶枯萎木.png" id="1_i2m2a"]
 [ext_resource type="Texture2D" uid="uid://cqnhff48wj3dq" path="res://Assets/下城区/战斗场景/场景元素/腐败林瓦片地图.png" id="1_q5acu"]
 [ext_resource type="Texture2D" uid="uid://d0kvuyv1a4dmr" path="res://Assets/幻乡/战斗场景/场景元素/碑3.png" id="1_xg0cs"]
@@ -227,10 +227,10 @@ position = Vector2(222, 436)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_jeqqs")
 texture = ExtResource("7_376rv")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_jeqqs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.4, 0.4, 0.4, 1)

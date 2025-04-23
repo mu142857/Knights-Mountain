@@ -58,7 +58,7 @@ function = 31
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float WindStrength : hint_range(2, 10);
+uniform float WindStrength : hint_range(2.0, 10.0);
 
 
 

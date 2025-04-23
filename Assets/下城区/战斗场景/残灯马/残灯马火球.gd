@@ -5,14 +5,19 @@ var y_increase: float = 0.0
 var is_exploding: bool = false
 
 func _ready():
+	$"火球粒子".modulate.a = 1
 	self.rotation = randf_range(0, 360)
-	$Timer.start(5)
+	$Timer.start(10)
 
 	y_increase = 20.0
 	if vec_x < 0:
 		self.scale.x = -1
 
 func _physics_process(delta: float) -> void:
+	if $"火球粒子".modulate.a > 0.5:
+		$"火球粒子".modulate.a -= 0.01
+	else:
+		$"火球粒子".modulate.a = 0.5
 	self.rotation -= 0.1
 	var arr: Array = []
 	self.position.x += 4 * vec_x

@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=3 uid="uid://clvjfdhkiyvk8"]
+
+[ext_resource type="Script" uid="uid://dp442nu17qkfs" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教激光.gd" id="1_o0of0"]
+
+[sub_resource type="Gradient" id="Gradient_xinqh"]
+offsets = PackedFloat32Array(0, 0.170213, 0.370821, 1)
+colors = PackedColorArray(0.0156863, 0.705882, 0.929412, 1, 0.0156863, 0.666667, 0.929412, 1, 0.156863, 0.698039, 0.94902, 0.352941, 0.494118, 0.505882, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmyyr"]
+gradient = SubResource("Gradient_xinqh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_7w6kc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sg4nk"]
+gradient = SubResource("Gradient_7w6kc")
+
+[sub_resource type="Curve" id="Curve_l22cb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.489164, 1), 0.0, 0.0, 0, 0, Vector2(0.987616, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f7u2i"]
+curve = SubResource("Curve_l22cb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8mryr"]
+particle_flag_disable_z = true
+initial_velocity_min = 110.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_f7u2i")
+color_ramp = SubResource("GradientTexture1D_sg4nk")
+
+[sub_resource type="Gradient" id="Gradient_uw4jy"]
+offsets = PackedFloat32Array(0, 0.229358, 0.46789, 1)
+colors = PackedColorArray(1, 1, 0.835294, 1, 0.510038, 0.81734, 0.999607, 1, 0.156863, 0.698039, 0.94902, 0.352941, 0.494118, 0.505882, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5du2l"]
+gradient = SubResource("Gradient_uw4jy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uw4jy"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 60.0
+initial_velocity_min = -300.0
+initial_velocity_max = -240.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_f7u2i")
+color_ramp = SubResource("GradientTexture1D_sg4nk")
+
+[sub_resource type="Gradient" id="Gradient_tdncx"]
+offsets = PackedFloat32Array(0, 0.090566, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_exnqx"]
+gradient = SubResource("Gradient_tdncx")
+
+[sub_resource type="Curve" id="Curve_wj14p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50774, 0.924538), -0.715884, -0.715884, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_so0on"]
+curve = SubResource("Curve_wj14p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6k2fu"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+scale_curve = SubResource("CurveTexture_so0on")
+color_ramp = SubResource("GradientTexture1D_exnqx")
+
+[node name="主教激光" type="RayCast2D"]
+target_position = Vector2(2000, 0)
+collision_mask = 5
+script = ExtResource("1_o0of0")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 100, 0)
+width = 14.0
+default_color = Color(0, 0.780392, 0.929412, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+texture = SubResource("GradientTexture2D_gmyyr")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_8mryr")
+
+[node name="LongGPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+texture = SubResource("GradientTexture2D_5du2l")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_uw4jy")
+
+[node name="BeamGPUParticles2D2" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 40
+texture = SubResource("GradientTexture2D_gmyyr")
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_6k2fu")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

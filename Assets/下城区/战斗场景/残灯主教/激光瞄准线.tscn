@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://r4yfg0ujtpw2"]
+
+[ext_resource type="Script" uid="uid://cirf2mix8mjda" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教激光瞄准线.gd" id="1_gue28"]
+
+[node name="主教激光" type="RayCast2D"]
+target_position = Vector2(2000, 0)
+collision_mask = 5
+script = ExtResource("1_gue28")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 100, 0)
+width = 1.0
+default_color = Color(0.915586, 0.806825, 0.651569, 1)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

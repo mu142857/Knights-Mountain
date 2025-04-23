@@ -1,20 +1,20 @@
 [gd_scene load_steps=96 format=3 uid="uid://dkm5v6nxm4j6m"]
 
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽.gd" id="1_1pse0"]
+[ext_resource type="Script" uid="uid://75bn81rqejo7" path="res://Assets/下城区/战斗场景/邪帽/邪帽.gd" id="1_1pse0"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_gehog"]
 [ext_resource type="Texture2D" uid="uid://b2hb4bxpex3pc" path="res://Assets/下城区/战斗场景/邪帽/邪教boss-Sheet.png" id="1_jgt6x"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽state_machine.gd" id="3_vv8oe"]
+[ext_resource type="Script" uid="uid://b0m13unk3dd2r" path="res://Assets/下城区/战斗场景/邪帽/邪帽state_machine.gd" id="3_vv8oe"]
 [ext_resource type="Texture2D" uid="uid://com33m1b5khjl" path="res://Assets/下城区/战斗场景/邪帽/邪教组织4-Sheet.png" id="4_dbwvd"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽idle.gd" id="4_oigtf"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽appear.gd" id="5_umpyg"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽disappear.gd" id="6_8xh53"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽prominence.gd" id="7_q6pvr"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽skill_start.gd" id="8_e2tas"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽skill_end.gd" id="9_ukgfo"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/skill邪帽.gd" id="10_nds4x"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽sprint_attack.gd" id="11_ag0kv"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽underground_fire.gd" id="14_l7mu5"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/邪帽death.gd" id="15_46qxf"]
+[ext_resource type="Script" uid="uid://bfxlxk8ivxtel" path="res://Assets/下城区/战斗场景/邪帽/邪帽idle.gd" id="4_oigtf"]
+[ext_resource type="Script" uid="uid://b378n3djljbhj" path="res://Assets/下城区/战斗场景/邪帽/邪帽appear.gd" id="5_umpyg"]
+[ext_resource type="Script" uid="uid://dmsre5c27kneg" path="res://Assets/下城区/战斗场景/邪帽/邪帽disappear.gd" id="6_8xh53"]
+[ext_resource type="Script" uid="uid://dn4ovnhtfpok3" path="res://Assets/下城区/战斗场景/邪帽/邪帽prominence.gd" id="7_q6pvr"]
+[ext_resource type="Script" uid="uid://b652sfxlwetu6" path="res://Assets/下城区/战斗场景/邪帽/邪帽skill_start.gd" id="8_e2tas"]
+[ext_resource type="Script" uid="uid://c0g0nbkcpnckf" path="res://Assets/下城区/战斗场景/邪帽/邪帽skill_end.gd" id="9_ukgfo"]
+[ext_resource type="Script" uid="uid://cjmvwlekhjq1g" path="res://Assets/下城区/战斗场景/邪帽/skill邪帽.gd" id="10_nds4x"]
+[ext_resource type="Script" uid="uid://c3v4ckxidn8cq" path="res://Assets/下城区/战斗场景/邪帽/邪帽sprint_attack.gd" id="11_ag0kv"]
+[ext_resource type="Script" uid="uid://dt4et1t2dt8x3" path="res://Assets/下城区/战斗场景/邪帽/邪帽underground_fire.gd" id="14_l7mu5"]
+[ext_resource type="Script" uid="uid://dav85ajmxph70" path="res://Assets/下城区/战斗场景/邪帽/邪帽death.gd" id="15_46qxf"]
 [ext_resource type="PackedScene" uid="uid://b2rnw78ku4o2e" path="res://Assets/下城区/战斗场景/邪帽/技能汲取特效.tscn" id="16_otbtk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2f2"]
@@ -613,8 +613,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="邪帽" type="CharacterBody2D"]
@@ -699,7 +699,7 @@ debug_color = Color(1, 1, 1, 0.12549)
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [node name="技能汲取特效" parent="." instance=ExtResource("16_otbtk")]

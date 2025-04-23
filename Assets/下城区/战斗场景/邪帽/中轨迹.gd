@@ -17,4 +17,7 @@ func _physics_process(delta: float) -> void:
 			remove_point(0)
 		
 func draw_point():
-	add_point($"../../Sprite2D".global_position)
+	if $"../../AnimatedSprite2D".animation == "Spin":
+		add_point($"../../AnimatedSprite2D".global_position)
+	elif $"../../AnimatedSprite2D".animation == "Stop":
+		self.modulate.a -= 0.07

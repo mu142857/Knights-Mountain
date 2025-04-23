@@ -1,14 +1,14 @@
 [gd_scene load_steps=32 format=3 uid="uid://dkfo3fud7vmtj"]
 
 [ext_resource type="Texture2D" uid="uid://d0ntpcl5yr5ty" path="res://Assets/下城区/战斗场景/残灯兵/残烟骑兵-Sheet.png" id="1_y07dg"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵.gd" id="1_ywy13"]
+[ext_resource type="Script" uid="uid://c65n0r5hbuvik" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵.gd" id="1_ywy13"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_cqk5g"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="4_ld4en"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵wink(0).gd" id="5_v1y38"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵idle(1).gd" id="6_0iato"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵jump(2).gd" id="7_jmk7w"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵fall(3).gd" id="8_kew17"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵death(4).gd" id="9_vea16"]
+[ext_resource type="Script" uid="uid://d0ko7bi5e16k2" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="4_ld4en"]
+[ext_resource type="Script" uid="uid://ciajh4p5qn5a7" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵wink(0).gd" id="5_v1y38"]
+[ext_resource type="Script" uid="uid://cd8qpvthhbhn3" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵idle(1).gd" id="6_0iato"]
+[ext_resource type="Script" uid="uid://7xlybada8pqw" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵jump(2).gd" id="7_jmk7w"]
+[ext_resource type="Script" uid="uid://cc1fa2wj6mlow" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵fall(3).gd" id="8_kew17"]
+[ext_resource type="Script" uid="uid://c3jjy1chkoijc" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵death(4).gd" id="9_vea16"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mpnqc"]
 shader = ExtResource("2_cqk5g")
@@ -192,8 +192,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="残灯兵" type="CharacterBody2D"]
@@ -243,7 +243,7 @@ script = ExtResource("9_vea16")
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Wink(0)" method="_on_animated_sprite_2d_animation_finished"]
