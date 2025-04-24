@@ -1,7 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://d080ugkyp2dec"]
+[gd_scene load_steps=22 format=3 uid="uid://d080ugkyp2dec"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_0wpbj"]
+[ext_resource type="Script" uid="uid://20a0lpkjvbem" path="res://Assets/下城区/战斗场景/残灯車/残灯車.gd" id="1_m7cpj"]
 [ext_resource type="Texture2D" uid="uid://ddoeojdydfij0" path="res://Assets/下城区/战斗场景/残灯車/残烟骑堡-Sheet.png" id="1_w1d2c"]
+[ext_resource type="Script" uid="uid://g4fr3x5lxxab" path="res://Assets/下城区/战斗场景/残灯車/残灯車state_machine.gd" id="4_vg0f3"]
+[ext_resource type="Script" uid="uid://dxs2lvlkqvcqj" path="res://Assets/下城区/战斗场景/残灯車/残灯車idle(0).gd" id="5_ar0wi"]
+[ext_resource type="Script" uid="uid://4e0ijarkb42n" path="res://Assets/下城区/战斗场景/残灯車/残灯車attack(1).gd" id="6_pv0ti"]
+[ext_resource type="Script" uid="uid://bi0gyjh01dh7b" path="res://Assets/下城区/战斗场景/残灯車/残灯車death(2).gd" id="7_x678o"]
+[ext_resource type="Script" uid="uid://bwouehe3ixkfq" path="res://Assets/下城区/战斗场景/残灯車/残灯車move(3).gd" id="8_pv0ti"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m7cpj"]
 shader = ExtResource("1_0wpbj")
@@ -34,6 +40,11 @@ region = Rect2(1130, 128, 226, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0dfq0"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ksgly")
@@ -98,9 +109,13 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv0ti"]
+size = Vector2(11802, 10265)
+
 [node name="残灯車" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
+script = ExtResource("1_m7cpj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_m7cpj")
@@ -109,7 +124,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_0dfq0")
 animation = &"Slide"
 autoplay = "Slide"
-frame_progress = 0.0826938
+frame_progress = 0.0895873
 offset = Vector2(-35.6667, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -124,12 +139,27 @@ libraries = {
 }
 
 [node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_vg0f3")
 
 [node name="Idle(0)" type="Node" parent="StateMachine"]
+script = ExtResource("5_ar0wi")
 
 [node name="Timer" type="Timer" parent="StateMachine/Idle(0)"]
 one_shot = true
 
 [node name="Attack(1)" type="Node" parent="StateMachine"]
+script = ExtResource("6_pv0ti")
 
 [node name="Death(2)" type="Node" parent="StateMachine"]
+script = ExtResource("7_x678o")
+
+[node name="Move(3)" type="Node" parent="StateMachine"]
+script = ExtResource("8_pv0ti")
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+shape = SubResource("RectangleShape2D_pv0ti")
+debug_color = Color(0.343, 0.549, 0.783, 0)
+
+[connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
