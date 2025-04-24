@@ -243,5 +243,4 @@ position = Vector2(532, 850)
 position = Vector2(871, 847)
 
 [node name="残灯車" parent="." instance=ExtResource("9_yxbk8")]
-visible = false
 position = Vector2(1029, 847)

@@ -19,7 +19,7 @@ func exit():
 	ani_2D.scale.x = get_player_direction()[1] * -3
 	
 	Game.shake_camera(10)
-	var expl = preload("res://Assets/下城区/战斗场景/残灯马/跳跃落地粒子.tscn").instantiate()
+	var expl = preload("res://Assets/下城区/战斗场景/残灯主教/主教跳跃落地粒子.tscn").instantiate()
 	expl.position = monster.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)

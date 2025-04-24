@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://d23fbgdsjsqdb"]
+
+[ext_resource type="Script" uid="uid://cdnhcud1jgfj7" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="1_wr6ri"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.45)
+
+[sub_resource type="Gradient" id="Gradient_vhauj"]
+offsets = PackedFloat32Array(0.00536193, 0.517426, 1)
+colors = PackedColorArray(0.27451, 0.756863, 0.854902, 0.784314, 0.243137, 0.419608, 0.47451, 0.54902, 0.101961, 0.145098, 0.392157, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wr6ri"]
+gradient = SubResource("Gradient_vhauj")
+
+[sub_resource type="Curve" id="Curve_5gkiw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4mxpo"]
+curve = SubResource("Curve_5gkiw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_es06q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 2000, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_4mxpo")
+color_ramp = SubResource("GradientTexture1D_wr6ri")
+
+[node name="跳跃落地粒子" type="GPUParticles2D"]
+emitting = false
+amount = 70
+texture = SubResource("GradientTexture2D_2i6xf")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_es06q")
+script = ExtResource("1_wr6ri")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

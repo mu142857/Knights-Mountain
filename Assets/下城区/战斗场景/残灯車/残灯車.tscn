@@ -1,6 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://d080ugkyp2dec"]
+[gd_scene load_steps=15 format=3 uid="uid://d080ugkyp2dec"]
 
+[ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_0wpbj"]
 [ext_resource type="Texture2D" uid="uid://ddoeojdydfij0" path="res://Assets/下城区/战斗场景/残灯車/残烟骑堡-Sheet.png" id="1_w1d2c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7cpj"]
+shader = ExtResource("1_0wpbj")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(0.886275, 0.843137, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksgly"]
 atlas = ExtResource("1_w1d2c")
@@ -55,12 +61,49 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5hvv"]
 size = Vector2(122, 222)
 
+[sub_resource type="Animation" id="Animation_aqkn5"]
+resource_name = "HitFlash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_15jx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
+_data = {
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
+}
+
 [node name="残灯車" type="CharacterBody2D"]
-modulate = Color(0.4, 0.4, 0.4, 1)
 collision_layer = 8
 collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_m7cpj")
 position = Vector2(0.5, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_0dfq0")
@@ -73,3 +116,20 @@ offset = Vector2(-35.6667, -32)
 position = Vector2(0, -111)
 shape = SubResource("RectangleShape2D_s5hvv")
 debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_cx86o")
+}
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="Idle(0)" type="Node" parent="StateMachine"]
+
+[node name="Timer" type="Timer" parent="StateMachine/Idle(0)"]
+one_shot = true
+
+[node name="Attack(1)" type="Node" parent="StateMachine"]
+
+[node name="Death(2)" type="Node" parent="StateMachine"]
