@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://dc0urifofxfca"]
+[gd_scene load_steps=31 format=3 uid="uid://dc0urifofxfca"]
 
 [ext_resource type="Texture2D" uid="uid://bptx70xobhyyi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残烟骑士阵-Sheet.png" id="1_4siff"]
+[ext_resource type="Script" uid="uid://d0ko7bi5e16k2" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="2_60eer"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkx13"]
 atlas = ExtResource("1_4siff")
@@ -198,6 +199,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv1bv"]
 size = Vector2(261, 474)
 
+[sub_resource type="Environment" id="Environment_60eer"]
+background_mode = 3
+adjustment_enabled = true
+
 [node name="残灯棋王" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -206,12 +211,28 @@ collision_mask = 4
 modulate = Color(0.8, 0.8, 0.8, 1)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tmtj1")
-animation = &"Test"
+animation = &"Idle"
 autoplay = "Test"
-frame_progress = 0.930333
+frame_progress = 0.181708
 offset = Vector2(0.5, -89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -237)
 shape = SubResource("RectangleShape2D_fv1bv")
 debug_color = Color(0, 0.216667, 1, 0)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_60eer")
+
+[node name="Idle(0)" type="Node" parent="StateMachine"]
+
+[node name="Disappear(1)" type="Node" parent="StateMachine"]
+
+[node name="Appear(2)" type="Node" parent="StateMachine"]
+
+[node name="Summon(3)" type="Node" parent="StateMachine"]
+
+[node name="Death(4)" type="Node" parent="StateMachine"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_60eer")
