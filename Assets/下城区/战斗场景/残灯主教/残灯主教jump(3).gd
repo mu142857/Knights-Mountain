@@ -17,9 +17,9 @@ func enter():
 		jump_random = 1
 
 	monster.velocity.y = -500
-	if monster.global_position.x >= 1320:
+	if monster.global_position.x >= (monster.scene_endx - 80):
 		jump_direction = 1
-	elif monster.global_position.x <= 80:
+	elif monster.global_position.x <= (monster.scene_startx + 80):
 		jump_direction = -1
 	else:
 		jump_direction = get_player_direction()[1]

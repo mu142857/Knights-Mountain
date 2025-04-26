@@ -199,16 +199,16 @@ animations = [{
 size = Vector2(261, 474)
 
 [node name="残灯棋王" type="CharacterBody2D"]
-modulate = Color(0.4, 0.4, 0.4, 1)
 collision_layer = 8
 collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tmtj1")
 animation = &"Test"
 autoplay = "Test"
-frame_progress = 0.731393
+frame_progress = 0.930333
 offset = Vector2(0.5, -89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

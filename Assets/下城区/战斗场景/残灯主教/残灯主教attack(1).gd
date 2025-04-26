@@ -9,7 +9,7 @@ extends Basic_State
 var player_position: Vector2
 var beam_target_position: Vector2
 var loop_number: int = 1
-var half_life = 200
+var half_life = 125
 
 func enter():
 

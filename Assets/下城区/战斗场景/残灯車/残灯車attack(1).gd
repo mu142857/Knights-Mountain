@@ -4,15 +4,38 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 
+var is_jumping: bool = true
+var is_falling: bool = false
+		
 func enter():
-	ani_2D.play("Slide")
-func get_player_direction() -> Array:
-	var direction: int = 0
-	var distance = 0.0
-	var arr: Array = detection_range.get_overlapping_bodies()
-	if arr.size() > 0:
-		for i in arr:
-			if i.is_in_group("player"):
-				direction = sign(i.global_position.x - monster.global_position.x)
-				distance = abs(i.global_position.x - monster.global_position.x)
-	return [distance, direction] # direction中，-1表示左边，1表示右边，0表示未知
+	is_jumping = true
+	is_falling = false
+	monster.velocity.y = -2700
+	monster.velocity.x = 0
+
+func process():
+	
+	if !is_jumping:
+		if monster.is_on_floor() or monster.global_position.y >= 840:
+			get_parent().change_state(0)
+			return
+	if monster.velocity.y >= 0 and !is_falling:
+		is_jumping = false
+		is_falling = true
+		var exp = preload("res://Assets/下城区/战斗场景/残灯車/空中散布粒子.tscn").instantiate()
+		exp.global_position = monster.global_position
+		exp.emitting = true
+		get_tree().current_scene.add_child(exp)
+
+	
+	monster.velocity.y += 100
+	monster.move_and_slide()
+
+func exit():
+	is_falling = false
+	Game.shake_camera(30)
+	
+	var expl = preload("res://Assets/下城区/战斗场景/残灯車/跳跃落地粒子.tscn").instantiate()
+	expl.global_position = monster.global_position
+	expl.emitting = true
+	get_tree().current_scene.add_child(expl)

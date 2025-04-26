@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ui6pkfk3dfig"]
+
+[ext_resource type="Texture2D" uid="uid://b4m1qhv43id74" path="res://Assets/下城区/战斗场景/残灯移动棋盘/移动棋盘.png" id="1_65xka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cehn7"]
+size = Vector2(1027, 1728.5)
+
+[node name="残灯移动棋盘" type="CharacterBody2D"]
+collision_layer = 20
+collision_mask = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-67, -487)
+texture = ExtResource("1_65xka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-513.5, -863.75)
+shape = SubResource("RectangleShape2D_cehn7")

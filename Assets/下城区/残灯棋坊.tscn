@@ -229,6 +229,11 @@ shape = SubResource("WorldBoundaryShape2D_l5wfe")
 position = Vector2(700, 846)
 shape = SubResource("WorldBoundaryShape2D_l5wfe")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(702, -15)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_l5wfe")
+
 [node name="残灯棋王" parent="." instance=ExtResource("5_xpaq8")]
 visible = false
 position = Vector2(1241, 849)
@@ -243,4 +248,4 @@ position = Vector2(532, 850)
 position = Vector2(871, 847)
 
 [node name="残灯車" parent="." instance=ExtResource("9_yxbk8")]
-position = Vector2(1029, 847)
+position = Vector2(1267, 841)
