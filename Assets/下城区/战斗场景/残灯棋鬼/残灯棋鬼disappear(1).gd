@@ -30,6 +30,7 @@ func process():
 		else:
 			world.environment.adjustment_contrast = 1.0
 			world.environment.adjustment_saturation = 1.0
+			get_parent().change_state()
 			
 		return
 		

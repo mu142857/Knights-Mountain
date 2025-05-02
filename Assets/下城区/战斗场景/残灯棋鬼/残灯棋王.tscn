@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://dc0urifofxfca"]
+[gd_scene load_steps=45 format=3 uid="uid://dc0urifofxfca"]
 
 [ext_resource type="Texture2D" uid="uid://bptx70xobhyyi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残烟骑士阵-Sheet.png" id="1_4siff"]
 [ext_resource type="Script" uid="uid://b1him3aeneqmq" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.gd" id="1_rd5rd"]
+[ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_4ie8p"]
 [ext_resource type="Script" uid="uid://d0ko7bi5e16k2" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="2_60eer"]
 [ext_resource type="Script" uid="uid://b43wm8rk58ndm" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼idle(0).gd" id="3_7mm0q"]
 [ext_resource type="Script" uid="uid://uvgqt8miy8kp" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼disappear(1).gd" id="5_4ihxq"]
@@ -9,6 +10,11 @@
 [ext_resource type="Script" uid="uid://d16qphk3jsi1l" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼summon(3).gd" id="7_y7p2t"]
 [ext_resource type="Script" uid="uid://dy5efa3o5k44a" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼death(4).gd" id="8_0686m"]
 [ext_resource type="Script" uid="uid://gtillrjqkdi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼change_venue(5).gd" id="9_xhwkb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7p2t"]
+shader = ExtResource("2_4ie8p")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkx13"]
 atlas = ExtResource("1_4siff")
@@ -290,6 +296,7 @@ script = ExtResource("1_rd5rd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.8, 0.8, 0.8, 1)
+material = SubResource("ShaderMaterial_y7p2t")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tmtj1")
 animation = &"Summon"
