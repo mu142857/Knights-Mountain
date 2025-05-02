@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ui6pkfk3dfig"]
+[gd_scene load_steps=5 format=3 uid="uid://ui6pkfk3dfig"]
 
 [ext_resource type="Texture2D" uid="uid://b4m1qhv43id74" path="res://Assets/下城区/战斗场景/残灯移动棋盘/移动棋盘.png" id="1_65xka"]
+[ext_resource type="Script" uid="uid://bf5e44lsrli04" path="res://Assets/下城区/战斗场景/残灯移动棋盘/残灯移动棋盘.gd" id="1_bcwph"]
+[ext_resource type="PackedScene" uid="uid://mr2cifa0dsn0" path="res://Assets/下城区/战斗场景/残灯移动棋盘/移动粒子.tscn" id="2_cehn7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cehn7"]
 size = Vector2(1027, 1728.5)
@@ -8,11 +10,15 @@ size = Vector2(1027, 1728.5)
 [node name="残灯移动棋盘" type="CharacterBody2D"]
 collision_layer = 20
 collision_mask = 20
+script = ExtResource("1_bcwph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-67, -487)
+position = Vector2(-81, -487)
 texture = ExtResource("1_65xka")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-513.5, -863.75)
 shape = SubResource("RectangleShape2D_cehn7")
+
+[node name="移动粒子" parent="." instance=ExtResource("2_cehn7")]
+position = Vector2(-154, 2)

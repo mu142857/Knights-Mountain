@@ -12,7 +12,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3ph6"]
 shader = ExtResource("1_ukhsd")
-shader_parameter/Enabled = false
+shader_parameter/Enabled = true
 shader_parameter/Tint = Color(0.723679, 0.598748, 0.797216, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51prx"]

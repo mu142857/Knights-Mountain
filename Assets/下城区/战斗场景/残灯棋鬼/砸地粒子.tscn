@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgqvndl7hmmoq"]
+
+[ext_resource type="Script" uid="uid://cdnhcud1jgfj7" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="1_hksdq"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+offsets = PackedFloat32Array(0, 0.276074, 0.377301, 0.48773, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.723926, 1, 0, 1, 0.623529, 1, 1, 1, 0.51227, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j712v"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.502203, 0.420705)
+
+[sub_resource type="Gradient" id="Gradient_hksdq"]
+offsets = PackedFloat32Array(0, 0.508403, 1)
+colors = PackedColorArray(0.592539, 0.430501, 0.347255, 0.784314, 0.581771, 0.571339, 0.58178, 0.705882, 0.167451, 0.167451, 0.167451, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_81cx2"]
+gradient = SubResource("Gradient_hksdq")
+
+[sub_resource type="Curve" id="Curve_ro0gx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lhc64"]
+curve = SubResource("Curve_ro0gx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bkwyk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(150, 20, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 250.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 1000, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_lhc64")
+color_ramp = SubResource("GradientTexture1D_81cx2")
+
+[node name="砸地粒子" type="GPUParticles2D"]
+amount = 40
+texture = SubResource("GradientTexture2D_j712v")
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bkwyk")
+script = ExtResource("1_hksdq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

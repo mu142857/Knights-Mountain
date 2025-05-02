@@ -1,7 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://dc0urifofxfca"]
+[gd_scene load_steps=43 format=3 uid="uid://dc0urifofxfca"]
 
 [ext_resource type="Texture2D" uid="uid://bptx70xobhyyi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残烟骑士阵-Sheet.png" id="1_4siff"]
+[ext_resource type="Script" uid="uid://b1him3aeneqmq" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.gd" id="1_rd5rd"]
 [ext_resource type="Script" uid="uid://d0ko7bi5e16k2" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="2_60eer"]
+[ext_resource type="Script" uid="uid://b43wm8rk58ndm" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼idle(0).gd" id="3_7mm0q"]
+[ext_resource type="Script" uid="uid://uvgqt8miy8kp" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼disappear(1).gd" id="5_4ihxq"]
+[ext_resource type="Script" uid="uid://cg8speobahjs2" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼appear(2).gd" id="6_4ie8p"]
+[ext_resource type="Script" uid="uid://d16qphk3jsi1l" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼summon(3).gd" id="7_y7p2t"]
+[ext_resource type="Script" uid="uid://dy5efa3o5k44a" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼death(4).gd" id="8_0686m"]
+[ext_resource type="Script" uid="uid://gtillrjqkdi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼change_venue(5).gd" id="9_xhwkb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkx13"]
 atlas = ExtResource("1_4siff")
@@ -203,17 +210,92 @@ size = Vector2(261, 474)
 background_mode = 3
 adjustment_enabled = true
 
+[sub_resource type="Animation" id="Animation_4ihxq"]
+resource_name = "Summon"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Summon", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Summon(3)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_hit_effect"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ie8p"]
+_data = {
+&"Summon": SubResource("Animation_4ihxq")
+}
+
+[sub_resource type="Animation" id="Animation_aqkn5"]
+resource_name = "HitFlash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_15jx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
+_data = {
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
+}
+
 [node name="残灯棋王" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
+script = ExtResource("1_rd5rd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.8, 0.8, 0.8, 1)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tmtj1")
-animation = &"Idle"
+animation = &"Summon"
 autoplay = "Test"
-frame_progress = 0.181708
+frame = 5
+frame_progress = 1.0
 offset = Vector2(0.5, -89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -225,14 +307,46 @@ debug_color = Color(0, 0.216667, 1, 0)
 script = ExtResource("2_60eer")
 
 [node name="Idle(0)" type="Node" parent="StateMachine"]
+script = ExtResource("3_7mm0q")
+
+[node name="Timer" type="Timer" parent="StateMachine/Idle(0)"]
+one_shot = true
 
 [node name="Disappear(1)" type="Node" parent="StateMachine"]
+script = ExtResource("5_4ihxq")
+
+[node name="HidenTimer" type="Timer" parent="StateMachine/Disappear(1)"]
+one_shot = true
 
 [node name="Appear(2)" type="Node" parent="StateMachine"]
+script = ExtResource("6_4ie8p")
 
 [node name="Summon(3)" type="Node" parent="StateMachine"]
+script = ExtResource("7_y7p2t")
+
+[node name="AfterSummonDuration" type="Timer" parent="StateMachine/Summon(3)"]
+one_shot = true
 
 [node name="Death(4)" type="Node" parent="StateMachine"]
+script = ExtResource("8_0686m")
+
+[node name="ChangeVenue(5)" type="Node" parent="StateMachine"]
+script = ExtResource("9_xhwkb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_60eer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4ie8p")
+}
+
+[node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_cx86o")
+}
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Summon(3)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Summon(3)/AfterSummonDuration" to="StateMachine/Summon(3)" method="_on_after_summon_duration_timeout"]

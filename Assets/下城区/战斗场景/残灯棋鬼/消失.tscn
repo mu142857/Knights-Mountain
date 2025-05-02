@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6nl1m6tsfgwc"]
+
+[ext_resource type="Texture2D" uid="uid://cu2tsau8coyvq" path="res://Assets/下城区/战斗场景/残灯棋鬼/消失粒子.png" id="1_0hbq8"]
+
+[sub_resource type="Gradient" id="Gradient_ykopg"]
+offsets = PackedFloat32Array(0, 0.247899, 0.462185, 0.722689, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.921569, 1, 1, 1, 0.921569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0hbq8"]
+gradient = SubResource("Gradient_ykopg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fgh2e"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 200, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, -400, 0)
+scale_max = 50.0
+color = Color(1, 1, 1, 0.784314)
+color_ramp = SubResource("GradientTexture1D_0hbq8")
+
+[node name="消失粒子" type="GPUParticles2D"]
+modulate = Color(0.491583, 0.491583, 0.491583, 0.705882)
+emitting = false
+amount = 80
+texture = ExtResource("1_0hbq8")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fgh2e")
