@@ -5,6 +5,7 @@ extends Basic_State
 @onready var world: WorldEnvironment = $"../../WorldEnvironment"
 
 func enter():
+	$HidenTimer.start(6)
 	#Game.shake_camera(30)
 	#Game.flash(1.1, Color(0.6, 0.6, 0.6))
 	ani_2D.play("Idle")
@@ -21,8 +22,7 @@ func enter():
 
 func process():
 	if monster.modulate.a <= 0:
-		monster.hide()
-		
+
 		if world.environment.adjustment_contrast > 1:
 			world.environment.adjustment_contrast -= 0.001
 			world.environment.adjustment_saturation -= 0.01
@@ -30,7 +30,6 @@ func process():
 		else:
 			world.environment.adjustment_contrast = 1.0
 			world.environment.adjustment_saturation = 1.0
-			get_parent().change_state()
 			
 		return
 		
@@ -41,4 +40,8 @@ func process():
 
 
 func exit():
-	pass
+	monster.modulate.a = 0
+
+
+func _on_hiden_timer_timeout() -> void:
+	get_parent().change_state(2)

@@ -356,4 +356,5 @@ libraries = {
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Summon(3)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Disappear(1)/HidenTimer" to="StateMachine/Disappear(1)" method="_on_hiden_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Summon(3)/AfterSummonDuration" to="StateMachine/Summon(3)" method="_on_after_summon_duration_timeout"]
