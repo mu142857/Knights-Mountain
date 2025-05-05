@@ -226,9 +226,9 @@ position = Vector2(700, 846)
 shape = SubResource("WorldBoundaryShape2D_l5wfe")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="地板碰撞箱"]
-position = Vector2(702, -15)
+position = Vector2(700, -200)
 rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_l5wfe")
 
 [node name="残灯棋王" parent="." instance=ExtResource("5_xpaq8")]
-position = Vector2(678, 824)
+position = Vector2(702, 841)

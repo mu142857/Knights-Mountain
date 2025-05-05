@@ -8,6 +8,7 @@
 size = Vector2(1027, 1728.5)
 
 [node name="残灯移动棋盘" type="CharacterBody2D"]
+modulate = Color(0.695503, 0.695503, 0.695503, 1)
 collision_layer = 20
 collision_mask = 20
 script = ExtResource("1_bcwph")

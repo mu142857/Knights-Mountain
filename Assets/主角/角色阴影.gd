@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	self.global_position.x
+
 	if player.is_on_floor():
 		if self.modulate.a <= 0.9:
 			self.modulate.a += 0.05

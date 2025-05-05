@@ -8,7 +8,7 @@ func enter():
 	ani_2D.play("Attack")
 	var duration = randf_range(3, 5)
 	$Timer.start(duration)
-	$AttackDuration.start(0.8)
+	$AttackDuration.start(1.3)
 	
 func process():
 	pass

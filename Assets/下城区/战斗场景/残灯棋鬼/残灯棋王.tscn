@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dc0urifofxfca"]
+[gd_scene load_steps=47 format=3 uid="uid://dc0urifofxfca"]
 
 [ext_resource type="Texture2D" uid="uid://bptx70xobhyyi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残烟骑士阵-Sheet.png" id="1_4siff"]
 [ext_resource type="Script" uid="uid://b1him3aeneqmq" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.gd" id="1_rd5rd"]
@@ -10,11 +10,12 @@
 [ext_resource type="Script" uid="uid://d16qphk3jsi1l" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼summon(3).gd" id="7_y7p2t"]
 [ext_resource type="Script" uid="uid://dy5efa3o5k44a" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼death(4).gd" id="8_0686m"]
 [ext_resource type="Script" uid="uid://gtillrjqkdi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋鬼change_venue(5).gd" id="9_xhwkb"]
+[ext_resource type="PackedScene" uid="uid://ui6pkfk3dfig" path="res://Assets/下城区/战斗场景/残灯移动棋盘/残灯移动棋盘.tscn" id="11_y7p2t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y7p2t"]
 shader = ExtResource("2_4ie8p")
 shader_parameter/Enabled = false
-shader_parameter/Tint = Color(1, 1, 1, 1)
+shader_parameter/Tint = Color(1, 0.68037, 0.706019, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkx13"]
 atlas = ExtResource("1_4siff")
@@ -246,6 +247,20 @@ tracks/1/keys = {
 "method": &"release_hit_effect"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Summon(3)")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enter_branch"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ie8p"]
 _data = {
@@ -289,6 +304,9 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ie8p"]
+size = Vector2(11802, 17533.5)
+
 [node name="残灯棋王" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -300,9 +318,7 @@ material = SubResource("ShaderMaterial_y7p2t")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tmtj1")
 animation = &"Summon"
-autoplay = "Test"
-frame = 5
-frame_progress = 1.0
+autoplay = "Idle"
 offset = Vector2(0.5, -89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -331,11 +347,17 @@ script = ExtResource("6_4ie8p")
 [node name="Summon(3)" type="Node" parent="StateMachine"]
 script = ExtResource("7_y7p2t")
 
+[node name="InSkillDuration" type="Timer" parent="StateMachine/Summon(3)"]
+one_shot = true
+
 [node name="AfterSummonDuration" type="Timer" parent="StateMachine/Summon(3)"]
 one_shot = true
 
 [node name="Death(4)" type="Node" parent="StateMachine"]
 script = ExtResource("8_0686m")
+
+[node name="Timer" type="Timer" parent="StateMachine/Death(4)"]
+one_shot = true
 
 [node name="ChangeVenue(5)" type="Node" parent="StateMachine"]
 script = ExtResource("9_xhwkb")
@@ -354,7 +376,27 @@ libraries = {
 &"": SubResource("AnimationLibrary_cx86o")
 }
 
+[node name="MonsterCheck" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonsterCheck"]
+position = Vector2(0, 3634.25)
+shape = SubResource("RectangleShape2D_4ie8p")
+debug_color = Color(0.343, 0.549, 0.783, 0)
+
+[node name="残灯移动棋盘" type="Node" parent="."]
+
+[node name="残灯移动棋盘左" parent="残灯移动棋盘" instance=ExtResource("11_y7p2t")]
+position = Vector2(-800, 450)
+
+[node name="残灯移动棋盘右" parent="残灯移动棋盘" instance=ExtResource("11_y7p2t")]
+position = Vector2(800, 450)
+scale = Vector2(-1, 1)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Summon(3)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Disappear(1)/HidenTimer" to="StateMachine/Disappear(1)" method="_on_hiden_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Summon(3)/InSkillDuration" to="StateMachine/Summon(3)" method="_on_in_skill_duration_timeout"]
 [connection signal="timeout" from="StateMachine/Summon(3)/AfterSummonDuration" to="StateMachine/Summon(3)" method="_on_after_summon_duration_timeout"]
+[connection signal="timeout" from="StateMachine/Death(4)/Timer" to="StateMachine/Death(4)" method="_on_timer_timeout"]

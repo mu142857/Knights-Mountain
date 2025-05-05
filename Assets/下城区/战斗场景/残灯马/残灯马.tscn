@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cnvcigug7wip7"]
+[gd_scene load_steps=54 format=3 uid="uid://cnvcigug7wip7"]
 
 [ext_resource type="Texture2D" uid="uid://cgyr0pin1qdgu" path="res://Assets/下城区/战斗场景/残灯马/残烟马-Sheet.png" id="1_5mltv"]
 [ext_resource type="Script" uid="uid://cmopc676jph5u" path="res://Assets/下城区/战斗场景/残灯马/残灯马.gd" id="1_7qusu"]
@@ -9,10 +9,12 @@
 [ext_resource type="Script" uid="uid://oti0h4m7lydj" path="res://Assets/下城区/战斗场景/残灯马/残灯马death(2).gd" id="5_j2yxl"]
 [ext_resource type="Script" uid="uid://tpi5d18gqshl" path="res://Assets/下城区/战斗场景/残灯马/残灯马jump(3).gd" id="7_8gten"]
 [ext_resource type="Script" uid="uid://ro2k6rdfajmm" path="res://Assets/下城区/战斗场景/残灯马/残灯马fall(4).gd" id="8_yf76x"]
+[ext_resource type="Script" uid="uid://ccoqq0s0bll51" path="res://Assets/下城区/战斗场景/残灯马/残灯马free_fall(5).gd" id="10_pvnl6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3ph6"]
+resource_local_to_scene = true
 shader = ExtResource("1_ukhsd")
-shader_parameter/Enabled = true
+shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.723679, 0.598748, 0.797216, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51prx"]
@@ -342,7 +344,7 @@ script = ExtResource("1_7qusu")
 material = SubResource("ShaderMaterial_j3ph6")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_p74oc")
-animation = &"Attack"
+animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(-37, -96)
 
@@ -383,6 +385,9 @@ script = ExtResource("7_8gten")
 
 [node name="Fall(4)" type="Node" parent="StateMachine"]
 script = ExtResource("8_yf76x")
+
+[node name="FreeFall(5)" type="Node" parent="StateMachine"]
+script = ExtResource("10_pvnl6")
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

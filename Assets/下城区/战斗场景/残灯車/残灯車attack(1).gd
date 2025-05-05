@@ -8,6 +8,7 @@ var is_jumping: bool = true
 var is_falling: bool = false
 		
 func enter():
+	$"../Move(3)/Timer".stop()
 	is_jumping = true
 	is_falling = false
 	monster.velocity.y = -2700
@@ -22,10 +23,10 @@ func process():
 	if monster.velocity.y >= 0 and !is_falling:
 		is_jumping = false
 		is_falling = true
-		var exp = preload("res://Assets/下城区/战斗场景/残灯車/空中散布粒子.tscn").instantiate()
-		exp.global_position = monster.global_position
-		exp.emitting = true
-		get_tree().current_scene.add_child(exp)
+		var expl_a = preload("res://Assets/下城区/战斗场景/残灯車/空中散布粒子.tscn").instantiate()
+		expl_a.global_position = monster.global_position
+		expl_a.emitting = true
+		get_tree().current_scene.add_child(expl_a)
 
 	
 	monster.velocity.y += 100
@@ -35,7 +36,7 @@ func exit():
 	is_falling = false
 	Game.shake_camera(30)
 	
-	var expl = preload("res://Assets/下城区/战斗场景/残灯車/跳跃落地粒子.tscn").instantiate()
-	expl.global_position = monster.global_position
-	expl.emitting = true
-	get_tree().current_scene.add_child(expl)
+	var expl_b = preload("res://Assets/下城区/战斗场景/残灯車/跳跃落地粒子.tscn").instantiate()
+	expl_b.global_position = monster.global_position
+	expl_b.emitting = true
+	get_tree().current_scene.add_child(expl_b)

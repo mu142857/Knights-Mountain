@@ -10,8 +10,8 @@ var jump_direction: int = 0
 var jump_random: int = 1
 
 func enter():
-	var randi = randi_range(0, 3)
-	if randi == 0:
+	var randint = randi_range(0, 3)
+	if randint == 0:
 		jump_random = -1
 	else: 
 		jump_random = 1

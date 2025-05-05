@@ -38,7 +38,7 @@ func exit():
 	pass
 	
 func get_player_direction() -> Array:
-	var direction: int = 0
+	
 	var distance = 0.0
 	var arr: Array = detection_range.get_overlapping_bodies()
 	if arr.size() > 0:

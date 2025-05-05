@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6nl1m6tsfgwc"]
+[gd_scene load_steps=6 format=3 uid="uid://b6nl1m6tsfgwc"]
 
 [ext_resource type="Texture2D" uid="uid://cu2tsau8coyvq" path="res://Assets/下城区/战斗场景/残灯棋鬼/消失粒子.png" id="1_0hbq8"]
+[ext_resource type="Script" uid="uid://5vfrlw5qoq" path="res://Assets/下城区/战斗场景/残灯棋鬼/天上掉怪粒子.gd" id="2_fgh2e"]
 
 [sub_resource type="Gradient" id="Gradient_ykopg"]
 offsets = PackedFloat32Array(0, 0.247899, 0.462185, 0.722689, 1)
@@ -27,9 +28,17 @@ color_ramp = SubResource("GradientTexture1D_0hbq8")
 [node name="消失粒子" type="GPUParticles2D"]
 modulate = Color(0.491583, 0.491583, 0.491583, 0.705882)
 emitting = false
-amount = 80
+amount = 40
 texture = ExtResource("1_0hbq8")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_fgh2e")
+script = ExtResource("2_fgh2e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

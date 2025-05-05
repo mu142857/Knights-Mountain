@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bexqf7w6lhpdc"]
+[gd_scene load_steps=55 format=3 uid="uid://bexqf7w6lhpdc"]
 
 [ext_resource type="Texture2D" uid="uid://dvl22ya3rk1lq" path="res://Assets/下城区/战斗场景/残灯主教/残烟骑相-Sheet.png" id="1_786ab"]
 [ext_resource type="Script" uid="uid://bxhowewy6e3fc" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教.gd" id="1_s7a1c"]
@@ -11,8 +11,10 @@
 [ext_resource type="Script" uid="uid://bt234x5f31ed5" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教death(2).gd" id="8_qmes3"]
 [ext_resource type="Script" uid="uid://bkaww1vataow4" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教jump(3).gd" id="9_4kkom"]
 [ext_resource type="Script" uid="uid://cuyife6ifxpet" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教fall(4).gd" id="10_aip3v"]
+[ext_resource type="Script" uid="uid://dysk86arvni7i" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教free_fall(5).gd" id="12_6h60g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qq1bo"]
+resource_local_to_scene = true
 shader = ExtResource("2_d2fjg")
 shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.447059, 1, 1, 1)
@@ -418,9 +420,8 @@ script = ExtResource("1_s7a1c")
 material = SubResource("ShaderMaterial_qq1bo")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_b0kq2")
-animation = &"Attack"
-autoplay = "Test"
-frame = 6
+animation = &"Idle"
+autoplay = "Idle"
 offset = Vector2(8.5, -91)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -466,6 +467,9 @@ script = ExtResource("9_4kkom")
 
 [node name="Fall(4)" type="Node" parent="StateMachine"]
 script = ExtResource("10_aip3v")
+
+[node name="FreeFall(5)" type="Node" parent="StateMachine"]
+script = ExtResource("12_6h60g")
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 libraries = {

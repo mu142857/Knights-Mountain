@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dkfo3fud7vmtj"]
+[gd_scene load_steps=33 format=3 uid="uid://dkfo3fud7vmtj"]
 
 [ext_resource type="Texture2D" uid="uid://d0ntpcl5yr5ty" path="res://Assets/下城区/战斗场景/残灯兵/残烟骑兵-Sheet.png" id="1_y07dg"]
 [ext_resource type="Script" uid="uid://c65n0r5hbuvik" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵.gd" id="1_ywy13"]
@@ -9,8 +9,10 @@
 [ext_resource type="Script" uid="uid://7xlybada8pqw" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵jump(2).gd" id="7_jmk7w"]
 [ext_resource type="Script" uid="uid://cc1fa2wj6mlow" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵fall(3).gd" id="8_kew17"]
 [ext_resource type="Script" uid="uid://c3jjy1chkoijc" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵death(4).gd" id="9_vea16"]
+[ext_resource type="Script" uid="uid://blyljeyxdhtvx" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵free_fall(5).gd" id="10_phyph"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mpnqc"]
+resource_local_to_scene = true
 shader = ExtResource("2_cqk5g")
 shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.692029, 0.683477, 0.833673, 1)
@@ -22,6 +24,10 @@ region = Rect2(1356, 128, 226, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwyld"]
 atlas = ExtResource("1_y07dg")
 region = Rect2(0, 128, 226, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr4rb"]
+atlas = ExtResource("1_y07dg")
+region = Rect2(452, 128, 226, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg4vj"]
 atlas = ExtResource("1_y07dg")
@@ -59,10 +65,6 @@ region = Rect2(1130, 128, 226, 128)
 atlas = ExtResource("1_y07dg")
 region = Rect2(1356, 128, 226, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr4rb"]
-atlas = ExtResource("1_y07dg")
-region = Rect2(452, 128, 226, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6r36"]
 atlas = ExtResource("1_y07dg")
 region = Rect2(678, 128, 226, 128)
@@ -92,6 +94,14 @@ animations = [{
 "loop": true,
 "name": &"Fall",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr4rb")
+}],
+"loop": true,
+"name": &"FreeFall",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -205,7 +215,8 @@ script = ExtResource("1_ywy13")
 material = SubResource("ShaderMaterial_mpnqc")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5d1e6")
-animation = &"Jump"
+animation = &"FreeFall"
+autoplay = "FreeFall"
 offset = Vector2(-15, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -239,6 +250,9 @@ script = ExtResource("8_kew17")
 
 [node name="Death(4)" type="Node" parent="StateMachine"]
 script = ExtResource("9_vea16")
+
+[node name="FreeFall(5)" type="Node" parent="StateMachine"]
+script = ExtResource("10_phyph")
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

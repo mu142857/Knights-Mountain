@@ -8,7 +8,7 @@ var direct = Vector2.LEFT
 func _ready() -> void:
 	add_to_group("tatterer")
 	add_to_group("monster")
-	$StateMachine.change_state(0)
+	$StateMachine.change_state(5)
 
 func take_hit(value: int):
 	if health <= 0:

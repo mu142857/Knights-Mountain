@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d080ugkyp2dec"]
+[gd_scene load_steps=24 format=3 uid="uid://d080ugkyp2dec"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_0wpbj"]
 [ext_resource type="Script" uid="uid://20a0lpkjvbem" path="res://Assets/下城区/战斗场景/残灯車/残灯車.gd" id="1_m7cpj"]
@@ -8,9 +8,11 @@
 [ext_resource type="Script" uid="uid://4e0ijarkb42n" path="res://Assets/下城区/战斗场景/残灯車/残灯車attack(1).gd" id="6_pv0ti"]
 [ext_resource type="Script" uid="uid://bi0gyjh01dh7b" path="res://Assets/下城区/战斗场景/残灯車/残灯車death(2).gd" id="7_x678o"]
 [ext_resource type="Script" uid="uid://bwouehe3ixkfq" path="res://Assets/下城区/战斗场景/残灯車/残灯車move(3).gd" id="8_pv0ti"]
+[ext_resource type="Script" uid="uid://bqr10gydxxrf2" path="res://Assets/下城区/战斗场景/残灯車/残灯車free_fall(4).gd" id="9_141le"]
 [ext_resource type="PackedScene" uid="uid://b3ppgr15quytq" path="res://Assets/下城区/战斗场景/残灯車/移动粒子.tscn" id="9_x678o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m7cpj"]
+resource_local_to_scene = true
 shader = ExtResource("1_0wpbj")
 shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.886275, 0.843137, 1, 1)
@@ -125,7 +127,6 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_0dfq0")
 animation = &"Slide"
 autoplay = "Slide"
-frame_progress = 0.526979
 offset = Vector2(-35.6667, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -159,6 +160,9 @@ script = ExtResource("8_pv0ti")
 
 [node name="Timer" type="Timer" parent="StateMachine/Move(3)"]
 one_shot = true
+
+[node name="FreeFall(4)" type="Node" parent="StateMachine"]
+script = ExtResource("9_141le")
 
 [node name="PlayerCheck" type="Area2D" parent="."]
 

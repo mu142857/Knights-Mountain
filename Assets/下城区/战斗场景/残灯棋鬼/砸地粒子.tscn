@@ -42,9 +42,11 @@ scale_curve = SubResource("CurveTexture_lhc64")
 color_ramp = SubResource("GradientTexture1D_81cx2")
 
 [node name="砸地粒子" type="GPUParticles2D"]
+emitting = false
 amount = 40
 texture = SubResource("GradientTexture2D_j712v")
 lifetime = 2.0
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_bkwyk")
 script = ExtResource("1_hksdq")
