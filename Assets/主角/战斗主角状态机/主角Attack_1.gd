@@ -16,7 +16,7 @@ func attack1_1_check():
 			knife_light()
 			Game.shake_camera(3)
 			Game.flash(0.8, Color(1, 0.5, 0.8))
-			i.take_hit(200) #20
+			i.take_hit(20) #20
 
 func attack1_2_check():
 	var arr2: Array = [] #,,

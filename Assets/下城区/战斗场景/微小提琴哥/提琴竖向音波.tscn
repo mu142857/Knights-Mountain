@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7uu7d0xy8rbu"]
+
+[ext_resource type="Texture2D" uid="uid://l3utek4uumug" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥-Sheet.png" id="1_h1f0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7vav"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(0, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlkgt"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(1000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4u2f"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(2000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu78y"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(3000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4g7f"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(4000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq7aj"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(5000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkw4x"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(6000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etbxw"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(7000, 11000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdk3b"]
+atlas = ExtResource("1_h1f0b")
+region = Rect2(0, 12000, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gbaa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7vav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlkgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4u2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu78y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4g7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq7aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkw4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etbxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdk3b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1f0b"]
+size = Vector2(41, 791.5)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6gbaa")
+frame = 5
+offset = Vector2(26, -291)
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="."]
+position = Vector2(-400, -396)
+shape = SubResource("RectangleShape2D_h1f0b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(472, -396)
+shape = SubResource("RectangleShape2D_h1f0b")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-202, -396)
+shape = SubResource("RectangleShape2D_h1f0b")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(222, -396)
+shape = SubResource("RectangleShape2D_h1f0b")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -395)
+shape = SubResource("RectangleShape2D_h1f0b")
