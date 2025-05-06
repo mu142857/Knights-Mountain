@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0w7dxploj88"]
+
+[ext_resource type="Script" uid="uid://cdnhcud1jgfj7" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="1_8x1wi"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.45)
+
+[sub_resource type="Gradient" id="Gradient_8x1wi"]
+offsets = PackedFloat32Array(0, 0.993333)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.74902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_131pn"]
+gradient = SubResource("Gradient_8x1wi")
+
+[sub_resource type="Gradient" id="Gradient_hy166"]
+offsets = PackedFloat32Array(0, 0.48, 1)
+colors = PackedColorArray(0.802451, 0, 0.260336, 0, 1, 1, 1, 0.196078, 0.932051, 0.0466823, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6tjm7"]
+gradient = SubResource("Gradient_hy166")
+
+[sub_resource type="Curve" id="Curve_rba7d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_640l1"]
+curve = SubResource("Curve_rba7d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ljddi"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 500, 0)
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_640l1")
+color_ramp = SubResource("GradientTexture1D_6tjm7")
+color_initial_ramp = SubResource("GradientTexture1D_131pn")
+
+[node name="提琴波粒子" type="GPUParticles2D"]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_2i6xf")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ljddi")
+script = ExtResource("1_8x1wi")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

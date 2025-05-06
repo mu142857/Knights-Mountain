@@ -1,6 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://5pgv1qasxhsb"]
 
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="1_03m0o"]
+[ext_resource type="Script" uid="uid://cdnhcud1jgfj7" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="1_03m0o"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.45)
 
 [sub_resource type="Gradient" id="Gradient_vhauj"]
 offsets = PackedFloat32Array(0.00536193, 0.517426, 1)
@@ -31,23 +40,14 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_4mxpo")
 color_ramp = SubResource("GradientTexture1D_6m26t")
 
-[sub_resource type="Gradient" id="Gradient_u152e"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
-gradient = SubResource("Gradient_u152e")
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0.45)
-
 [node name="跳跃落地粒子" type="GPUParticles2D"]
 emitting = false
 amount = 70
-process_material = SubResource("ParticleProcessMaterial_rrra2")
 texture = SubResource("GradientTexture2D_2i6xf")
 lifetime = 0.6
 one_shot = true
 explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_rrra2")
 script = ExtResource("1_03m0o")
 
 [node name="Timer" type="Timer" parent="."]

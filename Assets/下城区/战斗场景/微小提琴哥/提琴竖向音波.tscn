@@ -80,7 +80,8 @@ size = Vector2(41, 791.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6gbaa")
-frame = 5
+frame = 8
+frame_progress = 1.0
 offset = Vector2(26, -291)
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="."]

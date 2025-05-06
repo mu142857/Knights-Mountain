@@ -1,16 +1,16 @@
 [gd_scene load_steps=61 format=3 uid="uid://boi1d8dy76xye"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持太刀影子怪.gd" id="1_mlgrv"]
+[ext_resource type="Script" uid="uid://b1g1jrcop3af1" path="res://Assets/幻乡/战斗场景/持刀影子怪/持太刀影子怪.gd" id="1_mlgrv"]
 [ext_resource type="Texture2D" uid="uid://cv7pcjsssolas" path="res://Assets/幻乡/战斗场景/场景元素/持刀幽灵.png" id="1_to5lt"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪state_machine.gd" id="2_fyvmd"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪appear.gd" id="3_g8htj"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪isappear.gd" id="4_4tqk4"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪idle.gd" id="5_t512x"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪slash.gd" id="6_v4ips"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪sprinit.gd" id="7_jf2fr"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪sprint_stop.gd" id="8_1mk1c"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪death.gd" id="9_y5syd"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪take_hit.gd" id="11_iyjdm"]
+[ext_resource type="Script" uid="uid://cq64pnk2hdkla" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪state_machine.gd" id="2_fyvmd"]
+[ext_resource type="Script" uid="uid://dgensxy82q4d8" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪appear.gd" id="3_g8htj"]
+[ext_resource type="Script" uid="uid://beghbb5kdgku6" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪isappear.gd" id="4_4tqk4"]
+[ext_resource type="Script" uid="uid://cgi70ehlttwp2" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪idle.gd" id="5_t512x"]
+[ext_resource type="Script" uid="uid://xdsjat6i7ugj" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪slash.gd" id="6_v4ips"]
+[ext_resource type="Script" uid="uid://ctpdvtkatjlpp" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪sprinit.gd" id="7_jf2fr"]
+[ext_resource type="Script" uid="uid://76x3u6fe30fs" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪sprint_stop.gd" id="8_1mk1c"]
+[ext_resource type="Script" uid="uid://ce7o3j280th44" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪death.gd" id="9_y5syd"]
+[ext_resource type="Script" uid="uid://c1q2umwx3eauf" path="res://Assets/幻乡/战斗场景/持刀影子怪/持刀影子怪take_hit.gd" id="11_iyjdm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jiirx"]
 load_path = "res://.godot/imported/阴影.png-6207dd744fa638d939cfb0c1ea078bc9.ctex"
@@ -459,7 +459,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h6ti2"]
 _data = {
-"Attack": SubResource("Animation_wav7e")
+&"Attack": SubResource("Animation_wav7e")
 }
 
 [node name="持太刀影子怪" type="CharacterBody2D"]
@@ -567,7 +567,7 @@ script = ExtResource("11_iyjdm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h6ti2")
+&"": SubResource("AnimationLibrary_h6ti2")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Appear" method="_on_animated_sprite_2d_animation_finished"]

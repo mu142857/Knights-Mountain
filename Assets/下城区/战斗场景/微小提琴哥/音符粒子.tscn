@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3my5ajxnd8ur"]
+
+[ext_resource type="Texture2D" uid="uid://bo507e3rjje3u" path="res://Assets/下城区/战斗场景/微小提琴哥/音符序列.png" id="1_tc4cw"]
+[ext_resource type="Script" uid="uid://cvvmlnupvw0di" path="res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.gd" id="2_nqde5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tc4cw"]
+particles_animation = true
+particles_anim_h_frames = 14
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_nqde5"]
+offsets = PackedFloat32Array(0, 0.19, 0.386667, 0.6, 0.823333, 1)
+colors = PackedColorArray(1, 0.5, 0.5, 1, 1, 0.991667, 0.5, 1, 0.508333, 1, 0.5, 1, 0.5, 1, 1, 1, 0.516667, 0.5, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v4xfj"]
+gradient = SubResource("Gradient_nqde5")
+
+[sub_resource type="Gradient" id="Gradient_tc4cw"]
+offsets = PackedFloat32Array(0, 0.223333, 0.756667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nqde5"]
+gradient = SubResource("Gradient_tc4cw")
+
+[sub_resource type="Curve" id="Curve_tc4cw"]
+_data = [Vector2(0, 0.221501), 0.0, 0.0, 0, 0, Vector2(0.759887, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.499759), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nqde5"]
+curve = SubResource("Curve_tc4cw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nqde5"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, -90, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_nqde5")
+color_ramp = SubResource("GradientTexture1D_nqde5")
+color_initial_ramp = SubResource("GradientTexture1D_v4xfj")
+anim_offset_max = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_tc4cw")
+emitting = false
+amount = 7
+texture = ExtResource("1_tc4cw")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource("ParticleProcessMaterial_nqde5")
+script = ExtResource("2_nqde5")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

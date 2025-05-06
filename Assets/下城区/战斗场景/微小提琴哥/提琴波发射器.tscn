@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://deaqqnymncu8x"]
+
+[ext_resource type="Script" uid="uid://ch7ciqfcb8407" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.gd" id="1_endyl"]
+
+[node name="提琴波发射器" type="Node2D"]
+script = ExtResource("1_endyl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Free!" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Free!" to="." method="_on_free_timeout"]

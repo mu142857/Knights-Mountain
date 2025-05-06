@@ -231,4 +231,4 @@ rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_l5wfe")
 
 [node name="微小提琴哥" parent="." instance=ExtResource("6_mupr2")]
-position = Vector2(702, 839)
+position = Vector2(699, 837)

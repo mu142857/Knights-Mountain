@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwu7lxk0gopbl"]
+
+[ext_resource type="Texture2D" uid="uid://bo507e3rjje3u" path="res://Assets/下城区/战斗场景/微小提琴哥/音符序列.png" id="1_yulvf"]
+[ext_resource type="Script" uid="uid://cvvmlnupvw0di" path="res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.gd" id="2_eb0hj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tc4cw"]
+particles_animation = true
+particles_anim_h_frames = 14
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_q5bnk"]
+offsets = PackedFloat32Array(0, 0.19, 0.386667, 0.6, 0.823333, 1)
+colors = PackedColorArray(1, 0.5, 0.5, 1, 1, 0.991667, 0.5, 1, 0.508333, 1, 0.5, 1, 0.5, 1, 1, 1, 0.516667, 0.5, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x8nms"]
+gradient = SubResource("Gradient_q5bnk")
+
+[sub_resource type="Gradient" id="Gradient_i3vw1"]
+offsets = PackedFloat32Array(0, 0.226667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h21pj"]
+gradient = SubResource("Gradient_i3vw1")
+
+[sub_resource type="Curve" id="Curve_4atnd"]
+_data = [Vector2(0, 0.208995), 0.0, 0.0, 0, 0, Vector2(0.765537, 0.92809), 0.0, 0.0, 0, 0, Vector2(1, 0.24026), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xkhw1"]
+curve = SubResource("Curve_4atnd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pqnps"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -80, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_xkhw1")
+color_ramp = SubResource("GradientTexture1D_h21pj")
+color_initial_ramp = SubResource("GradientTexture1D_x8nms")
+anim_offset_max = 1.0
+
+[node name="小型音符粒子" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_tc4cw")
+emitting = false
+amount = 1
+texture = ExtResource("1_yulvf")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pqnps")
+script = ExtResource("2_eb0hj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
