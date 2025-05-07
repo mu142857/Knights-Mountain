@@ -30,7 +30,7 @@ func process():
 		
 	if ready_to_sprint:
 		sprint()
-		$SprintTime.start(0.6)
+		$SprintTime.start(0.5)
 		ready_to_sprint = false
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -61,7 +61,7 @@ func sprint():
 	# 在 1 秒内，将 position 从当前值插值到 target_pos
 	tween.set_trans(Tween.TRANS_QUART)  # 四次缓动曲线
 	tween.set_ease(Tween.EASE_IN)       # 加速
-	tween.tween_property(monster, "position", target_pos, 0.6) 
+	tween.tween_property(monster, "position", target_pos, 0.5) 
 
 func _on_sprint_time_timeout() -> void:
 	ani_player.play("SmallAttack3")
@@ -71,7 +71,7 @@ func release_effect():
 	expl.position = monster.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)
-	Game.shake_camera(17)
+	Game.shake_camera(10)
 	var note = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn").instantiate()
 	note.position = monster.global_position
 	note.emitting = true
@@ -79,3 +79,4 @@ func release_effect():
 	
 func exit():
 	ani_player.stop()
+	$SprintTime.stop()

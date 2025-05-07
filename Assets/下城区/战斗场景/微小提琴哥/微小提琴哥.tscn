@@ -383,6 +383,22 @@ region = Rect2(3000, 3000, 1000, 1000)
 atlas = ExtResource("1_ks76l")
 region = Rect2(4000, 3000, 1000, 1000)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0bao"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geyf1"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utlrn"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjatb"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(3000, 0, 1000, 1000)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_64lny"]
 atlas = ExtResource("1_ks76l")
 region = Rect2(0, 4000, 1000, 1000)
@@ -410,22 +426,6 @@ region = Rect2(6000, 0, 1000, 1000)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqmem"]
 atlas = ExtResource("1_ks76l")
 region = Rect2(7000, 0, 1000, 1000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0bao"]
-atlas = ExtResource("1_ks76l")
-region = Rect2(0, 0, 1000, 1000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_geyf1"]
-atlas = ExtResource("1_ks76l")
-region = Rect2(1000, 0, 1000, 1000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utlrn"]
-atlas = ExtResource("1_ks76l")
-region = Rect2(2000, 0, 1000, 1000)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjatb"]
-atlas = ExtResource("1_ks76l")
-region = Rect2(3000, 0, 1000, 1000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ceal3"]
 atlas = ExtResource("1_ks76l")
@@ -758,6 +758,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o80u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0bao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geyf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utlrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjatb")
 }],
 "loop": false,
 "name": &"SmallAttack2",
@@ -897,6 +909,20 @@ tracks/0/keys = {
 "method": &"play"
 }]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine/SmallAttack2(2)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_barrage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1x1x6"]
 resource_name = "SmallAttack3"
@@ -993,9 +1019,8 @@ script = ExtResource("1_ddrpw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_53c8f")
 sprite_frames = SubResource("SpriteFrames_giguh")
-animation = &"SmallJumpPrepared"
+animation = &"Gigantic"
 autoplay = "SmallIdle"
-frame_progress = 1.0
 offset = Vector2(13, -291)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1041,6 +1066,9 @@ script = ExtResource("9_r8ra6")
 [node name="TransitionTimer" type="Timer" parent="StateMachine/SmallDisappear(4)"]
 one_shot = true
 
+[node name="SecondSprintTimer" type="Timer" parent="StateMachine/SmallDisappear(4)"]
+one_shot = true
+
 [node name="SmallAppear(5)" type="Node" parent="StateMachine"]
 script = ExtResource("10_32yps")
 
@@ -1052,6 +1080,9 @@ script = ExtResource("12_6orsr")
 
 [node name="BigIdle(8)" type="Node" parent="StateMachine"]
 script = ExtResource("13_yrq2f")
+
+[node name="Timer" type="Timer" parent="StateMachine/BigIdle(8)"]
+one_shot = true
 
 [node name="BigRun(9)" type="Node" parent="StateMachine"]
 script = ExtResource("14_0cdvj")
@@ -1106,6 +1137,9 @@ point_count = 1000
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAttack3(3)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallDisappear(4)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAppear(5)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Grow(7)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/SmallIdle(0)/Timer" to="StateMachine/SmallIdle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/SmallAttack3(3)/SprintTime" to="StateMachine/SmallAttack3(3)" method="_on_sprint_time_timeout"]
 [connection signal="timeout" from="StateMachine/SmallDisappear(4)/TransitionTimer" to="StateMachine/SmallDisappear(4)" method="_on_transition_timer_timeout"]
+[connection signal="timeout" from="StateMachine/SmallDisappear(4)/SecondSprintTimer" to="StateMachine/SmallDisappear(4)" method="_on_second_sprint_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BigIdle(8)/Timer" to="StateMachine/BigIdle(8)" method="_on_timer_timeout"]

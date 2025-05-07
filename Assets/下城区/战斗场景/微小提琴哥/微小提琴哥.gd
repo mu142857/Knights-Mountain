@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var scene_startx: float = 0.0
 var scene_endx: float = 1400.0
-var health = 1000
+var health = 3600
 var direct = 1 # 1 = 面向右边， -1 = 面向左边
 var last_attack: int = 0
 
@@ -14,13 +14,15 @@ var real_scale: float = 1.0
 func _ready() -> void:
 	#add_to_group("tatterer")
 	add_to_group("monster")
+	small_or_big = "small"
 	$StateMachine.change_state(0)
 
 func take_hit(value: int):
-	if health <= 0:
+	if $AnimatedSprite2D.animation == "Gigantic":
+		return
+	elif health <= 2200:
 		$HitEffectPlayer.play("HitFlash")
-		$StateMachine.change_state(4)
-
+		$StateMachine.change_state(7)
 	else:
 		health -= value
 		$HitEffectPlayer.play("HitFlash")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6ff20khf0qrt" path="res://Assets/幻乡/战斗场景/场景元素/森林阔叶木.png" id="1_6860o"]
 [ext_resource type="Texture2D" uid="uid://c8by3lncgb21u" path="res://Assets/幻乡/战斗场景/场景元素/ForestBackground.png" id="1_ev6x0"]
 [ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="1_ey1qf"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗管理器/哥布林遭遇战.gd" id="1_hbqgv"]
+[ext_resource type="Script" uid="uid://bx8qqcmotjj5d" path="res://Assets/幻乡/战斗管理器/哥布林遭遇战.gd" id="1_hbqgv"]
 [ext_resource type="Texture2D" uid="uid://d0kvuyv1a4dmr" path="res://Assets/幻乡/战斗场景/场景元素/碑3.png" id="2_ffcwh"]
 [ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="2_vx5bm"]
 [ext_resource type="Shader" uid="uid://cqtkbi1ocysrj" path="res://Assets/主游戏/树木摇晃.tres" id="3_bt752"]
@@ -364,10 +364,10 @@ position = Vector2(-110.099, 128.713)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_it1id")
 texture = ExtResource("3_ndy3g")
 lifetime = 10.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_it1id")
 
 [node name="大树落叶2" type="GPUParticles2D" parent="树木/森林阔叶木"]
 material = SubResource("CanvasItemMaterial_y8is7")
@@ -375,10 +375,10 @@ position = Vector2(14.6534, 153.267)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_it1id")
 texture = ExtResource("3_ndy3g")
 lifetime = 10.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_it1id")
 
 [node name="森林针叶树木1" type="Sprite2D" parent="树木"]
 modulate = Color(0.509804, 0.509804, 0.509804, 1)
@@ -395,10 +395,10 @@ position = Vector2(-93.4653, -28.5545)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_rtljr")
 texture = ExtResource("5_3wbjt")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_rtljr")
 
 [node name="森林针叶树木3" type="Sprite2D" parent="树木"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
@@ -415,10 +415,10 @@ position = Vector2(-106.931, -22.2178)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_rtljr")
 texture = ExtResource("5_3wbjt")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_rtljr")
 
 [node name="果实灌木" type="Sprite2D" parent="树木"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
@@ -462,10 +462,10 @@ position = Vector2(-113.267, -38.0198)
 rotation = 0.00817382
 scale = Vector2(0.3125, 0.3125)
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_rtljr")
 texture = ExtResource("5_3wbjt")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_rtljr")
 
 [node name="背景装饰物" type="Node2D" parent="."]
 modulate = Color(0.27451, 0.27451, 0.27451, 1)
@@ -652,4 +652,4 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_bcmaq")
 
 [node name="出怪点1" type="Node2D" parent="."]
-position = Vector2(734, 21)
+position = Vector2(734, 727)

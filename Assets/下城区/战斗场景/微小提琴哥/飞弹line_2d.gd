@@ -8,6 +8,9 @@ func _ready() -> void:
 	clear_points()
 
 func _physics_process(delta: float) -> void:
+	
+	self.modulate = $"../..".modulate
+	
 	if is_spawn:
 		if get_point_count() > point_count:
 			remove_point(0)
@@ -19,4 +22,4 @@ func _physics_process(delta: float) -> void:
 func draw_point():
 	if $"../../AnimatedSprite2D".animation == "Stop":
 		self.modulate.a -= 0.09
-	add_point($"../../AnimatedSprite2D".global_position + Vector2(0, -80))
+	add_point($"../../AnimatedSprite2D".global_position + Vector2(0, 5))

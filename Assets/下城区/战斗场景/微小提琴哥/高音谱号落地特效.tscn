@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bj7ax2pq5igug"]
+
+[ext_resource type="Texture2D" uid="uid://clpkjaxnqhi74" path="res://Assets/下城区/战斗场景/微小提琴哥/高音谱号.png" id="1_asuxk"]
+[ext_resource type="Script" uid="uid://vr6seun0v1wi" path="res://Assets/下城区/战斗场景/微小提琴哥/高音谱号落地特效.gd" id="2_5ljyy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_asuxk"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_asuxk"]
+offsets = PackedFloat32Array(0, 0.283333, 0.543333, 0.813333)
+colors = PackedColorArray(1, 0.64, 0.64, 1, 0.664, 1, 0.64, 1, 0.64, 0.724, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ljyy"]
+gradient = SubResource("Gradient_asuxk")
+
+[sub_resource type="Gradient" id="Gradient_g1qup"]
+offsets = PackedFloat32Array(0, 0.523333, 1)
+colors = PackedColorArray(1, 1, 1, 0.588235, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qgdug"]
+gradient = SubResource("Gradient_g1qup")
+
+[sub_resource type="Curve" id="Curve_163c1"]
+_data = [Vector2(1e-05, 0.152718), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fn1lw"]
+curve = SubResource("Curve_163c1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5s8r2"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+gravity = Vector3(0, -800, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_fn1lw")
+color_ramp = SubResource("GradientTexture1D_qgdug")
+color_initial_ramp = SubResource("GradientTexture1D_5ljyy")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_asuxk")
+emitting = false
+amount = 1
+texture = ExtResource("1_asuxk")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5s8r2")
+script = ExtResource("2_5ljyy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

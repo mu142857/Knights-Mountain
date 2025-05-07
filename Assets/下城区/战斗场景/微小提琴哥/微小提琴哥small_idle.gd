@@ -7,7 +7,7 @@ extends Basic_State
 
 func enter():
 	ani_2D.play("SmallIdle")
-	var duration = randf_range(0.0, 0.1)
+	var duration = randf_range(0.3, 0.5)
 	$Timer.start(duration)
 	
 func process():

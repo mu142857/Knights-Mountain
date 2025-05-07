@@ -33,3 +33,20 @@ func get_player_info() -> Array:
 				distance = abs(i.global_position.x - monster.global_position.x)
 				position = i.global_position
 	return [distance, direction, position] # direction中，-1表示(在主角)左边，1表示右边，0表示未知
+
+func release_barrage(): # 召唤飞弹(deifan)弹幕
+	var deifan1 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
+	var deifan2 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
+	var deifan3 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
+	deifan1.position = monster.global_position + Vector2(0, -60)
+	deifan2.position = monster.global_position + Vector2(0, -60)
+	deifan3.position = monster.global_position + Vector2(0, -60)
+	deifan1.modulate = Color(1, 0.6, 0.6)
+	deifan2.modulate = Color(0.6, 1, 0.6)
+	deifan3.modulate = Color(0.6, 0.6, 1)
+	deifan1.barrage_position = 1
+	deifan2.barrage_position = 2
+	deifan3.barrage_position = 3
+	get_tree().current_scene.add_child(deifan1)
+	get_tree().current_scene.add_child(deifan2)
+	get_tree().current_scene.add_child(deifan3)
