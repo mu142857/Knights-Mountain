@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://blhf6nusrpkdx"]
+[gd_scene load_steps=143 format=3 uid="uid://blhf6nusrpkdx"]
 
 [ext_resource type="Script" uid="uid://b6vc7s2hq5keo" path="res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.gd" id="1_ddrpw"]
 [ext_resource type="Texture2D" uid="uid://l3utek4uumug" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥-Sheet.png" id="1_ks76l"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" uid="uid://cfugqee6vsxjp" path="res://Assets/下城区/战斗场景/微小提琴哥/巨大提琴哥big_musical_notation_attack.gd" id="19_yusjf"]
 [ext_resource type="Script" uid="uid://sfwtxpkxva8n" path="res://Assets/下城区/战斗场景/微小提琴哥/巨大提琴哥death.gd" id="20_y4mik"]
 [ext_resource type="Script" uid="uid://l23utifum4ov" path="res://Assets/下城区/战斗场景/微小提琴哥/line_2d.gd" id="21_66th1"]
+[ext_resource type="PackedScene" uid="uid://d1lqq0nw4bxap" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥激光.tscn" id="22_esith"]
+[ext_resource type="PackedScene" uid="uid://wvrubp2o2nmu" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥激光瞄准线.tscn" id="23_r8ra6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53c8f"]
 shader = ExtResource("2_smw6u")
@@ -530,9 +532,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tb7ty")
 }],
-"loop": true,
+"loop": false,
 "name": &"BigAttack3",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -955,8 +957,82 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_32yps"]
+resource_name = "BigAttack1"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"BigAttack1", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine/BigAttack1(10)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.375, 0.825, 1.525),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aim"
+}, {
+"args": [],
+"method": &"release_barrage"
+}, {
+"args": [],
+"method": &"preattack"
+}, {
+"args": [],
+"method": &"attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_esith"]
+resource_name = "BigAttack3"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"BigAttack3", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine/BigAttack3(12)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_feidan"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esith"]
 _data = {
+&"BigAttack1": SubResource("Animation_32yps"),
+&"BigAttack3": SubResource("Animation_esith"),
 &"SmallAttack1": SubResource("Animation_ylqil"),
 &"SmallAttack2": SubResource("Animation_66th1"),
 &"SmallAttack3": SubResource("Animation_1x1x6")
@@ -1019,8 +1095,9 @@ script = ExtResource("1_ddrpw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_53c8f")
 sprite_frames = SubResource("SpriteFrames_giguh")
-animation = &"Gigantic"
+animation = &"BigRun"
 autoplay = "SmallIdle"
+frame_progress = 0.457642
 offset = Vector2(13, -291)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1117,6 +1194,12 @@ position = Vector2(96, -10)
 shape = SubResource("RectangleShape2D_66th1")
 debug_color = Color(0.745761, 0.438631, 0.404925, 0.42)
 
+[node name="激光发射点" type="Node2D" parent="AttackCheck"]
+position = Vector2(4, -96)
+
+[node name="弹幕发射点" type="Node2D" parent="AttackCheck"]
+position = Vector2(-3, -86)
+
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
@@ -1132,12 +1215,20 @@ gradient = SubResource("Gradient_66th1")
 script = ExtResource("21_66th1")
 point_count = 1000
 
+[node name="提琴哥激光" parent="." instance=ExtResource("22_esith")]
+position = Vector2(4, -96)
+
+[node name="提琴哥激光瞄准线" parent="." instance=ExtResource("23_r8ra6")]
+position = Vector2(4, -96)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAttack1(1)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAttack2(2)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAttack3(3)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallDisappear(4)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAppear(5)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Grow(7)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/BigAttack1(10)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/BigAttack3(12)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/SmallIdle(0)/Timer" to="StateMachine/SmallIdle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/SmallAttack3(3)/SprintTime" to="StateMachine/SmallAttack3(3)" method="_on_sprint_time_timeout"]
 [connection signal="timeout" from="StateMachine/SmallDisappear(4)/TransitionTimer" to="StateMachine/SmallDisappear(4)" method="_on_transition_timer_timeout"]

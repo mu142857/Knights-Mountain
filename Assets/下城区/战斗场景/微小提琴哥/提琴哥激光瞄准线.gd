@@ -12,7 +12,7 @@ var _is_casting: bool = false
 		_is_casting = value
 		# 触发效果
 		if _is_casting:
-			$Appear.start(0.005)
+			$Appear.start(0.01)
 		else:
 			disappear()
 		# 根据状态开启/关闭物理帧处理
@@ -29,6 +29,9 @@ func cast_beem():
 	$Timer.start(1.5)
 
 func _physics_process(delta: float) -> void:
+	
+	self.global_position = $"../AttackCheck/激光发射点".global_position
+	
 	var cast_point := target_position
 	force_raycast_update()
 	
@@ -49,6 +52,7 @@ func disappear():
 
 func _on_timer_timeout() -> void:
 	is_casting = false
+
 
 func _on_appear_timeout() -> void:
 	appear()

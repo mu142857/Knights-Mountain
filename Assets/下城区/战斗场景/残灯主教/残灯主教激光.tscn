@@ -112,4 +112,8 @@ process_material = SubResource("ParticleProcessMaterial_6k2fu")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Appear" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Appear" to="." method="_on_appear_timeout"]

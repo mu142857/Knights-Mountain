@@ -15,6 +15,15 @@ var position_change: float = 0
 func _ready() -> void:
 	$AnimatedSprite2D.play("Ready")
 	cauculate_barrage_position()
+	
+	if barrage_position <= 7:
+		flight_time = 1
+		the_gravity = 3000
+		$Summon.start(0.3)
+	elif  barrage_position <= 14:
+		flight_time = 1.2
+		the_gravity = 3500
+		$Summon.start(0.6)
 
 func _physics_process(delta: float) -> void:
 	
@@ -23,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	
 	self.z_index = 1 # 全镰刀通用部分
 	if self.global_position.y >= 810 and $AnimatedSprite2D.animation != "Stop":
+		
 		Game.flash(0.2, Color(3.0, 0.6, 0.58))
 		self.global_position.y = 845
 		self.rotation_degrees = 0
@@ -43,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	# 重力作用，更新垂直速度（注意：Godot中y轴向下为正）
 	velocity.y += the_gravity * delta
 	# 更新子弹位置
-	global_position += velocity * delta
+	self.global_position += velocity * delta
 	# 子弹旋转
 	update_rotation()
 
@@ -64,8 +74,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		# 使用和之前相同的方式检测玩家
 		find_player()
 
-		if player:
+		if player and barrage_position <= 7:
 			target_pos = player.global_position + Vector2(position_change, 0)
+		elif player and barrage_position <= 14:
+			target_pos = Vector2(700, player.global_position.y) + Vector2(position_change, 0)
+			pass
 		else:
 			target_pos = self.global_position  # 如果没有检测到玩家，就默认目标位置为自身（避免错误）
 	
@@ -95,7 +108,28 @@ func cauculate_barrage_position():
 			position_change = 0
 		3:
 			position_change = 200
-
+		4:
+			position_change = -450
+		5:
+			position_change = -150
+		6:
+			position_change = 150
+		7:
+			position_change = 450
+		8:
+			position_change = -600
+		9:
+			position_change = -400
+		10:
+			position_change = -200
+		11:
+			position_change = 0
+		12:
+			position_change = 200
+		13:
+			position_change = 400
+		14:
+			position_change = 600
 
 func _on_summon_timeout() -> void:
 	var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn").instantiate()

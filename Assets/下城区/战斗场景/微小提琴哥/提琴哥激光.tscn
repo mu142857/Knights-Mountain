@@ -1,0 +1,163 @@
+[gd_scene load_steps=27 format=3 uid="uid://d1lqq0nw4bxap"]
+
+[ext_resource type="Script" uid="uid://bo2cchb843eqb" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥激光.gd" id="1_8q533"]
+[ext_resource type="Texture2D" uid="uid://bo507e3rjje3u" path="res://Assets/下城区/战斗场景/微小提琴哥/音符序列.png" id="2_8q533"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71fu8"]
+particles_animation = true
+particles_anim_h_frames = 14
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_5lawx"]
+offsets = PackedFloat32Array(0, 0.12, 0.506667, 0.89, 1)
+colors = PackedColorArray(0.5, 1, 0.591667, 1, 0.5, 0.516667, 1, 1, 0.9, 0.75, 1, 1, 1, 0.5, 0.5, 1, 1, 0.858333, 0.5, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0wje5"]
+gradient = SubResource("Gradient_5lawx")
+
+[sub_resource type="Gradient" id="Gradient_8q533"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_71fu8"]
+gradient = SubResource("Gradient_8q533")
+
+[sub_resource type="Curve" id="Curve_jj748"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.489164, 1), 0.0, 0.0, 0, 0, Vector2(0.987616, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5lawx"]
+curve = SubResource("Curve_jj748")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0wje5"]
+particle_flag_disable_z = true
+initial_velocity_min = 110.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5lawx")
+color_ramp = SubResource("GradientTexture1D_71fu8")
+color_initial_ramp = SubResource("GradientTexture1D_0wje5")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8q533"]
+particles_animation = true
+particles_anim_h_frames = 14
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_jj748"]
+offsets = PackedFloat32Array(0, 0.196667, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.5, 0.5, 1, 0.5, 0.558333, 1, 1, 0.5, 1, 0.966667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5lawx"]
+gradient = SubResource("Gradient_jj748")
+
+[sub_resource type="Gradient" id="Gradient_xnoed"]
+offsets = PackedFloat32Array(0.00666667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ak6h8"]
+gradient = SubResource("Gradient_xnoed")
+
+[sub_resource type="Curve" id="Curve_8onfw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.489164, 1), 0.0, 0.0, 0, 0, Vector2(0.987616, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4cmf6"]
+curve = SubResource("Curve_8onfw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qea40"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 60.0
+initial_velocity_min = -300.0
+initial_velocity_max = -240.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4cmf6")
+color_ramp = SubResource("GradientTexture1D_ak6h8")
+color_initial_ramp = SubResource("GradientTexture1D_5lawx")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xnoed"]
+particles_animation = true
+particles_anim_h_frames = 14
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_0ub2d"]
+offsets = PackedFloat32Array(0, 0.333333, 0.646667, 1)
+colors = PackedColorArray(1, 0.5, 0.5, 1, 0.5, 1, 0.541667, 1, 0.5, 0.683333, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6kf2g"]
+gradient = SubResource("Gradient_0ub2d")
+
+[sub_resource type="Gradient" id="Gradient_rgjee"]
+offsets = PackedFloat32Array(0, 0.090566, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ysrj0"]
+gradient = SubResource("Gradient_rgjee")
+
+[sub_resource type="Curve" id="Curve_w3ufw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50774, 0.924538), -0.715884, -0.715884, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ybefp"]
+curve = SubResource("Curve_w3ufw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgp7f"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+scale_curve = SubResource("CurveTexture_ybefp")
+color_ramp = SubResource("GradientTexture1D_ysrj0")
+color_initial_ramp = SubResource("GradientTexture1D_6kf2g")
+anim_offset_max = 1.0
+
+[node name="提琴哥激光" type="RayCast2D"]
+target_position = Vector2(2000, 0)
+collision_mask = 5
+script = ExtResource("1_8q533")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 100, 0)
+width = 2.0
+default_color = Color(1, 0.54, 0.624333, 0.784314)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_71fu8")
+emitting = false
+texture = ExtResource("2_8q533")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_0wje5")
+
+[node name="LongGPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_8q533")
+emitting = false
+texture = ExtResource("2_8q533")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_qea40")
+
+[node name="BeamGPUParticles2D2" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_xnoed")
+emitting = false
+amount = 40
+texture = ExtResource("2_8q533")
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_dgp7f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="Appear" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Appear" to="." method="_on_appear_timeout"]

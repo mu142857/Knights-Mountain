@@ -15,7 +15,7 @@ var _is_casting: bool = false
 		$GPUParticles2D.emitting = is_casting # 粒子效果
 		$BeamGPUParticles2D2.emitting = is_casting # 粒子效果
 		if _is_casting:
-			appear()
+			$Appear.start(0.005)
 		else:
 			$LongGPUParticles2D.emitting = false
 			disappear()
@@ -59,3 +59,7 @@ func disappear():
 
 func _on_timer_timeout() -> void:
 	is_casting = false
+
+
+func _on_appear_timeout() -> void:
+	appear()

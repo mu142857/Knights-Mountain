@@ -10,7 +10,7 @@ func enter():
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if ani_2D.animation == "Gigantic":
-		monster.scale = Vector2(1, 1)
+		monster.scale = Vector2(3, 3)
 		monster.small_or_big = "big"
 		get_parent().change_state(8)
 
