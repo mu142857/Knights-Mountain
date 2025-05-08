@@ -50,4 +50,5 @@ func release_wave():
 	var wave = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.tscn").instantiate()
 	wave.direct = monster.direct
 	wave.position = $"../../AttackCheck/SmallAttack1".global_position
+	wave.small_or_big = "small"
 	get_tree().current_scene.add_child(wave)

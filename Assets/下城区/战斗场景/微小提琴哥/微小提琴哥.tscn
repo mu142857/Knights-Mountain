@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://blhf6nusrpkdx"]
+[gd_scene load_steps=148 format=3 uid="uid://blhf6nusrpkdx"]
 
 [ext_resource type="Script" uid="uid://b6vc7s2hq5keo" path="res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.gd" id="1_ddrpw"]
 [ext_resource type="Texture2D" uid="uid://l3utek4uumug" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥-Sheet.png" id="1_ks76l"]
@@ -29,13 +29,29 @@ shader = ExtResource("2_smw6u")
 shader_parameter/Enabled = false
 shader_parameter/Tint = Color(1, 0.448398, 0.416249, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_366ds"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ntsx"]
 atlas = ExtResource("1_ks76l")
-region = Rect2(1000, 12000, 1000, 1000)
+region = Rect2(5000, 10000, 1000, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpf84"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_375yr"]
 atlas = ExtResource("1_ks76l")
-region = Rect2(2000, 12000, 1000, 1000)
+region = Rect2(4000, 10000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3qd"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(3000, 10000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxy6g"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(2000, 10000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8avm"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(1000, 10000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w5s0"]
+atlas = ExtResource("1_ks76l")
+region = Rect2(0, 10000, 1000, 1000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ks76l"]
 atlas = ExtResource("1_ks76l")
@@ -445,10 +461,22 @@ region = Rect2(7000, 3000, 1000, 1000)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_366ds")
+"texture": SubResource("AtlasTexture_6ntsx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mpf84")
+"texture": SubResource("AtlasTexture_375yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st3qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxy6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8avm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w5s0")
 }],
 "loop": false,
 "name": &"BigAppear",
@@ -611,7 +639,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"BigRun",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1029,10 +1057,42 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_r8ra6"]
+resource_name = "BigExplode"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"BigExplode", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine/BigAttackExplodeAttack(13)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esith"]
 _data = {
 &"BigAttack1": SubResource("Animation_32yps"),
 &"BigAttack3": SubResource("Animation_esith"),
+&"BigExplode": SubResource("Animation_r8ra6"),
 &"SmallAttack1": SubResource("Animation_ylqil"),
 &"SmallAttack2": SubResource("Animation_66th1"),
 &"SmallAttack3": SubResource("Animation_1x1x6")
@@ -1095,9 +1155,10 @@ script = ExtResource("1_ddrpw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_53c8f")
 sprite_frames = SubResource("SpriteFrames_giguh")
-animation = &"BigRun"
+animation = &"BigExplode"
 autoplay = "SmallIdle"
-frame_progress = 0.457642
+frame = 6
+frame_progress = 1.0
 offset = Vector2(13, -291)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1164,6 +1225,9 @@ one_shot = true
 [node name="BigRun(9)" type="Node" parent="StateMachine"]
 script = ExtResource("14_0cdvj")
 
+[node name="Timer" type="Timer" parent="StateMachine/BigRun(9)"]
+one_shot = true
+
 [node name="BigAttack1(10)" type="Node" parent="StateMachine"]
 script = ExtResource("15_10pkr")
 
@@ -1229,8 +1293,10 @@ position = Vector2(4, -96)
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Grow(7)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/BigAttack1(10)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/BigAttack3(12)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/BigAttackExplodeAttack(13)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/SmallIdle(0)/Timer" to="StateMachine/SmallIdle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/SmallAttack3(3)/SprintTime" to="StateMachine/SmallAttack3(3)" method="_on_sprint_time_timeout"]
 [connection signal="timeout" from="StateMachine/SmallDisappear(4)/TransitionTimer" to="StateMachine/SmallDisappear(4)" method="_on_transition_timer_timeout"]
 [connection signal="timeout" from="StateMachine/SmallDisappear(4)/SecondSprintTimer" to="StateMachine/SmallDisappear(4)" method="_on_second_sprint_timer_timeout"]
 [connection signal="timeout" from="StateMachine/BigIdle(8)/Timer" to="StateMachine/BigIdle(8)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BigRun(9)/Timer" to="StateMachine/BigRun(9)" method="_on_timer_timeout"]

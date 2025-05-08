@@ -6,7 +6,7 @@ extends Basic_State
 
 func enter():
 	ani_2D.play("BigIdle")
-	var duration = randf_range(0.6, 0.8)
+	var duration = randf_range(0.3, 0.4)
 	$Timer.start(duration)
 	
 func process():
@@ -14,7 +14,7 @@ func process():
 	
 func _on_timer_timeout() -> void:
 	# 9 - 13 五个技能
-	var attacks = [10, 12]
+	var attacks = [9, 10, 12, 13]
 	# 把上次的攻击从列表中移除
 	attacks.erase(monster.last_attack)
 	# 从剩下的攻击里随机选一个

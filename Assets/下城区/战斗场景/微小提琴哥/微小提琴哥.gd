@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var scene_startx: float = 0.0
 var scene_endx: float = 1400.0
-var health = 2205 #3600
+var health = 2500
 var direct = 1 # 1 = 面向右边， -1 = 面向左边
 var last_attack: int = 0
 
@@ -20,10 +20,13 @@ func _ready() -> void:
 func take_hit(value: int):
 	if $AnimatedSprite2D.animation == "Gigantic":
 		return
-	elif health <= 2200 and small_or_big == "small":
+	elif health <= 1300 and small_or_big == "small":
 		$HitEffectPlayer.play("HitFlash")
 		$StateMachine.change_state(7)
 		small_or_big = "big"
+	elif health <= 0:
+		$StateMachine.change_state(15)
+		$HitEffectPlayer.play("HitFlash")
 	else:
 		health -= value
 		$HitEffectPlayer.play("HitFlash")

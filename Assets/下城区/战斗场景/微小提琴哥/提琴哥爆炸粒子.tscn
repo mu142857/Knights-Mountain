@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0isqxgdqm2jm"]
+
+[ext_resource type="Script" uid="uid://cdnhcud1jgfj7" path="res://Assets/下城区/战斗场景/邪帽/爆炸.gd" id="1_8olpy"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.45)
+
+[sub_resource type="Gradient" id="Gradient_8olpy"]
+colors = PackedColorArray(1, 1, 1, 1, 0.462745, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1vsia"]
+gradient = SubResource("Gradient_8olpy")
+
+[sub_resource type="Gradient" id="Gradient_aqv03"]
+offsets = PackedFloat32Array(0.00536193, 1)
+colors = PackedColorArray(1, 1, 1, 0.784314, 0.932051, 0.0466823, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jruh8"]
+gradient = SubResource("Gradient_aqv03")
+
+[sub_resource type="Curve" id="Curve_i3ud6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0u1p3"]
+curve = SubResource("Curve_i3ud6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vkwka"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(70, 30, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 800.0
+initial_velocity_max = 1800.0
+gravity = Vector3(0, 2000, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_0u1p3")
+color_ramp = SubResource("GradientTexture1D_jruh8")
+color_initial_ramp = SubResource("GradientTexture1D_1vsia")
+
+[node name="提琴哥爆炸粒子" type="GPUParticles2D"]
+emitting = false
+amount = 70
+texture = SubResource("GradientTexture2D_2i6xf")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vkwka")
+script = ExtResource("1_8olpy")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

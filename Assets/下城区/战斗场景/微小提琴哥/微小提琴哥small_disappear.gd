@@ -8,6 +8,7 @@ extends Basic_State
 var left_or_right: int = 0
 
 func enter():
+	backline.show()
 	ani_2D.play("SmallDisappear")
 	backline.is_spawn = false
 	backline.modulate.a = 1
