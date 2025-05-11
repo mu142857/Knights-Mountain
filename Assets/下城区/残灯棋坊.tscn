@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bcksymasenrto" path="res://Assets/下城区/战斗场景/背景/残灯棋坊氛围滤镜.png" id="2_tvk7l"]
 [ext_resource type="Script" uid="uid://balbecoy3vpck" path="res://Assets/下城区/战斗场景/背景/场景蜡烛.gd" id="3_joubb"]
 [ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="4_84o1m"]
-[ext_resource type="PackedScene" uid="uid://blhf6nusrpkdx" path="res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.tscn" id="6_mupr2"]
+[ext_resource type="PackedScene" uid="uid://dc0urifofxfca" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.tscn" id="6_mupr2"]
 
 [sub_resource type="Gradient" id="Gradient_j0y13"]
 offsets = PackedFloat32Array(0, 0.229358, 1)
@@ -105,7 +105,7 @@ offset_left = -16.0
 offset_top = -27.0
 offset_right = 1422.0
 offset_bottom = 804.0
-color = Color(0.07, 0.07, 0.07, 0.694118)
+color = Color(0.07, 0.07, 0.07, 0.392157)
 
 [node name="烛光" type="Node2D" parent="."]
 
@@ -230,5 +230,5 @@ position = Vector2(700, -200)
 rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_l5wfe")
 
-[node name="微小提琴哥" parent="." instance=ExtResource("6_mupr2")]
-position = Vector2(699, 837)
+[node name="残灯棋王" parent="." instance=ExtResource("6_mupr2")]
+position = Vector2(684, 835)

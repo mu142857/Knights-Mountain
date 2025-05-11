@@ -1155,10 +1155,8 @@ script = ExtResource("1_ddrpw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_53c8f")
 sprite_frames = SubResource("SpriteFrames_giguh")
-animation = &"BigExplode"
+animation = &"SmallIdle"
 autoplay = "SmallIdle"
-frame = 6
-frame_progress = 1.0
 offset = Vector2(13, -291)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

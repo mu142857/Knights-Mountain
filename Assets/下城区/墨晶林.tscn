@@ -173,12 +173,12 @@ sources/0 = SubResource("TileSetAtlasSource_m7dad")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01syd"]
 load_path = "res://.godot/imported/black.jpg-1324969777668121050c88ba2be916c7.ctex"
 
-[sub_resource type="Gradient" id="Gradient_5k8yj"]
+[sub_resource type="Gradient" id="Gradient_e87hd"]
 offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8w54d"]
-gradient = SubResource("Gradient_5k8yj")
+gradient = SubResource("Gradient_e87hd")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
