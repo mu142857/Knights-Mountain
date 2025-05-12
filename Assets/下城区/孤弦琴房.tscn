@@ -279,3 +279,4 @@ color = Color(0, 0, 0, 1)
 
 [node name="微小提琴哥" parent="." instance=ExtResource("2_4lcnd")]
 position = Vector2(704, 851)
+up_direction = Vector2(0.707107, -0.707107)

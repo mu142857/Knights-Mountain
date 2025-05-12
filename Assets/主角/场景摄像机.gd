@@ -18,14 +18,14 @@ func _ready() -> void:
 			rect_colour = colour
 	)
 
-func _process(delta: float) ->  void:
-	
+func _process(delta: float) -> void:
+
 	offset = Vector2( # 震动
 		randf_range(-shake_strength, +shake_strength),
 		randf_range(-shake_strength, +shake_strength)
 	)
 	shake_strength = move_toward(shake_strength, 0, recovery_speed * delta)
 	
-	colour_rect.modulate = rect_colour
-	colour_rect.modulate.a = randf_range(blink_strength / 2, blink_strength) # 闪烁
+	colour_rect.self_modulate = rect_colour
+	colour_rect.modulate.a = randf_range(blink_strength / 1.1, blink_strength) # 闪烁
 	blink_strength = move_toward(blink_strength, 0, recovery_speed * delta)

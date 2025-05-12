@@ -1,7 +1,8 @@
-[gd_scene load_steps=63 format=3 uid="uid://bchmoxr8a01g4"]
+[gd_scene load_steps=68 format=3 uid="uid://bchmoxr8a01g4"]
 
 [ext_resource type="Texture2D" uid="uid://b5207a27xy6my" path="res://Assets/主角/主角.png" id="1_3nhp2"]
 [ext_resource type="Script" uid="uid://dhldqprmqtide" path="res://Assets/主角/战斗主角.gd" id="1_xeuqt"]
+[ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_s8a1f"]
 [ext_resource type="Script" uid="uid://i3rdevrrpqbt" path="res://Assets/主游戏/状态机.gd" id="2_w70qe"]
 [ext_resource type="Script" uid="uid://c7m3newsaioy4" path="res://Assets/主角/战斗主角状态机/主角Idle.gd" id="3_04pd2"]
 [ext_resource type="Texture2D" uid="uid://cvcb70qqg6b8n" path="res://Assets/主角/主角3.png" id="3_ukuij"]
@@ -16,6 +17,11 @@
 [ext_resource type="Script" uid="uid://c7jubkounbqps" path="res://Assets/主角/战斗主角状态机/主角Death.gd" id="10_t2jsg"]
 [ext_resource type="Script" uid="uid://cm7j8ikn71tlj" path="res://Assets/主角/战斗主角状态机/主角Attack_1.gd" id="14_wm271"]
 [ext_resource type="Script" uid="uid://d3f0nvi8x5mc0" path="res://Assets/主角/战斗主角状态机/主角Sprint.gd" id="16_1e2u8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_csmic"]
+shader = ExtResource("2_s8a1f")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee0e5"]
 atlas = ExtResource("3_ukuij")
@@ -396,12 +402,50 @@ _data = {
 &"Run": SubResource("Animation_xe66p")
 }
 
+[sub_resource type="Animation" id="Animation_aqkn5"]
+resource_name = "HitFlash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_15jx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
+_data = {
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
+}
+
 [node name="战斗主角" type="CharacterBody2D"]
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_xeuqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_csmic")
 position = Vector2(0, -39)
 sprite_frames = SubResource("SpriteFrames_v5g51")
 animation = &"RunLoop"
@@ -480,6 +524,15 @@ libraries = {
 [node name="ShadowCreater" type="Timer" parent="."]
 one_shot = true
 
+[node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_cx86o")
+}
+
+[node name="InvincibleTime" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunInitial" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunStop" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/TakeHit" method="_on_animated_sprite_2d_animation_finished"]
@@ -488,3 +541,4 @@ one_shot = true
 [connection signal="timeout" from="StatesMachine/Jump/Timer" to="StatesMachine/Jump" method="_on_timer_timeout"]
 [connection signal="timeout" from="StatesMachine/Sprint/Timer" to="StatesMachine/Sprint" method="_on_timer_timeout"]
 [connection signal="timeout" from="ShadowCreater" to="." method="_on_shadow_creater_timeout"]
+[connection signal="timeout" from="InvincibleTime" to="." method="_on_invincible_time_timeout"]

@@ -21,8 +21,6 @@ func process():
 		monster.velocity.y = 4000
 		monster.move_and_slide()
 		return
-	else:
-		var diff: float = direction_calculation()
 		
 func exit():
 	pass

@@ -19,9 +19,8 @@ func attack2_check():
 func attack_body(arr: Array, damage: float):
 	for i in arr:
 		if i.is_in_group("player"):
-			#i.take_hit(damage)
-			pass
-			
+			i.take_hit(damage)
+
 func exit():
 	$"../../AnimationPlayer".stop()
 	

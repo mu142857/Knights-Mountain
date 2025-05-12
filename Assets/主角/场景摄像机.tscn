@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cm7okrlinjobg"]
 
-[ext_resource type="Script" path="res://Assets/主角/场景摄像机.gd" id="1_rrpq2"]
+[ext_resource type="Script" uid="uid://c4s3exyys2wq8" path="res://Assets/主角/场景摄像机.gd" id="1_rrpq2"]
 
 [node name="场景摄像机" type="Camera2D"]
 anchor_mode = 0
@@ -9,7 +9,6 @@ script = ExtResource("1_rrpq2")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-self_modulate = Color(1, 1, 1, 0.196078)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

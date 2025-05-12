@@ -1,14 +1,14 @@
 [gd_scene load_steps=51 format=3 uid="uid://cnk6ppw72x46m"]
 
 [ext_resource type="Texture2D" uid="uid://d2cnm2yvvraf7" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林2-Sheet.png" id="1_7hqgx"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵.gd" id="1_pvhtc"]
+[ext_resource type="Script" uid="uid://cxeofm187vtof" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵.gd" id="1_pvhtc"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_s7s3j"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="4_ty8f0"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵run.gd" id="5_5dhp0"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵jump.gd" id="6_cq5jo"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵fall.gd" id="7_o42ba"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵attack.gd" id="8_akr1f"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵death.gd" id="9_sr578"]
+[ext_resource type="Script" uid="uid://d0ko7bi5e16k2" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵state_machine.gd" id="4_ty8f0"]
+[ext_resource type="Script" uid="uid://b178kxptsn33l" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵run.gd" id="5_5dhp0"]
+[ext_resource type="Script" uid="uid://c2g1w22tqdakk" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵jump.gd" id="6_cq5jo"]
+[ext_resource type="Script" uid="uid://borffhruxxsp0" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵fall.gd" id="7_o42ba"]
+[ext_resource type="Script" uid="uid://5geiw75jam74" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵attack.gd" id="8_akr1f"]
+[ext_resource type="Script" uid="uid://csue8u2tac6q7" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵death.gd" id="9_sr578"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6g5xx"]
 resource_local_to_scene = true
@@ -265,7 +265,7 @@ size = Vector2(4737, 2635)
 
 [sub_resource type="Animation" id="Animation_tbnlh"]
 resource_name = "Attack"
-length = 1.375
+length = 1.5
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -278,6 +278,23 @@ tracks/0/keys = {
 "values": [{
 "args": [&"Attack", 1.0, false],
 "method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.625, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"attack1_check"
+}, {
+"args": [],
+"method": &"attack2_check"
 }]
 }
 
@@ -300,8 +317,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cyl88"]
 _data = {
-"Attack": SubResource("Animation_tbnlh"),
-"Sprint": SubResource("Animation_talnw")
+&"Attack": SubResource("Animation_tbnlh"),
+&"Sprint": SubResource("Animation_talnw")
 }
 
 [sub_resource type="Animation" id="Animation_aqkn5"]
@@ -337,8 +354,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="哥布林刀兵" type="CharacterBody2D"]
@@ -348,12 +365,11 @@ script = ExtResource("1_pvhtc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_6g5xx")
-position = Vector2(-5, -106)
 scale = Vector2(1.84, 1.84)
 sprite_frames = SubResource("SpriteFrames_ls12p")
-animation = &"Run"
+animation = &"Attack"
 frame = 9
-frame_progress = 1.0
+offset = Vector2(-2.71739, -57.6087)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -31.625)
@@ -405,13 +421,13 @@ script = ExtResource("9_sr578")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cyl88")
+&"": SubResource("AnimationLibrary_cyl88")
 }
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Run" method="_on_animated_sprite_2d_animation_finished"]
