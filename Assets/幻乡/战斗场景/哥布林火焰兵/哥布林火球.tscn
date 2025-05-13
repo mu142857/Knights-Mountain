@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://ce2eta6b4wahs"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.gd" id="1_lfyva"]
+[ext_resource type="Script" uid="uid://bsytvk5cgnqo3" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.gd" id="1_lfyva"]
 [ext_resource type="Texture2D" uid="uid://b0wre7odp3p3c" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林4火球-Sheet.png" id="1_yej18"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/火焰拖尾.gd" id="3_wwkpy"]
+[ext_resource type="Script" uid="uid://bl5morhaolqb" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/火焰拖尾.gd" id="3_wwkpy"]
 
 [sub_resource type="Curve" id="Curve_7y267"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.842697, 0.729814), 2.01814, 2.01814, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -128,4 +128,5 @@ offset = Vector2(-0.5, -16.5)
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_8q6nf")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d080ugkyp2dec"]
+[gd_scene load_steps=25 format=3 uid="uid://d080ugkyp2dec"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_0wpbj"]
 [ext_resource type="Script" uid="uid://20a0lpkjvbem" path="res://Assets/下城区/战斗场景/残灯車/残灯車.gd" id="1_m7cpj"]
@@ -115,6 +115,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv0ti"]
 size = Vector2(11802, 10265)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_141le"]
+size = Vector2(138, 236)
+
 [node name="残灯車" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -167,10 +170,17 @@ script = ExtResource("9_141le")
 [node name="PlayerCheck" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_pv0ti")
 debug_color = Color(0.343, 0.549, 0.783, 0)
 
 [node name="移动粒子" parent="." instance=ExtResource("9_x678o")]
+
+[node name="AttackCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_141le")
 
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Move(3)/Timer" to="StateMachine/Move(3)" method="_on_timer_timeout"]

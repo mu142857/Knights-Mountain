@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cnvcigug7wip7"]
+[gd_scene load_steps=55 format=3 uid="uid://cnvcigug7wip7"]
 
 [ext_resource type="Texture2D" uid="uid://cgyr0pin1qdgu" path="res://Assets/下城区/战斗场景/残灯马/残烟马-Sheet.png" id="1_5mltv"]
 [ext_resource type="Script" uid="uid://cmopc676jph5u" path="res://Assets/下城区/战斗场景/残灯马/残灯马.gd" id="1_7qusu"]
@@ -335,6 +335,9 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvnl6"]
+size = Vector2(206, 220)
+
 [node name="残灯马" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -402,6 +405,12 @@ position = Vector2(47, -115)
 position = Vector2(-94, 0)
 
 [node name="发射子弹点右" type="Node2D" parent="发射点"]
+
+[node name="AttackCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
+position = Vector2(0, -100)
+shape = SubResource("RectangleShape2D_pvnl6")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Death(2)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=61 format=3 uid="uid://cv0vi82dfxd20"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵.gd" id="1_t65cn"]
+[ext_resource type="Script" uid="uid://doebj3kli7esp" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵.gd" id="1_t65cn"]
 [ext_resource type="Texture2D" uid="uid://b0olq8l7af0og" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林4-Sheet.png" id="1_wyfds"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_xfvbw"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵state_machine.gd" id="4_gad7b"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵run.gd" id="5_hnea8"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵jump.gd" id="6_4ftuw"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵fall.gd" id="7_81pmb"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵attack.gd" id="8_2r00d"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵death.gd" id="9_jo18q"]
+[ext_resource type="Script" uid="uid://dppygky57qk6n" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵state_machine.gd" id="4_gad7b"]
+[ext_resource type="Script" uid="uid://co1bi5xas812x" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵run.gd" id="5_hnea8"]
+[ext_resource type="Script" uid="uid://bdw8aa0j5oinl" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵jump.gd" id="6_4ftuw"]
+[ext_resource type="Script" uid="uid://dbkjf6nkn2761" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵fall.gd" id="7_81pmb"]
+[ext_resource type="Script" uid="uid://bc6pilh3aphtk" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵attack.gd" id="8_2r00d"]
+[ext_resource type="Script" uid="uid://bjxhp65t5dw1v" path="res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火焰兵death.gd" id="9_jo18q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rpt88"]
 resource_local_to_scene = true
@@ -377,7 +377,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a6uxg"]
 _data = {
-"Attack": SubResource("Animation_k7k22")
+&"Attack": SubResource("Animation_k7k22")
 }
 
 [sub_resource type="Animation" id="Animation_aqkn5"]
@@ -413,8 +413,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="哥布林火焰兵" type="CharacterBody2D"]
@@ -470,13 +470,13 @@ script = ExtResource("9_jo18q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a6uxg")
+&"": SubResource("AnimationLibrary_a6uxg")
 }
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Run" method="_on_animated_sprite_2d_animation_finished"]

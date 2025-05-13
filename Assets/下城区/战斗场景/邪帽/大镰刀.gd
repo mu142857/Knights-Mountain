@@ -65,3 +65,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	self.queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if $AnimatedSprite2D.animation == "Spin":
+		var arr = self.get_overlapping_bodies()
+		attack_body(arr, 20)
+	
+func attack_body(arr: Array, damage: float):
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(damage)

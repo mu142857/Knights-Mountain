@@ -33,6 +33,9 @@ func cast_beem():
 	$Timer.start(0.5)
 
 func _physics_process(delta: float) -> void:
+	if is_casting:
+		attack_check()
+
 	var cast_point := target_position
 	force_raycast_update()
 	$LongGPUParticles2D.emitting = is_colliding() # 粒子效果
@@ -63,3 +66,8 @@ func _on_timer_timeout() -> void:
 
 func _on_appear_timeout() -> void:
 	appear()
+
+func attack_check():
+	var coll = self.get_collider()
+	if coll.is_in_group("player"):
+		coll.take_hit(10)

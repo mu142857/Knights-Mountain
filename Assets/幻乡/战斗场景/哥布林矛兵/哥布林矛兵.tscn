@@ -1,14 +1,14 @@
 [gd_scene load_steps=51 format=3 uid="uid://diutvk7ycelgj"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵.gd" id="1_q0y4f"]
+[ext_resource type="Script" uid="uid://bkbdgaw4hdayv" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵.gd" id="1_q0y4f"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_hoicj"]
 [ext_resource type="Texture2D" uid="uid://dhsgp3chepmve" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林1-Sheet.png" id="2_jf0pr"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵state_machine.gd" id="4_hlep7"]
+[ext_resource type="Script" uid="uid://08wyosyssaoq" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵state_machine.gd" id="4_hlep7"]
 [ext_resource type="Texture2D" uid="uid://d2cnm2yvvraf7" path="res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林2-Sheet.png" id="4_xut5p"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵run.gd" id="5_qqp50"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵charge.gd" id="6_25qpm"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵hit.gd" id="7_sbup3"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵death.gd" id="9_e6bhe"]
+[ext_resource type="Script" uid="uid://h85hp6mgixbs" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵run.gd" id="5_qqp50"]
+[ext_resource type="Script" uid="uid://d1ksvt5byxnnr" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵charge.gd" id="6_25qpm"]
+[ext_resource type="Script" uid="uid://8oa4qd41efon" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵hit.gd" id="7_sbup3"]
+[ext_resource type="Script" uid="uid://cp1tfe5dceh0d" path="res://Assets/幻乡/战斗场景/哥布林矛兵/哥布林矛兵death.gd" id="9_e6bhe"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6j7g1"]
 load_path = "res://.godot/imported/阴影.png-6207dd744fa638d939cfb0c1ea078bc9.ctex"
@@ -313,8 +313,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="哥布林矛兵" type="CharacterBody2D"]
@@ -368,6 +368,7 @@ one_shot = true
 script = ExtResource("6_25qpm")
 
 [node name="Tired" type="Timer" parent="StateMachine/Charge"]
+one_shot = true
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("7_sbup3")
@@ -381,7 +382,7 @@ script = ExtResource("9_e6bhe")
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Hit" method="_on_animated_sprite_2d_animation_finished"]

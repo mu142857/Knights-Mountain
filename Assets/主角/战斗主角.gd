@@ -23,16 +23,18 @@ func _on_shadow_creater_timeout() -> void:
 
 func take_hit(damage: float):
 
-	if !invincible:
+	if !invincible and $AnimatedSprite2D.animation != "Sprint":
 		invincible = true
 		$InvincibleTime.start(invincible_time)
 		$HitEffectPlayer.play("HitFlash")
-		if health <= 0:
-			health = 0
-			$StatesMachine.change_state(7)
-		else:
-			health -= damage
-		Game.frame_freeze(0.6, invincible_time)
+		Game.filter(1, Color(0.6, 0, 0, 0.9))
+		health -= damage
+		Game.frame_freeze(0.2, invincible_time)
 
+func _process(delta: float) -> void:
+	if health <= 0:
+		health = 0
+		$StatesMachine.change_state(7)
+			
 func _on_invincible_time_timeout() -> void:
 	invincible = false

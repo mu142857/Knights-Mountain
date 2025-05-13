@@ -168,6 +168,7 @@ func _on_after_summon_duration_timeout() -> void:
 	get_parent().change_state(1)
 
 func release_hit_effect():
+	attack_check()
 	Game.shake_camera(25)
 	var expl = preload("res://Assets/下城区/战斗场景/残灯棋鬼/砸地粒子.tscn").instantiate()
 	expl.position = monster.global_position
@@ -208,3 +209,9 @@ func summon_monster(type: String, summon_position: String):
 	get_tree().current_scene.add_child(pre_summon)
 	await get_tree().create_timer(2).timeout
 	get_tree().current_scene.add_child(piece)
+
+func attack_check():
+	var arr = $"../../AttackCheck".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(15)

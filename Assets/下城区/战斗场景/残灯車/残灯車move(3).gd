@@ -15,6 +15,9 @@ func enter():
 	speed = 10
 	
 func process():
+	
+	attack_check()
+	
 	if $"../../移动粒子".modulate.a < 1:
 		$"../../移动粒子".modulate.a += 0.008
 	else:
@@ -50,3 +53,9 @@ func get_player_direction() -> Array:
 
 func _on_timer_timeout() -> void:
 	get_parent().change_state(1)
+
+func attack_check():
+	var arr = $"../../AttackCheck".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(5)

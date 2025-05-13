@@ -5,8 +5,9 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 
 func enter():
+	attack_check()
 	Game.shake_camera(30)
-	Game.flash(1.1, Color(0.243, 0.145, 0.184))
+	Game.flash(0.5, Color(0.243, 0.145, 0.184, 0.3))
 	ami_plr.play("Trampling")
 
 func process():
@@ -18,3 +19,9 @@ func exit():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if ani_2D.animation == "Trampling":
 		get_parent().change_state(0)
+
+func attack_check():
+	var arr = $"../../AttackChecks/Trampling".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(15)

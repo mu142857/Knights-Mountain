@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://cvp6hclut8npp"]
 
 [ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_0o4g4"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/大镰刀.gd" id="1_uejp3"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/轨迹.gd" id="3_p50xy"]
+[ext_resource type="Script" uid="uid://buhjbortrr0ho" path="res://Assets/下城区/战斗场景/邪帽/大镰刀.gd" id="1_uejp3"]
+[ext_resource type="Script" uid="uid://6hb4a5ytivjf" path="res://Assets/下城区/战斗场景/邪帽/轨迹.gd" id="3_p50xy"]
 
 [sub_resource type="Curve" id="Curve_brggg"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.331461, 0.105051), 0.484885, 0.484885, 0, 0, Vector2(0.685393, 0.407242), 1.17234, 1.17234, 0, 0, Vector2(1, 0.990683), 2.82116, 0.0, 0, 0]
@@ -101,14 +101,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_html4"]
-radius = 44.0
+radius = 62.0081
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljwns"]
 size = Vector2(4737, 5331)
 
 [node name="大镰刀" type="Area2D"]
-collision_layer = 8
-collision_mask = 4
 script = ExtResource("1_uejp3")
 
 [node name="Node" type="Node" parent="."]
@@ -124,7 +122,7 @@ point_count = 55
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_08fn6")
-animation = &"Stop"
+animation = &"Spin"
 offset = Vector2(155, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -141,5 +139,6 @@ debug_color = Color(0.633061, 0.476976, 0.620167, 0.12549)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -18,9 +18,16 @@ func process():
 	monster.move_and_slide()
 
 func exit():
+	attack_check()
 	
 	Game.shake_camera(10)
 	var expl = preload("res://Assets/下城区/战斗场景/残灯马/跳跃落地粒子.tscn").instantiate()
 	expl.position = monster.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)
+
+func attack_check():
+	var arr = $"../../AttackCheck".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(30)

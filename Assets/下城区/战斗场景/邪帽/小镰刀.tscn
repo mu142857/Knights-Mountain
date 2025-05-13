@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dfrcxha4o3lrx"]
 
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/小镰刀.gd" id="1_qpi6v"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/小轨迹.gd" id="2_q6krv"]
+[ext_resource type="Script" uid="uid://c8nvuql0rfl4d" path="res://Assets/下城区/战斗场景/邪帽/小镰刀.gd" id="1_qpi6v"]
+[ext_resource type="Script" uid="uid://di50f61cwnmcj" path="res://Assets/下城区/战斗场景/邪帽/小轨迹.gd" id="2_q6krv"]
 [ext_resource type="Texture2D" uid="uid://com33m1b5khjl" path="res://Assets/下城区/战斗场景/邪帽/邪教组织4-Sheet.png" id="3_ad72i"]
 
 [sub_resource type="Curve" id="Curve_carvw"]
@@ -101,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r7rnn"]
-radius = 26.0
+radius = 29.0172
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpkl8"]
 size = Vector2(4737, 5331)
@@ -121,7 +121,7 @@ script = ExtResource("2_q6krv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -38)
 sprite_frames = SubResource("SpriteFrames_707ic")
-animation = &"Start"
+animation = &"Spin"
 offset = Vector2(-100, -61)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -137,6 +137,7 @@ debug_color = Color(0.633061, 0.476976, 0.620167, 0.12549)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

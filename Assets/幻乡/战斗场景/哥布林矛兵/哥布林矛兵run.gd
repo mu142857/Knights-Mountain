@@ -40,6 +40,7 @@ func process():
 		if arr.size() > 0:
 			for i in arr:
 				if i.is_in_group("player"):
+					i.take_hit(5)
 					get_parent().change_state(2)
 					return
 

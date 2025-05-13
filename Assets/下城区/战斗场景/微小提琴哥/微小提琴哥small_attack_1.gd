@@ -22,6 +22,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		get_parent().change_state(0)
 
 func release_effect():
+	attack_check()
 	Game.shake_camera(10)
 	var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴拍地粒子.tscn").instantiate()
 	expl.position = $"../../AttackCheck/SmallAttack1".global_position
@@ -52,3 +53,9 @@ func release_wave():
 	wave.position = $"../../AttackCheck/SmallAttack1".global_position
 	wave.small_or_big = "small"
 	get_tree().current_scene.add_child(wave)
+
+func attack_check():
+	var arr = $"../../AttackCheck/SmallAttack1Check".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(15)

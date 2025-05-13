@@ -14,7 +14,7 @@ func enter():
 	left_limit = monster.scene_startx + 20
 	right_limit = monster.scene_endx - 40
 	ani_2D.play("Charge")
-	$Tired.start(7)
+	$Tired.start(4)
 	
 func process():
 	if !monster.is_on_floor():
@@ -38,6 +38,7 @@ func process():
 		if arr.size() > 0:
 			for i in arr:
 				if i.is_in_group("player"):
+					i.take_hit(10)
 					get_parent().change_state(2)
 					return
 					

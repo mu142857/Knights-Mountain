@@ -46,6 +46,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().current_scene.add_child(expl)
 		$AnimatedSprite2D.play("Stop")
 		return
+
 	elif self.global_position.y >= 810:
 		self.rotation_degrees = 0
 		return
@@ -136,3 +137,12 @@ func _on_summon_timeout() -> void:
 	expl.position = self.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)
+
+func _on_body_entered(body: Node2D) -> void:
+	var arr = self.get_overlapping_bodies()
+	attack_body(arr, 25)
+	
+func attack_body(arr: Array, damage: float):
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(damage)

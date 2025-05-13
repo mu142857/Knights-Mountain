@@ -1,14 +1,14 @@
 [gd_scene load_steps=54 format=3 uid="uid://diiknnodac4h0"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_8jsq5"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵.gd" id="1_ed7ms"]
+[ext_resource type="Script" uid="uid://xhe0m2fordy" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵.gd" id="1_ed7ms"]
 [ext_resource type="Texture2D" uid="uid://b2r722pglpyt6" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林3-Sheet.png" id="1_up2lr"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵state_machine.gd" id="4_5ly0r"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵run.gd" id="5_kap1b"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵jump.gd" id="6_i605s"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵fall.gd" id="7_wl0xb"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵attack.gd" id="8_yodxb"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵death.gd" id="9_1lvts"]
+[ext_resource type="Script" uid="uid://lb8j8b8rv643" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵state_machine.gd" id="4_5ly0r"]
+[ext_resource type="Script" uid="uid://cor16tf8hmomt" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵run.gd" id="5_kap1b"]
+[ext_resource type="Script" uid="uid://dpyjk3eg2pkni" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵jump.gd" id="6_i605s"]
+[ext_resource type="Script" uid="uid://bwjwtqngsawnu" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵fall.gd" id="7_wl0xb"]
+[ext_resource type="Script" uid="uid://c3nbxkw0pqxoi" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵attack.gd" id="8_yodxb"]
+[ext_resource type="Script" uid="uid://6csr0mg8hu16" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵death.gd" id="9_1lvts"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qdjt5"]
 resource_local_to_scene = true
@@ -328,7 +328,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dl518"]
 _data = {
-"Attack": SubResource("Animation_jymt5")
+&"Attack": SubResource("Animation_jymt5")
 }
 
 [sub_resource type="Animation" id="Animation_aqkn5"]
@@ -364,8 +364,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="哥布林回旋镖兵" type="CharacterBody2D"]
@@ -421,13 +421,13 @@ script = ExtResource("9_1lvts")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dl518")
+&"": SubResource("AnimationLibrary_dl518")
 }
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Run" method="_on_animated_sprite_2d_animation_finished"]

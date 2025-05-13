@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsq5qpp31vw2l"]
+[gd_scene load_steps=20 format=3 uid="uid://dsq5qpp31vw2l"]
 
 [ext_resource type="Script" uid="uid://cml33ig1r3rqs" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴波.gd" id="1_abq2c"]
 [ext_resource type="Texture2D" uid="uid://txs1hjmxildp" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴波.png" id="1_ujrgm"]
@@ -86,7 +86,59 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujrgm"]
-size = Vector2(1, 56)
+size = Vector2(1, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abq2c"]
+size = Vector2(8, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx6ds"]
+size = Vector2(10, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d64n"]
+size = Vector2(10, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x21o"]
+size = Vector2(10, 59)
+
+[sub_resource type="Animation" id="Animation_abq2c"]
+resource_name = "AttackCheck"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"attack_check1"
+}, {
+"args": [],
+"method": &"attack_check2"
+}, {
+"args": [],
+"method": &"attack_check3"
+}, {
+"args": [],
+"method": &"attack_check4"
+}, {
+"args": [],
+"method": &"attack_check3"
+}, {
+"args": [],
+"method": &"attack_check2"
+}, {
+"args": [],
+"method": &"attack_check1"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kx6ds"]
+_data = {
+&"AttackCheck": SubResource("Animation_abq2c")
+}
 
 [node name="Area2D" type="Area2D"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -97,11 +149,41 @@ position = Vector2(-1, -57)
 scale = Vector2(1.01111, 0.767442)
 sprite_frames = SubResource("SpriteFrames_80if3")
 autoplay = "default"
-frame = 8
-frame_progress = 1.0
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -28)
+position = Vector2(0, -27.5)
 shape = SubResource("RectangleShape2D_ujrgm")
+
+[node name="AttackChecks" type="Node2D" parent="."]
+
+[node name="Area2D1" type="Area2D" parent="AttackChecks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/Area2D1"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_abq2c")
+
+[node name="Area2D2" type="Area2D" parent="AttackChecks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/Area2D2"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_kx6ds")
+
+[node name="Area2D3" type="Area2D" parent="AttackChecks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/Area2D3"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_4d64n")
+
+[node name="Area2D4" type="Area2D" parent="AttackChecks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/Area2D4"]
+position = Vector2(0, -28.5)
+shape = SubResource("RectangleShape2D_1x21o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kx6ds")
+}
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

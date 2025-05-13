@@ -36,3 +36,14 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		$AnimatedSprite2D.play("Falling")
 	if $AnimatedSprite2D.animation == "End":
 		self.queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if $AnimatedSprite2D.animation == "Falling":
+		var arr = self.get_overlapping_bodies()
+		attack_body(arr, 15)
+	
+func attack_body(arr: Array, damage: float):
+	for i in arr:
+		if i.is_in_group("player"):
+			self.queue_free()
+			i.take_hit(damage)

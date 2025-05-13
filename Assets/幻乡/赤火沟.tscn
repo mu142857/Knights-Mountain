@@ -366,7 +366,7 @@ process_material = SubResource("ParticleProcessMaterial_7aje5")
 [node name="森林针叶树木1" type="Sprite2D" parent="树木"]
 modulate = Color(0.509804, 0.509804, 0.509804, 1)
 material = SubResource("ShaderMaterial_nwy7h")
-position = Vector2(1330, 450)
+position = Vector2(1330, 503.313)
 scale = Vector2(2.525, 2.525)
 texture = ExtResource("8_823ni")
 region_enabled = true
@@ -386,7 +386,7 @@ process_material = SubResource("ParticleProcessMaterial_6c4pa")
 [node name="森林针叶树木3" type="Sprite2D" parent="树木"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_nwy7h")
-position = Vector2(1011, 446)
+position = Vector2(1011, 499.313)
 scale = Vector2(2.525, 2.525)
 texture = ExtResource("8_823ni")
 region_enabled = true
@@ -434,7 +434,7 @@ texture = ExtResource("3_dtkng")
 
 [node name="森林针叶树木2" type="Sprite2D" parent="树木"]
 material = SubResource("ShaderMaterial_nwy7h")
-position = Vector2(1483, 442)
+position = Vector2(1483, 489)
 scale = Vector2(2.525, 2.525)
 texture = ExtResource("8_823ni")
 region_enabled = true

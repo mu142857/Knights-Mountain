@@ -80,13 +80,13 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	var arr = self.get_overlapping_bodies()
-	attack_body(arr, 10)
+	attack_body(arr, 7)
 	
 func attack_body(arr: Array, damage: float):
 	for i in arr:
 		if i.is_in_group("player"):
-			#i.take_hit(damage)
-			destroy()
+			i.take_hit(damage)
+			self.queue_free()
 		
 			
 func destroy():

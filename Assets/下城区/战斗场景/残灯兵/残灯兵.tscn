@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dkfo3fud7vmtj"]
+[gd_scene load_steps=34 format=3 uid="uid://dkfo3fud7vmtj"]
 
 [ext_resource type="Texture2D" uid="uid://d0ntpcl5yr5ty" path="res://Assets/下城区/战斗场景/残灯兵/残烟骑兵-Sheet.png" id="1_y07dg"]
 [ext_resource type="Script" uid="uid://c65n0r5hbuvik" path="res://Assets/下城区/战斗场景/残灯兵/残灯兵.gd" id="1_ywy13"]
@@ -206,6 +206,9 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phyph"]
+size = Vector2(136, 158)
+
 [node name="残灯兵" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -259,6 +262,12 @@ reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_cx86o")
 }
+
+[node name="AttackCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
+position = Vector2(0, -69)
+shape = SubResource("RectangleShape2D_phyph")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Wink(0)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Death(4)" method="_on_animated_sprite_2d_animation_finished"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://xiv1thb8i0wb"]
 
 [ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_nxrag"]
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/火矢.gd" id="1_qqhmv"]
+[ext_resource type="Script" uid="uid://db2plq3nn2t2x" path="res://Assets/下城区/战斗场景/邪帽/火矢.gd" id="1_qqhmv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nipl8"]
 atlas = ExtResource("1_nxrag")
@@ -77,7 +77,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u23qm"]
 _data = {
-"Arrow": SubResource("Animation_xq05r")
+&"Arrow": SubResource("Animation_xq05r")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78i7u"]
@@ -88,18 +88,17 @@ script = ExtResource("1_qqhmv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ckwls")
-animation = &"End"
-frame = 1
-frame_progress = 1.0
+animation = &"Falling"
 offset = Vector2(43, 4)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_u23qm")
+&"": SubResource("AnimationLibrary_u23qm")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -49.5)
 shape = SubResource("RectangleShape2D_78i7u")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

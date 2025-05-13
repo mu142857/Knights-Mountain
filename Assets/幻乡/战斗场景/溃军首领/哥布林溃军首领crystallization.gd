@@ -25,9 +25,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		if monster.health >= 1400:
 			teloport(5, [goblin1_1, goblin2_1, goblin1_2, goblin2_2])
 		elif monster.health >= 700:
-			teloport((monster.health / 300) + 4, [goblin1_1, goblin2_1, goblin3, goblin2_2])
+			teloport(7, [goblin1_1, goblin2_1, goblin3, goblin2_2])
 		else:
-			teloport((monster.health / 200) + 5, [goblin1_1, goblin2_1, goblin3, goblin4])
+			teloport(9, [goblin1_1, goblin2_1, goblin3, goblin4])
 
 func teloport(duration: float, summon: Array):
 	var arr: Array = detection_range.get_overlapping_bodies()
@@ -39,6 +39,8 @@ func teloport(duration: float, summon: Array):
 
 	for j in summon:
 		summon_monsters(j)
+	
+
 	$Timer.start(duration)
 				
 func summon_monsters(instant):

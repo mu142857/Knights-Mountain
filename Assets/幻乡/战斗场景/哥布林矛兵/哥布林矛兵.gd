@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var scene_startx: float = 0.0
 var scene_endx: float = 1400.0
-var health = 120
+var health = 50
 var direct = Vector2.RIGHT
 
 func _ready() -> void:

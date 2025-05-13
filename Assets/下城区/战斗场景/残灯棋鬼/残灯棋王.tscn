@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dc0urifofxfca"]
+[gd_scene load_steps=48 format=3 uid="uid://dc0urifofxfca"]
 
 [ext_resource type="Texture2D" uid="uid://bptx70xobhyyi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残烟骑士阵-Sheet.png" id="1_4siff"]
 [ext_resource type="Script" uid="uid://b1him3aeneqmq" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.gd" id="1_rd5rd"]
@@ -307,6 +307,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ie8p"]
 size = Vector2(11802, 17533.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7p2t"]
+size = Vector2(413, 491)
+
 [node name="残灯棋王" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -381,7 +384,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MonsterCheck"]
-position = Vector2(0, 3634.25)
+position = Vector2(133, 3613)
 shape = SubResource("RectangleShape2D_4ie8p")
 debug_color = Color(0.343, 0.549, 0.783, 0)
 
@@ -393,6 +396,12 @@ position = Vector2(-800, 450)
 [node name="残灯移动棋盘右" parent="残灯移动棋盘" instance=ExtResource("11_y7p2t")]
 position = Vector2(800, 450)
 scale = Vector2(-1, 1)
+
+[node name="AttackCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
+position = Vector2(0.5, -235.5)
+shape = SubResource("RectangleShape2D_y7p2t")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Summon(3)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]

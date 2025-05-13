@@ -33,6 +33,9 @@ func process():
 	monster.move_and_slide()
 
 func exit():
+
+	attack_check()
+
 	is_falling = false
 	Game.shake_camera(30)
 	
@@ -40,3 +43,9 @@ func exit():
 	expl_b.global_position = monster.global_position
 	expl_b.emitting = true
 	get_tree().current_scene.add_child(expl_b)
+
+func attack_check():
+	var arr = $"../../AttackCheck".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(40)

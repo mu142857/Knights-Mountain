@@ -101,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vh4na"]
-radius = 33.0151
+radius = 45.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5045y"]
 size = Vector2(4737, 5331)
@@ -139,5 +139,6 @@ debug_color = Color(0.633061, 0.476976, 0.620167, 0.12549)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

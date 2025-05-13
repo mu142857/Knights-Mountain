@@ -16,6 +16,7 @@ func process():
 	monster.move_and_slide()
 
 func exit():
+	attack_check()
 	ani_2D.scale.x = get_player_direction()[1] * -3
 	
 	Game.shake_camera(10)
@@ -34,3 +35,9 @@ func get_player_direction() -> Array:
 				direction = sign(i.global_position.x - monster.global_position.x)
 				distance = abs(i.global_position.x - monster.global_position.x)
 	return [distance, direction] # direction中，-1表示左边，1表示右边，0表示未知
+
+func attack_check():
+	var arr = $"../../AttackCheck".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(30)

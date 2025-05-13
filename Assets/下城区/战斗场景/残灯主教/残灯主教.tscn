@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bexqf7w6lhpdc"]
+[gd_scene load_steps=56 format=3 uid="uid://bexqf7w6lhpdc"]
 
 [ext_resource type="Texture2D" uid="uid://dvl22ya3rk1lq" path="res://Assets/下城区/战斗场景/残灯主教/残烟骑相-Sheet.png" id="1_786ab"]
 [ext_resource type="Script" uid="uid://bxhowewy6e3fc" path="res://Assets/下城区/战斗场景/残灯主教/残灯主教.gd" id="1_s7a1c"]
@@ -411,6 +411,9 @@ _data = {
 &"Attack": SubResource("Animation_vlykl")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h60g"]
+size = Vector2(198, 228)
+
 [node name="残灯主教" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -475,6 +478,12 @@ script = ExtResource("12_6h60g")
 libraries = {
 &"": SubResource("AnimationLibrary_qsupv")
 }
+
+[node name="AttackCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
+position = Vector2(0, -104)
+shape = SubResource("RectangleShape2D_6h60g")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack(1)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]

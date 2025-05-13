@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dg072sj5c4k44"]
 
-[ext_resource type="Script" path="res://Assets/下城区/战斗场景/邪帽/地火.gd" id="1_rjnfi"]
+[ext_resource type="Script" uid="uid://bit4fwxnckbc7" path="res://Assets/下城区/战斗场景/邪帽/地火.gd" id="1_rjnfi"]
 [ext_resource type="Texture2D" uid="uid://c6lv42n7tjsx" path="res://Assets/下城区/战斗场景/邪帽/混合镰刀.png" id="1_ywxey"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5asg2"]
@@ -95,7 +95,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fiwi0"]
 _data = {
-"Fire": SubResource("Animation_n8yrp")
+&"Fire": SubResource("Animation_n8yrp")
 }
 
 [node name="地火" type="Area2D"]
@@ -114,7 +114,7 @@ shape = SubResource("RectangleShape2D_v84fo")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_fiwi0")
+&"": SubResource("AnimationLibrary_fiwi0")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

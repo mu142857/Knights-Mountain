@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceygx6nugqvyl"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖.gd" id="1_8iw74"]
+[ext_resource type="Script" uid="uid://b3a3vwm17c8f8" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖.gd" id="1_8iw74"]
 [ext_resource type="Texture2D" uid="uid://dvjs6sn1kcgrv" path="res://Assets/幻乡/战斗场景/哥布林回旋镖兵/回旋镖.png" id="1_t8j5k"]
 
 [node name="哥布林回旋镖" type="Area2D"]

@@ -1,16 +1,16 @@
-[gd_scene load_steps=151 format=3 uid="uid://00pc08dcc0yt"]
+[gd_scene load_steps=152 format=3 uid="uid://00pc08dcc0yt"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.gd" id="1_75yil"]
+[ext_resource type="Script" uid="uid://du8bvab4a570u" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.gd" id="1_75yil"]
 [ext_resource type="Texture2D" uid="uid://gvuersy1nndo" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.png" id="1_jp7ga"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_xhkb6"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领state_machine.gd" id="4_pwi62"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领fall.gd" id="5_murln"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领sprint.gd" id="6_m1ib2"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领attack.gd" id="7_h1a8c"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领crystallization.gd" id="8_uiero"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领trampling.gd" id="9_ufarc"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领death.gd" id="10_ry6yt"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领dive_down.gd" id="11_rxna5"]
+[ext_resource type="Script" uid="uid://ce6eqp6npl2v6" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领state_machine.gd" id="4_pwi62"]
+[ext_resource type="Script" uid="uid://cvq4caq76r43h" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领fall.gd" id="5_murln"]
+[ext_resource type="Script" uid="uid://bnjfj0avno457" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领sprint.gd" id="6_m1ib2"]
+[ext_resource type="Script" uid="uid://d24nnfmxaolbq" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领attack.gd" id="7_h1a8c"]
+[ext_resource type="Script" uid="uid://dvjppw27w4yov" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领crystallization.gd" id="8_uiero"]
+[ext_resource type="Script" uid="uid://c67uhyrkmxxe" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领trampling.gd" id="9_ufarc"]
+[ext_resource type="Script" uid="uid://t0frdt5s07w4" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领death.gd" id="10_ry6yt"]
+[ext_resource type="Script" uid="uid://b3n72rnrf4vw0" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领dive_down.gd" id="11_rxna5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d0i5"]
 resource_local_to_scene = true
@@ -956,7 +956,7 @@ size = Vector2(4737, 5331)
 
 [sub_resource type="Animation" id="Animation_tbnlh"]
 resource_name = "Attack"
-length = 1.375
+length = 1.7
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -997,6 +997,41 @@ tracks/1/keys = {
 "method": &"shake_camera"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"attack_check1"
+}, {
+"args": [],
+"method": &"attack_check2"
+}, {
+"args": [],
+"method": &"attack_check3"
+}, {
+"args": [],
+"method": &"attack_check4"
+}, {
+"args": [],
+"method": &"attack_check4"
+}, {
+"args": [],
+"method": &"attack_check4"
+}, {
+"args": [],
+"method": &"attack_check4"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sn7he"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_talnw"]
 resource_name = "Sprint"
@@ -1064,6 +1099,23 @@ tracks/2/keys = {
 "method": &"shake_camera"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Sprint")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.466667, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_damage"
+}, {
+"args": [false],
+"method": &"set_damage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_lue33"]
 resource_name = "Trampling"
@@ -1084,9 +1136,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cyl88"]
 _data = {
-"Attack": SubResource("Animation_tbnlh"),
-"Sprint": SubResource("Animation_talnw"),
-"Trampling": SubResource("Animation_lue33")
+&"Attack": SubResource("Animation_tbnlh"),
+&"RESET": SubResource("Animation_sn7he"),
+&"Sprint": SubResource("Animation_talnw"),
+&"Trampling": SubResource("Animation_lue33")
 }
 
 [sub_resource type="Animation" id="Animation_aqkn5"]
@@ -1122,8 +1175,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx86o"]
 _data = {
-"HitFlash": SubResource("Animation_aqkn5"),
-"RESET": SubResource("Animation_15jx2")
+&"HitFlash": SubResource("Animation_aqkn5"),
+&"RESET": SubResource("Animation_15jx2")
 }
 
 [node name="溃军首领" type="CharacterBody2D"]
@@ -1135,9 +1188,9 @@ script = ExtResource("1_75yil")
 material = SubResource("ShaderMaterial_4d0i5")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qm6ns")
+animation = &"Attack"
 autoplay = "Fall"
-frame = 52
-frame_progress = 0.548015
+frame = 17
 offset = Vector2(-20, -50.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1145,7 +1198,6 @@ position = Vector2(0, -122)
 shape = SubResource("RectangleShape2D_0samf")
 
 [node name="AttackChecks" type="Node2D" parent="."]
-visible = false
 position = Vector2(1, 1)
 
 [node name="Attack1" type="Area2D" parent="AttackChecks"]
@@ -1227,13 +1279,13 @@ script = ExtResource("11_rxna5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cyl88")
+&"": SubResource("AnimationLibrary_cyl88")
 }
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_cx86o")
+&"": SubResource("AnimationLibrary_cx86o")
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Sprint" method="_on_animated_sprite_2d_animation_finished"]

@@ -13,7 +13,7 @@ func process():
 
 func attack():
 	var sce = preload("res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖.tscn").instantiate()
-	if monster.direct == Vector2.LEFT:
+	if ani_sprite2d.scale.x <= 0:
 		sce.setup($"../../攻击位置/左攻击位置".global_position, false)
 		monster.get_parent().add_child(sce)
 	else:

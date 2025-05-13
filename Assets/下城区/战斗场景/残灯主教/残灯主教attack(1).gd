@@ -27,7 +27,7 @@ func exit():
 	$"../../AttackPlayer".stop()
 	
 func attack():
-	Game.flash(2, Color(0.8, 0.8, 1))
+	Game.flash(3, Color(0.8, 0.8, 1, 0.4))
 	Game.shake_camera(14)
 	beam.cast_beem()
 
