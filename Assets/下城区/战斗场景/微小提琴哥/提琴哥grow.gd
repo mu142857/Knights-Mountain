@@ -7,8 +7,8 @@ extends Basic_State
 func enter():
 	$"../../AnimationPlayer".stop()
 	$"../../Node/Line2D".hide()
-	ani_2D_grow()
 	ani_2D.play("Gigantic")
+	ani_2D_grow()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if ani_2D.animation == "Gigantic":

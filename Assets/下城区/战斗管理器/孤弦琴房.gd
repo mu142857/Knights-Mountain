@@ -17,5 +17,6 @@ func summon_monsters(instant, summon_pisition: Node2D):
 
 
 func _on_timer_timeout() -> void:
-	var tqg = preload("res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.tscn").instantiate()
+	#var tqg = preload("res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.tscn").instantiate()
+	var tqg = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥.tscn").instantiate()
 	summon_monsters(tqg, $"提琴哥生成点")
