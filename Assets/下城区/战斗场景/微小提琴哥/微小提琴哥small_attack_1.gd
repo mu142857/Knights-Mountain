@@ -58,4 +58,4 @@ func attack_check():
 	var arr = $"../../AttackCheck/SmallAttack1Check".get_overlapping_bodies()
 	for i in arr:
 		if i.is_in_group("player"):
-			i.take_hit(15)
+			i.take_hit(20)

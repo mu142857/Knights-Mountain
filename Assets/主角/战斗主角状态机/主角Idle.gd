@@ -4,6 +4,7 @@ extends Basic_State
 
 func enter():
 	$"../../AnimatedSprite2D".play("Idle") # 播放动画
+	player.show()
 	
 func process():
 	if !player.is_on_floor():

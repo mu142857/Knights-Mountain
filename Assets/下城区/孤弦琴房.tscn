@@ -1,22 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://dfi7fg6x7w80y"]
+[gd_scene load_steps=24 format=3 uid="uid://dfi7fg6x7w80y"]
 
 [ext_resource type="Texture2D" uid="uid://db676v6u5fxys" path="res://Assets/下城区/战斗场景/背景/提琴哥战斗场地.png" id="1_32gsj"]
-[ext_resource type="PackedScene" uid="uid://blhf6nusrpkdx" path="res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.tscn" id="2_4lcnd"]
-[ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="3_emqe5"]
+[ext_resource type="Script" uid="uid://ct3wl0sgxge5j" path="res://Assets/下城区/战斗管理器/孤弦琴房.gd" id="1_b4n33"]
 [ext_resource type="Texture2D" uid="uid://cufeak4m1grnq" path="res://Assets/下城区/战斗场景/背景/孤弦琴房氛围滤镜.png" id="4_k1v82"]
 [ext_resource type="Texture2D" uid="uid://b6kkbdhhvxkww" path="res://Assets/下城区/战斗场景/场景元素/提琴哥的盆栽.png" id="5_4det2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3jle8"]
-
-[sub_resource type="Gradient" id="Gradient_5k8yj"]
-offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_k1v82"]
-gradient = SubResource("Gradient_5k8yj")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_b4n33"]
 default_input_values = [0, Vector2(0, 0)]
@@ -197,6 +186,7 @@ shader = SubResource("VisualShader_rjbum")
 shader_parameter/WindStrength = 4.0
 
 [node name="孤弦琴房" type="Node2D"]
+script = ExtResource("1_b4n33")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -192.0
@@ -233,20 +223,6 @@ position = Vector2(703, 440)
 scale = Vector2(3, 3)
 texture = ExtResource("1_32gsj")
 
-[node name="战斗主角" parent="." instance=ExtResource("3_emqe5")]
-position = Vector2(243, 797)
-
-[node name="PointLight2D2" type="PointLight2D" parent="战斗主角"]
-visible = false
-position = Vector2(-1.90735e-06, -69)
-scale = Vector2(2, 2)
-color = Color(1, 1, 0.6, 1)
-energy = 0.6
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_k1v82")
-texture_scale = 8.0
-metadata/_edit_lock_ = true
-
 [node name="烛光背景版" type="ColorRect" parent="."]
 offset_left = -16.0
 offset_top = -27.0
@@ -277,5 +253,13 @@ offset_right = 1851.0
 offset_bottom = 1041.0
 color = Color(0, 0, 0, 1)
 
-[node name="微小提琴哥" parent="." instance=ExtResource("2_4lcnd")]
-position = Vector2(704, 851)
+[node name="提琴哥生成点" type="Node2D" parent="."]
+position = Vector2(700, 851)
+
+[node name="主角生成点" type="Node2D" parent="."]
+position = Vector2(240, 800)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

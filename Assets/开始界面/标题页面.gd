@@ -23,7 +23,8 @@ func _physics_process(delta: float) -> void:
 		$CanvasModulate.color -= Color(0.03, 0.01, 0.01, 0)
 		$"CanvasLayer/大标题".modulate -= Color(0, 0, 0, 0.025)
 	if $CanvasModulate.color.b <= 0:
-		var level_selection_page = preload("res://Assets/开始界面/关卡选择.tscn").instantiate()
+		#var level_selection_page = preload("res://Assets/开始界面/关卡选择.tscn").instantiate()
+		var level_selection_page = preload("res://Assets/下城区/墨晶林.tscn").instantiate()
 		get_tree().current_scene.add_child(level_selection_page)
 		self.queue_free()
 

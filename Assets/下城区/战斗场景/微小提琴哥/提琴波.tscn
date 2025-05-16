@@ -105,33 +105,15 @@ resource_name = "AttackCheck"
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("AnimatedSprite2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"attack_check1"
-}, {
-"args": [],
-"method": &"attack_check2"
-}, {
-"args": [],
-"method": &"attack_check3"
-}, {
-"args": [],
-"method": &"attack_check4"
-}, {
-"args": [],
-"method": &"attack_check3"
-}, {
-"args": [],
-"method": &"attack_check2"
-}, {
-"args": [],
-"method": &"attack_check1"
+"args": [&"default", 1.0, false],
+"method": &"play"
 }]
 }
 
@@ -149,7 +131,8 @@ position = Vector2(-1, -57)
 scale = Vector2(1.01111, 0.767442)
 sprite_frames = SubResource("SpriteFrames_80if3")
 autoplay = "default"
-frame = 7
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27.5)
@@ -186,4 +169,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_kx6ds")
 }
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.063
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

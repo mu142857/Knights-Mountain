@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://blhf6nusrpkdx"]
+[gd_scene load_steps=150 format=3 uid="uid://blhf6nusrpkdx"]
 
 [ext_resource type="Script" uid="uid://b6vc7s2hq5keo" path="res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.gd" id="1_ddrpw"]
 [ext_resource type="Texture2D" uid="uid://l3utek4uumug" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥-Sheet.png" id="1_ks76l"]
@@ -1102,6 +1102,12 @@ _data = {
 radius = 107.0
 height = 214.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esith"]
+size = Vector2(195, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ra6"]
+size = Vector2(70, 148)
+
 [sub_resource type="Animation" id="Animation_aqkn5"]
 resource_name = "HitFlash"
 length = 0.1
@@ -1157,9 +1163,8 @@ script = ExtResource("1_ddrpw")
 material = SubResource("ShaderMaterial_53c8f")
 rotation = 0.00222495
 sprite_frames = SubResource("SpriteFrames_giguh")
-animation = &"SmallAttack1"
+animation = &"SmallAttack3"
 autoplay = "SmallIdle"
-frame = 3
 offset = Vector2(13, -291)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1265,6 +1270,19 @@ position = Vector2(4, -96)
 
 [node name="弹幕发射点" type="Node2D" parent="AttackCheck"]
 position = Vector2(-3, -86)
+
+[node name="SmallAttack3" type="Area2D" parent="AttackCheck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/SmallAttack3"]
+position = Vector2(18.5, -64)
+shape = SubResource("RectangleShape2D_esith")
+debug_color = Color(0, 0.64, 0.416, 0.172549)
+
+[node name="BigExplode" type="Area2D" parent="AttackCheck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/BigExplode"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_r8ra6")
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

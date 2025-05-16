@@ -9,6 +9,9 @@ func enter():
 	ani_player.play("BigExplode")
 
 func explode():
+	
+	attack_check()
+	
 	Game.shake_camera(10)
 	var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥爆炸粒子.tscn").instantiate()
 	expl.position = monster.global_position
@@ -40,4 +43,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	elif ani_2D.animation == "BigAppear":
 		get_parent().change_state(9)
 		return
-		
+
+func attack_check():
+	var arr = $"../../AttackCheck/BigExplode".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(20)

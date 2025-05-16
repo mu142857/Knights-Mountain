@@ -5,6 +5,7 @@ extends Basic_State
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 
 func enter():
+	$"../../AnimationPlayer".stop()
 	$"../../Node/Line2D".hide()
 	ani_2D_grow()
 	ani_2D.play("Gigantic")

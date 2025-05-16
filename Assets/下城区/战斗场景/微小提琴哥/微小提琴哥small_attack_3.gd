@@ -67,6 +67,9 @@ func _on_sprint_time_timeout() -> void:
 	ani_player.play("SmallAttack3")
 
 func release_effect():
+	
+	attack_check()
+	
 	var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥落地粒子.tscn").instantiate()
 	expl.position = monster.global_position
 	expl.emitting = true
@@ -80,3 +83,9 @@ func release_effect():
 func exit():
 	ani_player.stop()
 	$SprintTime.stop()
+
+func attack_check():
+	var arr = $"../../AttackCheck/SmallAttack3".get_overlapping_bodies()
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(35)
