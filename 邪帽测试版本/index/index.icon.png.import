@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn0apeq2oqj0h"
-path="res://.godot/imported/纯粹舱瓦片地图.png-0543d0195022a8056fd65c6e0d47c228.ctex"
+uid="uid://g2whqerm4bci"
+path="res://.godot/imported/index.icon.png-8f6e312a663c22393cf13162379ae759.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/奥斯卡号/纯粹舱瓦片地图.png"
-dest_files=["res://.godot/imported/纯粹舱瓦片地图.png-0543d0195022a8056fd65c6e0d47c228.ctex"]
+source_file="res://邪帽测试版本/index/index.icon.png"
+dest_files=["res://.godot/imported/index.icon.png-8f6e312a663c22393cf13162379ae759.ctex"]
 
 [params]
 

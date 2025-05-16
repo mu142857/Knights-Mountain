@@ -10,7 +10,7 @@ func enter():
 	if ready_to_sprint:
 		is_sprinting = true
 		ready_to_sprint = false
-		$Timer.start(1)
+		$Timer.start(0.7)
 		ani_sprite2d.play("Sprint")
 
 func process():
