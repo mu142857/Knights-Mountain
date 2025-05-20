@@ -124,4 +124,4 @@ func exit():
 	$Timer.stop()
 
 func _on_timer_timeout() -> void:
-	get_parent().change_state(0)
+	get_parent().change_state(2)

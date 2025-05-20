@@ -6,15 +6,16 @@ extends Basic_State
 
 var duration
 func enter():
+	monster.global_position.y = 845.997
 	ani_2D.play("Idle")
-	duration = randf_range(0.75, 0.75)
+	duration = 0.75 #0.75
 	$Timer.start(duration)
 	
 func process():
 	pass
 	
 func _on_timer_timeout() -> void:
-	var attacks = [1, 1]
+	var attacks = [1, 5]
 	# 把上次的攻击从列表中移除
 	attacks.erase(monster.last_attack)
 	# 从剩下的攻击里随机选一个

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://2kwekq2d77vo"]
+[gd_scene load_steps=3 format=3 uid="uid://2kwekq2d77vo"]
 
 [ext_resource type="Script" uid="uid://cdyx2reksnjlc" path="res://Assets/主游戏/game.gd" id="1_ylh2a"]
+[ext_resource type="AudioStream" uid="uid://b3fkkp6xwshiw" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/提琴歌舒缓-2025-05-07-下午6.32.ogg" id="2_ctc63"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_ylh2a")
+
+[node name="提琴哥圣曲" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ctc63")

@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://cibmcs143odex"]
+
+[ext_resource type="Texture2D" uid="uid://oeq7l4ejqjb5" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/流动音符序列.png" id="1_2nv4m"]
+[ext_resource type="Script" uid="uid://1jrd1rvdkq71" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/流动音符.gd" id="1_qllg7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nv4m"]
+atlas = ExtResource("1_2nv4m")
+region = Rect2(1470, 0, 490, 315)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qllg7"]
+atlas = ExtResource("1_2nv4m")
+region = Rect2(1960, 0, 490, 315)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2emly"]
+atlas = ExtResource("1_2nv4m")
+region = Rect2(980, 0, 490, 315)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik8bi"]
+atlas = ExtResource("1_2nv4m")
+region = Rect2(490, 0, 490, 315)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xquc3"]
+atlas = ExtResource("1_2nv4m")
+region = Rect2(2450, 0, 490, 315)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehaf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nv4m")
+}],
+"loop": true,
+"name": &"0.125",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qllg7")
+}],
+"loop": true,
+"name": &"0.25",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2emly")
+}],
+"loop": true,
+"name": &"0.75",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik8bi")
+}],
+"loop": true,
+"name": &"1.0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xquc3")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nv4m"]
+height = 43.1571
+
+[node name="流动音符" type="Area2D"]
+script = ExtResource("1_qllg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.857, 2.857)
+sprite_frames = SubResource("SpriteFrames_ehaf8")
+animation = &"attack"
+offset = Vector2(-2, -67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.309
+shape = SubResource("CapsuleShape2D_2nv4m")
+
+[node name="Disappear" type="Timer" parent="."]
+one_shot = true
+
+[node name="Middle" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Disappear" to="." method="_on_disappear_timeout"]
+[connection signal="timeout" from="Middle" to="." method="_on_middle_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://cowvpfuhbf808"]
+[gd_scene load_steps=151 format=3 uid="uid://cowvpfuhbf808"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_7yeah"]
 [ext_resource type="Texture2D" uid="uid://b7vpfinma5eyp" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥.png" id="1_d4cbg"]
@@ -646,6 +646,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_67a2t")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67a2t")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tn2l0")
@@ -708,7 +716,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Skill",
-"speed": 11.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -964,10 +972,122 @@ size = Vector2(11802, 10265)
 
 [sub_resource type="Animation" id="Animation_gbufe"]
 resource_name = "Attack"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Attack", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Attack(2)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.55, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"attack1_check"
+}, {
+"args": [],
+"method": &"attack2_check"
+}, {
+"args": [],
+"method": &"attack3_check"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Attack(2)")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.85),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"release_barrage"
+}, {
+"args": [],
+"method": &"release_effect"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack(2)")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"drop_barrage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ohyip"]
+resource_name = "Skill"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Skill", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Skill(5)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_feidan"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Skill(5)")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_check"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ohyip"]
 _data = {
-&"Attack": SubResource("Animation_gbufe")
+&"Attack": SubResource("Animation_gbufe"),
+&"Skill": SubResource("Animation_ohyip")
 }
 
 [node name="幽居提琴哥" type="CharacterBody2D"]
@@ -979,7 +1099,7 @@ script = ExtResource("1_u61vh")
 material = SubResource("ShaderMaterial_u61vh")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_h21nw")
-animation = &"Idle"
+animation = &"Jump"
 autoplay = "Idle"
 offset = Vector2(11, 23)
 
@@ -1022,8 +1142,10 @@ position = Vector2(-9, -96)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/Skill"]
 position = Vector2(258.098, 1.80153)
 rotation = -0.320473
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gbufe")
+
+[node name="弹幕发射点" type="Node2D" parent="AttackCheck"]
+position = Vector2(480, -175)
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -1064,6 +1186,8 @@ script = ExtResource("9_0rlhy")
 [node name="Skill(5)" type="Node" parent="StateMachine"]
 script = ExtResource("10_ecxe1")
 
+[node name="Timer" type="Timer" parent="StateMachine/Skill(5)"]
+
 [node name="NotesFlow(6)" type="Node" parent="StateMachine"]
 script = ExtResource("11_61kf1")
 
@@ -1078,5 +1202,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_ohyip")
 }
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack(2)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Skill(5)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Run(1)/Timer" to="StateMachine/Run(1)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Skill(5)/Timer" to="StateMachine/Skill(5)" method="_on_timer_timeout"]

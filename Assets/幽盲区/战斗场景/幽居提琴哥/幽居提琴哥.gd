@@ -6,20 +6,25 @@ var health = 1300
 var direct = 1 # 1 = 面向右边， -1 = 面向左边
 var last_attack: int = 0
 
+var is_mad = false
 @onready var attack_check_position: Node2D = $AttackCheck
 
 func _ready() -> void:
 	#add_to_group("tatterer")
 	add_to_group("monster")
 	$StateMachine.change_state(0)
+	is_mad = false
 
 func take_hit(value: int):
-	if $AnimatedSprite2D.animation == "Gigantic":
-		return
-
-	elif health <= 0:
-		$StateMachine.change_state(15)
+	if health <= 650 and !is_mad:
+		$StateMachine.change_state(3)
 		$HitEffectPlayer.play("HitFlash")
+		is_mad = true
+		return
+	elif health <= 0:
+		$StateMachine.change_state(8)
+		$HitEffectPlayer.play("HitFlash")
+		return
 	else:
 		health -= value
 		$HitEffectPlayer.play("HitFlash")

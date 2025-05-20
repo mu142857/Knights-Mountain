@@ -19,5 +19,10 @@ func filter(amount: float, colour: Color): # 闪屏
 
 func frame_freeze(timescale, duration): # 静止帧
 	Engine.time_scale = timescale
+	$"提琴哥圣曲".pitch_scale = timescale
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1.0
+	$"提琴哥圣曲".pitch_scale = 1.0
+
+func play_music_tiqingeshengqu():
+	$"提琴哥圣曲".play()

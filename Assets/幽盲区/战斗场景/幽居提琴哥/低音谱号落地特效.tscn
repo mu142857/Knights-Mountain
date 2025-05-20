@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://ducw52wh5l5e3"]
+
+[ext_resource type="Texture2D" uid="uid://b2465a3xqp3ic" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/低音谱号.png" id="1_clrjk"]
+[ext_resource type="Script" uid="uid://dxw0qqjr6rnqx" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/低音谱号落地特效.gd" id="2_clrjk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_asuxk"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_twujf"]
+offsets = PackedFloat32Array(0, 0.283333, 0.543333, 0.813333)
+colors = PackedColorArray(1, 0.64, 0.64, 1, 0.664, 1, 0.64, 1, 0.64, 0.724, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g2kwx"]
+gradient = SubResource("Gradient_twujf")
+
+[sub_resource type="Gradient" id="Gradient_3nauu"]
+offsets = PackedFloat32Array(0, 0.523333, 1)
+colors = PackedColorArray(1, 1, 1, 0.588235, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aedve"]
+gradient = SubResource("Gradient_3nauu")
+
+[sub_resource type="Curve" id="Curve_q76hp"]
+_data = [Vector2(1e-05, 0.152718), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qne73"]
+curve = SubResource("Curve_q76hp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bjrl5"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -800, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_qne73")
+color_ramp = SubResource("GradientTexture1D_aedve")
+color_initial_ramp = SubResource("GradientTexture1D_g2kwx")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_asuxk")
+emitting = false
+amount = 1
+texture = ExtResource("1_clrjk")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bjrl5")
+script = ExtResource("2_clrjk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

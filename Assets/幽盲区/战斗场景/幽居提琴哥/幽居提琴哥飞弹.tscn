@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://cc0awpgk74qfs"]
+
+[ext_resource type="Script" uid="uid://gxq03dm26mjf" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.gd" id="1_rjha8"]
+[ext_resource type="Texture2D" uid="uid://b2465a3xqp3ic" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/低音谱号.png" id="3_8lqer"]
+[ext_resource type="Script" uid="uid://bbkwkjk3dbqf8" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥line_2d.gd" id="3_rjha8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjha8"]
+atlas = ExtResource("3_8lqer")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqmfo"]
+atlas = ExtResource("3_8lqer")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lqer"]
+atlas = ExtResource("3_8lqer")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqmfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjha8")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqmfo")
+}],
+"loop": false,
+"name": &"Ready",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lqer")
+}],
+"loop": false,
+"name": &"Stop",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rqvf"]
+radius = 11.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjha8"]
+size = Vector2(11802, 10265)
+
+[sub_resource type="Curve" id="Curve_csbns"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.205798, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_387a7"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.196078)
+
+[node name="幽居提琴哥飞弹" type="Area2D"]
+script = ExtResource("1_rjha8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.0078125)
+rotation = 1.57079
+sprite_frames = SubResource("SpriteFrames_jqmfo")
+animation = &"Move"
+autoplay = "Ready"
+offset = Vector2(-1.00783, 1.01561)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3rqvf")
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+shape = SubResource("RectangleShape2D_rjha8")
+debug_color = Color(0.343, 0.549, 0.783, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 20.0
+width_curve = SubResource("Curve_csbns")
+gradient = SubResource("Gradient_387a7")
+script = ExtResource("3_rjha8")
+
+[node name="Summon" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Summon" to="." method="_on_summon_timeout"]

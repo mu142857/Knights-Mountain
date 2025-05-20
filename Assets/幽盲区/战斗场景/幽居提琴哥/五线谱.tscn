@@ -1,0 +1,227 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5sdrnl10c8d1"]
+
+[ext_resource type="Script" uid="uid://ck6ihlw8mqfg0" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/五线谱.gd" id="1_gmc05"]
+[ext_resource type="Texture2D" uid="uid://wto6gfk81tl0" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/五线谱.png" id="1_vxuco"]
+
+[sub_resource type="Animation" id="Animation_gmc05"]
+resource_name = "提琴哥的旋律"
+length = 100.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(23, 29, 35, 41, 47, 53, 59, 65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"part_one_to_two_top"
+}, {
+"args": [],
+"method": &"part_one_to_two_top"
+}, {
+"args": [],
+"method": &"part_three_top"
+}, {
+"args": [],
+"method": &"part_four_top"
+}, {
+"args": [],
+"method": &"part_fibe_and_seven_top"
+}, {
+"args": [],
+"method": &"part_six_top"
+}, {
+"args": [],
+"method": &"part_fibe_and_seven_top"
+}, {
+"args": [],
+"method": &"part_eight_top"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(26, 32, 44, 47, 50, 56, 68, 71, 77, 83, 89, 95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"bottom_first"
+}, {
+"args": [],
+"method": &"bottom_second"
+}, {
+"args": [],
+"method": &"bottom_last"
+}, {
+"args": [],
+"method": &"bottom_start"
+}, {
+"args": [],
+"method": &"bottom_first"
+}, {
+"args": [],
+"method": &"bottom_second"
+}, {
+"args": [],
+"method": &"bottom_transist"
+}, {
+"args": [],
+"method": &"bottom_climax_one"
+}, {
+"args": [],
+"method": &"bottom_climax_two"
+}, {
+"args": [],
+"method": &"bottom_climax_three"
+}, {
+"args": [],
+"method": &"bottom_climax_four"
+}, {
+"args": [],
+"method": &"music_done"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ys3so"]
+_data = {
+&"提琴哥的旋律": SubResource("Animation_gmc05")
+}
+
+[sub_resource type="Environment" id="Environment_ys3so"]
+background_mode = 3
+adjustment_enabled = true
+
+[node name="五线谱" type="Node2D"]
+script = ExtResource("1_gmc05")
+
+[node name="五线谱" type="Sprite2D" parent="."]
+scale = Vector2(2.857, 2.857)
+texture = ExtResource("1_vxuco")
+centered = false
+
+[node name="NotePosition" type="Node2D" parent="."]
+
+[node name="do(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 872)
+
+[node name="re(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 849)
+
+[node name="mi(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 826)
+
+[node name="fa(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 803)
+
+[node name="so(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 780)
+
+[node name="la(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 757)
+
+[node name="ti(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 734)
+
+[node name="do^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 711)
+
+[node name="re^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 688)
+
+[node name="mi^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 665)
+
+[node name="fa^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 642)
+
+[node name="so^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 619)
+
+[node name="la^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 596)
+
+[node name="ti^1(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 573)
+
+[node name="do^2(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 550)
+
+[node name="re^2(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 527)
+
+[node name="mi^2(bottom)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 504)
+
+[node name="do(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 415)
+
+[node name="re(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 392)
+
+[node name="mi(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 369)
+
+[node name="fa(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 346)
+
+[node name="so(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 323)
+
+[node name="la(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 300)
+
+[node name="ti(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 277)
+
+[node name="do^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 254)
+
+[node name="re^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 231)
+
+[node name="mi^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 208)
+
+[node name="fa^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 185)
+
+[node name="so^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 162)
+
+[node name="la^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 139)
+
+[node name="ti^1(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 116)
+
+[node name="do^2(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 93)
+
+[node name="re^2(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 70)
+
+[node name="mi^2(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 47)
+
+[node name="fa^2(top)" type="Node2D" parent="NotePosition"]
+position = Vector2(1400, 24)
+
+[node name="Test" type="Timer" parent="."]
+wait_time = 0.375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ys3so")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ys3so")
+
+[connection signal="timeout" from="Test" to="." method="_on_test_timeout"]
