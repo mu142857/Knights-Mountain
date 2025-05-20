@@ -4,11 +4,11 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 
-var duration
+var duration: float = 0.75
+
 func enter():
 	monster.global_position.y = 845.997
 	ani_2D.play("Idle")
-	duration = 0.75 #0.75
 	$Timer.start(duration)
 	
 func process():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5sdrnl10c8d1"]
+[gd_scene load_steps=7 format=3 uid="uid://c5sdrnl10c8d1"]
 
 [ext_resource type="Script" uid="uid://ck6ihlw8mqfg0" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/五线谱.gd" id="1_gmc05"]
 [ext_resource type="Texture2D" uid="uid://wto6gfk81tl0" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/五线谱.png" id="1_vxuco"]
@@ -88,6 +88,74 @@ tracks/1/keys = {
 "method": &"music_done"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(23, 26, 29, 32, 35, 41, 44, 47, 50, 53, 56, 59, 65, 68, 71, 77, 83, 89, 95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"part_one_to_two_top"
+}, {
+"args": [],
+"method": &"bottom_first"
+}, {
+"args": [],
+"method": &"part_one_to_two_top"
+}, {
+"args": [],
+"method": &"bottom_second"
+}, {
+"args": [],
+"method": &"part_three_top"
+}, {
+"args": [],
+"method": &"part_four_top"
+}, {
+"args": [],
+"method": &"bottom_last"
+}, {
+"args": [],
+"method": &"bottom_start"
+}, {
+"args": [],
+"method": &"bottom_first"
+}, {
+"args": [],
+"method": &"part_six_top"
+}, {
+"args": [],
+"method": &"bottom_second"
+}, {
+"args": [],
+"method": &"part_fibe_and_seven_top"
+}, {
+"args": [],
+"method": &"part_eight_top"
+}, {
+"args": [],
+"method": &"bottom_transist"
+}, {
+"args": [],
+"method": &"bottom_climax_one"
+}, {
+"args": [],
+"method": &"bottom_climax_two"
+}, {
+"args": [],
+"method": &"bottom_climax_three"
+}, {
+"args": [],
+"method": &"bottom_climax_four"
+}, {
+"args": [],
+"method": &"music_done"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ys3so"]
 _data = {
@@ -98,7 +166,10 @@ _data = {
 background_mode = 3
 adjustment_enabled = true
 
-[node name="五线谱" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmc05"]
+size = Vector2(1436, 421)
+
+[node name="五线谱" type="CharacterBody2D"]
 script = ExtResource("1_gmc05")
 
 [node name="五线谱" type="Sprite2D" parent="."]
@@ -213,9 +284,6 @@ position = Vector2(1400, 47)
 [node name="fa^2(top)" type="Node2D" parent="NotePosition"]
 position = Vector2(1400, 24)
 
-[node name="Test" type="Timer" parent="."]
-wait_time = 0.375
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ys3so")
@@ -224,4 +292,6 @@ libraries = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ys3so")
 
-[connection signal="timeout" from="Test" to="." method="_on_test_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(708, 200.5)
+shape = SubResource("RectangleShape2D_gmc05")

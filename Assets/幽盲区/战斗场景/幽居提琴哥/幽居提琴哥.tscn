@@ -119,6 +119,10 @@ region = Rect2(3584, 1024, 512, 512)
 atlas = ExtResource("1_d4cbg")
 region = Rect2(0, 1536, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_67a2t"]
+atlas = ExtResource("1_d4cbg")
+region = Rect2(0, 2560, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6fcr"]
 atlas = ExtResource("1_d4cbg")
 region = Rect2(512, 1536, 512, 512)
@@ -178,10 +182,6 @@ region = Rect2(3072, 2048, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxvef"]
 atlas = ExtResource("1_d4cbg")
 region = Rect2(3584, 2048, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_67a2t"]
-atlas = ExtResource("1_d4cbg")
-region = Rect2(0, 2560, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tn2l0"]
 atlas = ExtResource("1_d4cbg")
@@ -595,6 +595,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_67a2t")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d6fcr")
 }, {
 "duration": 1.0,
@@ -717,6 +725,14 @@ animations = [{
 "loop": false,
 "name": &"Skill",
 "speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67a2t")
+}],
+"loop": true,
+"name": &"Wait",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -967,8 +983,8 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u61vh"]
-size = Vector2(11802, 10265)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohyip"]
+size = Vector2(11802, 13242.5)
 
 [sub_resource type="Animation" id="Animation_gbufe"]
 resource_name = "Attack"
@@ -1099,7 +1115,7 @@ script = ExtResource("1_u61vh")
 material = SubResource("ShaderMaterial_u61vh")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_h21nw")
-animation = &"Jump"
+animation = &"Wait"
 autoplay = "Idle"
 offset = Vector2(11, 23)
 
@@ -1156,8 +1172,9 @@ libraries = {
 [node name="PlayerCheck" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
-shape = SubResource("RectangleShape2D_u61vh")
-debug_color = Color(0.343, 0.549, 0.783, 0)
+position = Vector2(0, 1488.75)
+shape = SubResource("RectangleShape2D_ohyip")
+debug_color = Color(0.3432, 0.54704, 0.78, 0.145098)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_7dkh4")
@@ -1179,6 +1196,9 @@ script = ExtResource("7_b4aa3")
 
 [node name="Jump(3)" type="Node" parent="StateMachine"]
 script = ExtResource("8_pf8so")
+
+[node name="Timer" type="Timer" parent="StateMachine/Jump(3)"]
+one_shot = true
 
 [node name="Fall(4)" type="Node" parent="StateMachine"]
 script = ExtResource("9_0rlhy")
@@ -1206,4 +1226,5 @@ libraries = {
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Skill(5)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Run(1)/Timer" to="StateMachine/Run(1)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Jump(3)/Timer" to="StateMachine/Jump(3)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Skill(5)/Timer" to="StateMachine/Skill(5)" method="_on_timer_timeout"]

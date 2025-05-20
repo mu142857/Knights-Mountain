@@ -1,10 +1,13 @@
-extends Node2D
+extends CharacterBody2D
 
 @onready var world: WorldEnvironment = $WorldEnvironment
 
 var during_music: bool = true
 
 func _ready() -> void:
+	
+	self.add_to_group("music_sheet")
+	
 	during_music = true
 	$"五线谱".modulate.a = 0
 	$AnimationPlayer.play("提琴哥的旋律")
@@ -109,9 +112,6 @@ func play_note(pitch: String, top_or_bottom: String, note_duration: float, harmf
 	note.position = pos
 	note.damage = harmful
 	get_tree().current_scene.add_child(note)
-
-func _on_test_timeout() -> void:
-	play_note("do", "bottom", 0.125, false)
 
 func part_one_to_two_top():
 	play_note("re^1", "top", 0.125, false)
