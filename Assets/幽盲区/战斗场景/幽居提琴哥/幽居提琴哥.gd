@@ -27,7 +27,7 @@ func _ready() -> void:
 func take_hit(value: int):
 	if health <= 1200:
 		elapsed_sec = (Time.get_ticks_msec() - start_time) / 1000.0
-		if elapsed_sec <= 20:
+		if elapsed_sec <= 30:
 			future_duration = 0.01
 		else:
 			future_duration = 0.75

@@ -236,15 +236,15 @@ func part_six_top():
 func part_eight_top():
 	play_note("ti", "top", 0.125, true)
 	await get_tree().create_timer(0.375).timeout
-	play_note("re^1", "top", 0.125, false)
+	play_note("re^1", "top", 0.125, true)
 	await get_tree().create_timer(0.375).timeout
 	play_note("fa^1", "top", 0.125, true)
 	await get_tree().create_timer(0.375).timeout
-	play_note("la^1", "top", 0.125, false)
+	play_note("la^1", "top", 0.125, true)
 	await get_tree().create_timer(0.375).timeout
 	play_note("re^2", "top", 0.25, true)
 	await get_tree().create_timer(0.75).timeout
-	play_note("do^2", "top", 0.125, false)
+	play_note("do^2", "top", 0.125, true)
 	await get_tree().create_timer(0.375).timeout
 	play_note("ti^1", "top", 0.125, true)
 	await get_tree().create_timer(0.375).timeout

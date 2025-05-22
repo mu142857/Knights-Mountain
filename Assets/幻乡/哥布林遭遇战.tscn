@@ -652,4 +652,4 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_bcmaq")
 
 [node name="出怪点1" type="Node2D" parent="."]
-position = Vector2(734, 727)
+position = Vector2(734, 805)

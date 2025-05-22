@@ -26,7 +26,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53c8f"]
 shader = ExtResource("2_smw6u")
-shader_parameter/Enabled = true
+shader_parameter/Enabled = false
 shader_parameter/Tint = Color(1, 0.448398, 0.416249, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ntsx"]

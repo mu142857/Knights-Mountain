@@ -26,7 +26,7 @@ func _on_disappear_timeout() -> void:
 	self.queue_free()
 
 func play_note():
-	$AnimatedSprite2D.modulate.a = 0.5
+	$AnimatedSprite2D.modulate.a = 0.4
 	var note = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/流动音符播放粒子.tscn").instantiate()
 	note.position = self.global_position
 	note.emitting = true

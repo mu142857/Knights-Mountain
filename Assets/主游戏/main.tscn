@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jne41ipubig4"]
 
-[ext_resource type="Script" path="res://Assets/主游戏/main.gd" id="1_lmrih"]
+[ext_resource type="Script" uid="uid://4pjcvm620kaf" path="res://Assets/主游戏/main.gd" id="1_lmrih"]
 [ext_resource type="AudioStream" uid="uid://dnn3xf32dcl5y" path="res://Assets/开始界面/2025冬-2025-02-05-下午11.23.ogg" id="2_vtytk"]
 
 [node name="Main" type="Node"]
@@ -8,4 +8,3 @@ script = ExtResource("1_lmrih")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_vtytk")
-autoplay = true
