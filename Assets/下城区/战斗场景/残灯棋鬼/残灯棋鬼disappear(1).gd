@@ -2,7 +2,7 @@ extends Basic_State
 
 @onready var ani_2D: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var monster: CharacterBody2D = $"../.."
-@onready var world: WorldEnvironment = $"../../WorldEnvironment"
+@onready var world: WorldEnvironment = Game.get_node("WorldEnvironment")
 @onready var detection_range: Area2D = $"../../MonsterCheck" # 寻找玩家的范围
 
 var summoned_monster_exist: bool = true

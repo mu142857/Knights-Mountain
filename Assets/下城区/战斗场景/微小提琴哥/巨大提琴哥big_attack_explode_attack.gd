@@ -5,6 +5,10 @@ extends Basic_State
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 @onready var ani_player: AnimationPlayer = $"../../AnimationPlayer"
 
+var baozha = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥爆炸粒子.tscn")
+var yinfulizi = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn")
+var tiqinbo = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.tscn")
+
 func enter():
 	ani_player.play("BigExplode")
 
@@ -13,24 +17,24 @@ func explode():
 	attack_check()
 	
 	Game.shake_camera(10)
-	var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥爆炸粒子.tscn").instantiate()
+	var expl = baozha.instantiate()
 	expl.position = monster.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)
-	var note = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn").instantiate()
+	var note = yinfulizi.instantiate()
 	note.position = monster.global_position
 	note.emitting = true
 	get_tree().current_scene.add_child(note)
 	release_wave()
 
 func release_wave():
-	var wave1 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.tscn").instantiate()
+	var wave1 = tiqinbo.instantiate()
 	wave1.direct = monster.direct
 	wave1.position = monster.global_position
 	wave1.small_or_big = "big"
 	get_tree().current_scene.add_child(wave1)
 	
-	var wave2 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.tscn").instantiate()
+	var wave2 = tiqinbo.instantiate()
 	wave2.direct = -monster.direct
 	wave2.position = monster.global_position
 	wave1.small_or_big = "big"

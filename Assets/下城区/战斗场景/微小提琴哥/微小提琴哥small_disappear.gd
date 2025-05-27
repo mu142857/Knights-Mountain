@@ -7,6 +7,9 @@ extends Basic_State
 
 var left_or_right: int = 0
 
+var xiaoyinfu = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn")
+var xiaoyinfulizi = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn")
+
 func enter():
 	backline.show()
 	ani_2D.play("SmallDisappear")
@@ -86,7 +89,7 @@ func _on_transition_timer_timeout() -> void:
 	else:
 		monster.face_right()
 	get_parent().change_state(5)
-	var note = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn").instantiate()
+	var note = xiaoyinfu.instantiate()
 	note.position = monster.global_position + Vector2(0, -75)
 	note.emitting = true
 	get_tree().current_scene.add_child(note)
@@ -97,7 +100,7 @@ func exit():
 	$SecondSprintTimer.stop()
 
 func _on_second_sprint_timer_timeout() -> void:
-	var note = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn").instantiate()
+	var note = xiaoyinfulizi.instantiate()
 	note.position = monster.global_position + Vector2(0, -75)
 	note.emitting = true
 	get_tree().current_scene.add_child(note)

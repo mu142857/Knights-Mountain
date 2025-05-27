@@ -8,6 +8,9 @@ extends Basic_State
 
 var ready_to_sprint: bool = false
 
+var luodilizi = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥落地粒子.tscn")
+var yinfulizi = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn")
+
 func enter():
 	ready_to_sprint = false
 	monster.velocity.y = -3000
@@ -70,12 +73,12 @@ func release_effect():
 	
 	attack_check()
 	
-	var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥落地粒子.tscn").instantiate()
+	var expl = luodilizi.instantiate()
 	expl.position = monster.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)
 	Game.shake_camera(10)
-	var note = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn").instantiate()
+	var note = yinfulizi.instantiate()
 	note.position = monster.global_position
 	note.emitting = true
 	get_tree().current_scene.add_child(note)

@@ -5,6 +5,9 @@ extends  Basic_State
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 @onready var ani_player: AnimationPlayer = $"../../AnimationPlayer"
 
+var feidan = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+
+
 func enter():
 	ani_player.play("BigAttack3")
 	
@@ -34,13 +37,13 @@ func get_player_info() -> Array:
 
 
 func release_feidan(): # 召唤飞弹(deifan)弹幕
-	var deifan8 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan9 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan10 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan11 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan12 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan13 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan14 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
+	var deifan8 = feidan.instantiate()
+	var deifan9 = feidan.instantiate()
+	var deifan10 = feidan.instantiate()
+	var deifan11 = feidan.instantiate()
+	var deifan12 = feidan.instantiate()
+	var deifan13 = feidan.instantiate()
+	var deifan14 = feidan.instantiate()
 	deifan8.position = $"../../AttackCheck/弹幕发射点".global_position
 	deifan9.position = $"../../AttackCheck/弹幕发射点".global_position
 	deifan10.position = $"../../AttackCheck/弹幕发射点".global_position

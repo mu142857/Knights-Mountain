@@ -4,6 +4,8 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 
+var huoqiu = preload("res://Assets/下城区/战斗场景/残灯马/残灯马火球.tscn")
+
 func enter():
 	ani_2D.play("Attack")
 	var duration = randf_range(3, 5)
@@ -20,7 +22,7 @@ func exit():
 	$AttackDuration.stop()
 	
 func _on_attack_duration_timeout() -> void:
-	var fire_ball = preload("res://Assets/下城区/战斗场景/残灯马/残灯马火球.tscn").instantiate()
+	var fire_ball = huoqiu.instantiate()
 	if $"../../AnimatedSprite2D".scale.x < 0:
 		fire_ball.global_position = $"../../发射点/发射子弹点右".global_position
 		fire_ball.vec_x = 1

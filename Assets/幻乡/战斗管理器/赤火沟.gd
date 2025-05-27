@@ -28,3 +28,13 @@ func _on_timer_timeout() -> void:
 	#var mao = preload("res://Assets/下城区/战斗场景/邪帽/邪帽.tscn").instantiate()
 	#summon_monsters(mao, $"出怪点/出怪点2")
 	$Timer.start(3000)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	var arr = $Area2D.get_overlapping_bodies()
+	attack_body(arr, 1000)
+	
+func attack_body(arr: Array, damage: float):
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(damage)

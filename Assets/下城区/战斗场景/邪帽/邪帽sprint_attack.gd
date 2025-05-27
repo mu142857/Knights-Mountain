@@ -7,6 +7,8 @@ var speed: float = 0.0
 var health_stage: int = 1
 var last_health_stage: int = 1
 
+var changlian = preload("res://Assets/下城区/战斗场景/邪帽/长镰.tscn")
+
 func enter():
 	#print(health_stage)
 	#Game.shake_camera(30)
@@ -56,7 +58,7 @@ func enter_enderground_fire_stage():
 		monster.ready_to_underground_fire = true
 			
 func scythe():
-	var sce = preload("res://Assets/下城区/战斗场景/邪帽/长镰.tscn").instantiate()
+	var sce = changlian.instantiate()
 	sce.position = Vector2(0, -50)
 	sce.scale = ani_2D.scale / 4
 	ani_2D.add_child(sce)

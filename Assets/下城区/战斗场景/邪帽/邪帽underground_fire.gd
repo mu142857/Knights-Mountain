@@ -4,6 +4,8 @@ extends Basic_State
 var duration = 0.1
 var num = 0
 
+var dihuo = preload("res://Assets/下城区/战斗场景/邪帽/地火.tscn")
+
 func enter():
 	monster.hide()
 	
@@ -22,7 +24,7 @@ func exit():
 
 
 func _on_timer_timeout() -> void:
-	var sce = preload("res://Assets/下城区/战斗场景/邪帽/地火.tscn").instantiate()
+	var sce = dihuo.instantiate()
 	if num <= 11:
 		num += 2
 		sce.global_position = Vector2(num * 100, 850)

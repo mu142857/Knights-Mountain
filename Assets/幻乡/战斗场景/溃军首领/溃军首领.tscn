@@ -1203,7 +1203,7 @@ position = Vector2(1, 1)
 [node name="Attack1" type="Area2D" parent="AttackChecks"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackChecks/Attack1"]
-polygon = PackedVector2Array(82, -2, 182, -2, 180, -33, 161, -49, 144, -30, 120, -32)
+polygon = PackedVector2Array(-57, 3, 182, -2, 180, -33, 161, -49, 144, -30, 120, -32)
 
 [node name="Attack2" type="Area2D" parent="AttackChecks"]
 

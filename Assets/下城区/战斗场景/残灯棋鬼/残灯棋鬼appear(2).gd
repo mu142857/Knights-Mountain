@@ -2,7 +2,7 @@ extends Basic_State
 
 @onready var ani_2D: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var monster: CharacterBody2D = $"../.."
-@onready var world: WorldEnvironment = $"../../WorldEnvironment"
+@onready var world: WorldEnvironment = Game.get_node("WorldEnvironment")
 
 func enter():
 	monster.global_position.x = (monster.scene_startx + monster.scene_endx) / 2

@@ -10,6 +10,10 @@ var skills_count: int = 0
 
 var change_timer_started: bool = false
 
+var daliandao = preload("res://Assets/下城区/战斗场景/邪帽/大镰刀.tscn")
+var zhongliandao = preload("res://Assets/下城区/战斗场景/邪帽/中镰刀.tscn")
+var xiaoliandao = preload("res://Assets/下城区/战斗场景/邪帽/小镰刀.tscn")
+
 # [技能组设定] 预设技能组字典，键为技能个数，值为可能的技能组合（每个组合用字符串数组表示，对应技能函数）
 var all_skill_groups = {
 	3: [
@@ -113,24 +117,12 @@ func process():
 func exit():
 	pass
 
-func test_skill():
-	skill_ready = false
-	var cooldown = monster.health / 2100
-	$Timer.start(skill_cooldown + cooldown)
-	skills_count += 1
-	var sce1 = preload("res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.tscn").instantiate()
-	sce1.setup(monster.global_position - Vector2(0, 100), false, 840)
-	monster.get_parent().add_child(sce1)
-	var sce2 = preload("res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.tscn").instantiate()
-	sce2.setup(monster.global_position - Vector2(0, 100), true, 840)
-	monster.get_parent().add_child(sce2)
-
 func big_sickle():
 	skill_ready = false
 	var cooldown = monster.health / 2100
 	$Timer.start(0.4 + cooldown)
 	skills_count += 1
-	var sce = preload("res://Assets/下城区/战斗场景/邪帽/大镰刀.tscn").instantiate()
+	var sce = daliandao.instantiate()
 	sce.global_position = monster.global_position
 	monster.get_parent().add_child(sce)
 	
@@ -139,11 +131,11 @@ func small_sickle():
 	var cooldown = monster.health / 2100
 	$Timer.start(0.5 + cooldown)
 	skills_count += 1
-	var sce1 = preload("res://Assets/下城区/战斗场景/邪帽/小镰刀.tscn").instantiate()
+	var sce1 = xiaoliandao.instantiate()
 	sce1.global_position = monster.global_position
 	sce1._direction = 1
 	monster.get_parent().add_child(sce1)
-	var sce2 = preload("res://Assets/下城区/战斗场景/邪帽/小镰刀.tscn").instantiate()
+	var sce2 = xiaoliandao.instantiate()
 	sce2.global_position = monster.global_position
 	sce2._direction = -1
 	monster.get_parent().add_child(sce2)
@@ -153,7 +145,7 @@ func mid_sickle():
 	var cooldown = monster.health / 2100
 	$Timer.start(0.45 + cooldown)
 	skills_count += 1
-	var sce = preload("res://Assets/下城区/战斗场景/邪帽/中镰刀.tscn").instantiate()
+	var sce = zhongliandao.instantiate()
 	sce.global_position = monster.global_position
 	monster.get_parent().add_child(sce)
 	

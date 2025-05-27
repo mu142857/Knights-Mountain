@@ -6,6 +6,10 @@ extends Basic_State
 
 @onready var ani_player: AnimationPlayer = $"../../AnimationPlayer"
 
+var yinfulizi = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn")
+var tiqinbo = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.tscn")
+var feidan = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn")
+
 func enter():
 	ani_player.play("Attack")
 	
@@ -25,7 +29,7 @@ func release_effect():
 
 	Game.shake_camera(10)
 
-	var note = preload("res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.tscn").instantiate()
+	var note = yinfulizi.instantiate()
 	note.position = $"../../AttackCheck/Attack3".global_position
 	note.emitting = true
 	get_tree().current_scene.add_child(note)
@@ -45,7 +49,7 @@ func get_player_info() -> Array:
 	return [distance, direction, position] # direction中，-1表示(在主角)左边，1表示右边，0表示未知
 
 func release_wave():
-	var wave = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴波发射器.tscn").instantiate()
+	var wave = tiqinbo.instantiate()
 	wave.direct = monster.direct
 	wave.position = $"../../AttackCheck/Attack3".global_position
 	wave.small_or_big = "small"
@@ -93,10 +97,10 @@ func release_barrage(): # 召唤飞弹(deifan)弹幕
 
 func drop_barrage():
 	var player_x = get_player_info()[2].x
-	var deifan4 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan5 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan6 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan7 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
+	var deifan4 = feidan.instantiate()
+	var deifan5 = feidan.instantiate()
+	var deifan6 = feidan.instantiate()
+	var deifan7 = feidan.instantiate()
 	deifan4.position = Vector2(player_x + 450, 0)
 	deifan5.position = Vector2(player_x + 150, 0)
 	deifan6.position = Vector2(player_x - 150, 0)

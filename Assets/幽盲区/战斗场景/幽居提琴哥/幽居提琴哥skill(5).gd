@@ -5,6 +5,8 @@ extends  Basic_State
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 @onready var ani_player: AnimationPlayer = $"../../AnimationPlayer"
 
+var feidan = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn")
+
 const MIN_RUNNING_DISTANCE: float = 300
 const MAX_RUNNING_DISTANCE: float = 700
 const PLAYER_FORBIDDEN: float = 200 # SAFETY_DISTANCE
@@ -68,13 +70,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		get_parent().change_state(0)
 
 func release_feidan(): # 召唤飞弹(deifan)弹幕
-	var deifan8 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan9 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan10 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan11 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan12 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan13 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
-	var deifan14 = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥飞弹.tscn").instantiate()
+	var deifan8 = feidan.instantiate()
+	var deifan9 = feidan.instantiate()
+	var deifan10 = feidan.instantiate()
+	var deifan11 = feidan.instantiate()
+	var deifan12 = feidan.instantiate()
+	var deifan13 = feidan.instantiate()
+	var deifan14 = feidan.instantiate()
 	deifan8.position = $"../../AttackCheck/弹幕发射点".global_position
 	deifan9.position = $"../../AttackCheck/弹幕发射点".global_position
 	deifan10.position = $"../../AttackCheck/弹幕发射点".global_position

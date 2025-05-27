@@ -448,8 +448,10 @@ script = ExtResource("1_xeuqt")
 material = SubResource("ShaderMaterial_csmic")
 position = Vector2(0, -39)
 sprite_frames = SubResource("SpriteFrames_v5g51")
-animation = &"Sprint"
+animation = &"RunInitial"
 autoplay = "Idle"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(35, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

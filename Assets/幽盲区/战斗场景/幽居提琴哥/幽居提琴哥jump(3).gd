@@ -4,6 +4,8 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 
+var wuxianpu = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/五线谱.tscn")
+
 var wait_for_summon: bool = true
 
 var music_sheet_exist: bool = false
@@ -14,7 +16,7 @@ func enter():
 	
 	monster.velocity.y = -2000
 	ani_2D.play("Jump")
-	var musicsheet = preload("res://Assets/幽盲区/战斗场景/幽居提琴哥/五线谱.tscn").instantiate()
+	var musicsheet = wuxianpu.instantiate()
 	musicsheet.global_position = Vector2.ZERO
 	get_tree().current_scene.add_child(musicsheet)
 	

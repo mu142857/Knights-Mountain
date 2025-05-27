@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dc0urifofxfca"]
+[gd_scene load_steps=47 format=3 uid="uid://dc0urifofxfca"]
 
 [ext_resource type="Texture2D" uid="uid://bptx70xobhyyi" path="res://Assets/下城区/战斗场景/残灯棋鬼/残烟骑士阵-Sheet.png" id="1_4siff"]
 [ext_resource type="Script" uid="uid://b1him3aeneqmq" path="res://Assets/下城区/战斗场景/残灯棋鬼/残灯棋王.gd" id="1_rd5rd"]
@@ -213,10 +213,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv1bv"]
 size = Vector2(261, 474)
 
-[sub_resource type="Environment" id="Environment_60eer"]
-background_mode = 3
-adjustment_enabled = true
-
 [sub_resource type="Animation" id="Animation_4ihxq"]
 resource_name = "Summon"
 tracks/0/type = "method"
@@ -364,9 +360,6 @@ one_shot = true
 
 [node name="ChangeVenue(5)" type="Node" parent="StateMachine"]
 script = ExtResource("9_xhwkb")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_60eer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

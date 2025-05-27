@@ -11,6 +11,11 @@ extends  Basic_State
 var player_position: Vector2
 var beam_target_position: Vector2
 
+var feidan4 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+var feidan5 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+var feidan6 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+var feidan7 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+
 func enter():
 	ani_player.play("BigAttack1")
 	beam_target_position = Vector2.ZERO
@@ -61,10 +66,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		get_parent().change_state(8)
 
 func release_barrage(): # 召唤飞弹(deifan)弹幕
-	var deifan4 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan5 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan6 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan7 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
+	var deifan4 = feidan4.instantiate()
+	var deifan5 = feidan5.instantiate()
+	var deifan6 = feidan6.instantiate()
+	var deifan7 = feidan7.instantiate()
 	deifan4.position = $"../../AttackCheck/激光发射点".global_position
 	deifan5.position = $"../../AttackCheck/激光发射点".global_position
 	deifan6.position = $"../../AttackCheck/激光发射点".global_position

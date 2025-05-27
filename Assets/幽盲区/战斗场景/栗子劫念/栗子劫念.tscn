@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://bgpmsso35dvpg"]
+[gd_scene load_steps=123 format=3 uid="uid://bgpmsso35dvpg"]
 
 [ext_resource type="Script" uid="uid://cu5ufxyqbhunv" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.gd" id="1_dfcew"]
 [ext_resource type="Texture2D" uid="uid://ca5xj2sa2k6t2" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.png" id="1_jvprc"]
@@ -46,6 +46,26 @@ region = Rect2(0, 3584, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4unq"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(512, 3584, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7adu"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plbkl"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m30uf"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yns"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70b8g"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_inays"]
 atlas = ExtResource("1_jvprc")
@@ -467,6 +487,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_y7adu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plbkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m30uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7yns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70b8g")
+}],
+"loop": false,
+"name": &"BeforeSpin",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_inays")
 }, {
 "duration": 1.0,
@@ -841,8 +881,8 @@ script = ExtResource("1_dfcew")
 material = SubResource("ShaderMaterial_dfcew")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_vnn2c")
+animation = &"BeforeSpin"
 autoplay = "Idle"
-frame = 29
 offset = Vector2(-19, -51)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

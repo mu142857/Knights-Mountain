@@ -6,6 +6,10 @@ extends Basic_State
 
 @onready var ani_player: AnimationPlayer = $"../../AnimationPlayer"
 
+var tiqingefeidan1 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+var tiqingefeidan2 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+var tiqingefeidan3 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn")
+
 func enter():
 	ani_player.play("SmallAttack2")
 	
@@ -35,9 +39,9 @@ func get_player_info() -> Array:
 	return [distance, direction, position] # direction中，-1表示(在主角)左边，1表示右边，0表示未知
 
 func release_barrage(): # 召唤飞弹(deifan)弹幕
-	var deifan1 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan2 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
-	var deifan3 = preload("res://Assets/下城区/战斗场景/微小提琴哥/提琴哥飞弹.tscn").instantiate()
+	var deifan1 = tiqingefeidan1.instantiate()
+	var deifan2 = tiqingefeidan2.instantiate()
+	var deifan3 = tiqingefeidan3.instantiate()
 	deifan1.position = monster.global_position + Vector2(0, -60)
 	deifan2.position = monster.global_position + Vector2(0, -60)
 	deifan3.position = monster.global_position + Vector2(0, -60)

@@ -3,6 +3,8 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 @onready var ani_sprite2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
+var huoqiu = preload("res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.tscn")
+
 func enter():
 	$"../../AnimationPlayer".play("Attack")
 
@@ -13,11 +15,11 @@ func process():
 
 func attack():
 	
-	var sce1 = preload("res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.tscn").instantiate()
+	var sce1 = huoqiu.instantiate()
 	sce1.setup($"../../攻击位置/左攻击位置".global_position, false, monster.global_position.y)
 	monster.get_parent().add_child(sce1)
 	
-	var sce2 = preload("res://Assets/幻乡/战斗场景/哥布林火焰兵/哥布林火球.tscn").instantiate()
+	var sce2 = huoqiu.instantiate()
 	sce2.setup($"../../攻击位置/右攻击位置".global_position, true, monster.global_position.y)
 	monster.get_parent().add_child(sce2)
 

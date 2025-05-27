@@ -88,7 +88,7 @@ script = ExtResource("1_o0of0")
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 100, 0)
 width = 14.0
-default_color = Color(0, 0.780392, 0.929412, 1)
+default_color = Color(1, 2.34, 2.79, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
