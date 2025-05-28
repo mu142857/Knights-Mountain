@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://b3c7r6dxte3vv"]
 
-[ext_resource type="Script" path="res://Assets/开始界面/关卡选择.gd" id="1_kpq8a"]
+[ext_resource type="Script" uid="uid://bek3q3l1gh4un" path="res://Assets/开始界面/关卡选择.gd" id="1_kpq8a"]
 [ext_resource type="Texture2D" uid="uid://b6nmxxom4qvvw" path="res://Assets/开始界面/Day.png" id="1_pru8y"]
 [ext_resource type="Texture2D" uid="uid://bvwmgaru8yw36" path="res://Assets/开始界面/Wood.png" id="1_ubesa"]
 [ext_resource type="Texture2D" uid="uid://bcsh27osk5krk" path="res://Assets/开始界面/Night.png" id="2_lk3uc"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dftw0mtcnyvsn" path="res://Assets/开始界面/Earth.png" id="7_hqo05"]
 [ext_resource type="Texture2D" uid="uid://cel1cqll32hwg" path="res://Assets/开始界面/Airship.png" id="8_xeu0e"]
 [ext_resource type="Texture2D" uid="uid://1nusxuvwbhk5" path="res://Assets/开始界面/Lower City.png" id="9_nemjp"]
-[ext_resource type="Shader" path="res://Assets/开始界面/水面.gdshader" id="10_m3amg"]
+[ext_resource type="Shader" uid="uid://dxkq37apipmon" path="res://Assets/开始界面/水面.gdshader" id="10_m3amg"]
 [ext_resource type="Texture2D" uid="uid://bi3sdlgolsr0y" path="res://Assets/开始界面/细节/灯塔.jpg" id="12_a8yji"]
 [ext_resource type="Texture2D" uid="uid://w1s15amfqnbj" path="res://Assets/开始界面/细节/点光源.jpg" id="12_mb8hq"]
 [ext_resource type="Texture2D" uid="uid://crlol4hflnmw2" path="res://Assets/开始界面/细节/树叶.png" id="14_t6fc8"]
@@ -95,36 +95,35 @@ anim_offset_max = 1.0
 blend_mode = 1
 
 [sub_resource type="Curve" id="Curve_bbm4x"]
-min_value = 0.05
-max_value = 0.3
+_limits = [0.05, 0.3, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 1.82036, 0, 0, Vector2(1e-05, 0.05), 0.0, 0.0, 0, 0, Vector2(0.501292, 0.3), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.05), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.74891, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="CurveTexture" id="CurveTexture_oxyhy"]
+[sub_resource type="CurveTexture" id="CurveTexture_po864"]
 curve = SubResource("Curve_bbm4x")
 
 [sub_resource type="Gradient" id="Gradient_q3h47"]
 colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_orc4p"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4vso1"]
 gradient = SubResource("Gradient_q3h47")
 
 [sub_resource type="Curve" id="Curve_hh8du"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_1xdnq"]
-max_value = 30.0
+_limits = [0.0, 30.0, 0.0, 1.0]
 _data = [Vector2(0, 15.6699), 0.0, 60.3381, 0, 0, Vector2(0.503311, 30), -4.34217, -4.34217, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_b5o0k"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_0m8ce"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_h6ge7"]
 curve_x = SubResource("Curve_hh8du")
 curve_y = SubResource("Curve_1xdnq")
 curve_z = SubResource("Curve_b5o0k")
@@ -137,9 +136,9 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 2000, 0)
 scale_min = 0.2
-scale_over_velocity_curve = SubResource("CurveXYZTexture_0m8ce")
-color_ramp = SubResource("GradientTexture1D_orc4p")
-alpha_curve = SubResource("CurveTexture_oxyhy")
+scale_over_velocity_curve = SubResource("CurveXYZTexture_h6ge7")
+color_ramp = SubResource("GradientTexture1D_4vso1")
+alpha_curve = SubResource("CurveTexture_po864")
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
 
@@ -192,28 +191,28 @@ scale = Vector2(0.3125, 0.3125)
 material = SubResource("CanvasItemMaterial_vqsve")
 position = Vector2(-0.950908, 6.00959)
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_1uedg")
 texture = ExtResource("14_t6fc8")
 lifetime = 4.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_1uedg")
 
 [node name="小枝落叶右" type="GPUParticles2D" parent="关卡/夜/落叶"]
 material = SubResource("CanvasItemMaterial_vqsve")
 position = Vector2(139.202, -98.1411)
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_y5rny")
 texture = ExtResource("14_t6fc8")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_y5rny")
 
 [node name="小枝落叶左" type="GPUParticles2D" parent="关卡/夜/落叶"]
 material = SubResource("CanvasItemMaterial_vqsve")
 position = Vector2(-38.5464, -66.6872)
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_eh3jg")
 texture = ExtResource("14_t6fc8")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_eh3jg")
 
 [node name="金" type="Sprite2D" parent="关卡"]
 position = Vector2(700, 0)
@@ -234,28 +233,28 @@ scale = Vector2(0.3125, 0.3125)
 material = SubResource("CanvasItemMaterial_vqsve")
 position = Vector2(-0.950908, 6.00959)
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_1uedg")
 texture = ExtResource("14_t6fc8")
 lifetime = 4.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_1uedg")
 
 [node name="小枝落叶右" type="GPUParticles2D" parent="关卡/木/落叶"]
 material = SubResource("CanvasItemMaterial_vqsve")
 position = Vector2(139.202, -98.1411)
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_y5rny")
 texture = ExtResource("14_t6fc8")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_y5rny")
 
 [node name="小枝落叶左" type="GPUParticles2D" parent="关卡/木/落叶"]
 material = SubResource("CanvasItemMaterial_vqsve")
 position = Vector2(-38.5464, -66.6872)
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_eh3jg")
 texture = ExtResource("14_t6fc8")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
+process_material = SubResource("ParticleProcessMaterial_eh3jg")
 
 [node name="水" type="Sprite2D" parent="关卡"]
 position = Vector2(700, 0)
@@ -311,10 +310,10 @@ texture = ExtResource("12_mb8hq")
 material = SubResource("CanvasItemMaterial_mua7q")
 position = Vector2(700, 200)
 amount = 2000
-process_material = SubResource("ParticleProcessMaterial_1ikmb")
 preprocess = 0.5
 collision_base_size = 90.0
 visibility_rect = Rect2(-350, -200, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_1ikmb")
 
 [node name="鼠标判定" type="Node2D" parent="."]
 

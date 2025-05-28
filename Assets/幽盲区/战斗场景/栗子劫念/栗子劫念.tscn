@@ -1,10 +1,20 @@
-[gd_scene load_steps=123 format=3 uid="uid://bgpmsso35dvpg"]
+[gd_scene load_steps=138 format=3 uid="uid://bgpmsso35dvpg"]
 
 [ext_resource type="Script" uid="uid://cu5ufxyqbhunv" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.gd" id="1_dfcew"]
 [ext_resource type="Texture2D" uid="uid://ca5xj2sa2k6t2" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.png" id="1_jvprc"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_wf2h6"]
 [ext_resource type="Script" uid="uid://1yws383x7x5g" path="res://Assets/幽盲区/战斗场景/栗子劫念/state_machine.gd" id="4_yjoxb"]
 [ext_resource type="Script" uid="uid://b1p6s2kgpygo2" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念idle(0).gd" id="5_u02wk"]
+[ext_resource type="Script" uid="uid://ujie1so8kebd" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念spin(1).gd" id="6_er6n4"]
+[ext_resource type="Script" uid="uid://cxlfmo7pkg8v5" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念shoot_laser(2).gd" id="7_t5dxm"]
+[ext_resource type="Script" uid="uid://b3aw7e8qrsgbf" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念upper_laser(3).gd" id="8_yh74q"]
+[ext_resource type="Script" uid="uid://bxsg26fcjy3tv" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念disappear(4).gd" id="9_4m53v"]
+[ext_resource type="Script" uid="uid://bm8drgikim4i1" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念appear(5).gd" id="10_2l7dl"]
+[ext_resource type="Script" uid="uid://b8p7648f66de5" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念squat(6).gd" id="11_kxwgl"]
+[ext_resource type="Script" uid="uid://b16128hvj4d86" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念death(7).gd" id="12_vg6dv"]
+[ext_resource type="PackedScene" uid="uid://cfqkj1ika4iwi" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子眼泪.tscn" id="13_t5dxm"]
+[ext_resource type="PackedScene" uid="uid://cbuwmvcsj3q1k" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光.tscn" id="14_4m53v"]
+[ext_resource type="PackedScene" uid="uid://112wiipltg0" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光瞄准线.tscn" id="15_2l7dl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfcew"]
 shader = ExtResource("1_wf2h6")
@@ -111,6 +121,10 @@ region = Rect2(3584, 2560, 512, 512)
 atlas = ExtResource("1_jvprc")
 region = Rect2(0, 3072, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcti2"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3072, 2048, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oao0y"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(512, 0, 512, 512)
@@ -126,6 +140,10 @@ region = Rect2(1536, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_01frj"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_116oa"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2560, 2048, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwefh"]
 atlas = ExtResource("1_jvprc")
@@ -175,6 +193,14 @@ region = Rect2(512, 2048, 512, 512)
 atlas = ExtResource("1_jvprc")
 region = Rect2(1024, 2048, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvgh1"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2560, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l18h8"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3072, 512, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvprc"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(1024, 512, 512, 512)
@@ -186,18 +212,6 @@ region = Rect2(1536, 512, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_84x0i"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(2048, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvgh1"]
-atlas = ExtResource("1_jvprc")
-region = Rect2(2560, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l18h8"]
-atlas = ExtResource("1_jvprc")
-region = Rect2(3072, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nh43t"]
-atlas = ExtResource("1_jvprc")
-region = Rect2(3584, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45osj"]
 atlas = ExtResource("1_jvprc")
@@ -545,6 +559,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mcti2")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oao0y")
 }, {
 "duration": 1.0,
@@ -558,6 +580,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_116oa")
+}],
+"loop": true,
+"name": &"Jump",
 "speed": 8.0
 }, {
 "frames": [{
@@ -603,6 +633,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uvgh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l18h8")
+}],
+"loop": false,
+"name": &"ShootingLaser",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jvprc")
 }, {
 "duration": 1.0,
@@ -613,21 +654,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Spin",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvgh1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l18h8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nh43t")
-}],
-"loop": false,
-"name": &"Squat",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -832,6 +859,161 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvprc"]
 radius = 35.0143
 
+[sub_resource type="Animation" id="Animation_4m53v"]
+resource_name = "laser"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"ShootingLaser", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/ShootLaser(2)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.133333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aim1"
+}, {
+"args": [],
+"method": &"preattack1"
+}, {
+"args": [],
+"method": &"attack1"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/ShootLaser(2)")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.133333, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aim2"
+}, {
+"args": [],
+"method": &"preattack2"
+}, {
+"args": [],
+"method": &"attack2"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/ShootLaser(2)")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.1333, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aim3"
+}, {
+"args": [],
+"method": &"preattack3"
+}, {
+"args": [],
+"method": &"attack3"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/ShootLaser(2)")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.133333, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aim4"
+}, {
+"args": [],
+"method": &"preattack4"
+}, {
+"args": [],
+"method": &"attack4"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateMachine/ShootLaser(2)")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.1333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aim5"
+}, {
+"args": [],
+"method": &"preattack5"
+}, {
+"args": [],
+"method": &"attack5"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2l7dl"]
+resource_name = "upperlaser"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"ReleaseLaser", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/UpperLaser(3)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_effect"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2l7dl"]
+_data = {
+&"laser": SubResource("Animation_4m53v"),
+&"upperlaser": SubResource("Animation_2l7dl")
+}
+
 [sub_resource type="Animation" id="Animation_aqkn5"]
 resource_name = "HitFlash"
 length = 0.1
@@ -869,6 +1051,9 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5dxm"]
+radius = 32.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u02wk"]
 size = Vector2(11802, 10265)
 
@@ -879,15 +1064,21 @@ script = ExtResource("1_dfcew")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_dfcew")
-position = Vector2(-1, 0)
+position = Vector2(0, -36)
 sprite_frames = SubResource("SpriteFrames_vnn2c")
-animation = &"BeforeSpin"
-autoplay = "Idle"
-offset = Vector2(-19, -51)
+animation = &"ReleaseLaser"
+autoplay = "ShootingLaser"
+frame = 6
+offset = Vector2(-20, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -36)
 shape = SubResource("CircleShape2D_jvprc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2l7dl")
+}
 
 [node name="HitEffectPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -901,13 +1092,101 @@ script = ExtResource("4_yjoxb")
 [node name="Idle(0)" type="Node" parent="StateMachine"]
 script = ExtResource("5_u02wk")
 
+[node name="Timer" type="Timer" parent="StateMachine/Idle(0)"]
+one_shot = true
+
+[node name="ChangeStateTimer" type="Timer" parent="StateMachine/Idle(0)"]
+one_shot = true
+
+[node name="Spin(1)" type="Node" parent="StateMachine"]
+script = ExtResource("6_er6n4")
+
+[node name="ShootLaser(2)" type="Node" parent="StateMachine"]
+script = ExtResource("7_t5dxm")
+
+[node name="Timer" type="Timer" parent="StateMachine/ShootLaser(2)"]
+one_shot = true
+
+[node name="UpperLaser(3)" type="Node" parent="StateMachine"]
+script = ExtResource("8_yh74q")
+
+[node name="Disappear(4)" type="Node" parent="StateMachine"]
+script = ExtResource("9_4m53v")
+
+[node name="Appear(5)" type="Node" parent="StateMachine"]
+script = ExtResource("10_2l7dl")
+
+[node name="Squat(6)" type="Node" parent="StateMachine"]
+script = ExtResource("11_kxwgl")
+
+[node name="Death(7)" type="Node" parent="StateMachine"]
+script = ExtResource("12_vg6dv")
+
+[node name="Jump(8)" type="Node" parent="StateMachine"]
+
+[node name="Fall(9)" type="Node" parent="StateMachine"]
+
 [node name="AttackCheck" type="Node2D" parent="."]
 
-[node name="SmallAttack1" type="Node2D" parent="AttackCheck"]
-position = Vector2(99, 0)
+[node name="激光发射点" type="Node2D" parent="AttackCheck"]
+position = Vector2(0, -37)
+
+[node name="上激光发射点" type="Node2D" parent="AttackCheck"]
+position = Vector2(5, -203)
+
+[node name="碰撞伤害" type="Area2D" parent="AttackCheck"]
+position = Vector2(0, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/碰撞伤害"]
+shape = SubResource("CircleShape2D_t5dxm")
+debug_color = Color(0.647313, 0.434768, 0.752118, 0.42)
 
 [node name="PlayerCheck" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
 shape = SubResource("RectangleShape2D_u02wk")
 debug_color = Color(0.343, 0.549, 0.783, 0)
+
+[node name="眼泪点" type="Node2D" parent="."]
+position = Vector2(0, -37)
+scale = Vector2(2, 2)
+
+[node name="栗子眼泪右" parent="眼泪点" instance=ExtResource("13_t5dxm")]
+position = Vector2(0, -2.5)
+
+[node name="栗子眼泪左" parent="眼泪点" instance=ExtResource("13_t5dxm")]
+position = Vector2(-3, -2.5)
+scale = Vector2(-1, 1)
+
+[node name="栗子激光1" parent="." instance=ExtResource("14_4m53v")]
+position = Vector2(0, -52)
+
+[node name="栗子激光瞄准线1" parent="." instance=ExtResource("15_2l7dl")]
+position = Vector2(0, -52)
+
+[node name="栗子激光2" parent="." instance=ExtResource("14_4m53v")]
+position = Vector2(0, -52)
+
+[node name="栗子激光瞄准线2" parent="." instance=ExtResource("15_2l7dl")]
+position = Vector2(0, -52)
+
+[node name="栗子激光3" parent="." instance=ExtResource("14_4m53v")]
+position = Vector2(0, -52)
+
+[node name="栗子激光瞄准线3" parent="." instance=ExtResource("15_2l7dl")]
+position = Vector2(0, -52)
+
+[node name="栗子激光5" parent="." instance=ExtResource("14_4m53v")]
+position = Vector2(0, -52)
+
+[node name="栗子激光瞄准线5" parent="." instance=ExtResource("15_2l7dl")]
+position = Vector2(0, -52)
+
+[node name="栗子激光4" parent="." instance=ExtResource("14_4m53v")]
+
+[node name="栗子激光瞄准线4" parent="." instance=ExtResource("15_2l7dl")]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/UpperLaser(3)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Idle(0)/ChangeStateTimer" to="StateMachine/ShootLaser(2)" method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="StateMachine/ShootLaser(2)/Timer" to="StateMachine/ShootLaser(2)" method="_on_timer_timeout"]

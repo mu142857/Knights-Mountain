@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5op68w60ulw0"
-path="res://.godot/imported/弹射栗紫晶.png-f50207ca70c0687d4a4e4c3735398121.ctex"
+uid="uid://b47fknotr1fau"
+path="res://.godot/imported/栗子水晶碎片.png-dbe5220c5b3f246aef179621594e6d49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幽盲区/战斗场景/栗子劫念/弹射栗紫晶.png"
-dest_files=["res://.godot/imported/弹射栗紫晶.png-f50207ca70c0687d4a4e4c3735398121.ctex"]
+source_file="res://Assets/幽盲区/战斗场景/栗子劫念/栗子水晶碎片.png"
+dest_files=["res://.godot/imported/栗子水晶碎片.png-dbe5220c5b3f246aef179621594e6d49.ctex"]
 
 [params]
 

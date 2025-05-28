@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://byhksetw3pjxx"]
+
+[ext_resource type="Texture2D" uid="uid://b47fknotr1fau" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子水晶碎片.png" id="1_6b1rw"]
+[ext_resource type="Script" uid="uid://det3b2w42feyv" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子水晶爆炸粒子.gd" id="2_jy7or"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jy7or"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_vkp5k"]
+offsets = PackedFloat32Array(0, 0.266667, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.868182, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3642f"]
+gradient = SubResource("Gradient_vkp5k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nceg8"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 100.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 1000, 0)
+scale_max = 6.0
+color_ramp = SubResource("GradientTexture1D_3642f")
+anim_offset_max = 1.0
+
+[node name="栗子水晶爆炸粒子" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_jy7or")
+emitting = false
+amount = 20
+texture = ExtResource("1_6b1rw")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nceg8")
+script = ExtResource("2_jy7or")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

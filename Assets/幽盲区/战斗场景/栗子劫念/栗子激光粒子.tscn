@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://dgx2yyjyqypta"]
+
+[ext_resource type="Script" uid="uid://becwsnybjwlg8" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光粒子.gd" id="1_aoda1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6qce7"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_aoda1"]
+_limits = [0.05, 0.3, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 1.82036, 0, 0, Vector2(1e-05, 0.275877), 0.0, 0.0, 0, 0, Vector2(0.508475, 0.3), 0.0, 0.0, 0, 0, Vector2(0.997175, 0.151608), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.74891, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ocdb"]
+curve = SubResource("Curve_aoda1")
+
+[sub_resource type="Gradient" id="Gradient_6qce7"]
+offsets = PackedFloat32Array(0, 0.25, 0.48, 0.78, 1)
+colors = PackedColorArray(0.919627, 0.131805, 0, 1, 1, 0.636872, 0.361174, 1, 0.973681, 0.838507, 0.430008, 1, 0.977591, 0.73821, 0.644223, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aoda1"]
+gradient = SubResource("Gradient_6qce7")
+
+[sub_resource type="Gradient" id="Gradient_aw4vq"]
+offsets = PackedFloat32Array(0, 0.87, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h36e2"]
+gradient = SubResource("Gradient_aw4vq")
+
+[sub_resource type="Curve" id="Curve_knm0q"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_cq4db"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 15.6699), 0.0, 60.3381, 0, 0, Vector2(0.503311, 30), -4.34217, -4.34217, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_84d87"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_j03df"]
+curve_x = SubResource("Curve_knm0q")
+curve_y = SubResource("Curve_cq4db")
+curve_z = SubResource("Curve_84d87")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5i038"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 50, 0)
+emission_shape_scale = Vector3(16, 0, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 4000.0
+initial_velocity_max = 4000.0
+scale_max = 20.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_j03df")
+color_ramp = SubResource("GradientTexture1D_h36e2")
+color_initial_ramp = SubResource("GradientTexture1D_aoda1")
+alpha_curve = SubResource("CurveTexture_8ocdb")
+
+[node name="栗子激光粒子" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_6qce7")
+emitting = false
+amount = 40
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.5
+collision_base_size = 90.0
+visibility_rect = Rect2(-350, -200, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_5i038")
+script = ExtResource("1_aoda1")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

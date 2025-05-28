@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://bioo6fixomolg"]
+
+[ext_resource type="Texture2D" uid="uid://bsjoontqnivi8" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子地火.png" id="1_p6jk0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov7k4"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(0, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjfsu"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(512, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdjku"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(1024, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm5d3"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(1536, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taksq"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(2048, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd0mm"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(2560, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn6an"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(3072, 0, 512, 4096)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v06g"]
+atlas = ExtResource("1_p6jk0")
+region = Rect2(3584, 0, 512, 4096)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14eol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjfsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdjku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm5d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taksq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd0mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn6an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v06g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_375p8"]
+size = Vector2(9.5, 79.5)
+
+[node name="栗子地火" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(22, 207)
+sprite_frames = SubResource("SpriteFrames_14eol")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -31.25)
+shape = SubResource("RectangleShape2D_375p8")
