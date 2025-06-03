@@ -7,12 +7,14 @@ signal screen_filter(amount: float, colour: Color)
 @onready var colour_rect: ColorRect = $CanvasLayer/ColorRect
 
 var zdzj = preload("res://Assets/主角/战斗主角.tscn")
+var wzdzj = preload("res://Assets/主角/伪战斗主角.tscn")
 #var xiangji = preload("res://Assets/主角/场景摄像机.tscn")
 
+var player_existed: bool = false
+
 func _ready() -> void:
+	player_existed = false
 	colour_rect.color.a = 0
-	var camera = preload("res://Assets/主角/场景摄像机.tscn").instantiate()
-	get_tree().current_scene.add_child(camera)
 	
 func shake_camera(amount: float): # 震屏
 	screen_shake.emit(amount)
@@ -33,7 +35,7 @@ func frame_freeze(timescale, duration): # 静止帧
 func play_music_tiqingeshengqu():
 	$"提琴哥圣曲".play()
 
-func change_scene(scene_path: String, entry_point: String):
+func change_scene(scene_path: String, entry_point: String, player_battle: bool):
 	var tree = get_tree()
 	var tween = create_tween()
 	tween.tween_property(colour_rect, "color:a", 1, 0.2)
@@ -45,7 +47,13 @@ func change_scene(scene_path: String, entry_point: String):
 	
 	for n in tree.get_nodes_in_group("entry_points"):
 		if n.name == entry_point:
-			var player = zdzj.instantiate()
+			var player
+			if player_battle:
+				player = zdzj.instantiate()
+				var camera = preload("res://Assets/主角/场景摄像机.tscn").instantiate()
+				get_tree().current_scene.add_child(camera)
+			else:
+				player = wzdzj.instantiate()
 			player.global_position = n.global_position
 			tree.current_scene.add_child(player)
 	

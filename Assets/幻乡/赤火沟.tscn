@@ -65,7 +65,7 @@ shader_parameter/WindStrength = 10.0
 offsets = PackedFloat32Array(0, 0.307339, 0.62844, 0.866973, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 0.163456, 0.0421156, 1, 1, 0.189723, 0.848036, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hgji7"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_liysj"]
 gradient = SubResource("Gradient_cgsg6")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6c4pa"]
@@ -81,7 +81,7 @@ angular_velocity_max = 50.0
 gravity = Vector3(0, 30, 0)
 scale_min = 0.8
 scale_max = 1.2
-color_ramp = SubResource("GradientTexture1D_hgji7")
+color_ramp = SubResource("GradientTexture1D_liysj")
 anim_offset_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rs2m2"]
@@ -96,7 +96,7 @@ shader_parameter/WindStrength = 6.0
 shader = ExtResource("2_fsvwc")
 shader_parameter/WindStrength = 6.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7d0m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_liysj"]
 texture = ExtResource("12_jnhe7")
 25:9/0 = 0
 26:9/0 = 0
@@ -283,7 +283,7 @@ texture = ExtResource("12_jnhe7")
 [sub_resource type="TileSet" id="TileSet_48rnl"]
 physics_layer_0/collision_layer = 31
 physics_layer_0/collision_mask = 31
-sources/0 = SubResource("TileSetAtlasSource_j7d0m")
+sources/0 = SubResource("TileSetAtlasSource_liysj")
 
 [sub_resource type="Gradient" id="Gradient_crh11"]
 offsets = PackedFloat32Array(0, 0.137615, 0.559633, 1)
@@ -553,7 +553,6 @@ texture = ExtResource("19_jofxu")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -564,6 +563,7 @@ shape = SubResource("RectangleShape2D_wjwbi")
 [node name="互动点" parent="." instance=ExtResource("19_liysj")]
 position = Vector2(1400, 824)
 type = "Teloport"
+battle = true
 place = "Crimson_Gorge"
 new_scene_path = "uid://dlncgaikaaa05"
 entry_point = "左侧进入点"

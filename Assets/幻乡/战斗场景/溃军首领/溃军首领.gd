@@ -8,11 +8,12 @@ var direct = Vector2.LEFT
 func _ready() -> void:
 	add_to_group("goblin")
 	add_to_group("monster")
-	$StateMachine.change_state(0)
+	$StateMachine.change_state(7)
 
 func take_hit(value: int):
-	health -= value
-	$HitEffectPlayer.play("HitFlash")
+	if $AnimatedSprite2D.animation != "Idle":
+		health -= value
+		$HitEffectPlayer.play("HitFlash")
 	if health <= 0:
 		$StateMachine.change_state(5)
 

@@ -3,9 +3,12 @@ extends Basic_State
 @onready var ani_2D: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var monster: CharacterBody2D = $"../.."
 @onready var detection_range: Area2D = $"../../PlayerCheck"
+@onready var gpu_particles_2d: GPUParticles2D = $"../../GPUParticles2D"
+
 
 func enter():
 	ani_2D.play("Crystallization")
+	gpu_particles_2d.emitting = true
 
 func process():
 	pass
@@ -15,7 +18,7 @@ func exit():
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if ani_2D.animation == "Crystallization":
-		monster.hide()
+		#monster.hide()
 		var goblin1_1 = preload("res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵.tscn").instantiate()
 		var goblin2_1 = preload("res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵.tscn").instantiate()
 		var goblin1_2 = preload("res://Assets/幻乡/战斗场景/哥布林刀兵/哥布林刀兵.tscn").instantiate()
@@ -35,7 +38,7 @@ func teloport(duration: float, summon: Array):
 		for i in arr:
 			if i.is_in_group("player"):
 				monster.global_position.x = i.global_position.x
-	monster.global_position.y = -100
+	monster.global_position.y = 0
 
 	for j in summon:
 		summon_monsters(j)
@@ -51,5 +54,5 @@ func summon_monsters(instant):
 	monster.get_parent().add_child(instant)
 
 func _on_timer_timeout() -> void:
-	monster.show()
+	#monster.show()
 	get_parent().change_state(6)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dlncgaikaaa05"]
+[gd_scene load_steps=46 format=4 uid="uid://dlncgaikaaa05"]
 
 [ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://Assets/主游戏/大树摇晃.tres" id="1_6x2dn"]
 [ext_resource type="Texture2D" uid="uid://6ff20khf0qrt" path="res://Assets/幻乡/战斗场景/场景元素/森林阔叶木.png" id="1_6860o"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://308vjheb8yfv" path="res://Assets/幻乡/战斗场景/场景元素/长条树叶.png" id="3_ndy3g"]
 [ext_resource type="Texture2D" uid="uid://cfpeyo5io2m7b" path="res://Assets/幻乡/战斗场景/场景元素/森林针叶树木.png" id="3_wc8c2"]
 [ext_resource type="Texture2D" uid="uid://dvqxuwbkrdjed" path="res://Assets/幻乡/战斗场景/场景元素/树叶.png" id="5_3wbjt"]
-[ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="6_dgfxq"]
 [ext_resource type="Texture2D" uid="uid://du2phfn7gbfp4" path="res://Assets/幻乡/战斗场景/场景元素/岩5.png" id="8_jaqti"]
 [ext_resource type="Texture2D" uid="uid://2iroohomhmm3" path="res://Assets/幻乡/战斗场景/场景元素/森林灌木.png" id="9_1ygpr"]
 [ext_resource type="Texture2D" uid="uid://kqxaawbvt7h8" path="res://Assets/幻乡/战斗场景/场景元素/岩3.png" id="9_2gqvo"]
@@ -46,7 +45,7 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0, 0.311927, 0.568807, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_f5amf"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2k42r"]
 gradient = SubResource("Gradient_tepy3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_it1id"]
@@ -61,7 +60,7 @@ angular_velocity_max = 50.0
 gravity = Vector3(0, 10, 0)
 scale_min = 1.2
 scale_max = 1.3
-color_ramp = SubResource("GradientTexture1D_f5amf")
+color_ramp = SubResource("GradientTexture1D_2k42r")
 anim_offset_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vsm8h"]
@@ -72,7 +71,7 @@ shader_parameter/WindStrength = 10.0
 offsets = PackedFloat32Array(0, 0.307339, 0.62844, 0.866973, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 0.163456, 0.0421156, 1, 1, 0.189723, 0.848036, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_7gomi"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wwg33"]
 gradient = SubResource("Gradient_wrfpu")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtljr"]
@@ -88,7 +87,7 @@ angular_velocity_max = 50.0
 gravity = Vector3(0, 30, 0)
 scale_min = 0.8
 scale_max = 1.2
-color_ramp = SubResource("GradientTexture1D_7gomi")
+color_ramp = SubResource("GradientTexture1D_wwg33")
 anim_offset_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7n1rn"]
@@ -651,15 +650,16 @@ metadata/_custom_type_script = "uid://cjdhf84anmnhm"
 [node name="互动节点左" parent="." instance=ExtResource("26_2k42r")]
 position = Vector2(0, 824)
 type = "Teloport"
+battle = true
 place = "Goblinwood"
 new_scene_path = "uid://wcvde0x771p7"
 entry_point = "赤火沟入口"
+available = true
 
 [node name="互动节点右" parent="." instance=ExtResource("26_2k42r")]
 position = Vector2(1400, 816)
 type = "Teloport"
 place = "Goblinwood"
 new_scene_path = "uid://oapkono5jhg"
-entry_point = "繁木林左口"
-
-[node name="战斗主角" parent="." instance=ExtResource("6_dgfxq")]
+entry_point = "左侧进入点"
+available = true

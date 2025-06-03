@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4vvtxffsueo0"]
+
+[ext_resource type="Texture2D" uid="uid://0o6q6vinonyb" path="res://Assets/幻乡/战斗场景/溃军首领/首领下落粒子.png" id="1_hkwjp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_figq7"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_hkwjp"]
+offsets = PackedFloat32Array(0, 0.08, 0.373333, 0.76, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.586207, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_figq7"]
+gradient = SubResource("Gradient_hkwjp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0kh6s"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 100, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 300, 0)
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_figq7")
+anim_offset_max = 1.0
+
+[node name="溃军首领死亡粒子" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_figq7")
+position = Vector2(0, -23)
+emitting = false
+amount = 40
+texture = ExtResource("1_hkwjp")
+lifetime = 1.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0kh6s")

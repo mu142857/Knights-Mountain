@@ -4,6 +4,7 @@ extends Basic_State
 @onready var monster: CharacterBody2D = $"../.."
 @onready var attacks: Node2D = $"../../AttackChecks"
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
+@onready var gpu_particles_2d: GPUParticles2D = $"../../GPUParticles2D"
 
 var tramp: bool = false
 
@@ -12,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func enter():
 	if !monster.is_on_floor():
 		ani_2D.play("Fall")
+	gpu_particles_2d.emitting = false
 	
 func process():
 	if !monster.is_on_floor():

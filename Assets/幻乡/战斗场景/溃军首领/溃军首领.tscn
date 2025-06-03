@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://00pc08dcc0yt"]
+[gd_scene load_steps=162 format=3 uid="uid://00pc08dcc0yt"]
 
 [ext_resource type="Script" uid="uid://du8bvab4a570u" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.gd" id="1_75yil"]
 [ext_resource type="Texture2D" uid="uid://gvuersy1nndo" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.png" id="1_jp7ga"]
@@ -11,10 +11,12 @@
 [ext_resource type="Script" uid="uid://c67uhyrkmxxe" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领trampling.gd" id="9_ufarc"]
 [ext_resource type="Script" uid="uid://t0frdt5s07w4" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领death.gd" id="10_ry6yt"]
 [ext_resource type="Script" uid="uid://b3n72rnrf4vw0" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领dive_down.gd" id="11_rxna5"]
+[ext_resource type="Script" uid="uid://mnxb64ibj51e" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领free_fall.gd" id="12_6q3vi"]
 [ext_resource type="Texture2D" uid="uid://dxv1qira5x1r7" path="res://Assets/幻乡/战斗场景/溃军首领/UI/Under.png" id="12_kmn05"]
 [ext_resource type="Texture2D" uid="uid://yjg8c3xg2wfp" path="res://Assets/幻乡/战斗场景/溃军首领/UI/Over.png" id="13_esjbe"]
 [ext_resource type="Texture2D" uid="uid://05b5yy5v5o80" path="res://Assets/幻乡/战斗场景/溃军首领/UI/Progress.png" id="14_6q3vi"]
 [ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="15_1pep6"]
+[ext_resource type="Texture2D" uid="uid://0o6q6vinonyb" path="res://Assets/幻乡/战斗场景/溃军首领/首领下落粒子.png" id="16_esjbe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d0i5"]
 resource_local_to_scene = true
@@ -631,6 +633,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_t0bb3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3g3jv")
 }, {
 "duration": 1.0,
@@ -1183,6 +1193,33 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6q3vi"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_1pep6"]
+offsets = PackedFloat32Array(0, 0.08, 0.373333, 0.76, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.586207, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6q3vi"]
+gradient = SubResource("Gradient_1pep6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kmn05"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 400, 0)
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_6q3vi")
+anim_offset_max = 1.0
+
 [node name="溃军首领" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -1192,9 +1229,8 @@ script = ExtResource("1_75yil")
 material = SubResource("ShaderMaterial_4d0i5")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qm6ns")
-animation = &"Attack"
+animation = &"Idle"
 autoplay = "Fall"
-frame = 17
 offset = Vector2(-20, -50.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1278,8 +1314,17 @@ script = ExtResource("9_ufarc")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("10_ry6yt")
 
+[node name="Timer" type="Timer" parent="StateMachine/Death"]
+one_shot = true
+
 [node name="DiveDown" type="Node" parent="StateMachine"]
 script = ExtResource("11_rxna5")
+
+[node name="FreeFall" type="Node" parent="StateMachine"]
+script = ExtResource("12_6q3vi")
+
+[node name="InvisibleTime" type="Timer" parent="StateMachine/FreeFall"]
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1318,9 +1363,20 @@ theme_override_fonts/font = ExtResource("15_1pep6")
 theme_override_font_sizes/font_size = 60
 text = "2100"
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_6q3vi")
+position = Vector2(0, -23)
+amount = 10
+texture = ExtResource("16_esjbe")
+lifetime = 1.8
+explosiveness = 0.2
+process_material = SubResource("ParticleProcessMaterial_kmn05")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Sprint" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Crystallization" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Trampling" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/IdleAndFall/Timer" to="StateMachine/IdleAndFall" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Crystallization/Timer" to="StateMachine/Crystallization" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Death/Timer" to="StateMachine/Death" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/FreeFall/InvisibleTime" to="StateMachine/FreeFall" method="_on_invisible_time_timeout"]

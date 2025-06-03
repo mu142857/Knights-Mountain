@@ -1,12 +1,16 @@
 extends Node2D
 
+@onready var ep: Node2D = $互动点
+
 func _ready() -> void:
 	var camera = preload("res://Assets/主角/场景摄像机.tscn").instantiate()
 	get_tree().current_scene.add_child(camera)
-	
+	var goblin4_test = preload("res://Assets/幻乡/战斗场景/溃军首领/溃军首领.tscn").instantiate()
+	summon_monsters(goblin4_test, $"出怪点/出怪点2")
+	ep.available = false
 
 func _process(delta: float) -> void:
-	pass
+	find_boss()
 	
 func summon_monsters(instant, summon_pisition: Node2D):
 	instant.position = summon_pisition.global_position
@@ -26,9 +30,6 @@ func _on_timer_timeout() -> void:
 	#summon_monsters(goblin3_test, $"出怪点/出怪点1")
 	var goblin4_test = preload("res://Assets/幻乡/战斗场景/溃军首领/溃军首领.tscn").instantiate()
 	summon_monsters(goblin4_test, $"出怪点/出怪点2")
-	#var mao = preload("res://Assets/下城区/战斗场景/邪帽/邪帽.tscn").instantiate()
-	#summon_monsters(mao, $"出怪点/出怪点2")
-	$Timer.start(3000)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -39,3 +40,20 @@ func attack_body(arr: Array, damage: float):
 	for i in arr:
 		if i.is_in_group("player"):
 			i.take_hit(damage)
+
+func preloading_resources_kuijunshouling():
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/弹射水晶.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子掉落水晶.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子水晶爆炸粒子.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光粒子.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子眼泪.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光瞄准线.tscn")
+
+func find_boss():
+	var cld: Array = get_children()
+	for i in cld:
+		if i.is_in_group("monster"):
+			ep.available = false
+			return
+	ep.available = true

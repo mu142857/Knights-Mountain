@@ -20,6 +20,7 @@ stream = ExtResource("2_ctc63")
 environment = SubResource("Environment_ctc63")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 99
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

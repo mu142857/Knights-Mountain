@@ -3,12 +3,15 @@ extends Basic_State
 @onready var ani_2D: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var ami_plr: AnimationPlayer = $"../../AnimationPlayer"
 @onready var monster: CharacterBody2D = $"../.."
+@onready var gpu_particles_2d: GPUParticles2D = $"../../GPUParticles2D"
+
 
 func enter():
 	attack_check()
 	Game.shake_camera(30)
 	Game.flash(0.5, Color(0.243, 0.145, 0.184, 0.3))
 	ami_plr.play("Trampling")
+	gpu_particles_2d.emitting = false
 
 func process():
 	pass
