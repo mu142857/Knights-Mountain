@@ -23,17 +23,19 @@ func take_hit(value: int):
 	if $AnimatedSprite2D.animation == "Idle" and health >= 1990:
 		$StateMachine.change_state(2)
 		health -= value
-	elif health <= 0 and $AnimatedSprite2D.animation != "Disappear":
-		$HitEffectPlayer.play("HitFlash")
-		$StateMachine.change_state(8)
 	elif $AnimatedSprite2D.animation != "Disappear":
 		health -= value
 		$HitEffectPlayer.play("HitFlash")
-		
+	if health <= 0 and $AnimatedSprite2D.animation != "Disappear":
+		$HitEffectPlayer.play("HitFlash")
+		$StateMachine.change_state(8)
+
 func _physics_process(delta: float) -> void:
 	#print($AnimatedSprite2D.animation)
 	#print(health)
 	#print($"技能汲取特效".modulate.a)
+	$CanvasLayer/Label.text = str(health)
+	$CanvasLayer/HealthBar.value = health
 	pass
 
 func _on_arrow_timer_timeout() -> void:

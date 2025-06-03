@@ -9,6 +9,7 @@ func _ready() -> void:
 	#summon_monsters(goblin_test2, $"出怪点1")
 	#var goblin_test3 = preload("res://Assets/幻乡/战斗场景/哥布林回旋镖兵/哥布林回旋镖兵.tscn").instantiate()
 	#summon_monsters(goblin_test3, $"出怪点1")
+	preloading_resources_lizijienian()
 	var mao = preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.tscn").instantiate()
 	summon_monsters(mao, $"出怪点1")
 
@@ -20,3 +21,12 @@ func summon_monsters(instant, summon_pisition: Node2D):
 	instant.scene_startx = 0
 	instant.scene_endx = 1400
 	add_child(instant)
+
+func preloading_resources_lizijienian():
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/弹射水晶.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子掉落水晶.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子水晶爆炸粒子.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光粒子.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子眼泪.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光.tscn")
+	preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光瞄准线.tscn")

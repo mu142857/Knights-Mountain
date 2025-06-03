@@ -20,15 +20,15 @@ func _ready() -> void:
 func take_hit(value: int):
 	if $AnimatedSprite2D.animation == "Gigantic":
 		return
+		#small_or_big = "big"
 	elif health <= 1300 and small_or_big == "small":
 		$HitEffectPlayer.play("HitFlash")
 		$StateMachine.change_state(7)
-		small_or_big = "big"
-	elif health <= 0:
-		$StateMachine.change_state(15)
-		$HitEffectPlayer.play("HitFlash")
 	else:
 		health -= value
+		$HitEffectPlayer.play("HitFlash")
+	if health <= 0:
+		$StateMachine.change_state(15)
 		$HitEffectPlayer.play("HitFlash")
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +44,9 @@ func _physics_process(delta: float) -> void:
 	
 	attack_check_position.scale.x = real_scale * direct
 	attack_check_position.scale.y = real_scale
+
+	$CanvasLayer/Label.text = str(health)
+	$CanvasLayer/HealthBar.value = health
 	
 func change_scale():
 	var tween: Tween = create_tween()

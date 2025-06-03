@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dlncgaikaaa05"]
+[gd_scene load_steps=47 format=4 uid="uid://dlncgaikaaa05"]
 
 [ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://Assets/主游戏/大树摇晃.tres" id="1_6x2dn"]
 [ext_resource type="Texture2D" uid="uid://6ff20khf0qrt" path="res://Assets/幻乡/战斗场景/场景元素/森林阔叶木.png" id="1_6860o"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://b7m5ba23fm3xt" path="res://Assets/幻乡/战斗场景/场景元素/草5.png" id="16_47j70"]
 [ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="18_rvytg"]
 [ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="19_c66r5"]
-[ext_resource type="PackedScene" uid="uid://dmk3hpw7lal18" path="res://Assets/幽盲区/战斗场景/栗子劫念/弹射水晶.tscn" id="26_2k42r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o0e7j"]
 shader = ExtResource("12_44608")
@@ -654,12 +653,9 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_bcmaq")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="碰撞箱"]
-position = Vector2(-802.003, -754.997)
+position = Vector2(-825.003, -754.997)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_bcmaq")
-
-[node name="弹射水晶" parent="碰撞箱/CollisionShape2D3" instance=ExtResource("26_2k42r")]
-position = Vector2(-340.005, -740.998)
 
 [node name="出怪点1" type="Node2D" parent="."]
 position = Vector2(734, 805)

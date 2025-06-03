@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://bgpmsso35dvpg"]
+[gd_scene load_steps=155 format=3 uid="uid://bgpmsso35dvpg"]
 
 [ext_resource type="Script" uid="uid://cu5ufxyqbhunv" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.gd" id="1_dfcew"]
 [ext_resource type="Texture2D" uid="uid://ca5xj2sa2k6t2" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.png" id="1_jvprc"]
@@ -12,14 +12,71 @@
 [ext_resource type="Script" uid="uid://bm8drgikim4i1" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念appear(5).gd" id="10_2l7dl"]
 [ext_resource type="Script" uid="uid://b8p7648f66de5" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念squat(6).gd" id="11_kxwgl"]
 [ext_resource type="Script" uid="uid://b16128hvj4d86" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念death(7).gd" id="12_vg6dv"]
+[ext_resource type="Script" uid="uid://bxe1335i4l8no" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念back_jump(8).gd" id="13_2l7dl"]
 [ext_resource type="PackedScene" uid="uid://cfqkj1ika4iwi" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子眼泪.tscn" id="13_t5dxm"]
 [ext_resource type="PackedScene" uid="uid://cbuwmvcsj3q1k" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光.tscn" id="14_4m53v"]
 [ext_resource type="PackedScene" uid="uid://112wiipltg0" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子激光瞄准线.tscn" id="15_2l7dl"]
+[ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="17_kxwgl"]
+[ext_resource type="Texture2D" uid="uid://d0aacmfnjspry" path="res://Assets/幽盲区/战斗场景/栗子劫念/UI/Under.png" id="18_wmav5"]
+[ext_resource type="Texture2D" uid="uid://drobltnrlhort" path="res://Assets/幽盲区/战斗场景/栗子劫念/UI/Over.png" id="19_kbmo6"]
+[ext_resource type="Texture2D" uid="uid://vdth64obxj3a" path="res://Assets/幽盲区/战斗场景/栗子劫念/UI/Progress.png" id="20_3fra2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfcew"]
 shader = ExtResource("1_wf2h6")
 shader_parameter/Enabled = false
 shader_parameter/Tint = Color(0.791307, 0.81394, 0.999999, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh43t"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(0, 3072, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op248"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3584, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fat7"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3072, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7y7x"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2560, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mrnl"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2048, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejtvx"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(1536, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n1y6"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(1024, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eniel"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(512, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm35q"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(0, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os88o"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3584, 2048, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkiis"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3072, 2048, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvgh1"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2560, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l18h8"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(3072, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1efu6"]
 atlas = ExtResource("1_jvprc")
@@ -56,6 +113,10 @@ region = Rect2(0, 3584, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4unq"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(512, 3584, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_116oa"]
+atlas = ExtResource("1_jvprc")
+region = Rect2(2560, 2048, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7adu"]
 atlas = ExtResource("1_jvprc")
@@ -141,10 +202,6 @@ region = Rect2(1536, 0, 512, 512)
 atlas = ExtResource("1_jvprc")
 region = Rect2(2048, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_116oa"]
-atlas = ExtResource("1_jvprc")
-region = Rect2(2560, 2048, 512, 512)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwefh"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(3584, 1024, 512, 512)
@@ -192,14 +249,6 @@ region = Rect2(512, 2048, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0m2k"]
 atlas = ExtResource("1_jvprc")
 region = Rect2(1024, 2048, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvgh1"]
-atlas = ExtResource("1_jvprc")
-region = Rect2(2560, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l18h8"]
-atlas = ExtResource("1_jvprc")
-region = Rect2(3072, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvprc"]
 atlas = ExtResource("1_jvprc")
@@ -469,6 +518,55 @@ region = Rect2(512, 3584, 512, 512)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nh43t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op248")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fat7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7y7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mrnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejtvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n1y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eniel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm35q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os88o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkiis")
+}],
+"loop": false,
+"name": &"AfterDisappear",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvgh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l18h8")
+}],
+"loop": false,
+"name": &"AfterSpin",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1efu6")
 }, {
 "duration": 1.0,
@@ -498,6 +596,14 @@ animations = [{
 "loop": false,
 "name": &"Appear",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_116oa")
+}],
+"loop": false,
+"name": &"BeforeJump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -561,7 +667,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mcti2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Fall",
 "speed": 8.0
 }, {
@@ -977,8 +1083,40 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_kxwgl"]
+resource_name = "shoot_crystal"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Target", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/ShootCrystal(6)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"release_crystal"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_2l7dl"]
 resource_name = "upperlaser"
+length = 1.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1000,17 +1138,21 @@ tracks/1/path = NodePath("StateMachine/UpperLaser(3)")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.75),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.75, 0.85),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"release_effect"
+}, {
+"args": [],
+"method": &"release_c"
 }]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l7dl"]
 _data = {
 &"laser": SubResource("Animation_4m53v"),
+&"shoot_crystal": SubResource("Animation_kxwgl"),
 &"upperlaser": SubResource("Animation_2l7dl")
 }
 
@@ -1066,9 +1208,10 @@ script = ExtResource("1_dfcew")
 material = SubResource("ShaderMaterial_dfcew")
 position = Vector2(0, -36)
 sprite_frames = SubResource("SpriteFrames_vnn2c")
-animation = &"ReleaseLaser"
+animation = &"AfterDisappear"
 autoplay = "ShootingLaser"
-frame = 6
+frame = 10
+frame_progress = 1.0
 offset = Vector2(-20, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1101,6 +1244,9 @@ one_shot = true
 [node name="Spin(1)" type="Node" parent="StateMachine"]
 script = ExtResource("6_er6n4")
 
+[node name="Timer" type="Timer" parent="StateMachine/Spin(1)"]
+one_shot = true
+
 [node name="ShootLaser(2)" type="Node" parent="StateMachine"]
 script = ExtResource("7_t5dxm")
 
@@ -1116,15 +1262,20 @@ script = ExtResource("9_4m53v")
 [node name="Appear(5)" type="Node" parent="StateMachine"]
 script = ExtResource("10_2l7dl")
 
-[node name="Squat(6)" type="Node" parent="StateMachine"]
+[node name="Timer" type="Timer" parent="StateMachine/Appear(5)"]
+one_shot = true
+
+[node name="ShootCrystal(6)" type="Node" parent="StateMachine"]
 script = ExtResource("11_kxwgl")
+
+[node name="Timer" type="Timer" parent="StateMachine/ShootCrystal(6)"]
+one_shot = true
 
 [node name="Death(7)" type="Node" parent="StateMachine"]
 script = ExtResource("12_vg6dv")
 
-[node name="Jump(8)" type="Node" parent="StateMachine"]
-
-[node name="Fall(9)" type="Node" parent="StateMachine"]
+[node name="BackJump(8)" type="Node" parent="StateMachine"]
+script = ExtResource("13_2l7dl")
 
 [node name="AttackCheck" type="Node2D" parent="."]
 
@@ -1140,6 +1291,9 @@ position = Vector2(0, -36)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/碰撞伤害"]
 shape = SubResource("CircleShape2D_t5dxm")
 debug_color = Color(0.647313, 0.434768, 0.752118, 0.42)
+
+[node name="水晶发射点" type="Node2D" parent="AttackCheck"]
+position = Vector2(2, -64)
 
 [node name="PlayerCheck" type="Area2D" parent="."]
 
@@ -1186,7 +1340,44 @@ position = Vector2(0, -52)
 
 [node name="栗子激光瞄准线4" parent="." instance=ExtResource("15_2l7dl")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(320, 0)
+transform = Transform2D(1, 0, 0, 1, 320, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 35.0
+scale = Vector2(5.12, 5.12)
+max_value = 6500.0
+value = 6500.0
+texture_under = ExtResource("18_wmav5")
+texture_over = ExtResource("19_kbmo6")
+texture_progress = ExtResource("20_3fra2")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0.819315, 0.778615, 0.948278, 1)
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_kxwgl")
+theme_override_font_sizes/font_size = 60
+text = "6000"
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Spin(1)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/UpperLaser(3)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Disappear(4)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Appear(5)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/ShootCrystal(6)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/BackJump(8)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Idle(0)/Timer" to="StateMachine/Idle(0)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Idle(0)/ChangeStateTimer" to="StateMachine/ShootLaser(2)" method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Spin(1)/Timer" to="StateMachine/Spin(1)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/ShootLaser(2)/Timer" to="StateMachine/ShootLaser(2)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Appear(5)/Timer" to="StateMachine/Appear(5)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/ShootCrystal(6)/Timer" to="StateMachine/ShootCrystal(6)" method="_on_timer_timeout"]

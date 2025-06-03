@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://cowvpfuhbf808"]
+[gd_scene load_steps=155 format=3 uid="uid://cowvpfuhbf808"]
 
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_7yeah"]
 [ext_resource type="Texture2D" uid="uid://b7vpfinma5eyp" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥.png" id="1_d4cbg"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://rfomx2g3dyv" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥notes_flow(6).gd" id="11_61kf1"]
 [ext_resource type="Script" uid="uid://bdiuwqqr76md3" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥ground_wave(7).gd" id="12_ap2ch"]
 [ext_resource type="Script" uid="uid://jilc2gsbqa3w" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/幽居提琴哥death(8).gd" id="13_637uy"]
+[ext_resource type="Texture2D" uid="uid://dtflgivfh8l7n" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/UI/Under.png" id="14_0rlhy"]
+[ext_resource type="Texture2D" uid="uid://cwp5kiglrug5p" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/UI/Over.png" id="15_ecxe1"]
+[ext_resource type="Texture2D" uid="uid://dj4muau2i6yf3" path="res://Assets/幽盲区/战斗场景/幽居提琴哥/UI/Process.png" id="16_61kf1"]
+[ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="17_ap2ch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u61vh"]
 shader = ExtResource("1_7yeah")
@@ -1221,6 +1225,33 @@ script = ExtResource("13_637uy")
 libraries = {
 &"": SubResource("AnimationLibrary_ohyip")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(320, 0)
+transform = Transform2D(1, 0, 0, 1, 320, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 35.0
+scale = Vector2(5.12, 5.12)
+max_value = 1300.0
+value = 1300.0
+texture_under = ExtResource("14_0rlhy")
+texture_over = ExtResource("15_ecxe1")
+texture_progress = ExtResource("16_61kf1")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0.0110876, 0.0110876, 0.0110876, 1)
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_ap2ch")
+theme_override_font_sizes/font_size = 60
+text = "1300"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack(2)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Skill(5)" method="_on_animated_sprite_2d_animation_finished"]

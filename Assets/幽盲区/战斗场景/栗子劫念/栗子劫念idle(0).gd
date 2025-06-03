@@ -6,12 +6,13 @@ extends Basic_State
 @onready var backline: Line2D = $"../../Node/Line2D"
 
 func enter():
+	monster.show()
 	ani_2D.play("Idle")
 	var duration: float
 	if monster.second_stage:
-		duration = randf_range(1.6, 1.8)
+		duration = randf_range(1.3, 1.5)
 	else:
-		duration = randf_range(0.3, 0.5)
+		duration = randf_range(0.1, 0.3)
 	$Timer.start(duration)
 	
 func process():
@@ -23,7 +24,7 @@ func _on_timer_timeout() -> void:
 	var attacks: Array
 	
 	if monster.second_stage == false:
-		attacks = [2, 3]#[1, 2, 3, 4, 6, 8] # 血量越低越弱， 第一阶段全技能，第二阶段只有逃跑技能
+		attacks = [1, 2, 3, 4, 6, 8] #[1, 2, 3, 4, 6, 8] # 血量越低越弱， 第一阶段全技能，第二阶段只有逃跑技能
 	else:
 		attacks = [4, 8]
 

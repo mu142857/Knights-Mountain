@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://00pc08dcc0yt"]
+[gd_scene load_steps=156 format=3 uid="uid://00pc08dcc0yt"]
 
 [ext_resource type="Script" uid="uid://du8bvab4a570u" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.gd" id="1_75yil"]
 [ext_resource type="Texture2D" uid="uid://gvuersy1nndo" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领.png" id="1_jp7ga"]
@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://c67uhyrkmxxe" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领trampling.gd" id="9_ufarc"]
 [ext_resource type="Script" uid="uid://t0frdt5s07w4" path="res://Assets/幻乡/战斗场景/溃军首领/哥布林溃军首领death.gd" id="10_ry6yt"]
 [ext_resource type="Script" uid="uid://b3n72rnrf4vw0" path="res://Assets/幻乡/战斗场景/溃军首领/溃军首领dive_down.gd" id="11_rxna5"]
+[ext_resource type="Texture2D" uid="uid://dxv1qira5x1r7" path="res://Assets/幻乡/战斗场景/溃军首领/UI/Under.png" id="12_kmn05"]
+[ext_resource type="Texture2D" uid="uid://yjg8c3xg2wfp" path="res://Assets/幻乡/战斗场景/溃军首领/UI/Over.png" id="13_esjbe"]
+[ext_resource type="Texture2D" uid="uid://05b5yy5v5o80" path="res://Assets/幻乡/战斗场景/溃军首领/UI/Progress.png" id="14_6q3vi"]
+[ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="15_1pep6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d0i5"]
 resource_local_to_scene = true
@@ -1287,6 +1291,32 @@ reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_cx86o")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(320, 0)
+transform = Transform2D(1, 0, 0, 1, 320, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 35.0
+scale = Vector2(5.12, 5.12)
+max_value = 2100.0
+texture_under = ExtResource("12_kmn05")
+texture_over = ExtResource("13_esjbe")
+texture_progress = ExtResource("14_6q3vi")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0.0110876, 0.0110876, 0.0110876, 1)
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_1pep6")
+theme_override_font_sizes/font_size = 60
+text = "2100"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Sprint" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack" method="_on_animated_sprite_2d_animation_finished"]

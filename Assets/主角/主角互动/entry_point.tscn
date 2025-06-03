@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckai6x4arc4ow"]
+
+[ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="1_45j65"]
+
+[node name="EntryPoint" type="Marker2D"]
+script = ExtResource("1_45j65")

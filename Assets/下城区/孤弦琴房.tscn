@@ -50,19 +50,6 @@ position = Vector2(703, 440)
 scale = Vector2(3, 3)
 texture = ExtResource("1_32gsj")
 
-[node name="烛光背景版" type="ColorRect" parent="."]
-offset_left = -16.0
-offset_top = -27.0
-offset_right = 1422.0
-offset_bottom = 915.0
-color = Color(0.40942, 0.0006244, 0.525177, 0.145098)
-
-[node name="残烟骑士效果滤镜" type="Sprite2D" parent="."]
-modulate = Color(0.209418, 0.000513603, 0.474127, 0.392157)
-position = Vector2(717.5, 139)
-scale = Vector2(1.075, 0.437778)
-texture = ExtResource("4_k1v82")
-
 [node name="树木" type="Node2D" parent="."]
 position = Vector2(5, -66)
 
@@ -81,6 +68,19 @@ scale = Vector2(2.97396, 2.97396)
 texture = ExtResource("5_4det2")
 region_enabled = true
 region_rect = Rect2(330, -0.000675201, 65, 54.3342)
+
+[node name="烛光背景版" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 1422.0
+offset_bottom = 915.0
+color = Color(0.40942, 0.0006244, 0.525177, 0.145098)
+
+[node name="残烟骑士效果滤镜" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(717.5, 364)
+scale = Vector2(1.075, 0.937778)
+texture = ExtResource("4_k1v82")
 
 [node name="提琴哥生成点" type="Node2D" parent="."]
 position = Vector2(700, 851)

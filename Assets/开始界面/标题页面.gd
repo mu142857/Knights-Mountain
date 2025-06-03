@@ -25,7 +25,8 @@ func _physics_process(delta: float) -> void:
 	if $CanvasModulate.color.b <= 0:
 		#var level_selection_page = preload("res://Assets/开始界面/关卡选择.tscn").instantiate()
 		#var level_selection_page = preload("res://Assets/下城区/孤弦琴房.tscn").instantiate()
-		var level_selection_page = preload("res://Assets/下城区/孤弦琴房.tscn").instantiate()
+		#var level_selection_page = preload("res://Assets/下城区/孤弦琴房.tscn").instantiate()
+		var level_selection_page = preload("res://Assets/幻乡/哥布林遭遇战.tscn").instantiate()
 		get_tree().current_scene.add_child(level_selection_page)
 		self.queue_free()
 

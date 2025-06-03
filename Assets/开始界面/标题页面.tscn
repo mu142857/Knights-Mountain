@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b435a81uhr47t"]
+[gd_scene load_steps=19 format=3 uid="uid://b435a81uhr47t"]
 
 [ext_resource type="Texture2D" uid="uid://d2s00vcxro3l8" path="res://Assets/开始界面/关卡选择.png" id="1_1mpil"]
 [ext_resource type="Script" uid="uid://d0l15xsh8y6ib" path="res://Assets/开始界面/标题页面.gd" id="1_rhlm7"]
 [ext_resource type="Texture2D" uid="uid://crlol4hflnmw2" path="res://Assets/开始界面/细节/树叶.png" id="3_mh483"]
+[ext_resource type="Texture2D" uid="uid://bnkpx2jrrpvu6" path="res://封面图像/1.png" id="4_ruyqq"]
 [ext_resource type="Shader" uid="uid://dxkq37apipmon" path="res://Assets/开始界面/水面.gdshader" id="5_jtrh8"]
 [ext_resource type="Texture2D" uid="uid://dj4r4qumrffbe" path="res://Assets/开始界面/Water.png" id="6_ems7a"]
 [ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="6_g2sl6"]
@@ -65,11 +66,13 @@ script = ExtResource("1_rhlm7")
 [node name="背景图" type="Node2D" parent="."]
 
 [node name="关卡选择" type="Sprite2D" parent="背景图"]
+visible = false
 position = Vector2(862, 295)
 scale = Vector2(6.73125, 6.73125)
 texture = ExtResource("1_1mpil")
 
 [node name="蓝图" type="Sprite2D" parent="背景图"]
+visible = false
 position = Vector2(308.294, 409.816)
 scale = Vector2(6.857, 9.91882)
 texture = ExtResource("1_1mpil")
@@ -77,6 +80,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 116, 94.25)
 
 [node name="大树落叶" type="GPUParticles2D" parent="."]
+visible = false
 material = SubResource("CanvasItemMaterial_b4ece")
 position = Vector2(1029, 610)
 amount = 100
@@ -84,6 +88,11 @@ texture = ExtResource("3_mh483")
 lifetime = 15.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_avhdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(718, 538)
+scale = Vector2(2.22667, 2.22667)
+texture = ExtResource("4_ruyqq")
 
 [node name="water" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7gyu8")
@@ -128,7 +137,7 @@ offset_right = 1060.0
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("6_g2sl6")
 theme_override_font_sizes/font_size = 160
-text = "川哥"
+text = "栗子劫念测试"
 
 [node name="开始游戏" type="Button" parent="CanvasLayer"]
 offset_left = -1.0

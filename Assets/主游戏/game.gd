@@ -26,3 +26,13 @@ func frame_freeze(timescale, duration): # 静止帧
 
 func play_music_tiqingeshengqu():
 	$"提琴哥圣曲".play()
+
+func change_scene(scene_path: String, entry_point: String):
+	var tree = get_tree()
+	
+	tree.change_scene_to_file(scene_path)
+	await tree.process_frame
+	
+	for n in tree.get_nodes_in_group("entry_points"):
+		if n.name == entry_point:
+			tree.current_scene.update_player()

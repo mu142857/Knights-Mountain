@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://oapkono5jhg"]
+
+[ext_resource type="Texture2D" uid="uid://c03xyxk26u31d" path="res://Assets/幻乡/背景原图/城堡外景1（平面2D）.jpg" id="1_f7lqn"]
+[ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="2_wvc7x"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wvc7x"]
+
+[node name="森林" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 900)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_wvc7x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7000, 900)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_wvc7x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(700, 846)
+shape = SubResource("WorldBoundaryShape2D_wvc7x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(700, -200)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_wvc7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3499.5, 1487)
+scale = Vector2(5.46797, 1)
+texture = ExtResource("1_f7lqn")
+
+[node name="战斗主角" parent="." instance=ExtResource("2_wvc7x")]
+
+[node name="Camera2D" type="Camera2D" parent="战斗主角"]
+offset = Vector2(0, -400)

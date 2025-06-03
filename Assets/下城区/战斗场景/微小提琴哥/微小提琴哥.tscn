@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://blhf6nusrpkdx"]
+[gd_scene load_steps=154 format=3 uid="uid://blhf6nusrpkdx"]
 
 [ext_resource type="Script" uid="uid://b6vc7s2hq5keo" path="res://Assets/下城区/战斗场景/微小提琴哥/微小提琴哥.gd" id="1_ddrpw"]
 [ext_resource type="Texture2D" uid="uid://l3utek4uumug" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥-Sheet.png" id="1_ks76l"]
@@ -23,6 +23,10 @@
 [ext_resource type="Script" uid="uid://l23utifum4ov" path="res://Assets/下城区/战斗场景/微小提琴哥/line_2d.gd" id="21_66th1"]
 [ext_resource type="PackedScene" uid="uid://d1lqq0nw4bxap" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥激光.tscn" id="22_esith"]
 [ext_resource type="PackedScene" uid="uid://wvrubp2o2nmu" path="res://Assets/下城区/战斗场景/微小提琴哥/提琴哥激光瞄准线.tscn" id="23_r8ra6"]
+[ext_resource type="Texture2D" uid="uid://djul6hvt1t1f8" path="res://Assets/下城区/战斗场景/微小提琴哥/UI/Under.png" id="24_6orsr"]
+[ext_resource type="Texture2D" uid="uid://beb1jr0edtle2" path="res://Assets/下城区/战斗场景/微小提琴哥/UI/Over.png" id="25_yrq2f"]
+[ext_resource type="Texture2D" uid="uid://b6mdid0qjte66" path="res://Assets/下城区/战斗场景/微小提琴哥/UI/Progress.png" id="26_0cdvj"]
+[ext_resource type="FontFile" uid="uid://bl1kyntlv7715" path="res://Assets/主游戏/像素字体.ttf" id="27_10pkr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53c8f"]
 shader = ExtResource("2_smw6u")
@@ -1305,6 +1309,32 @@ position = Vector2(4, -96)
 
 [node name="提琴哥激光瞄准线" parent="." instance=ExtResource("23_r8ra6")]
 position = Vector2(4, -96)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(320, 0)
+transform = Transform2D(1, 0, 0, 1, 320, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 35.0
+scale = Vector2(5.12, 5.12)
+max_value = 2500.0
+value = 100.0
+texture_under = ExtResource("24_6orsr")
+texture_over = ExtResource("25_yrq2f")
+texture_progress = ExtResource("26_0cdvj")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_10pkr")
+theme_override_font_sizes/font_size = 60
+text = "2500"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAttack1(1)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SmallAttack2(2)" method="_on_animated_sprite_2d_animation_finished"]

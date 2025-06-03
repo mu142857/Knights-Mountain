@@ -1,32 +1,57 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmk3hpw7lal18"]
+[gd_scene load_steps=8 format=3 uid="uid://dmk3hpw7lal18"]
 
 [ext_resource type="Texture2D" uid="uid://cum3y3jyau583" path="res://Assets/幽盲区/战斗场景/栗子劫念/弹射栗紫晶2.png" id="1_87ue7"]
+[ext_resource type="Script" uid="uid://bxpgk2jx4paqd" path="res://Assets/幽盲区/战斗场景/栗子劫念/弹射水晶.gd" id="1_r201g"]
 [ext_resource type="Script" uid="uid://d4b1m7gybw1d5" path="res://Assets/幽盲区/战斗场景/栗子劫念/水晶脱尾.gd" id="2_mlwhu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlwhu"]
+radius = 6.0
+height = 84.0
 
 [sub_resource type="Curve" id="Curve_r201g"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.205798, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_slygx"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.196078)
+offsets = PackedFloat32Array(0, 0.534211, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.703943, 0.670596, 1, 0.325, 0.5585, 0.721286, 1, 0.325)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlwhu"]
-radius = 6.0
-height = 84.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r201g"]
+radius = 8.99999
+height = 93.9958
 
-[node name="弹射水晶" type="Area2D"]
+[node name="弹射水晶" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_r201g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("1_87ue7")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mlwhu")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
 width = 20.0
 width_curve = SubResource("Curve_r201g")
 gradient = SubResource("Gradient_slygx")
 script = ExtResource("2_mlwhu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_mlwhu")
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = -0.00159054
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.57441
+shape = SubResource("CapsuleShape2D_r201g")
+debug_color = Color(0.585476, 0.514388, 0.535273, 0.42)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

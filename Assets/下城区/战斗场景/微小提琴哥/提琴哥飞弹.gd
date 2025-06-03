@@ -12,6 +12,9 @@ var velocity: Vector2 = Vector2.ZERO    # 初始速度
 var barrage_position: int = 0	# 1为左，2为中，3为右
 var position_change: float = 0
 
+var luoditexiao = preload("res://Assets/下城区/战斗场景/微小提琴哥/高音谱号落地特效.tscn")
+var xiaolizi = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn")
+
 func _ready() -> void:
 	$AnimatedSprite2D.play("Ready")
 	cauculate_barrage_position()
@@ -36,11 +39,11 @@ func _physics_process(delta: float) -> void:
 		Game.flash(0.2, Color(3.0, 0.6, 0.58))
 		self.global_position.y = 845
 		self.rotation_degrees = 0
-		var gyph = preload("res://Assets/下城区/战斗场景/微小提琴哥/高音谱号落地特效.tscn").instantiate()
+		var gyph = luoditexiao.instantiate()
 		gyph.position = self.global_position
 		gyph.emitting = true
 		get_tree().current_scene.add_child(gyph)
-		var expl = preload("res://Assets/下城区/战斗场景/微小提琴哥/小型音符粒子.tscn").instantiate()
+		var expl = xiaolizi.instantiate()
 		expl.position = self.global_position
 		expl.emitting = true
 		get_tree().current_scene.add_child(expl)

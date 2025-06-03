@@ -1,6 +1,6 @@
 extends Line2D
 
-@export var point_count = 250
+@export var point_count = 50
 @export var is_spawn = false
 
 func _ready() -> void:
@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	self.modulate = $"../..".modulate
+	#self.modulate = $"../..".modulate
 	
 	if is_spawn:
 		if get_point_count() > point_count:
@@ -20,6 +20,4 @@ func _physics_process(delta: float) -> void:
 			remove_point(0)
 		
 func draw_point():
-	if $"../../AnimatedSprite2D".animation == "Stop":
-		self.modulate.a -= 0.09
-	add_point($"../../AnimatedSprite2D".global_position + Vector2(0, 5))
+	add_point($"../..".global_position)

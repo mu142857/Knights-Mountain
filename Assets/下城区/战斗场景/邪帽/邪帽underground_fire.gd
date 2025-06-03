@@ -8,6 +8,7 @@ var dihuo = preload("res://Assets/下城区/战斗场景/邪帽/地火.tscn")
 
 func enter():
 	monster.hide()
+	monster.set_collision_layer_value(4, false)
 	
 	var wait = monster.health / 40000
 	duration = 0.05 + wait
@@ -20,6 +21,7 @@ func process():
 	pass
 	
 func exit():
+	monster.set_collision_layer_value(4, true)
 	monster.ready_to_underground_fire = false
 
 

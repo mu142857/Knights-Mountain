@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-var max_health = 10000
+var max_health = 100
 var health: float
 var invincible_time: float = 0.3
 var invincible: bool = false
@@ -30,7 +30,8 @@ func take_hit(damage: float):
 		$InvincibleTime.start(invincible_time)
 		$HitEffectPlayer.play("HitFlash")
 		Game.filter(1, Color(0.6, 0, 0, 0.9))
-		health -= damage
+		if health > 0:
+			health -= damage
 		Game.frame_freeze(0.2, invincible_time)
 
 func _process(delta: float) -> void:

@@ -73,4 +73,4 @@ func _on_appear_timeout() -> void:
 func attack_check():
 	var coll = self.get_collider()
 	if coll != null and coll.is_in_group("player"):
-		coll.take_hit(10)
+		coll.take_hit(13)

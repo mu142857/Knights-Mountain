@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3git8ycomrbe"]
+
+[ext_resource type="Script" uid="uid://l6ohcdwpuo56" path="res://Assets/幽盲区/战斗场景/栗子劫念/栗子掉落水晶.gd" id="1_7b6t5"]
+[ext_resource type="Texture2D" uid="uid://dqlkox52lyrad" path="res://Assets/幽盲区/战斗场景/栗子劫念/弹射栗紫晶1.png" id="2_sblwf"]
+[ext_resource type="Script" uid="uid://d4b1m7gybw1d5" path="res://Assets/幽盲区/战斗场景/栗子劫念/水晶脱尾.gd" id="3_sblwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks2ye"]
+atlas = ExtResource("2_sblwf")
+region = Rect2(0, 0, 61, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qrp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks2ye")
+}],
+"loop": false,
+"name": &"End",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks2ye")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks2ye")
+}],
+"loop": false,
+"name": &"Ready",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78i7u"]
+size = Vector2(76, 16)
+
+[sub_resource type="Curve" id="Curve_ks2ye"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.205798, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7qrp6"]
+offsets = PackedFloat32Array(0, 0.534211, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.703943, 0.670596, 1, 0.325, 0.5585, 0.721286, 1, 0.325)
+
+[node name="栗子掉落水晶" type="Area2D"]
+rotation = 1.5708
+script = ExtResource("1_7b6t5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7qrp6")
+animation = &"End"
+offset = Vector2(0.5, -0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78i7u")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Node"]
+width = 20.0
+width_curve = SubResource("Curve_ks2ye")
+gradient = SubResource("Gradient_7qrp6")
+script = ExtResource("3_sblwf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

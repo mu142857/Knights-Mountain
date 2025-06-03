@@ -11,13 +11,12 @@ func _ready() -> void:
 	$StateMachine.change_state(0)
 
 func take_hit(value: int):
+	health -= value
+	$HitEffectPlayer.play("HitFlash")
 	if health <= 0:
-		$HitEffectPlayer.play("HitFlash")
 		$StateMachine.change_state(5)
-	else:
-		health -= value
-		$HitEffectPlayer.play("HitFlash")
-		
+
 func _physics_process(delta: float) -> void:
-	#print($AnimatedSprite2D.animation)
+	$CanvasLayer/Label.text = str(health)
+	$CanvasLayer/HealthBar.value = health
 	pass

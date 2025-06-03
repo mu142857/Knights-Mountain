@@ -38,13 +38,13 @@ func take_hit(value: int):
 		$"StateMachine/Idle(0)".duration = future_duration
 		is_mad = true
 		return
-	elif health <= 0:
-		$StateMachine.change_state(8)
-		$HitEffectPlayer.play("HitFlash")
-		return
 	else:
 		health -= value
 		$HitEffectPlayer.play("HitFlash")
+	if health <= 0:
+		$StateMachine.change_state(8)
+		$HitEffectPlayer.play("HitFlash")
+		return
 
 func _physics_process(delta: float) -> void:
 
@@ -57,6 +57,8 @@ func _physics_process(delta: float) -> void:
 	attack_check_position.scale.x = direct
 	attack_check_position.scale.y = 1
 	
+	$CanvasLayer/Label.text = str(health)
+	$CanvasLayer/HealthBar.value = health
 func change_scale():
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "scale", 3, 2.875) 

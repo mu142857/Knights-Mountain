@@ -6,7 +6,7 @@ extends Basic_State
 @onready var detection_range: Area2D = $"../../PlayerCheck" # 寻找玩家的范围
 
 func enter():
-	
+	monster.set_collision_layer_value(4, true)
 	monster.show()
 	if monster.ready_to_underground_fire == true:
 		$Timer.start(0)
