@@ -4,7 +4,13 @@ signal screen_shake(amount: float)
 signal screen_flash(amount: float, colour: Color)
 signal screen_filter(amount: float, colour: Color)
 
+@onready var colour_rect: ColorRect = $CanvasLayer/ColorRect
+
+var zdzj = preload("res://Assets/主角/战斗主角.tscn")
+#var xiangji = preload("res://Assets/主角/场景摄像机.tscn")
+
 func _ready() -> void:
+	colour_rect.color.a = 0
 	var camera = preload("res://Assets/主角/场景摄像机.tscn").instantiate()
 	get_tree().current_scene.add_child(camera)
 	
@@ -29,10 +35,19 @@ func play_music_tiqingeshengqu():
 
 func change_scene(scene_path: String, entry_point: String):
 	var tree = get_tree()
+	var tween = create_tween()
+	tween.tween_property(colour_rect, "color:a", 1, 0.2)
+	await tween.finished
 	
 	tree.change_scene_to_file(scene_path)
 	await tree.process_frame
+	await get_tree().create_timer(0.3).timeout
 	
 	for n in tree.get_nodes_in_group("entry_points"):
 		if n.name == entry_point:
-			tree.current_scene.update_player()
+			var player = zdzj.instantiate()
+			player.global_position = n.global_position
+			tree.current_scene.add_child(player)
+	
+	tween = create_tween()
+	tween.tween_property(colour_rect, "color:a", 0, 0.2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://wcvde0x771p7"]
+[gd_scene load_steps=42 format=4 uid="uid://wcvde0x771p7"]
 
 [ext_resource type="Script" uid="uid://shrbpn5dlghk" path="res://Assets/幻乡/战斗管理器/赤火沟.gd" id="1_5vcgw"]
 [ext_resource type="Texture2D" uid="uid://cawfacwtnr3jf" path="res://Assets/幻乡/战斗场景/场景元素/赤火沟.png" id="1_v8s1i"]
@@ -15,10 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="12_jnhe7"]
 [ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="13_egbdh"]
 [ext_resource type="Texture2D" uid="uid://cedefem8p17ky" path="res://Assets/幻乡/战斗场景/场景元素/烟雾.png" id="14_46rnh"]
-[ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="15_1dtmr"]
 [ext_resource type="Texture2D" uid="uid://f15cjmixdbwe" path="res://Assets/幻乡/战斗场景/场景元素/草6.png" id="15_iv2fc"]
 [ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="18_b3fat"]
 [ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="19_jofxu"]
+[ext_resource type="PackedScene" uid="uid://coq234mcllmi" path="res://Assets/主角/主角互动/互动节点.tscn" id="19_liysj"]
+[ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="19_wjwbi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60kx3"]
 shader = ExtResource("2_fsvwc")
@@ -477,9 +478,6 @@ lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_41h8s")
 metadata/_edit_lock_ = true
 
-[node name="战斗主角" parent="." instance=ExtResource("15_1dtmr")]
-position = Vector2(1563, 27)
-
 [node name="出怪点" type="Node" parent="."]
 
 [node name="出怪点1" type="Node2D" parent="出怪点"]
@@ -562,6 +560,18 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(149, 877.5)
 shape = SubResource("RectangleShape2D_wjwbi")
+
+[node name="互动点" parent="." instance=ExtResource("19_liysj")]
+position = Vector2(1400, 824)
+type = "Teloport"
+place = "Crimson_Gorge"
+new_scene_path = "uid://dlncgaikaaa05"
+entry_point = "左侧进入点"
+
+[node name="赤火沟入口" type="Marker2D" parent="."]
+position = Vector2(1344, 848)
+script = ExtResource("19_wjwbi")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

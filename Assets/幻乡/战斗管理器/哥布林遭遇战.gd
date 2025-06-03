@@ -11,7 +11,7 @@ func _ready() -> void:
 	#summon_monsters(goblin_test3, $"出怪点1")
 	preloading_resources_lizijienian()
 	var mao = preload("res://Assets/幽盲区/战斗场景/栗子劫念/栗子劫念.tscn").instantiate()
-	summon_monsters(mao, $"出怪点1")
+	#summon_monsters(mao, $"出怪点1")
 
 func _process(delta: float) -> void:
 	pass

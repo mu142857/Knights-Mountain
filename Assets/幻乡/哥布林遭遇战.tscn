@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://b7m5ba23fm3xt" path="res://Assets/幻乡/战斗场景/场景元素/草5.png" id="16_47j70"]
 [ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="18_rvytg"]
 [ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="19_c66r5"]
+[ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="25_loeda"]
+[ext_resource type="PackedScene" uid="uid://coq234mcllmi" path="res://Assets/主角/主角互动/互动节点.tscn" id="26_2k42r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o0e7j"]
 shader = ExtResource("12_44608")
@@ -295,16 +297,6 @@ sources/0 = SubResource("TileSetAtlasSource_82b0d")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_421ah"]
 load_path = "res://.godot/imported/草6.png-6c1f12efe2aaf9a7281371a2d729ad88.ctex"
 
-[sub_resource type="Gradient" id="Gradient_atb38"]
-offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_20qya"]
-gradient = SubResource("Gradient_atb38")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
 [sub_resource type="Gradient" id="Gradient_epqam"]
 offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
@@ -574,20 +566,6 @@ position = Vector2(589.6, 826)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("16_47j70")
 
-[node name="战斗主角" parent="." instance=ExtResource("6_dgfxq")]
-position = Vector2(168, 527)
-
-[node name="PointLight2D2" type="PointLight2D" parent="战斗主角"]
-visible = false
-position = Vector2(-1.90735e-06, -69)
-scale = Vector2(2, 2)
-color = Color(1, 1, 0.6, 1)
-energy = 0.6
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_20qya")
-texture_scale = 8.0
-metadata/_edit_lock_ = true
-
 [node name="太阳" type="PointLight2D" parent="."]
 visible = false
 position = Vector2(2045, -100)
@@ -659,3 +637,29 @@ shape = SubResource("WorldBoundaryShape2D_bcmaq")
 
 [node name="出怪点1" type="Node2D" parent="."]
 position = Vector2(734, 805)
+
+[node name="右侧进入点" type="Marker2D" parent="."]
+position = Vector2(1360, 848)
+script = ExtResource("25_loeda")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
+[node name="左侧进入点" type="Marker2D" parent="."]
+position = Vector2(40, 848)
+script = ExtResource("25_loeda")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
+[node name="互动节点左" parent="." instance=ExtResource("26_2k42r")]
+position = Vector2(0, 824)
+type = "Teloport"
+place = "Goblinwood"
+new_scene_path = "uid://wcvde0x771p7"
+entry_point = "赤火沟入口"
+
+[node name="互动节点右" parent="." instance=ExtResource("26_2k42r")]
+position = Vector2(1400, 816)
+type = "Teloport"
+place = "Goblinwood"
+new_scene_path = "uid://oapkono5jhg"
+entry_point = "繁木林左口"
+
+[node name="战斗主角" parent="." instance=ExtResource("6_dgfxq")]

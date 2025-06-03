@@ -8,7 +8,21 @@ radius = 5.0
 [node name="互动节点" type="Node2D"]
 script = ExtResource("1_ycscb")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="互动节点" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="互动节点"]
 shape = SubResource("CircleShape2D_7cfi6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 786.0
+offset_right = 260.0
+offset_bottom = 877.0
+theme_override_font_sizes/font_size = 64
+text = "按E交互"
+
+[connection signal="body_entered" from="互动节点" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="互动节点" to="." method="_on_area_2d_body_exited"]

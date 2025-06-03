@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	var camera = preload("res://Assets/主角/场景摄像机.tscn").instantiate()
+	get_tree().current_scene.add_child(camera)
 	
 
 func _process(delta: float) -> void:
