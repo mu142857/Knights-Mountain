@@ -1,20 +1,32 @@
-[gd_scene load_steps=37 format=4 uid="uid://oapkono5jhg"]
+[gd_scene load_steps=87 format=4 uid="uid://oapkono5jhg"]
 
 [ext_resource type="Script" uid="uid://b2ix56cr7lpiv" path="res://Assets/幻乡/剧情场景/繁木林.gd" id="1_t2l2b"]
 [ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="3_gmvnm"]
 [ext_resource type="PackedScene" uid="uid://coq234mcllmi" path="res://Assets/主角/主角互动/互动节点.tscn" id="4_2mm06"]
+[ext_resource type="Texture2D" uid="uid://cmkcmsfnxoqou" path="res://Assets/幻乡/战斗场景/场景元素/岩4.png" id="4_huuwg"]
 [ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="4_t2l2b"]
 [ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="5_dnqh3"]
+[ext_resource type="Texture2D" uid="uid://du2phfn7gbfp4" path="res://Assets/幻乡/战斗场景/场景元素/岩5.png" id="5_sv436"]
 [ext_resource type="Shader" uid="uid://wi18evqtb8eg" path="res://Assets/主游戏/低矮灌木摇晃.tres" id="6_ejhf3"]
-[ext_resource type="Texture2D" uid="uid://djndtl05q250u" path="res://Assets/幻乡/战斗场景/场景元素/果实灌木.png" id="7_cqkmh"]
 [ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://Assets/主游戏/大树摇晃.tres" id="8_flo4r"]
-[ext_resource type="Texture2D" uid="uid://6ff20khf0qrt" path="res://Assets/幻乡/战斗场景/场景元素/森林阔叶木.png" id="9_8gxai"]
 [ext_resource type="Texture2D" uid="uid://308vjheb8yfv" path="res://Assets/幻乡/战斗场景/场景元素/长条树叶.png" id="10_6cao6"]
 [ext_resource type="Shader" uid="uid://cqtkbi1ocysrj" path="res://Assets/主游戏/树木摇晃.tres" id="11_34wbq"]
 [ext_resource type="Texture2D" uid="uid://cfpeyo5io2m7b" path="res://Assets/幻乡/战斗场景/场景元素/森林针叶树木.png" id="12_3yx7c"]
+[ext_resource type="Texture2D" uid="uid://c8berf75hpyi6" path="res://Assets/幻乡/战斗场景/场景元素/岩2.png" id="12_6gmd8"]
 [ext_resource type="Texture2D" uid="uid://dvqxuwbkrdjed" path="res://Assets/幻乡/战斗场景/场景元素/树叶.png" id="13_6qugl"]
+[ext_resource type="Texture2D" uid="uid://6opl7vbcm3v5" path="res://Assets/幻乡/战斗场景/场景元素/岩1.png" id="13_sv436"]
 [ext_resource type="Shader" uid="uid://dmmbxhdk10gbn" path="res://Assets/主游戏/灌木摆动.tres" id="14_lij2k"]
 [ext_resource type="Texture2D" uid="uid://2iroohomhmm3" path="res://Assets/幻乡/战斗场景/场景元素/森林灌木.png" id="15_h25lk"]
+[ext_resource type="Texture2D" uid="uid://eegisokhldx7" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶3.png" id="16_3yx7c"]
+[ext_resource type="Texture2D" uid="uid://cmnfimflla6ew" path="res://Assets/幻乡/战斗场景/场景元素/繁木林背景.png" id="16_6qugl"]
+[ext_resource type="Texture2D" uid="uid://f15cjmixdbwe" path="res://Assets/幻乡/战斗场景/场景元素/草6.png" id="16_8gxai"]
+[ext_resource type="Texture2D" uid="uid://dq43t3ym6jmvf" path="res://Assets/幻乡/战斗场景/场景元素/繁茂山脉背景.png" id="16_h25lk"]
+[ext_resource type="Texture2D" uid="uid://chco0nhwv44b3" path="res://Assets/幻乡/战斗场景/场景元素/繁木林底层背景.png" id="16_lij2k"]
+[ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="17_6cao6"]
+[ext_resource type="Texture2D" uid="uid://b2rjeg0pjj4su" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶1.png" id="17_6qugl"]
+[ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="18_34wbq"]
+[ext_resource type="Texture2D" uid="uid://bq2iat0c01kyq" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶2.png" id="18_lij2k"]
+[ext_resource type="Texture2D" uid="uid://cufeak4m1grnq" path="res://Assets/下城区/战斗场景/背景/孤弦琴房氛围滤镜.png" id="25_owr2p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wvc7x"]
 
@@ -22,9 +34,18 @@
 shader = ExtResource("14_lij2k")
 shader_parameter/WindStrength = 10.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h25lk"]
+load_path = "res://.godot/imported/森林灌木.png-af88e6361b955d06c584ff07819e573b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_owr2p"]
+load_path = "res://.godot/imported/森林灌木.png-af88e6361b955d06c584ff07819e573b.ctex"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huuwg"]
 shader = ExtResource("8_flo4r")
 shader_parameter/WindStrength = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lij2k"]
+load_path = "res://.godot/imported/森林阔叶木.png-29076135bee48dc1ecb6ab4309fffec3.ctex"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sv436"]
 particles_animation = true
@@ -58,9 +79,45 @@ anim_offset_max = 1.0
 shader = ExtResource("6_ejhf3")
 shader_parameter/WindStrength = 6.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_huuwg"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55o1t"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kkjve"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8semf"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a5yn1"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g072u"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_27ye3"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g5vhh"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxum7"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p8d2j"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6a5ol"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irm8i"]
 shader = ExtResource("11_34wbq")
 shader_parameter/WindStrength = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sv436"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
 
 [sub_resource type="Gradient" id="Gradient_mg8rm"]
 offsets = PackedFloat32Array(0, 0.307339, 0.62844, 0.866973, 1)
@@ -88,6 +145,9 @@ anim_offset_max = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ejhf3"]
 shader = ExtResource("11_34wbq")
 shader_parameter/WindStrength = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6gmd8"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cqkmh"]
 particles_animation = true
@@ -118,15 +178,78 @@ scale_max = 1.2
 color_ramp = SubResource("GradientTexture1D_hgji7")
 anim_offset_max = 1.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55bsn"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qjqsp"]
 shader = ExtResource("6_ejhf3")
 shader_parameter/WindStrength = 6.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_irm8i"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mg8rm"]
+load_path = "res://.godot/imported/森林灌木.png-af88e6361b955d06c584ff07819e573b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t8c20"]
+load_path = "res://.godot/imported/森林灌木.png-af88e6361b955d06c584ff07819e573b.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wrvgv"]
 shader = ExtResource("6_ejhf3")
 shader_parameter/WindStrength = 6.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46jyk"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qjqsp"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tw5fq"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wrvgv"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_odkur"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6lwv"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cmhs3"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pi83q"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bxjty"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tva8j"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h33gx"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sda3w"]
+load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0ed084f14b33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c2kf7"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dkcs0"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2jaam"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_olggf"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yv30o"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_86iiq"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sv436"]
 texture = ExtResource("4_t2l2b")
 25:9/0 = 0
 26:9/0 = 0
@@ -313,7 +436,10 @@ texture = ExtResource("4_t2l2b")
 [sub_resource type="TileSet" id="TileSet_0cwfn"]
 physics_layer_0/collision_layer = 31
 physics_layer_0/collision_mask = 31
-sources/0 = SubResource("TileSetAtlasSource_46jyk")
+sources/0 = SubResource("TileSetAtlasSource_sv436")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ejhf3"]
+load_path = "res://.godot/imported/果实灌木.png-d817956d5d9f803fc2a817949639ecdb.ctex"
 
 [node name="森林" type="Node2D"]
 script = ExtResource("1_t2l2b")
@@ -344,6 +470,11 @@ position = Vector2(40, 848)
 script = ExtResource("3_gmvnm")
 metadata/_custom_type_script = "uid://cjdhf84anmnhm"
 
+[node name="右侧进入点" type="Marker2D" parent="."]
+position = Vector2(6960, 848)
+script = ExtResource("3_gmvnm")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
 [node name="主角出生点" type="Marker2D" parent="."]
 position = Vector2(3500, 848)
 script = ExtResource("3_gmvnm")
@@ -358,33 +489,65 @@ new_scene_path = "uid://dlncgaikaaa05"
 entry_point = "右侧进入点"
 available = true
 
-[node name="树木" type="Node2D" parent="."]
+[node name="互动节点右" parent="." instance=ExtResource("4_2mm06")]
+position = Vector2(7000, 824)
+type = "Teloport"
+place = "Whisperwood"
+new_scene_path = "uid://bxd22bbar1fne"
+entry_point = "左侧进入点"
+available = true
+
+[node name="树木组" type="Node2D" parent="."]
 modulate = Color(0.784314, 0.784314, 0.784314, 1)
 
-[node name="森林灌木3" type="Sprite2D" parent="树木"]
+[node name="岩4-1" type="Sprite2D" parent="树木组"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+position = Vector2(4761, 817)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_huuwg")
+
+[node name="岩4-2" type="Sprite2D" parent="树木组"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+position = Vector2(5874, 817)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_huuwg")
+
+[node name="岩5-1" type="Sprite2D" parent="树木组"]
+modulate = Color(0.648078, 0.648078, 0.648078, 1)
+position = Vector2(4595, 793)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_sv436")
+
+[node name="岩5-2" type="Sprite2D" parent="树木组"]
+modulate = Color(0.648078, 0.648078, 0.648078, 1)
+position = Vector2(5484, 821)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("5_sv436")
+
+[node name="森林灌木3" type="Sprite2D" parent="树木组"]
 modulate = Color(0.815717, 0.474031, 0.790376, 1)
 material = SubResource("ShaderMaterial_tw5fq")
 position = Vector2(255, 684)
 rotation = 3.14159
 scale = Vector2(3, -3)
-texture = ExtResource("15_h25lk")
+texture = SubResource("CompressedTexture2D_h25lk")
 
-[node name="森林灌木4" type="Sprite2D" parent="树木"]
+[node name="森林灌木4" type="Sprite2D" parent="树木组"]
 modulate = Color(0.815717, 0.474031, 0.790376, 1)
 material = SubResource("ShaderMaterial_tw5fq")
 position = Vector2(4144, 732)
 rotation = 3.14159
 scale = Vector2(3, -3)
-texture = ExtResource("15_h25lk")
+texture = SubResource("CompressedTexture2D_owr2p")
 
-[node name="森林阔叶木" type="Sprite2D" parent="树木"]
+[node name="森林阔叶木" type="Sprite2D" parent="树木组"]
 modulate = Color(0.947421, 0.681287, 0.951299, 1)
 material = SubResource("ShaderMaterial_huuwg")
 position = Vector2(3779, -297)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("9_8gxai")
+texture = SubResource("CompressedTexture2D_lij2k")
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林阔叶木"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林阔叶木"]
 material = SubResource("CanvasItemMaterial_sv436")
 position = Vector2(-110.099, 128.713)
 rotation = 0.00817382
@@ -395,7 +558,7 @@ lifetime = 10.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_55bsn")
 
-[node name="大树落叶2" type="GPUParticles2D" parent="树木/森林阔叶木"]
+[node name="大树落叶2" type="GPUParticles2D" parent="树木组/森林阔叶木"]
 material = SubResource("CanvasItemMaterial_sv436")
 position = Vector2(14.6534, 153.267)
 rotation = 0.00817382
@@ -406,94 +569,94 @@ lifetime = 10.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_55bsn")
 
-[node name="果实灌木3" type="Sprite2D" parent="树木"]
+[node name="果实灌木3" type="Sprite2D" parent="树木组"]
 modulate = Color(0.392157, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(248, 748)
 scale = Vector2(-2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_huuwg")
 
-[node name="果实灌木16" type="Sprite2D" parent="树木"]
+[node name="果实灌木16" type="Sprite2D" parent="树木组"]
 modulate = Color(0.392157, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(476, 748)
 scale = Vector2(-2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_55o1t")
 
-[node name="果实灌木4" type="Sprite2D" parent="树木"]
+[node name="果实灌木4" type="Sprite2D" parent="树木组"]
 modulate = Color(0.392157, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(3343, 748)
 scale = Vector2(2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_kkjve")
 
-[node name="果实灌木7" type="Sprite2D" parent="树木"]
+[node name="果实灌木7" type="Sprite2D" parent="树木组"]
 modulate = Color(0.392157, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(3993, 783)
 scale = Vector2(2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_8semf")
 
-[node name="果实灌木9" type="Sprite2D" parent="树木"]
+[node name="果实灌木9" type="Sprite2D" parent="树木组"]
 modulate = Color(0.260041, 0.714246, 0.405426, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(3161, 763)
 scale = Vector2(-2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_a5yn1")
 
-[node name="果实灌木15" type="Sprite2D" parent="树木"]
+[node name="果实灌木15" type="Sprite2D" parent="树木组"]
 modulate = Color(0.301774, 0.616931, 0.997549, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(4181, 786)
 scale = Vector2(-1.8, 1.8)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_g072u")
 
-[node name="果实灌木6" type="Sprite2D" parent="树木"]
+[node name="果实灌木6" type="Sprite2D" parent="树木组"]
 modulate = Color(0.317533, 0.695748, 0.534845, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(3805, 748)
 rotation = 3.14159
 scale = Vector2(2.25, -2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_27ye3")
 
-[node name="果实灌木5" type="Sprite2D" parent="树木"]
+[node name="果实灌木5" type="Sprite2D" parent="树木组"]
 modulate = Color(0.561368, 0.746904, 0.810908, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(3686, 809)
 scale = Vector2(-1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_g5vhh")
 
-[node name="果实灌木8" type="Sprite2D" parent="树木"]
+[node name="果实灌木8" type="Sprite2D" parent="树木组"]
 modulate = Color(0.561368, 0.746904, 0.810908, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(3227, 817)
 scale = Vector2(-1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_lxum7")
 
-[node name="果实灌木10" type="Sprite2D" parent="树木"]
+[node name="果实灌木10" type="Sprite2D" parent="树木组"]
 modulate = Color(0.616563, 0.915766, 0.747724, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(2977, 780)
 scale = Vector2(-1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_p8d2j")
 
-[node name="果实灌木11" type="Sprite2D" parent="树木"]
+[node name="果实灌木11" type="Sprite2D" parent="树木组"]
 modulate = Color(0.729822, 0.748758, 0.0773324, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(2884, 805)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_6a5ol")
 
-[node name="森林针叶树木1" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木1" type="Sprite2D" parent="树木组"]
 modulate = Color(0.509804, 0.509804, 0.509804, 1)
 material = SubResource("ShaderMaterial_irm8i")
 position = Vector2(1596, 481.1)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_sv436")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 328.248)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木1"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木1"]
 material = SubResource("CanvasItemMaterial_sv436")
 position = Vector2(-93.4653, -28.5545)
 rotation = 0.00817382
@@ -504,15 +667,15 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_t8c20")
 
-[node name="森林针叶树木10" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木10" type="Sprite2D" parent="树木组"]
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(4916, 565)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_6gmd8")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 324.438)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木10"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木10"]
 material = SubResource("CanvasItemMaterial_cqkmh")
 position = Vector2(-95.4456, -18.2178)
 rotation = 0.00817382
@@ -523,16 +686,16 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_8gxai")
 
-[node name="森林针叶树木3" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木3" type="Sprite2D" parent="树木组"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_irm8i")
 position = Vector2(1181, 496.1)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_55bsn")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 325.076)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木3"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木3"]
 material = SubResource("CanvasItemMaterial_sv436")
 position = Vector2(-106.931, -22.2178)
 rotation = 0.00817382
@@ -543,64 +706,64 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_t8c20")
 
-[node name="果实灌木" type="Sprite2D" parent="树木"]
+[node name="果实灌木" type="Sprite2D" parent="树木组"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_qjqsp")
 position = Vector2(886, 752)
 scale = Vector2(2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_irm8i")
 
-[node name="森林灌木" type="Sprite2D" parent="树木"]
+[node name="森林灌木" type="Sprite2D" parent="树木组"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_tw5fq")
 position = Vector2(684, 716)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("15_h25lk")
+texture = SubResource("CompressedTexture2D_mg8rm")
 
-[node name="森林灌木2" type="Sprite2D" parent="树木"]
+[node name="森林灌木2" type="Sprite2D" parent="树木组"]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_tw5fq")
 position = Vector2(1166, 772)
 scale = Vector2(-2.525, 2.525)
-texture = ExtResource("15_h25lk")
+texture = SubResource("CompressedTexture2D_t8c20")
 
-[node name="果实灌木2" type="Sprite2D" parent="树木"]
+[node name="果实灌木2" type="Sprite2D" parent="树木组"]
 modulate = Color(0.784314, 0.666667, 0.666667, 1)
 material = SubResource("ShaderMaterial_wrvgv")
 position = Vector2(1350, 750)
 scale = Vector2(2.25, 2.25)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_qjqsp")
 
-[node name="果实灌木12" type="Sprite2D" parent="树木"]
+[node name="果实灌木12" type="Sprite2D" parent="树木组"]
 modulate = Color(0.408582, 0.673421, 0.589153, 1)
 material = SubResource("ShaderMaterial_owr2p")
 position = Vector2(1480, 801)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_tw5fq")
 
-[node name="果实灌木13" type="Sprite2D" parent="树木"]
+[node name="果实灌木13" type="Sprite2D" parent="树木组"]
 modulate = Color(0.408582, 0.673421, 0.589153, 1)
 material = SubResource("ShaderMaterial_qjqsp")
 position = Vector2(1949, 800)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_wrvgv")
 
-[node name="果实灌木14" type="Sprite2D" parent="树木"]
+[node name="果实灌木14" type="Sprite2D" parent="树木组"]
 modulate = Color(0.408582, 0.673421, 0.589153, 1)
 material = SubResource("ShaderMaterial_wrvgv")
 position = Vector2(2584, 786)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_cqkmh")
+texture = SubResource("CompressedTexture2D_odkur")
 
-[node name="森林针叶树木2" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木2" type="Sprite2D" parent="树木组"]
 material = SubResource("ShaderMaterial_irm8i")
 position = Vector2(1405, 491)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_y6lwv")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 324.438)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木2"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木2"]
 material = SubResource("CanvasItemMaterial_sv436")
 position = Vector2(-113.267, -38.0198)
 rotation = 0.00817382
@@ -611,16 +774,16 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_t8c20")
 
-[node name="森林针叶树木4" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木4" type="Sprite2D" parent="树木组"]
 modulate = Color(0.509804, 0.509804, 0.509804, 1)
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(2118, 503.363)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_cmhs3")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 328.248)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木4"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木4"]
 material = SubResource("CanvasItemMaterial_cqkmh")
 position = Vector2(-43.9604, -17.8218)
 rotation = 0.00817382
@@ -631,36 +794,25 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_8gxai")
 
-[node name="森林针叶树木5" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木5" type="Sprite2D" parent="树木组"]
 modulate = Color(0.674783, 0.643995, 0.667663, 1)
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(1799, 499.363)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_pi83q")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 325.076)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木5"]
-material = SubResource("CanvasItemMaterial_cqkmh")
-position = Vector2(-43.9604, -17.8218)
-rotation = 0.00817382
-scale = Vector2(0.3125, 0.3125)
-amount = 40
-texture = ExtResource("13_6qugl")
-lifetime = 6.0
-visibility_rect = Rect2(-100, 10, 200, 20)
-process_material = SubResource("ParticleProcessMaterial_8gxai")
-
-[node name="森林针叶树木6" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木6" type="Sprite2D" parent="树木组"]
 modulate = Color(0.828197, 0.828197, 0.828197, 1)
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(2271, 489.05)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_bxjty")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 324.438)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木6"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木6"]
 material = SubResource("CanvasItemMaterial_cqkmh")
 position = Vector2(-81.5842, -18.2376)
 rotation = 0.00817382
@@ -671,16 +823,16 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_8gxai")
 
-[node name="森林针叶树木7" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木7" type="Sprite2D" parent="树木组"]
 modulate = Color(0.760297, 0.760297, 0.760297, 1)
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(3041, 572)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_tva8j")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 324.438)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木7"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木7"]
 material = SubResource("CanvasItemMaterial_cqkmh")
 position = Vector2(-95.4456, -18.2178)
 rotation = 0.00817382
@@ -691,15 +843,15 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_8gxai")
 
-[node name="森林针叶树木8" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木8" type="Sprite2D" parent="树木组"]
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(2637, 640)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_h33gx")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 324.438)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木8"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木8"]
 material = SubResource("CanvasItemMaterial_cqkmh")
 position = Vector2(-95.4456, -18.2178)
 rotation = 0.00817382
@@ -710,15 +862,15 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_8gxai")
 
-[node name="森林针叶树木9" type="Sprite2D" parent="树木"]
+[node name="森林针叶树木9" type="Sprite2D" parent="树木组"]
 material = SubResource("ShaderMaterial_ejhf3")
 position = Vector2(314, 662)
 scale = Vector2(2.525, 2.525)
-texture = ExtResource("12_3yx7c")
+texture = SubResource("CompressedTexture2D_sda3w")
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 324.438)
 
-[node name="大树落叶" type="GPUParticles2D" parent="树木/森林针叶树木9"]
+[node name="大树落叶" type="GPUParticles2D" parent="树木组/森林针叶树木9"]
 material = SubResource("CanvasItemMaterial_cqkmh")
 position = Vector2(-95.4456, -18.2178)
 rotation = 0.00817382
@@ -728,6 +880,97 @@ texture = ExtResource("13_6qugl")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_8gxai")
+
+[node name="果实灌木17" type="Sprite2D" parent="树木组"]
+modulate = Color(0.392157, 0.666667, 0.666667, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(4915, 748)
+scale = Vector2(-2.25, 2.25)
+texture = SubResource("CompressedTexture2D_c2kf7")
+
+[node name="果实灌木18" type="Sprite2D" parent="树木组"]
+modulate = Color(0.260041, 0.714246, 0.405426, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(5337.75, 763)
+scale = Vector2(-2.25, 2.25)
+texture = SubResource("CompressedTexture2D_dkcs0")
+
+[node name="果实灌木19" type="Sprite2D" parent="树木组"]
+modulate = Color(0.301774, 0.616931, 0.997549, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(6357.75, 786)
+scale = Vector2(-1.8, 1.8)
+texture = SubResource("CompressedTexture2D_2jaam")
+
+[node name="果实灌木20" type="Sprite2D" parent="树木组"]
+modulate = Color(0.317533, 0.695748, 0.534845, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(5981.75, 748)
+rotation = 3.14159
+scale = Vector2(2.25, -2.25)
+texture = SubResource("CompressedTexture2D_olggf")
+
+[node name="果实灌木21" type="Sprite2D" parent="树木组"]
+modulate = Color(0.729822, 0.748758, 0.0773324, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(5060.75, 805)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_yv30o")
+
+[node name="果实灌木22" type="Sprite2D" parent="树木组"]
+modulate = Color(0.854279, 0.661167, 0.605927, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(6736, 805)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_86iiq")
+
+[node name="岩2-1" type="Sprite2D" parent="树木组"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+position = Vector2(4653, 817)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_6gmd8")
+
+[node name="岩2-3" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(5002, 812)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_6gmd8")
+
+[node name="岩2-4" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(6399, 813)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_6gmd8")
+
+[node name="岩2-5" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(6341, 822)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("12_6gmd8")
+
+[node name="岩1-1" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(4982, 810)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_sv436")
+
+[node name="岩1-2" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(5246, 810)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_sv436")
+
+[node name="岩1-3" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(6092, 810)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_sv436")
+
+[node name="岩1-4" type="Sprite2D" parent="树木组"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(6372, 810)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_sv436")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)
@@ -735,6 +978,413 @@ tile_map_data = PackedByteArray("AAASADUAAAANAA0AAAASADYAAAANAA4AAAASADcAAAAGACA
 tile_set = SubResource("TileSet_0cwfn")
 
 [node name="Black" type="Sprite2D" parent="TileMapLayer"]
-position = Vector2(3699.5, 1696.5)
-scale = Vector2(29.6409, 8.42783)
+position = Vector2(3206.75, 1691.25)
+scale = Vector2(33.4421, 8.50773)
 texture = ExtResource("5_dnqh3")
+
+[node name="背景视差" type="ParallaxBackground" parent="."]
+layer = -60
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="背景视差"]
+position = Vector2(-2, 65)
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1212, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景视差/ParallaxLayer3"]
+position = Vector2(304.664, 426.561)
+scale = Vector2(2.53054, 2.51115)
+texture = ExtResource("16_h25lk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="背景视差/ParallaxLayer3"]
+position = Vector2(912, 427)
+scale = Vector2(2.53054, 2.51115)
+texture = ExtResource("16_h25lk")
+
+[node name="ParallaxLayer2_2" type="ParallaxLayer" parent="背景视差"]
+modulate = Color(1, 1, 1, 0.311)
+motion_scale = Vector2(0.4, 0.6)
+motion_mirroring = Vector2(945, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景视差/ParallaxLayer2_2"]
+position = Vector2(236, 427)
+scale = Vector2(1.97054, 1.95544)
+texture = ExtResource("16_lij2k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="背景视差/ParallaxLayer2_2"]
+position = Vector2(709, 429)
+scale = Vector2(1.97054, 1.95544)
+texture = ExtResource("16_lij2k")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="背景视差"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1212, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景视差/ParallaxLayer2"]
+position = Vector2(304.664, 426.561)
+scale = Vector2(2.53054, 2.51115)
+texture = ExtResource("16_lij2k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="背景视差/ParallaxLayer2"]
+position = Vector2(912, 427)
+scale = Vector2(2.53054, 2.51115)
+texture = ExtResource("16_lij2k")
+
+[node name="森林针叶树木3" type="Sprite2D" parent="背景视差/ParallaxLayer2"]
+modulate = Color(0.270222, 0.270222, 0.270222, 1)
+material = SubResource("ShaderMaterial_irm8i")
+position = Vector2(646, 629)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="背景视差"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1212, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+position = Vector2(302.664, 535.561)
+scale = Vector2(2.53054, 2.51115)
+texture = ExtResource("16_6qugl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+position = Vector2(909.664, 535.561)
+scale = Vector2(2.53054, 2.51115)
+texture = ExtResource("16_6qugl")
+
+[node name="森林针叶树木3" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+material = SubResource("ShaderMaterial_irm8i")
+position = Vector2(482, 535)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="果实灌木1" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+modulate = Color(0.479815, 0.36808, 0.453854, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(882, 713)
+scale = Vector2(-2, 2)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木2" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+modulate = Color(0.479815, 0.36808, 0.453854, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(315, 760)
+scale = Vector2(-2, 2)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="森林针叶树木1" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+material = SubResource("ShaderMaterial_irm8i")
+position = Vector2(838, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="森林针叶树木2" type="Sprite2D" parent="背景视差/ParallaxLayer1"]
+material = SubResource("ShaderMaterial_irm8i")
+position = Vector2(281, 641)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="前景视差" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="1点2倍前景" type="ParallaxLayer" parent="前景视差"]
+motion_scale = Vector2(1.2, 1.2)
+
+[node name="蓝水晶3-1" type="Sprite2D" parent="前景视差/1点2倍前景"]
+position = Vector2(-23, 685)
+scale = Vector2(6, 6)
+texture = ExtResource("16_3yx7c")
+
+[node name="蓝水晶1-1" type="Sprite2D" parent="前景视差/1点2倍前景"]
+position = Vector2(69, 903)
+scale = Vector2(3, 3)
+texture = ExtResource("17_6qugl")
+
+[node name="蓝水晶2-1" type="Sprite2D" parent="前景视差/1点2倍前景"]
+position = Vector2(30, 900)
+scale = Vector2(3, 3)
+texture = ExtResource("18_lij2k")
+
+[node name="蓝水晶1-2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+position = Vector2(345, 894)
+scale = Vector2(4, 4)
+texture = ExtResource("17_6qugl")
+
+[node name="蓝水晶2-2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+position = Vector2(427, 919)
+scale = Vector2(-3, 3)
+texture = ExtResource("18_lij2k")
+
+[node name="果实灌木2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.197382, 0.530575, 0.284296, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(2439, 840)
+rotation = 3.14159
+scale = Vector2(3, -3)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木3" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.197382, 0.530575, 0.284296, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(3058, 868)
+rotation = 3.14159
+scale = Vector2(3, -3)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木4" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.197382, 0.530575, 0.284296, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(1615, 868)
+rotation = 3.14159
+scale = Vector2(3, -3)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.197382, 0.530575, 0.284296, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(215, 840)
+rotation = 3.14159
+scale = Vector2(3, -3)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="草6-1" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(2935, 907)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("16_8gxai")
+
+[node name="草4-1" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(3127, 918)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草4-2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(2312, 919)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草4-3" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(708, 918)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草4-4" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(1480, 919)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草3-1" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(770, 916)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("18_34wbq")
+
+[node name="草3-2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(1822, 918)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("18_34wbq")
+
+[node name="草6-2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(2421, 907)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("16_8gxai")
+
+[node name="草4-5" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(3851, 918)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草4-6" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(3036, 919)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草4-7" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(1432, 918)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草4-8" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(2204, 919)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("17_6cao6")
+
+[node name="草3-3" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(1051, 916)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("18_34wbq")
+
+[node name="草3-4" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.468128, 0.468128, 0.468128, 1)
+position = Vector2(2546, 918)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("18_34wbq")
+
+[node name="蓝水晶3-2" type="Sprite2D" parent="前景视差/1点2倍前景"]
+modulate = Color(0.345412, 0.912965, 0.68765, 1)
+position = Vector2(895, 910)
+scale = Vector2(6, 6)
+texture = ExtResource("16_3yx7c")
+
+[node name="1点5倍前景" type="ParallaxLayer" parent="前景视差"]
+motion_scale = Vector2(1.5, 1.5)
+
+[node name="果实灌木" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.124189, 0.355841, 0.184148, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(128.75, 941)
+scale = Vector2(-3.5, 3.5)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木2" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.124189, 0.355841, 0.184148, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(5709, 903)
+scale = Vector2(-3.5, 3.5)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木3" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.479815, 0.36808, 0.453854, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(4452, 917)
+scale = Vector2(-3.5, 3.5)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木4" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.479815, 0.36808, 0.453854, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(521.75, 904)
+scale = Vector2(-3.5, 3.5)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="果实灌木5" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.479815, 0.36808, 0.453854, 1)
+material = SubResource("ShaderMaterial_owr2p")
+position = Vector2(1647.75, 949)
+scale = Vector2(-3.5, 3.5)
+texture = SubResource("CompressedTexture2D_ejhf3")
+
+[node name="森林灌木" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.815717, 0.474031, 0.790376, 1)
+material = SubResource("ShaderMaterial_tw5fq")
+position = Vector2(2046, 994)
+rotation = 3.14159
+scale = Vector2(3, -3)
+texture = ExtResource("15_h25lk")
+
+[node name="森林灌木2" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.423587, 0.278253, 0.46013, 1)
+material = SubResource("ShaderMaterial_tw5fq")
+position = Vector2(1075, 926)
+rotation = 3.14159
+scale = Vector2(-3, -3)
+texture = ExtResource("15_h25lk")
+
+[node name="森林针叶树木" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.340339, 0.340339, 0.340339, 1)
+material = SubResource("ShaderMaterial_ejhf3")
+position = Vector2(4350, 606)
+scale = Vector2(3.4, 3.56173)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="森林针叶树木3" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.340339, 0.340339, 0.340339, 1)
+material = SubResource("ShaderMaterial_ejhf3")
+position = Vector2(3206, 638.8)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="森林针叶树木2" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.435192, 0.435192, 0.435192, 1)
+material = SubResource("ShaderMaterial_ejhf3")
+position = Vector2(3714, 669.8)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="蓝水晶1-1" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.601224, 0.601223, 0.601223, 1)
+position = Vector2(729, 977.5)
+scale = Vector2(5, 5)
+texture = ExtResource("17_6qugl")
+
+[node name="蓝水晶2-1" type="Sprite2D" parent="前景视差/1点5倍前景"]
+modulate = Color(0.601224, 0.601223, 0.601223, 1)
+position = Vector2(690, 974.5)
+scale = Vector2(5, 5)
+texture = ExtResource("18_lij2k")
+
+[node name="1点9倍前景" type="ParallaxLayer" parent="前景视差"]
+motion_scale = Vector2(1.9, 1.9)
+
+[node name="森林针叶树木" type="Sprite2D" parent="前景视差/1点9倍前景"]
+modulate = Color(0.435192, 0.435192, 0.435192, 1)
+position = Vector2(452, 707)
+scale = Vector2(4, 4)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="森林针叶树木2" type="Sprite2D" parent="前景视差/1点9倍前景"]
+modulate = Color(0.435192, 0.435192, 0.435192, 1)
+position = Vector2(1823, 707)
+scale = Vector2(4, 4)
+texture = ExtResource("12_3yx7c")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 324.438)
+
+[node name="蓝水晶2" type="Sprite2D" parent="前景视差/1点9倍前景"]
+modulate = Color(0.32868, 0.516223, 0.579408, 1)
+position = Vector2(133, 1100)
+rotation = 3.14159
+scale = Vector2(6, -6)
+texture = ExtResource("18_lij2k")
+
+[node name="蓝水晶3" type="Sprite2D" parent="前景视差/1点9倍前景"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(-21, 1105)
+scale = Vector2(10, 10)
+texture = ExtResource("16_3yx7c")
+
+[node name="蓝水晶1" type="Sprite2D" parent="前景视差/1点9倍前景"]
+modulate = Color(0.985782, 0.258586, 0.521549, 1)
+position = Vector2(305, 1106)
+scale = Vector2(-7, 6)
+texture = ExtResource("17_6qugl")
+
+[node name="滤镜" type="CanvasLayer" parent="."]
+layer = -50
+
+[node name="ColorRect" type="ColorRect" parent="滤镜"]
+offset_left = -38.0
+offset_right = 7553.0
+offset_bottom = 915.0
+color = Color(0.075, 0.218, 0.111, 0.828)
+metadata/_edit_lock_ = true
+
+[node name="残烟骑士效果滤镜" type="Sprite2D" parent="滤镜"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3204, 400.5)
+scale = Vector2(6.22714, 0.907778)
+texture = ExtResource("25_owr2p")

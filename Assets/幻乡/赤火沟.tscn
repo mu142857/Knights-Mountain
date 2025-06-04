@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://wcvde0x771p7"]
+[gd_scene load_steps=44 format=4 uid="uid://wcvde0x771p7"]
 
 [ext_resource type="Script" uid="uid://shrbpn5dlghk" path="res://Assets/幻乡/战斗管理器/赤火沟.gd" id="1_5vcgw"]
 [ext_resource type="Texture2D" uid="uid://cawfacwtnr3jf" path="res://Assets/幻乡/战斗场景/场景元素/赤火沟.png" id="1_v8s1i"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://2iroohomhmm3" path="res://Assets/幻乡/战斗场景/场景元素/森林灌木.png" id="11_jr06r"]
 [ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="12_jnhe7"]
 [ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="13_egbdh"]
+[ext_resource type="Texture2D" uid="uid://bq2iat0c01kyq" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶2.png" id="13_xtu00"]
 [ext_resource type="Texture2D" uid="uid://cedefem8p17ky" path="res://Assets/幻乡/战斗场景/场景元素/烟雾.png" id="14_46rnh"]
+[ext_resource type="Texture2D" uid="uid://b2rjeg0pjj4su" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶1.png" id="14_dq4qv"]
 [ext_resource type="Texture2D" uid="uid://f15cjmixdbwe" path="res://Assets/幻乡/战斗场景/场景元素/草6.png" id="15_iv2fc"]
 [ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="18_b3fat"]
 [ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="19_jofxu"]
@@ -454,6 +456,26 @@ texture = ExtResource("9_oae6n")
 lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_6c4pa")
+
+[node name="蓝水晶2-1" type="Sprite2D" parent="树木"]
+position = Vector2(1373, 776)
+scale = Vector2(3, 3)
+texture = ExtResource("13_xtu00")
+
+[node name="蓝水晶2-2" type="Sprite2D" parent="树木"]
+position = Vector2(1356, 855)
+scale = Vector2(3, 3)
+texture = ExtResource("13_xtu00")
+
+[node name="蓝水晶1-1" type="Sprite2D" parent="树木"]
+position = Vector2(448, 826)
+scale = Vector2(-3, 3)
+texture = ExtResource("14_dq4qv")
+
+[node name="蓝水晶2-3" type="Sprite2D" parent="树木"]
+position = Vector2(472, 886)
+scale = Vector2(3, 3)
+texture = ExtResource("13_xtu00")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.666667, 0.666667, 0.666667, 1)

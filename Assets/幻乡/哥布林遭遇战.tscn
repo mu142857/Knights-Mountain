@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dlncgaikaaa05"]
+[gd_scene load_steps=49 format=4 uid="uid://dlncgaikaaa05"]
 
 [ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://Assets/主游戏/大树摇晃.tres" id="1_6x2dn"]
 [ext_resource type="Texture2D" uid="uid://6ff20khf0qrt" path="res://Assets/幻乡/战斗场景/场景元素/森林阔叶木.png" id="1_6860o"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://6opl7vbcm3v5" path="res://Assets/幻乡/战斗场景/场景元素/岩1.png" id="14_gu387"]
 [ext_resource type="Texture2D" uid="uid://f15cjmixdbwe" path="res://Assets/幻乡/战斗场景/场景元素/草6.png" id="15_r5dlk"]
 [ext_resource type="Texture2D" uid="uid://b7m5ba23fm3xt" path="res://Assets/幻乡/战斗场景/场景元素/草5.png" id="16_47j70"]
+[ext_resource type="Texture2D" uid="uid://eegisokhldx7" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶3.png" id="16_hwens"]
+[ext_resource type="Texture2D" uid="uid://b2rjeg0pjj4su" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶1.png" id="17_gkyn5"]
+[ext_resource type="Texture2D" uid="uid://bq2iat0c01kyq" path="res://Assets/幻乡/战斗场景/场景元素/蓝水晶2.png" id="18_dbxoh"]
 [ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="18_rvytg"]
 [ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="19_c66r5"]
 [ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="25_loeda"]
@@ -459,6 +462,21 @@ lifetime = 6.0
 visibility_rect = Rect2(-100, 10, 200, 20)
 process_material = SubResource("ParticleProcessMaterial_rtljr")
 
+[node name="蓝水晶3-1" type="Sprite2D" parent="树木"]
+position = Vector2(962, 852)
+scale = Vector2(3, 3)
+texture = ExtResource("16_hwens")
+
+[node name="蓝水晶1-1" type="Sprite2D" parent="树木"]
+position = Vector2(1340, 779)
+scale = Vector2(3, 3)
+texture = ExtResource("17_gkyn5")
+
+[node name="蓝水晶2-1" type="Sprite2D" parent="树木"]
+position = Vector2(1266, 747)
+scale = Vector2(3, 3)
+texture = ExtResource("18_dbxoh")
+
 [node name="背景装饰物" type="Node2D" parent="."]
 modulate = Color(0.27451, 0.27451, 0.27451, 1)
 
@@ -471,6 +489,24 @@ texture = ExtResource("8_jaqti")
 position = Vector2(1053, 778)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_2gqvo")
+
+[node name="蓝水晶3-1" type="Sprite2D" parent="背景装饰物"]
+modulate = Color(2.5, 2.5, 2.5, 1)
+position = Vector2(461, 829)
+rotation = 1.5708
+scale = Vector2(3, -3)
+texture = ExtResource("16_hwens")
+
+[node name="蓝水晶1-1" type="Sprite2D" parent="背景装饰物"]
+modulate = Color(2, 2, 2, 1)
+position = Vector2(172, 792)
+scale = Vector2(3, 3)
+texture = ExtResource("17_gkyn5")
+
+[node name="蓝水晶2-1" type="Sprite2D" parent="背景装饰物"]
+position = Vector2(25, 829)
+scale = Vector2(3, 3)
+texture = ExtResource("18_dbxoh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.588235, 0.588235, 0.588235, 1)

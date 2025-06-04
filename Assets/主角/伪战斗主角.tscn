@@ -541,7 +541,7 @@ one_shot = true
 [node name="UI" parent="." instance=ExtResource("17_j0ohu")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -200)
+offset = Vector2(0, -250)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
