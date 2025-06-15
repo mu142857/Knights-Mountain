@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdqo1688k4xb0"
-path="res://.godot/imported/7.jpg-f1fc11def14e6144581dfafe1f8084d8.ctex"
+uid="uid://da803jhaq25q7"
+path="res://.godot/imported/篝火-Sheet.png-9743ff2415277e85c8c39b63e67fed1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/背景原图/废弃素材/7.jpg"
-dest_files=["res://.godot/imported/7.jpg-f1fc11def14e6144581dfafe1f8084d8.ctex"]
+source_file="res://Assets/幻乡/剧情场景/篝火-Sheet.png"
+dest_files=["res://.godot/imported/篝火-Sheet.png-9743ff2415277e85c8c39b63e67fed1a.ctex"]
 
 [params]
 

@@ -35,10 +35,24 @@ func frame_freeze(timescale, duration): # 静止帧
 func play_music_tiqingeshengqu():
 	$"提琴哥圣曲".play()
 
+func change_pos(body: CharacterBody2D, entry_point: String):
+	var tree = get_tree()
+	var tween = create_tween()
+	tween.tween_property(colour_rect, "color:a", 1, 0.03)
+	await tween.finished
+	await get_tree().create_timer(0.3).timeout
+	
+	for n in tree.get_nodes_in_group("entry_points"):
+		if n.name == entry_point:
+			body.global_position = n.global_position
+	
+	tween = create_tween()
+	tween.tween_property(colour_rect, "color:a", 0, 0.37)
+	
 func change_scene(scene_path: String, entry_point: String, player_battle: bool):
 	var tree = get_tree()
 	var tween = create_tween()
-	tween.tween_property(colour_rect, "color:a", 1, 0.2)
+	tween.tween_property(colour_rect, "color:a", 1, 0.03)
 	await tween.finished
 	
 	tree.change_scene_to_file(scene_path)
@@ -58,4 +72,4 @@ func change_scene(scene_path: String, entry_point: String, player_battle: bool):
 			tree.current_scene.add_child(player)
 	
 	tween = create_tween()
-	tween.tween_property(colour_rect, "color:a", 0, 0.2)
+	tween.tween_property(colour_rect, "color:a", 0, 0.37)

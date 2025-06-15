@@ -1,6 +1,6 @@
 extends Basic_State
 
-var speed: float = 400
+var speed: float = 2400
 @onready var player: CharacterBody2D = $"../.."
 @onready var ani_sprite2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 

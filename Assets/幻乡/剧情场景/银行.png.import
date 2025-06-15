@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu85xykdfkukv"
-path="res://.godot/imported/女主房间（平面2D）.jpg-ae2ea23f9797ffe27b85571864b95179.ctex"
+uid="uid://djhwmi042vnn7"
+path="res://.godot/imported/银行.png-e33c869f0e97cf27e02f09cd23203f4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/背景原图/女主房间（平面2D）.jpg"
-dest_files=["res://.godot/imported/女主房间（平面2D）.jpg-ae2ea23f9797ffe27b85571864b95179.ctex"]
+source_file="res://Assets/幻乡/剧情场景/银行.png"
+dest_files=["res://.godot/imported/银行.png-e33c869f0e97cf27e02f09cd23203f4d.ctex"]
 
 [params]
 

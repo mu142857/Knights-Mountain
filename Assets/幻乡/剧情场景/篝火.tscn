@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://4ry46fg5gh0m"]
+
+[ext_resource type="Texture2D" uid="uid://da803jhaq25q7" path="res://Assets/幻乡/剧情场景/篝火-Sheet.png" id="1_3tgd8"]
+[ext_resource type="Texture2D" uid="uid://cedefem8p17ky" path="res://Assets/幻乡/战斗场景/场景元素/烟雾.png" id="2_hj2gn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj2gn"]
+atlas = ExtResource("1_3tgd8")
+region = Rect2(0, 0, 58, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f52xu"]
+atlas = ExtResource("1_3tgd8")
+region = Rect2(58, 0, 58, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwuvx"]
+atlas = ExtResource("1_3tgd8")
+region = Rect2(116, 0, 58, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fyhj"]
+atlas = ExtResource("1_3tgd8")
+region = Rect2(174, 0, 58, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yglr"]
+atlas = ExtResource("1_3tgd8")
+region = Rect2(232, 0, 58, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gbmc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj2gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f52xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwuvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fyhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yglr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_3tgd8"]
+offsets = PackedFloat32Array(0, 0.146667, 0.446667, 0.796667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 0.849107, 0.534121, 1, 0.947425, 0.664124, 0, 1, 0.840703, 0.229139, 0.250614, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hj2gn"]
+gradient = SubResource("Gradient_3tgd8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f52xu"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(18, 10, 0)
+gravity = Vector3(0, -200, 0)
+color_ramp = SubResource("GradientTexture1D_hj2gn")
+turbulence_enabled = true
+turbulence_noise_scale = 8.0
+
+[sub_resource type="Gradient" id="Gradient_f52xu"]
+offsets = PackedFloat32Array(0, 0.323333, 0.653333, 1)
+colors = PackedColorArray(1, 0.901961, 0.690196, 0, 1, 1, 1, 0.8, 0.828197, 0.828197, 0.828197, 0.515957, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mwuvx"]
+gradient = SubResource("Gradient_f52xu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8fyhj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 0, 0)
+velocity_pivot = Vector3(0, -100, 0)
+direction = Vector3(0, 0, 0)
+angular_velocity_min = -10.0
+angular_velocity_max = 9.99998
+gravity = Vector3(0, -100, 0)
+scale_min = 0.5
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_mwuvx")
+
+[sub_resource type="Gradient" id="Gradient_hj2gn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f52xu"]
+gradient = SubResource("Gradient_hj2gn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="篝火" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_6gbmc")
+autoplay = "default"
+frame_progress = 0.86423
+
+[node name="火焰特效" type="GPUParticles2D" parent="."]
+position = Vector2(0, -15)
+amount = 20
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_f52xu")
+
+[node name="烟雾特效" type="GPUParticles2D" parent="."]
+amount = 15
+texture = ExtResource("2_hj2gn")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_8fyhj")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9.53674e-07, -15)
+scale = Vector2(1.35938, 1.35938)
+color = Color(0.847108, 0.736884, 0.460656, 1)
+texture = SubResource("GradientTexture2D_f52xu")

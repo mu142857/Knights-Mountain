@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2sn3klcjfp2w"
-path="res://.godot/imported/走廊（平面2D）.jpg-d69b2c68908f2b3adc4e9ad051ae7a86.ctex"
+uid="uid://fdo6bj0w6m4u"
+path="res://.godot/imported/剑骑士城堡.png-bd3b605c608022098ac72ec2ebda6339.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/背景原图/走廊（平面2D）.jpg"
-dest_files=["res://.godot/imported/走廊（平面2D）.jpg-d69b2c68908f2b3adc4e9ad051ae7a86.ctex"]
+source_file="res://Assets/幻乡/剧情场景/剑骑士城堡.png"
+dest_files=["res://.godot/imported/剑骑士城堡.png-bd3b605c608022098ac72ec2ebda6339.ctex"]
 
 [params]
 

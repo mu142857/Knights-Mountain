@@ -291,7 +291,7 @@ sources/0 = SubResource("TileSetAtlasSource_liysj")
 offsets = PackedFloat32Array(0, 0.137615, 0.559633, 1)
 colors = PackedColorArray(1, 0.901961, 0.690196, 0, 1, 1, 1, 1, 1, 1, 1, 0.515957, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_phhc1"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dq4qv"]
 gradient = SubResource("Gradient_crh11")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41h8s"]
@@ -304,7 +304,7 @@ angular_velocity_min = -10.0
 angular_velocity_max = 9.99998
 gravity = Vector3(0, -100, 0)
 scale_max = 5.0
-color_ramp = SubResource("GradientTexture1D_phhc1")
+color_ramp = SubResource("GradientTexture1D_dq4qv")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_31nhj"]
 

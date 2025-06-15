@@ -17,10 +17,18 @@ shape = SubResource("CircleShape2D_7cfi6")
 layer = 10
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 32.0
-offset_top = 786.0
-offset_right = 260.0
-offset_bottom = 877.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -302.0
+offset_right = 114.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 64
 text = "按E交互"
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi6qp5m6jp66h"
-path="res://.godot/imported/城堡外景2（平面2D）.jpg-0a7d173988ab7e042a13293fdb456d82.ctex"
+uid="uid://dwt1ebubvself"
+path="res://.godot/imported/村镇峡谷.png-5ae10cc0254dd91ee260b5858889a6e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/背景原图/城堡外景2（平面2D）.jpg"
-dest_files=["res://.godot/imported/城堡外景2（平面2D）.jpg-0a7d173988ab7e042a13293fdb456d82.ctex"]
+source_file="res://Assets/幻乡/战斗场景/场景元素/村镇峡谷.png"
+dest_files=["res://.godot/imported/村镇峡谷.png-5ae10cc0254dd91ee260b5858889a6e1.ctex"]
 
 [params]
 

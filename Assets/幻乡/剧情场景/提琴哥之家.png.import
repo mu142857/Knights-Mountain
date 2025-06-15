@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm6k6l3ylwuop"
-path="res://.godot/imported/大厅（平面2D）.jpg-ac8c9827083cbf94f9c0487e208c54e9.ctex"
+uid="uid://bsensmcbis31g"
+path="res://.godot/imported/提琴哥之家.png-64e5bd1dd3b25932cf2d1a9b0532213a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/背景原图/大厅（平面2D）.jpg"
-dest_files=["res://.godot/imported/大厅（平面2D）.jpg-ac8c9827083cbf94f9c0487e208c54e9.ctex"]
+source_file="res://Assets/幻乡/剧情场景/提琴哥之家.png"
+dest_files=["res://.godot/imported/提琴哥之家.png-64e5bd1dd3b25932cf2d1a9b0532213a.ctex"]
 
 [params]
 

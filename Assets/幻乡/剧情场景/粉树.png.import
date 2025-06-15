@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du80n3hp1l68n"
-path="res://.godot/imported/城堡外景滤镜.png-07e329c75feb3dbd0910ff901bc2c72a.ctex"
+uid="uid://d3kvqjuomagbi"
+path="res://.godot/imported/粉树.png-411eb6092cec9d80e08ab0d905097b73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/剧情场景/城堡外景滤镜.png"
-dest_files=["res://.godot/imported/城堡外景滤镜.png-07e329c75feb3dbd0910ff901bc2c72a.ctex"]
+source_file="res://Assets/幻乡/剧情场景/粉树.png"
+dest_files=["res://.godot/imported/粉树.png-411eb6092cec9d80e08ab0d905097b73.ctex"]
 
 [params]
 

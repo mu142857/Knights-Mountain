@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsao432ysxun3"
-path="res://.godot/imported/城堡中景.png-6ebff10e42d08b0b391a67b460e18b9e.ctex"
+uid="uid://dspputbkcxtlg"
+path="res://.godot/imported/荷.png-1850e972dd1bd7d4f72556b336d916ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/剧情场景/城堡中景.png"
-dest_files=["res://.godot/imported/城堡中景.png-6ebff10e42d08b0b391a67b460e18b9e.ctex"]
+source_file="res://Assets/幻乡/剧情场景/荷.png"
+dest_files=["res://.godot/imported/荷.png-1850e972dd1bd7d4f72556b336d916ac.ctex"]
 
 [params]
 

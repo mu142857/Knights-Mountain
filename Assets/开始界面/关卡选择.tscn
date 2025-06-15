@@ -145,14 +145,14 @@ sub_emitter_amount_at_collision = 1
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mblcn"]
 frequency = 0.03
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n1ggd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_po864"]
 seamless = true
 noise = SubResource("FastNoiseLite_mblcn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vw6s"]
 shader = ExtResource("10_m3amg")
 shader_parameter/water_colour = Color(0, 0.12, 0.2, 1)
-shader_parameter/wave_noise = SubResource("NoiseTexture2D_n1ggd")
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_po864")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cgm4"]
 load_path = "res://.godot/imported/Lower City.png-37175eb9fe452d406797a17ad03d1e88.ctex"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2w6b71j1y1b3"
-path="res://.godot/imported/城堡背景.png-b13235fbbd7ba9f8e77fab23d2a91dc1.ctex"
+uid="uid://b8ttp2eaf2csn"
+path="res://.godot/imported/技能商贩之家2.png-11a8d01d1ba96d4f3134042edd015765.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/剧情场景/城堡背景.png"
-dest_files=["res://.godot/imported/城堡背景.png-b13235fbbd7ba9f8e77fab23d2a91dc1.ctex"]
+source_file="res://Assets/幻乡/剧情场景/技能商贩之家2.png"
+dest_files=["res://.godot/imported/技能商贩之家2.png-11a8d01d1ba96d4f3134042edd015765.ctex"]
 
 [params]
 

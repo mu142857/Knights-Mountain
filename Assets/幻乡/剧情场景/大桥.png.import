@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2vyojf512ecg"
-path="res://.godot/imported/5.jpg-95bf1fb72d3b9a61b1477c8996d9398b.ctex"
+uid="uid://b7lerh57m1jp6"
+path="res://.godot/imported/大桥.png-457be43f6c48e34e17eee18d7be8cf13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/幻乡/背景原图/废弃素材/5.jpg"
-dest_files=["res://.godot/imported/5.jpg-95bf1fb72d3b9a61b1477c8996d9398b.ctex"]
+source_file="res://Assets/幻乡/剧情场景/大桥.png"
+dest_files=["res://.godot/imported/大桥.png-457be43f6c48e34e17eee18d7be8cf13.ctex"]
 
 [params]
 
