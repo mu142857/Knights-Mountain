@@ -137,7 +137,7 @@ offset_right = 1060.0
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("6_g2sl6")
 theme_override_font_sizes/font_size = 160
-text = "栗子劫念测试"
+text = "你好"
 
 [node name="开始游戏" type="Button" parent="CanvasLayer"]
 offset_left = -1.0

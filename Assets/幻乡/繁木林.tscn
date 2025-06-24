@@ -124,7 +124,7 @@ load_path = "res://.godot/imported/森林针叶树木.png-34aa5e625cd8365cae9e0e
 offsets = PackedFloat32Array(0, 0.307339, 0.62844, 0.866973, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 0.163456, 0.0421156, 1, 1, 0.189723, 0.848036, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_7gomi"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_55bsn"]
 gradient = SubResource("Gradient_mg8rm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t8c20"]
@@ -140,7 +140,7 @@ angular_velocity_max = 50.0
 gravity = Vector3(0, 30, 0)
 scale_min = 0.8
 scale_max = 1.2
-color_ramp = SubResource("GradientTexture1D_7gomi")
+color_ramp = SubResource("GradientTexture1D_55bsn")
 anim_offset_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ejhf3"]

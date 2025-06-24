@@ -2,7 +2,7 @@
 extends Node2D
 
 @export var type: String
-# Teloport-场景切换， Talk-对话， Bridge-场景内直接传送， Bridgeport-场景内按交互键传送
+# Teloport-场景间切换， Conditionedteloport-场景间按交互键切换， Talk-对话， Bridge-场景内直接传送， Bridgeport-场景内按交互键传送
 @export var battle: bool
 @export var place: String
 ## 剧情场景 peace
@@ -45,6 +45,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			player_in = true
 			port_body = body
 			$CanvasLayer.show()
+		elif type == "Conditionedteloport":
+			player_in = true
+			port_body = body
+			$CanvasLayer.show()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -55,6 +59,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		elif type == "Bridgeport":
 			player_in = false
 			$CanvasLayer.hide()
+		elif type == "Conditionedteloport":
+			player_in = false
+			$CanvasLayer.hide()
 
 func _process(delta: float) -> void:
 	if type == "Talk":
@@ -63,3 +70,7 @@ func _process(delta: float) -> void:
 	elif type == "Bridgeport":
 		if player_in and Input.is_action_just_pressed("interact"):
 			Game.change_pos(port_body, entry_point)
+	elif type == "Conditionedteloport":
+		if player_in and Input.is_action_just_pressed("interact"):
+			port_body.queue_free()
+			Game.change_scene(new_scene_path, entry_point, battle)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://84pk1oka32tp"]
+[gd_scene load_steps=23 format=4 uid="uid://84pk1oka32tp"]
 
 [ext_resource type="Script" uid="uid://b6ic5bpo3o6jj" path="res://Assets/下城区/战斗管理器/墨晶林.gd" id="1_1xqaf"]
 [ext_resource type="Texture2D" uid="uid://7k42mypanxc8" path="res://Assets/下城区/战斗场景/场景元素/水晶枯萎木.png" id="1_i2m2a"]
@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://d0kvuyv1a4dmr" path="res://Assets/幻乡/战斗场景/场景元素/碑3.png" id="1_xg0cs"]
 [ext_resource type="Texture2D" uid="uid://bn0ge1mi3g4sn" path="res://Assets/下城区/战斗场景/场景元素/绳索枯萎木.png" id="2_yyld2"]
 [ext_resource type="Shader" uid="uid://cqtkbi1ocysrj" path="res://Assets/主游戏/树木摇晃.tres" id="3_r4blk"]
-[ext_resource type="PackedScene" uid="uid://bchmoxr8a01g4" path="res://Assets/主角/战斗主角.tscn" id="4_58jt1"]
 [ext_resource type="Shader" uid="uid://dmmbxhdk10gbn" path="res://Assets/主游戏/灌木摆动.tres" id="5_wby64"]
 [ext_resource type="Texture2D" uid="uid://d1arjn62g8rhl" path="res://Assets/下城区/战斗场景/场景元素/水晶树叶.png" id="7_376rv"]
 [ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="10_qk2cv"]
+[ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="11_ktpgh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xt35h"]
 
@@ -173,16 +173,6 @@ sources/0 = SubResource("TileSetAtlasSource_m7dad")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01syd"]
 load_path = "res://.godot/imported/black.jpg-1324969777668121050c88ba2be916c7.ctex"
 
-[sub_resource type="Gradient" id="Gradient_e87hd"]
-offsets = PackedFloat32Array(0, 0.104326, 0.211196, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.791999, 0.791999, 0.791999, 1, 0.316167, 0.316167, 0.316167, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8w54d"]
-gradient = SubResource("Gradient_e87hd")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7ohn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_goa30"]
@@ -242,20 +232,6 @@ position = Vector2(737, 976)
 scale = Vector2(6.77992, 1)
 texture = SubResource("CompressedTexture2D_01syd")
 
-[node name="战斗主角" parent="." instance=ExtResource("4_58jt1")]
-position = Vector2(166, 507)
-
-[node name="PointLight2D2" type="PointLight2D" parent="战斗主角"]
-visible = false
-position = Vector2(-1.90735e-06, -69)
-scale = Vector2(2, 2)
-color = Color(1, 1, 0.6, 1)
-energy = 0.6
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_8w54d")
-texture_scale = 8.0
-metadata/_edit_lock_ = true
-
 [node name="碰撞箱" type="StaticBody2D" parent="."]
 position = Vector2(0, 784)
 rotation = 1.5708
@@ -279,3 +255,8 @@ position = Vector2(734, 21)
 position = Vector2(737, 976)
 scale = Vector2(6.77992, 1)
 texture = SubResource("CompressedTexture2D_01syd")
+
+[node name="墨晶林入口" type="Marker2D" parent="."]
+position = Vector2(1344, 848)
+script = ExtResource("11_ktpgh")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
