@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb4g8jpyo5b06"]
+
+[ext_resource type="Shader" uid="uid://bxu7sa76hijel" path="res://Assets/主游戏/山洞后层云雾.gdshader" id="1_eqhbw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_77dgs"]
+frequency = 0.0025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3a7r4"]
+width = 1400
+height = 900
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_77dgs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0hos"]
+resource_local_to_scene = true
+shader = ExtResource("1_eqhbw")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_3a7r4")
+shader_parameter/density = 0.4
+shader_parameter/speed = Vector2(0, 0.03)
+
+[node name="山洞后层云雾" type="Parallax2D"]
+top_level = true
+scroll_scale = Vector2(1.25, 1)
+repeat_size = Vector2(1400, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_d0hos")
+offset_right = 1400.0
+offset_bottom = 900.0
+color = Color(0.538478, 0.659407, 0.825861, 1)

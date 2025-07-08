@@ -31,7 +31,7 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0, 0.238532, 0.504587, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.392157, 1, 1, 1, 0.470588, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_u7of4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e87hd"]
 gradient = SubResource("Gradient_fm4y8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jeqqs"]
@@ -46,10 +46,10 @@ angular_velocity_max = 50.0
 gravity = Vector3(25, 30, 0)
 scale_min = 1.2
 scale_max = 3.0
-color_ramp = SubResource("GradientTexture1D_u7of4")
+color_ramp = SubResource("GradientTexture1D_e87hd")
 anim_offset_max = 1.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7dad"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e87hd"]
 texture = ExtResource("1_q5acu")
 25:9/0 = 0
 26:9/0 = 0
@@ -168,7 +168,7 @@ texture = ExtResource("1_q5acu")
 [sub_resource type="TileSet" id="TileSet_1pt0v"]
 physics_layer_0/collision_layer = 31
 physics_layer_0/collision_mask = 31
-sources/0 = SubResource("TileSetAtlasSource_m7dad")
+sources/0 = SubResource("TileSetAtlasSource_e87hd")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01syd"]
 load_path = "res://.godot/imported/black.jpg-1324969777668121050c88ba2be916c7.ctex"
@@ -249,7 +249,7 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_goa30")
 
 [node name="出怪点1" type="Node2D" parent="."]
-position = Vector2(734, 21)
+position = Vector2(734, 814)
 
 [node name="Black" type="Sprite2D" parent="."]
 position = Vector2(737, 976)

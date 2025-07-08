@@ -11,9 +11,11 @@ var wzdzj = preload("res://Assets/主角/伪战斗主角.tscn")
 #var xiangji = preload("res://Assets/主角/场景摄像机.tscn")
 
 var player_existed: bool = false
+var transport_cool_down: bool = false
 
 func _ready() -> void:
 	player_existed = false
+	transport_cool_down = false
 	colour_rect.color.a = 0
 	
 func shake_camera(amount: float): # 震屏
@@ -36,9 +38,10 @@ func play_music_tiqingeshengqu():
 	$"提琴哥圣曲".play()
 
 func change_pos(body: CharacterBody2D, entry_point: String):
+	transport_cool_down = true
 	var tree = get_tree()
 	var tween = create_tween()
-	tween.tween_property(colour_rect, "color:a", 1, 0.03)
+	tween.tween_property(colour_rect, "color:a", 1, 0.3)
 	await tween.finished
 	await get_tree().create_timer(0.3).timeout
 	
@@ -47,14 +50,17 @@ func change_pos(body: CharacterBody2D, entry_point: String):
 			body.global_position = n.global_position
 	
 	tween = create_tween()
-	tween.tween_property(colour_rect, "color:a", 0, 0.37)
+	tween.tween_property(colour_rect, "color:a", 0, 0.3)
+	
+	await get_tree().create_timer(0.3).timeout # 传送冷却为切换位置0.3秒后
+	transport_cool_down = false
 	
 func change_scene(scene_path: String, entry_point: String, player_battle: bool):
+	transport_cool_down = true
 	var tree = get_tree()
 	var tween = create_tween()
-	tween.tween_property(colour_rect, "color:a", 1, 0.03)
+	tween.tween_property(colour_rect, "color:a", 1.05, 0.3) # 离开场景2.5秒渐变
 	await tween.finished
-	
 	tree.change_scene_to_file(scene_path)
 	await tree.process_frame
 	await get_tree().create_timer(0.3).timeout
@@ -72,4 +78,7 @@ func change_scene(scene_path: String, entry_point: String, player_battle: bool):
 			tree.current_scene.add_child(player)
 	
 	tween = create_tween()
-	tween.tween_property(colour_rect, "color:a", 0, 0.37)
+	tween.tween_property(colour_rect, "color:a", 0, 2.5) # 进入场景2.5秒渐变
+	
+	await get_tree().create_timer(2.5).timeout # 传送冷却为进入场景2.5秒后
+	transport_cool_down = false

@@ -1594,3 +1594,11 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(3204, 400.5)
 scale = Vector2(6.22714, 0.907778)
 texture = ExtResource("25_owr2p")
+
+[node name="山洞互动点" parent="." instance=ExtResource("4_2mm06")]
+position = Vector2(3719, 815)
+type = "Conditionedteloport"
+place = "Hearthfall"
+new_scene_path = "uid://bqhqkx1v3c0cn"
+entry_point = "洞口"
+available = true

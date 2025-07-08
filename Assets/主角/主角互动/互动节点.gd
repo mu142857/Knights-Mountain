@@ -24,7 +24,6 @@ extends Node2D
 @export var entry_point: String
 @export var available: bool
 var player_in: bool = false
-
 var port_body # 为Bridgeport记录主角
 
 func _ready() -> void:
@@ -32,24 +31,26 @@ func _ready() -> void:
 	player_in = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and available:
-		if type == "Talk":
-			player_in = true
-			$CanvasLayer.show()
-		elif type == "Teloport":
-			body.queue_free()
-			Game.change_scene(new_scene_path, entry_point, battle)
-		elif type == "Bridge":
-			Game.change_pos(body, entry_point)
-		elif type == "Bridgeport":
-			player_in = true
-			port_body = body
-			$CanvasLayer.show()
-		elif type == "Conditionedteloport":
-			player_in = true
-			port_body = body
-			$CanvasLayer.show()
-
+	if Game.transport_cool_down == false:
+		if body.is_in_group("player") and available:
+			if type == "Talk":
+				player_in = true
+				$CanvasLayer.show()
+			elif type == "Teloport":
+				Game.transport_cool_down = true
+				queue_free_body(body, 0.3)
+				Game.change_scene(new_scene_path, entry_point, battle)
+			elif type == "Bridge":
+				Game.transport_cool_down = true
+				Game.change_pos(body, entry_point)
+			elif type == "Bridgeport":
+				player_in = true
+				port_body = body
+				$CanvasLayer.show()
+			elif type == "Conditionedteloport":
+				player_in = true
+				port_body = body
+				$CanvasLayer.show()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -69,8 +70,14 @@ func _process(delta: float) -> void:
 			pass
 	elif type == "Bridgeport":
 		if player_in and Input.is_action_just_pressed("interact"):
+			Game.transport_cool_down = true
 			Game.change_pos(port_body, entry_point)
 	elif type == "Conditionedteloport":
 		if player_in and Input.is_action_just_pressed("interact"):
-			port_body.queue_free()
+			Game.transport_cool_down = true
+			queue_free_body(port_body, 0.3)
 			Game.change_scene(new_scene_path, entry_point, battle)
+
+func queue_free_body(body: Node2D, time: float):
+	await get_tree().create_timer(time).timeout
+	body.queue_free()

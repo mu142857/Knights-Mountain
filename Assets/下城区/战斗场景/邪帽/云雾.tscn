@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://5trjcac1kkur"]
 
-[ext_resource type="Shader" path="res://Assets/主游戏/烟雾.gdshader" id="1_ugya5"]
+[ext_resource type="Shader" uid="uid://yd67rxfdv5yx" path="res://Assets/主游戏/烟雾.gdshader" id="1_ugya5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ymdc3"]
 frequency = 0.0025
@@ -15,12 +15,13 @@ noise = SubResource("FastNoiseLite_ymdc3")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6da2s"]
 resource_local_to_scene = true
 shader = ExtResource("1_ugya5")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_0p7op")
 shader_parameter/density = 0.1
 shader_parameter/speed = Vector2(-0.1, 0.1)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_0p7op")
 
 [node name="云雾" type="Parallax2D"]
 top_level = true
+scroll_scale = Vector2(0, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_6da2s")
