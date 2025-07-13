@@ -1507,7 +1507,7 @@ position = Vector2(2512, 746.6)
 
 [node name="繁木教徒1" parent="NPC" instance=ExtResource("24_6m4ix")]
 modulate = Color(0.978547, 0.930247, 0.740459, 1)
-position = Vector2(1003, 802)
+position = Vector2(4544, 292)
 scale = Vector2(-1, 1)
 type = "高"
 swing_strength = 8.0
@@ -1515,9 +1515,23 @@ swing_time_period = 2.0
 
 [node name="繁木教徒2" parent="NPC" instance=ExtResource("24_6m4ix")]
 modulate = Color(0.764813, 0.979188, 0.901749, 1)
-position = Vector2(1063, 802)
+position = Vector2(4604, 292)
 swing_strength = 2.0
 swing_time_period = 8.0
+
+[node name="繁木教徒3" parent="NPC" instance=ExtResource("24_6m4ix")]
+modulate = Color(0.974539, 0.906642, 0.891648, 1)
+position = Vector2(3582, 283)
+scale = Vector2(-1, 1)
+swing_strength = 3.0
+swing_time_period = 3.0
+
+[node name="繁木教徒4" parent="NPC" instance=ExtResource("24_6m4ix")]
+modulate = Color(0.869422, 0.933157, 0.990823, 1)
+position = Vector2(3493, 285)
+type = "迷你"
+swing_strength = 1.5
+swing_time_period = 10.0
 
 [node name="池塘植物" type="Node2D" parent="."]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)

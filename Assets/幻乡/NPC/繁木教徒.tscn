@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d38f1lih1d556"]
+[gd_scene load_steps=12 format=3 uid="uid://d38f1lih1d556"]
 
 [ext_resource type="Script" uid="uid://8jle7d38teue" path="res://Assets/幻乡/NPC/繁木教徒.gd" id="1_rp5sg"]
 [ext_resource type="Texture2D" uid="uid://cncw356sp8rrh" path="res://Assets/幻乡/NPC/繁木教徒矮.png" id="2_b5h8a"]
 [ext_resource type="Shader" uid="uid://coutsk7ij30gj" path="res://Assets/主游戏/教徒念咒.tres" id="2_npsgn"]
 [ext_resource type="Texture2D" uid="uid://bqcr65bqng27n" path="res://Assets/幻乡/NPC/繁木教徒高.png" id="3_npsgn"]
+[ext_resource type="Texture2D" uid="uid://d2lku6mn164yc" path="res://Assets/幻乡/NPC/繁木教徒迷你.png" id="4_npsgn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6y7e8"]
 resource_local_to_scene = true
@@ -13,6 +14,10 @@ shader_parameter/Speed = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6y7e8"]
 atlas = ExtResource("2_b5h8a")
+region = Rect2(0, 0, 80, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wjqq"]
+atlas = ExtResource("4_npsgn")
 region = Rect2(0, 0, 80, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hyyft"]
@@ -27,6 +32,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"矮",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wjqq")
+}],
+"loop": true,
+"name": &"迷你",
 "speed": 5.0
 }, {
 "frames": [{
@@ -50,7 +63,7 @@ script = ExtResource("1_rp5sg")
 material = SubResource("ShaderMaterial_6y7e8")
 scale = Vector2(1.84, 1.84)
 sprite_frames = SubResource("SpriteFrames_8wjqq")
-animation = &"矮"
+animation = &"迷你"
 offset = Vector2(6, -56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
