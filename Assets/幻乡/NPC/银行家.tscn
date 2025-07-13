@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6v3xs2clnfws"]
+
+[ext_resource type="Script" uid="uid://bsybqyjxejb8s" path="res://Assets/幻乡/NPC/银行家.gd" id="1_srkmj"]
+[ext_resource type="Texture2D" uid="uid://cl0bg6phgedn2" path="res://Assets/幻乡/NPC/银行家哥布林.png" id="1_w6tqm"]
+[ext_resource type="Texture2D" uid="uid://dvfc1ibqyf87n" path="res://Assets/幻乡/NPC/银行家学徒.png" id="2_j7ull"]
+[ext_resource type="Texture2D" uid="uid://cedefem8p17ky" path="res://Assets/幻乡/战斗场景/场景元素/烟雾.png" id="3_j7ull"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6tqm"]
+size = Vector2(48, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srkmj"]
+atlas = ExtResource("1_w6tqm")
+region = Rect2(0, 0, 68, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcbxi"]
+atlas = ExtResource("2_j7ull")
+region = Rect2(0, 0, 68, 116)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgd3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srkmj")
+}],
+"loop": true,
+"name": &"哥布林",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcbxi")
+}],
+"loop": true,
+"name": &"学徒",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_srkmj"]
+offsets = PackedFloat32Array(0, 0.137615, 1)
+colors = PackedColorArray(1, 0.901961, 0.690196, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dcbxi"]
+gradient = SubResource("Gradient_srkmj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sgd3h"]
+particle_flag_disable_z = true
+velocity_pivot = Vector3(0, -100, 0)
+direction = Vector3(0, 0, 0)
+angular_velocity_min = -10.0
+angular_velocity_max = 9.99998
+gravity = Vector3(0, -10, 0)
+scale_min = 0.1
+scale_max = 0.2
+color_ramp = SubResource("GradientTexture1D_dcbxi")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcbxi"]
+size = Vector2(2796, 1192)
+
+[node name="银行家" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_srkmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w6tqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.84, 1.84)
+sprite_frames = SubResource("SpriteFrames_sgd3h")
+animation = &"哥布林"
+autoplay = "哥布林"
+offset = Vector2(0.543478, -42.9348)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D"]
+position = Vector2(9.51087, -4.34783)
+scale = Vector2(0.543478, 0.543478)
+amount = 5
+texture = ExtResource("3_j7ull")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_sgd3h")
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(-1434, -248)
+shape = SubResource("RectangleShape2D_dcbxi")
+debug_color = Color(0.343, 0.549, 0.783, 0)
+
+[connection signal="body_entered" from="PlayerCheck" to="." method="_on_player_check_body_entered"]
+[connection signal="body_exited" from="PlayerCheck" to="." method="_on_player_check_body_exited"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cqnhff48wj3dq" path="res://Assets/下城区/战斗场景/场景元素/腐败林瓦片地图.png" id="1_q5acu"]
 [ext_resource type="Texture2D" uid="uid://d0kvuyv1a4dmr" path="res://Assets/幻乡/战斗场景/场景元素/碑3.png" id="1_xg0cs"]
 [ext_resource type="Texture2D" uid="uid://bn0ge1mi3g4sn" path="res://Assets/下城区/战斗场景/场景元素/绳索枯萎木.png" id="2_yyld2"]
-[ext_resource type="Shader" uid="uid://cqtkbi1ocysrj" path="res://Assets/主游戏/树木摇晃.tres" id="3_r4blk"]
+[ext_resource type="Shader" uid="uid://wi18evqtb8eg" path="res://Assets/主游戏/低矮灌木摇晃.tres" id="4_e87hd"]
 [ext_resource type="Shader" uid="uid://dmmbxhdk10gbn" path="res://Assets/主游戏/灌木摆动.tres" id="5_wby64"]
 [ext_resource type="Texture2D" uid="uid://d1arjn62g8rhl" path="res://Assets/下城区/战斗场景/场景元素/水晶树叶.png" id="7_376rv"]
 [ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="10_qk2cv"]
@@ -14,7 +14,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xt35h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wamu2"]
-shader = ExtResource("3_r4blk")
+shader = ExtResource("4_e87hd")
 shader_parameter/WindStrength = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_65xf2"]
@@ -164,6 +164,26 @@ texture = ExtResource("1_q5acu")
 9:32/0 = 0
 6:33/0 = 0
 7:33/0 = 0
+26:24/0 = 0
+26:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:24/0 = 0
+27:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:23/0 = 0
+27:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:23/0 = 0
+28:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:22/0 = 0
+27:22/0 = 0
+26:22/0 = 0
+26:23/0 = 0
+26:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:22/0 = 0
+29:23/0 = 0
+29:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:24/0 = 0
+29:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:24/0 = 0
+28:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_1pt0v"]
 physics_layer_0/collision_layer = 31

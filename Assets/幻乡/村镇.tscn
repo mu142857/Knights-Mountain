@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://bxd22bbar1fne"]
+[gd_scene load_steps=75 format=4 uid="uid://bxd22bbar1fne"]
 
 [ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="1_jyis8"]
 [ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="2_113tu"]
@@ -25,9 +25,12 @@
 [ext_resource type="Texture2D" uid="uid://chym64kcydnr8" path="res://Assets/幻乡/战斗场景/场景元素/草4.png" id="16_gwhua"]
 [ext_resource type="Texture2D" uid="uid://cta8rraahq3bw" path="res://Assets/幻乡/战斗场景/场景元素/草3.png" id="17_jbpql"]
 [ext_resource type="Texture2D" uid="uid://dvqxuwbkrdjed" path="res://Assets/幻乡/战斗场景/场景元素/树叶.png" id="18_dscwn"]
+[ext_resource type="PackedScene" uid="uid://bxfi1vg5qc2x2" path="res://Assets/幻乡/NPC/无限少女.tscn" id="19_dscwn"]
 [ext_resource type="Texture2D" uid="uid://dspputbkcxtlg" path="res://Assets/幻乡/剧情场景/荷.png" id="20_7blhl"]
 [ext_resource type="Texture2D" uid="uid://d35cwkcddc5w0" path="res://Assets/幻乡/战斗场景/场景元素/村镇峡谷背景.png" id="21_4iisv"]
 [ext_resource type="Texture2D" uid="uid://dwt1ebubvself" path="res://Assets/幻乡/战斗场景/场景元素/村镇峡谷.png" id="21_7blhl"]
+[ext_resource type="PackedScene" uid="uid://b6v3xs2clnfws" path="res://Assets/幻乡/NPC/银行家.tscn" id="23_c483k"]
+[ext_resource type="PackedScene" uid="uid://d38f1lih1d556" path="res://Assets/幻乡/NPC/繁木教徒.tscn" id="24_6m4ix"]
 [ext_resource type="Texture2D" uid="uid://c3qqdtcyqswvl" path="res://Assets/幻乡/剧情场景/前景大桥.png" id="24_s7wn4"]
 [ext_resource type="Texture2D" uid="uid://dj4r4qumrffbe" path="res://Assets/开始界面/Water.png" id="25_savs2"]
 
@@ -1492,6 +1495,29 @@ texture = ExtResource("2_113tu")
 position = Vector2(6662.44, 1705.06)
 scale = Vector2(16.8991, 8.5058)
 texture = ExtResource("2_113tu")
+
+[node name="NPC" type="Node2D" parent="."]
+position = Vector2(-71, 38)
+
+[node name="无限少女" parent="NPC" instance=ExtResource("19_dscwn")]
+position = Vector2(3377, 805)
+
+[node name="银行家" parent="NPC" instance=ExtResource("23_c483k")]
+position = Vector2(2512, 746.6)
+
+[node name="繁木教徒1" parent="NPC" instance=ExtResource("24_6m4ix")]
+modulate = Color(0.978547, 0.930247, 0.740459, 1)
+position = Vector2(1003, 802)
+scale = Vector2(-1, 1)
+type = "高"
+swing_strength = 8.0
+swing_time_period = 2.0
+
+[node name="繁木教徒2" parent="NPC" instance=ExtResource("24_6m4ix")]
+modulate = Color(0.764813, 0.979188, 0.901749, 1)
+position = Vector2(1063, 802)
+swing_strength = 2.0
+swing_time_period = 8.0
 
 [node name="池塘植物" type="Node2D" parent="."]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)

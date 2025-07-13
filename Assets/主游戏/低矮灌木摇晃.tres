@@ -55,6 +55,7 @@ function = 0
 operator = 2
 
 [resource]
+resource_local_to_scene = true
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -137,6 +138,7 @@ void vertex() {
 
 }
 "
+graph_offset = Vector2(-334.063, -273.772)
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2(1840, 300)

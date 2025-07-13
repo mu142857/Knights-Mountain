@@ -1,0 +1,137 @@
+[gd_scene load_steps=21 format=3 uid="uid://bxfi1vg5qc2x2"]
+
+[ext_resource type="Texture2D" uid="uid://jq1wbmy8xhuw" path="res://Assets/幻乡/NPC/无限少女-Sheet.png" id="1_bfdhh"]
+[ext_resource type="Texture2D" uid="uid://dkx1lj7equnye" path="res://Assets/幻乡/NPC/无限少女符号.png" id="2_3smhf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smhf"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(0, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3plj"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(64, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuijs"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(128, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj3mx"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(192, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywmq2"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(256, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_550ls"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(320, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwbf4"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(384, 0, 64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ksc7"]
+atlas = ExtResource("1_bfdhh")
+region = Rect2(448, 0, 64, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kf3ii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3plj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuijs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywmq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_550ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwbf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ksc7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clc2v"]
+size = Vector2(28, 110)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bfdhh"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_g3plj"]
+offsets = PackedFloat32Array(0, 0.246667, 0.566667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 3.17663e-06, 0.850221, 0.551786, 0.506667, 0.681028, 0.819664, 1, 0.716224, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nuijs"]
+gradient = SubResource("Gradient_g3plj")
+
+[sub_resource type="Gradient" id="Gradient_bfdhh"]
+offsets = PackedFloat32Array(0, 0.203333, 0.496667, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.390816, 0.671919, 0.889073, 1, 4.81307e-07, 0.724334, 0.628378, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3smhf"]
+gradient = SubResource("Gradient_bfdhh")
+
+[sub_resource type="Curve" id="Curve_3smhf"]
+_data = [Vector2(0, 0.878066), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.377826), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g3plj"]
+curve = SubResource("Curve_3smhf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g3plj"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(18, 10, 0)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+gravity = Vector3(0, -100, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_g3plj")
+color_ramp = SubResource("GradientTexture1D_3smhf")
+color_initial_ramp = SubResource("GradientTexture1D_nuijs")
+anim_offset_max = 1.0
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 8.0
+
+[node name="无限少女" type="CharacterBody2D"]
+collision_layer = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_kf3ii")
+autoplay = "default"
+frame_progress = 0.0446323
+offset = Vector2(1, -51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_clc2v")
+
+[node name="无限特效" type="GPUParticles2D" parent="."]
+modulate = Color(2, 5, 8, 1)
+material = SubResource("CanvasItemMaterial_bfdhh")
+amount = 20
+texture = ExtResource("2_3smhf")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_g3plj")
