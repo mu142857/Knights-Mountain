@@ -1,8 +1,9 @@
-[gd_scene load_steps=75 format=4 uid="uid://bxd22bbar1fne"]
+[gd_scene load_steps=76 format=4 uid="uid://bxd22bbar1fne"]
 
 [ext_resource type="Texture2D" uid="uid://c3mi8dcjhwnpy" path="res://Assets/幻乡/战斗场景/场景元素/幻乡瓦片地图.png" id="1_jyis8"]
 [ext_resource type="Texture2D" uid="uid://bfc8f0trivntj" path="res://Assets/幻乡/战斗场景/场景元素/black.jpg" id="2_113tu"]
 [ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="3_113tu"]
+[ext_resource type="PackedScene" uid="uid://bbg5eljtuh3f8" path="res://Assets/幻乡/剧情场景/旗子.tscn" id="3_k6mgw"]
 [ext_resource type="Shader" uid="uid://dmmbxhdk10gbn" path="res://Assets/主游戏/灌木摆动.tres" id="3_pixer"]
 [ext_resource type="Texture2D" uid="uid://fdo6bj0w6m4u" path="res://Assets/幻乡/剧情场景/剑骑士城堡.png" id="3_qlwl7"]
 [ext_resource type="PackedScene" uid="uid://coq234mcllmi" path="res://Assets/主角/主角互动/互动节点.tscn" id="4_t5yoe"]
@@ -743,6 +744,21 @@ entry_point = "洞口"
 available = true
 
 [node name="中景" type="Node2D" parent="."]
+
+[node name="旗子1" parent="中景" instance=ExtResource("3_k6mgw")]
+modulate = Color(0.737388, 0.357473, 0.352792, 1)
+position = Vector2(2464, 247)
+scale = Vector2(0.8, 0.8)
+
+[node name="旗子2" parent="中景" instance=ExtResource("3_k6mgw")]
+modulate = Color(0.413961, 0.516719, 0.481111, 1)
+position = Vector2(3082, 29)
+scale = Vector2(0.8, 0.8)
+
+[node name="旗子3" parent="中景" instance=ExtResource("3_k6mgw")]
+modulate = Color(0.406019, 0.500105, 0.60335, 1)
+position = Vector2(4805, 29)
+scale = Vector2(0.8, 0.8)
 
 [node name="森林针叶树木5" type="Sprite2D" parent="中景"]
 modulate = Color(0.798366, 0.798366, 0.798366, 1)

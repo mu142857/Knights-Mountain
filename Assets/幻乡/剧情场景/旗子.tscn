@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbg5eljtuh3f8"]
+
+[ext_resource type="Texture2D" uid="uid://db3nj6t3ch5jp" path="res://Assets/幻乡/剧情场景/旗-Sheet.png" id="1_tdrox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgsyf"]
+atlas = ExtResource("1_tdrox")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac370"]
+atlas = ExtResource("1_tdrox")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8taor"]
+atlas = ExtResource("1_tdrox")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhk6e"]
+atlas = ExtResource("1_tdrox")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v588"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgsyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac370")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8taor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhk6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="旗子" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3v588")
+autoplay = "default"
+frame_progress = 0.997773

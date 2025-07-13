@@ -98,7 +98,7 @@ fill_to = Vector2(0.5, 0)
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_6gbmc")
 autoplay = "default"
-frame_progress = 0.86423
+frame_progress = 0.0179697
 
 [node name="火焰特效" type="GPUParticles2D" parent="."]
 position = Vector2(0, -15)
