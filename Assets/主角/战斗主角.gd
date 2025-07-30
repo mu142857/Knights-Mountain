@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-var max_health = 100
+var max_health = 1000
 var health: float
 var invincible_time: float = 0.3
 var invincible: bool = false

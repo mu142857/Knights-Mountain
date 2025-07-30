@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bd0ms57kcnv56"]
+[gd_scene load_steps=15 format=4 uid="uid://bd0ms57kcnv56"]
 
 [ext_resource type="Script" uid="uid://co6xlc0kshqlj" path="res://Assets/幽盲区/战斗管理器/栗子栖息地.gd" id="1_p2w8w"]
 [ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="2_g370v"]
+[ext_resource type="Texture2D" uid="uid://ckivgbgv8h1vq" path="res://Assets/幽盲区/剧情场景/大水晶1.png" id="3_0dyuo"]
+[ext_resource type="Texture2D" uid="uid://dxn6jnqt30a8p" path="res://Assets/幽盲区/剧情场景/大水晶2.png" id="3_hvi8y"]
 [ext_resource type="Texture2D" uid="uid://laymt8mcv7jh" path="res://Assets/幽盲区/剧情场景/大水晶3.png" id="3_wo6wg"]
+[ext_resource type="Texture2D" uid="uid://cxgu0h6nxgbe4" path="res://Assets/幽盲区/剧情场景/尖刺水晶.png" id="7_m5p4u"]
 [ext_resource type="Texture2D" uid="uid://cqnhff48wj3dq" path="res://Assets/下城区/战斗场景/场景元素/腐败林瓦片地图.png" id="9_lci6t"]
 [ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="10_aegwp"]
 
@@ -165,18 +168,314 @@ offset_left = -145.0
 offset_top = -264.0
 offset_right = 1606.0
 offset_bottom = 915.0
-color = Color(0.0515535, 0.0225358, 0.130171, 1)
+color = Color(0.233522, 0.272065, 0.556551, 1)
 
 [node name="云雾" parent="." instance=ExtResource("2_g370v")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.537776, 0.181935, 0.387054, 1)
-position = Vector2(51, 590)
+[node name="景物" type="Node2D" parent="."]
+
+[node name="六边水晶1" type="Sprite2D" parent="景物"]
+modulate = Color(0.681928, 0.377633, 0.661677, 0.5)
+position = Vector2(594, 572)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_hvi8y")
+
+[node name="六边水晶2" type="Sprite2D" parent="景物"]
+modulate = Color(0.681928, 0.377633, 0.661677, 0.5)
+position = Vector2(923, 574)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_hvi8y")
+
+[node name="尖水晶1" type="Sprite2D" parent="景物"]
+modulate = Color(0.442219, 0.247555, 0.540489, 0.5)
+position = Vector2(247.026, 727.2)
+rotation = 0.523599
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶2" type="Sprite2D" parent="景物"]
+modulate = Color(0.442219, 0.247555, 0.540489, 0.5)
+position = Vector2(97.0257, 702.2)
+rotation = -0.523599
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶3" type="Sprite2D" parent="景物"]
+modulate = Color(0.442219, 0.247555, 0.540489, 0.5)
+position = Vector2(175.026, 643.2)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶4" type="Sprite2D" parent="景物"]
+modulate = Color(0.187141, 0.374217, 0.444774, 0.5)
+position = Vector2(1130, 640)
+rotation = 0.785398
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶5" type="Sprite2D" parent="景物"]
+modulate = Color(0.187141, 0.374217, 0.444774, 0.5)
+position = Vector2(884, 644)
+rotation = -0.785398
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶6" type="Sprite2D" parent="景物"]
+modulate = Color(0.187141, 0.374217, 0.444774, 0.5)
+position = Vector2(1005.03, 557.2)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶7" type="Sprite2D" parent="景物"]
+modulate = Color(0.442219, 0.247555, 0.540489, 0.5)
+position = Vector2(1311.03, 717.2)
+rotation = 0.523599
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶8" type="Sprite2D" parent="景物"]
+modulate = Color(0.442219, 0.247555, 0.540489, 0.5)
+position = Vector2(1161.03, 692.2)
+rotation = -0.523599
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶9" type="Sprite2D" parent="景物"]
+modulate = Color(0.442219, 0.247555, 0.540489, 0.5)
+position = Vector2(1239.03, 633.2)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶10" type="Sprite2D" parent="景物"]
+modulate = Color(0.222464, 0.301404, 0.683536, 0.5)
+position = Vector2(313, 593)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶11" type="Sprite2D" parent="景物"]
+modulate = Color(0.222464, 0.301404, 0.683536, 0.5)
+position = Vector2(1407, 641)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶12" type="Sprite2D" parent="景物"]
+modulate = Color(0.222464, 0.301404, 0.683536, 0.5)
+position = Vector2(416, 643)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶13" type="Sprite2D" parent="景物"]
+modulate = Color(0.222464, 0.301404, 0.683536, 0.5)
+position = Vector2(813, 655)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶14" type="Sprite2D" parent="景物"]
+modulate = Color(0.216149, 0.380656, 0.367895, 0.5)
+position = Vector2(733, 561)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶15" type="Sprite2D" parent="景物"]
+modulate = Color(0.216149, 0.380656, 0.367895, 0.5)
+position = Vector2(24, 621)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶16" type="Sprite2D" parent="景物"]
+modulate = Color(0.216149, 0.380656, 0.367895, 0.5)
+position = Vector2(479, 697)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="尖水晶17" type="Sprite2D" parent="景物"]
+modulate = Color(0.471302, 0.284563, 0.313609, 0.5)
+position = Vector2(676, 655)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_0dyuo")
+
+[node name="方水晶1" type="Sprite2D" parent="景物"]
+modulate = Color(0.733407, 0.287197, 0.539963, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(51, 795)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶2" type="Sprite2D" parent="景物"]
+modulate = Color(0.519042, 0.526119, 0.794883, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(150, 821)
+scale = Vector2(-2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶3" type="Sprite2D" parent="景物"]
+modulate = Color(0.563039, 0.538385, 0.655473, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(251, 847)
+scale = Vector2(-2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶4" type="Sprite2D" parent="景物"]
+modulate = Color(0.562224, 0.468132, 0.504271, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(352, 794)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶5" type="Sprite2D" parent="景物"]
+modulate = Color(0.677777, 0.584805, 0.620085, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(410, 812)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶6" type="Sprite2D" parent="景物"]
+modulate = Color(0.350952, 0.458018, 0.811287, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(509, 831)
+scale = Vector2(-2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶7" type="Sprite2D" parent="景物"]
+modulate = Color(0.643472, 0.31048, 0.792361, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(612, 803)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶8" type="Sprite2D" parent="景物"]
+modulate = Color(0.890945, 0.501209, 0.705877, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(673.5, 792)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶9" type="Sprite2D" parent="景物"]
+modulate = Color(0.476865, 0.481663, 0.760664, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(772.5, 818)
+scale = Vector2(-2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶10" type="Sprite2D" parent="景物"]
+modulate = Color(0.681887, 0.661314, 0.762808, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(873.5, 844)
+scale = Vector2(-2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶11" type="Sprite2D" parent="景物"]
+modulate = Color(0.638927, 0.543465, 0.579872, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(974.5, 791)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶12" type="Sprite2D" parent="景物"]
+modulate = Color(0.713838, 0.625049, 0.658564, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(1032.5, 809)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶13" type="Sprite2D" parent="景物"]
+modulate = Color(0.344984, 0.451717, 0.805723, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(1131.5, 828)
+scale = Vector2(-2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶14" type="Sprite2D" parent="景物"]
+modulate = Color(0.738606, 0.443335, 0.87841, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(1234.5, 800)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶15" type="Sprite2D" parent="景物"]
+modulate = Color(0.829853, 0.37308, 0.625451, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(1333.5, 791)
+rotation = 3.14159
+scale = Vector2(2.2, -2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="方水晶16" type="Sprite2D" parent="景物"]
+modulate = Color(0.418948, 0.42046, 0.70328, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(1432.5, 817)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_wo6wg")
+region_enabled = true
+region_rect = Rect2(59.733, 204.75, 55.4003, 60.647)
+
+[node name="尖刺水晶1" type="Sprite2D" parent="景物"]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(29, 819)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶2" type="Sprite2D" parent="景物"]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(678, 819)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶3" type="Sprite2D" parent="景物"]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(831, 815)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶4" type="Sprite2D" parent="景物"]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(1220, 831)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶5" type="Sprite2D" parent="景物"]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(1396, 823)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶6" type="Sprite2D" parent="景物"]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(1039, 817)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_m5p4u")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-modulate = Color(0.4, 0.4, 0.4, 1)
 tile_map_data = PackedByteArray("AAAAADQAAAAcABYAAAAAADUAAAAcABcAAAAAADYAAAAcABgAAAABADQAAAAdABYAAAABADUAAAAdABcAAAABADYAAAAdABgAAAACADQAAAAaABYAAAACADUAAAAaABcAAAACADYAAAAaABgAAAADADQAAAAbABYAAAADADUAAAAbABcAAAADADYAAAAbABgAAAAEADQAAAAcABYAAAAEADUAAAAcABcAAAAEADYAAAAcABgAAAAFADQAAAAdABYAAAAFADUAAAAdABcAAAAFADYAAAAdABgAAAAGADQAAAAaABYAAAAGADUAAAAaABcAAAAGADYAAAAaABgAAAAHADQAAAAbABYAAAAHADUAAAAbABcAAAAHADYAAAAbABgAAAAIADQAAAAcABYAAAAIADUAAAAcABcAAAAIADYAAAAcABgAAAAJADQAAAAdABYAAAAJADUAAAAdABcAAAAJADYAAAAdABgAAAAKADQAAAAaABYAAAAKADUAAAAaABcAAAAKADYAAAAaABgAAAALADQAAAAbABYAAAALADUAAAAbABcAAAALADYAAAAbABgAAAAMADQAAAAcABYAAAAMADUAAAAcABcAAAAMADYAAAAcABgAAAANADQAAAAdABYAAAANADUAAAAdABcAAAANADYAAAAdABgAAAAOADQAAAAaABYAAAAOADUAAAAaABcAAAAOADYAAAAaABgAAAAPADQAAAAbABYAAAAPADUAAAAbABcAAAAPADYAAAAbABgAAAAQADQAAAAcABYAAAAQADUAAAAcABcAAAAQADYAAAAcABgAAAARADQAAAAdABYAAAARADUAAAAdABcAAAARADYAAAAdABgAAAASADQAAAAaABYAAAASADUAAAAaABcAAAASADYAAAAaABgAAAATADQAAAAbABYAAAATADUAAAAbABcAAAATADYAAAAbABgAAAAUADQAAAAcABYAAAAUADUAAAAcABcAAAAUADYAAAAcABgAAAAVADQAAAAdABYAAAAVADUAAAAdABcAAAAVADYAAAAdABgAAAAWADQAAAAaABYAAAAWADUAAAAaABcAAAAWADYAAAAaABgAAAAXADQAAAAbABYAAAAXADUAAAAbABcAAAAXADYAAAAbABgAAAAYADQAAAAcABYAAAAYADUAAAAcABcAAAAYADYAAAAcABgAAAAZADQAAAAdABYAAAAZADUAAAAdABcAAAAZADYAAAAdABgAAAAaADQAAAAaABYAAAAaADUAAAAaABcAAAAaADYAAAAaABgAAAAbADQAAAAbABYAAAAbADUAAAAbABcAAAAbADYAAAAbABgAAAAcADQAAAAcABYAAAAcADUAAAAcABcAAAAcADYAAAAcABgAAAAdADQAAAAdABYAAAAdADUAAAAdABcAAAAdADYAAAAdABgAAAAeADQAAAAaABYAAAAeADUAAAAaABcAAAAeADYAAAAaABgAAAAfADQAAAAbABYAAAAfADUAAAAbABcAAAAfADYAAAAbABgAAAAgADQAAAAcABYAAAAgADUAAAAcABcAAAAgADYAAAAcABgAAAAhADQAAAAdABYAAAAhADUAAAAdABcAAAAhADYAAAAdABgAAAAiADQAAAAaABYAAAAiADUAAAAaABcAAAAiADYAAAAaABgAAAAjADQAAAAbABYAAAAjADUAAAAbABcAAAAjADYAAAAbABgAAAAkADQAAAAcABYAAAAkADUAAAAcABcAAAAkADYAAAAcABgAAAAlADQAAAAdABYAAAAlADUAAAAdABcAAAAlADYAAAAdABgAAAAmADQAAAAaABYAAAAmADUAAAAaABcAAAAmADYAAAAaABgAAAAnADQAAAAbABYAAAAnADUAAAAbABcAAAAnADYAAAAbABgAAAAoADQAAAAcABYAAAAoADUAAAAcABcAAAAoADYAAAAcABgAAAApADQAAAAdABYAAAApADUAAAAdABcAAAApADYAAAAdABgAAAAqADQAAAAaABYAAAAqADUAAAAaABcAAAAqADYAAAAaABgAAAArADQAAAAbABYAAAArADUAAAAbABcAAAArADYAAAAbABgAAAAsADQAAAAcABYAAAAsADUAAAAcABcAAAAsADYAAAAcABgAAAAtADQAAAAdABYAAAAtADUAAAAdABcAAAAtADYAAAAdABgAAAAuADQAAAAaABYAAAAuADUAAAAaABcAAAAuADYAAAAaABgAAAAvADQAAAAbABYAAAAvADUAAAAbABcAAAAvADYAAAAbABgAAAAwADQAAAAcABYAAAAwADUAAAAcABcAAAAwADYAAAAcABgAAAAxADQAAAAdABYAAAAxADUAAAAdABcAAAAxADYAAAAdABgAAAAyADQAAAAaABYAAAAyADUAAAAaABcAAAAyADYAAAAaABgAAAAzADQAAAAbABYAAAAzADUAAAAbABcAAAAzADYAAAAbABgAAAA0ADQAAAAcABYAAAA0ADUAAAAcABcAAAA0ADYAAAAcABgAAAA1ADQAAAAdABYAAAA1ADUAAAAdABcAAAA1ADYAAAAdABgAAAA2ADQAAAAaABYAAAA2ADUAAAAaABcAAAA2ADYAAAAaABgAAAA3ADQAAAAbABYAAAA3ADUAAAAbABcAAAA3ADYAAAAbABgAAAA4ADQAAAAcABYAAAA4ADUAAAAcABcAAAA4ADYAAAAcABgAAAA5ADQAAAAdABYAAAA5ADUAAAAdABcAAAA5ADYAAAAdABgAAAA6ADQAAAAaABYAAAA6ADUAAAAaABcAAAA6ADYAAAAaABgAAAA7ADQAAAAbABYAAAA7ADUAAAAbABcAAAA7ADYAAAAbABgAAAA8ADQAAAAcABYAAAA8ADUAAAAcABcAAAA8ADYAAAAcABgAAAA9ADQAAAAdABYAAAA9ADUAAAAdABcAAAA9ADYAAAAdABgAAAA+ADQAAAAaABYAAAA+ADUAAAAaABcAAAA+ADYAAAAaABgAAAA/ADQAAAAbABYAAAA/ADUAAAAbABcAAAA/ADYAAAAbABgAAABAADQAAAAcABYAAABAADUAAAAcABcAAABAADYAAAAcABgAAABBADQAAAAdABYAAABBADUAAAAdABcAAABBADYAAAAdABgAAABCADQAAAAaABYAAABCADUAAAAaABcAAABCADYAAAAaABgAAABDADQAAAAbABYAAABDADUAAAAbABcAAABDADYAAAAbABgAAABEADQAAAAcABYAAABEADUAAAAcABcAAABEADYAAAAcABgAAABFADQAAAAdABYAAABFADUAAAAdABcAAABFADYAAAAdABgAAABGADQAAAAaABYAAABGADUAAAAaABcAAABGADYAAAAaABgAAABHADQAAAAbABYAAABHADUAAAAbABcAAABHADYAAAAbABgAAABIADQAAAAcABYAAABIADUAAAAcABcAAABIADYAAAAcABgAAABJADQAAAAdABYAAABJADUAAAAdABcAAABJADYAAAAdABgAAABKADQAAAAaABYAAABKADUAAAAaABcAAABKADYAAAAaABgAAABLADQAAAAbABYAAABLADUAAAAbABcAAABLADYAAAAbABgAAABMADQAAAAcABYAAABMADUAAAAcABcAAABMADYAAAAcABgAAABNADQAAAAdABYAAABNADUAAAAdABcAAABNADYAAAAdABgAAABOADQAAAAaABYAAABOADUAAAAaABcAAABOADYAAAAaABgAAABPADQAAAAbABYAAABPADUAAAAbABcAAABPADYAAAAbABgAAABQADQAAAAcABYAAABQADUAAAAcABcAAABQADYAAAAcABgAAABRADQAAAAdABYAAABRADUAAAAdABcAAABRADYAAAAdABgAAABSADQAAAAaABYAAABSADUAAAAaABcAAABSADYAAAAaABgAAABTADQAAAAbABYAAABTADUAAAAbABcAAABTADYAAAAbABgAAABUADQAAAAcABYAAABUADUAAAAcABcAAABUADYAAAAcABgAAABVADQAAAAdABYAAABVADUAAAAdABcAAABVADYAAAAdABgAAABWADQAAAAaABYAAABWADUAAAAaABcAAABWADYAAAAaABgAAABXADQAAAAbABYAAABXADUAAAAbABcAAABXADYAAAAbABgAAABYADQAAAAcABYAAABYADUAAAAcABcAAABYADYAAAAcABgAAABZADQAAAAdABYAAABZADUAAAAdABcAAABZADYAAAAdABgAAABaADQAAAAaABYAAABaADUAAAAaABcAAABaADYAAAAaABgAAABbADQAAAAbABYAAABbADUAAAAbABcAAABbADYAAAAbABgAAABcADQAAAAcABYAAABcADUAAAAcABcAAABcADYAAAAcABgAAABdADQAAAAdABYAAABdADUAAAAdABcAAABdADYAAAAdABgAAABeADQAAAAaABYAAABeADUAAAAaABcAAABeADYAAAAaABgAAABfADQAAAAbABYAAABfADUAAAAbABcAAABfADYAAAAbABgAAABgADQAAAAcABYAAABgADUAAAAcABcAAABgADYAAAAcABgAAABhADQAAAAdABYAAABhADUAAAAdABcAAABhADYAAAAdABgAAABiADQAAAAaABYAAABiADUAAAAaABcAAABiADYAAAAaABgAAABjADQAAAAbABYAAABjADUAAAAbABcAAABjADYAAAAbABgAAABkADQAAAAcABYAAABkADUAAAAcABcAAABkADYAAAAcABgAAABlADQAAAAdABYAAABlADUAAAAdABcAAABlADYAAAAdABgAAABmADQAAAAaABYAAABmADUAAAAaABcAAABmADYAAAAaABgAAABnADQAAAAbABYAAABnADUAAAAbABcAAABnADYAAAAbABgAAABoADQAAAAcABYAAABoADUAAAAcABcAAABoADYAAAAcABgAAABpADQAAAAdABYAAABpADUAAAAdABcAAABpADYAAAAdABgAAAD+/zQAAAAaABYAAAD+/zUAAAAaABcAAAD+/zYAAAAaABgAAAD//zQAAAAbABYAAAD//zUAAAAbABcAAAD//zYAAAAbABgAAAD8/zQAAAAcABYAAAD8/zUAAAAcABcAAAD8/zYAAAAcABgAAAD9/zQAAAAdABYAAAD9/zUAAAAdABcAAAD9/zYAAAAdABgAAAD6/zQAAAAaABYAAAD6/zUAAAAaABcAAAD6/zYAAAAaABgAAAD7/zQAAAAbABYAAAD7/zUAAAAbABcAAAD7/zYAAAAbABgAAAD4/zQAAAAcABYAAAD4/zUAAAAcABcAAAD4/zYAAAAcABgAAAD5/zQAAAAdABYAAAD5/zUAAAAdABcAAAD5/zYAAAAdABgAAAD2/zQAAAAaABYAAAD2/zUAAAAaABcAAAD2/zYAAAAaABgAAAD3/zQAAAAbABYAAAD3/zUAAAAbABcAAAD3/zYAAAAbABgAAAD0/zQAAAAcABYAAAD0/zUAAAAcABcAAAD0/zYAAAAcABgAAAD1/zQAAAAdABYAAAD1/zUAAAAdABcAAAD1/zYAAAAdABgAAADy/zQAAAAaABYAAADy/zUAAAAaABcAAADy/zYAAAAaABgAAADz/zQAAAAbABYAAADz/zUAAAAbABcAAADz/zYAAAAbABgAAADw/zQAAAAcABYAAADw/zUAAAAcABcAAADw/zYAAAAcABgAAADx/zQAAAAdABYAAADx/zUAAAAdABcAAADx/zYAAAAdABgAAADu/zQAAAAaABYAAADu/zUAAAAaABcAAADu/zYAAAAaABgAAADv/zQAAAAbABYAAADv/zUAAAAbABcAAADv/zYAAAAbABgAAAA=")
 tile_set = SubResource("TileSet_1pt0v")
 
@@ -184,6 +483,48 @@ tile_set = SubResource("TileSet_1pt0v")
 position = Vector2(737, 976)
 scale = Vector2(6.77992, 1)
 texture = SubResource("CompressedTexture2D_01syd")
+
+[node name="尖刺景物" type="Node2D" parent="."]
+
+[node name="尖刺水晶1" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(5, 815)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶2" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(1283, 816)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶3" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(458, 814)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶4" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(734, 816)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶5" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(1106, 814)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶6" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(75, 816)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶7" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(75, 816)
+texture = ExtResource("7_m5p4u")
+
+[node name="尖刺水晶8" type="Sprite2D" parent="尖刺景物"]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(1322, 818)
+texture = ExtResource("7_m5p4u")
 
 [node name="碰撞箱" type="StaticBody2D" parent="."]
 position = Vector2(0, 784)
@@ -202,14 +543,15 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_goa30")
 
 [node name="出怪点1" type="Node2D" parent="."]
-position = Vector2(734, 814)
+position = Vector2(726, 843)
 
 [node name="Black" type="Sprite2D" parent="."]
 position = Vector2(737, 976)
 scale = Vector2(6.77992, 1)
 texture = SubResource("CompressedTexture2D_01syd")
+metadata/_edit_lock_ = true
 
 [node name="墨晶林入口" type="Marker2D" parent="."]
-position = Vector2(1344, 848)
+position = Vector2(1345, 848)
 script = ExtResource("10_aegwp")
 metadata/_custom_type_script = "uid://cjdhf84anmnhm"

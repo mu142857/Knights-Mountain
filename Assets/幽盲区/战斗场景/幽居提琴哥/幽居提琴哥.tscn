@@ -1231,6 +1231,7 @@ offset = Vector2(320, 0)
 transform = Transform2D(1, 0, 0, 1, 320, 0)
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+visible = false
 offset_top = -5.0
 offset_right = 139.0
 offset_bottom = 35.0
@@ -1242,6 +1243,7 @@ texture_over = ExtResource("15_ecxe1")
 texture_progress = ExtResource("16_61kf1")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 modulate = Color(0.0110876, 0.0110876, 0.0110876, 1)
 offset_left = 150.0
 offset_top = 50.0
