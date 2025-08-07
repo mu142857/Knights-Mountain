@@ -1120,6 +1120,11 @@ position = Vector2(3500, 840)
 script = ExtResource("2_7640u")
 metadata/_custom_type_script = "uid://cjdhf84anmnhm"
 
+[node name="栗子栖息地出口" type="Marker2D" parent="."]
+position = Vector2(2255, 840)
+script = ExtResource("2_7640u")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
 [node name="互动节点左" parent="." instance=ExtResource("3_mbon7")]
 position = Vector2(0, 824)
 type = "Teloport"
@@ -1143,4 +1148,13 @@ type = "Conditionedteloport"
 place = "Hearthfall"
 new_scene_path = "uid://bxd22bbar1fne"
 entry_point = "洞口"
+available = true
+
+[node name="栗子栖息地互动点" parent="." instance=ExtResource("3_mbon7")]
+position = Vector2(2254, 815)
+type = "Conditionedteloport"
+battle = true
+place = "Chestnut_Den"
+new_scene_path = "uid://bd0ms57kcnv56"
+entry_point = "栗子栖息地入口"
 available = true

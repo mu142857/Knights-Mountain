@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://laymt8mcv7jh" path="res://Assets/幽盲区/剧情场景/大水晶3.png" id="3_wo6wg"]
 [ext_resource type="Texture2D" uid="uid://cxgu0h6nxgbe4" path="res://Assets/幽盲区/剧情场景/尖刺水晶.png" id="7_m5p4u"]
 [ext_resource type="Texture2D" uid="uid://cqnhff48wj3dq" path="res://Assets/下城区/战斗场景/场景元素/腐败林瓦片地图.png" id="9_lci6t"]
+[ext_resource type="PackedScene" uid="uid://coq234mcllmi" path="res://Assets/主角/主角互动/互动节点.tscn" id="9_ojied"]
 [ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="10_aegwp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xt35h"]
@@ -155,9 +156,7 @@ sources/0 = SubResource("TileSetAtlasSource_e87hd")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01syd"]
 load_path = "res://.godot/imported/black.jpg-1324969777668121050c88ba2be916c7.ctex"
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7ohn"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_goa30"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m5p4u"]
 
 [node name="栗子栖息地" type="Node2D"]
 script = ExtResource("1_p2w8w")
@@ -526,24 +525,11 @@ modulate = Color(1, 1, 1, 0.5)
 position = Vector2(1322, 818)
 texture = ExtResource("7_m5p4u")
 
-[node name="碰撞箱" type="StaticBody2D" parent="."]
-position = Vector2(0, 784)
-rotation = 1.5708
-collision_layer = 20
-collision_mask = 20
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="碰撞箱"]
-physics_interpolation_mode = 1
-position = Vector2(0, 3)
-shape = SubResource("WorldBoundaryShape2D_n7ohn")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="碰撞箱"]
-position = Vector2(0, -1403)
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_goa30")
-
 [node name="出怪点1" type="Node2D" parent="."]
-position = Vector2(726, 843)
+position = Vector2(700, 823)
+
+[node name="主角生成点" type="Node2D" parent="."]
+position = Vector2(240, 800)
 
 [node name="Black" type="Sprite2D" parent="."]
 position = Vector2(737, 976)
@@ -553,5 +539,41 @@ metadata/_edit_lock_ = true
 
 [node name="墨晶林入口" type="Marker2D" parent="."]
 position = Vector2(1345, 848)
+script = ExtResource("10_aegwp")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
+[node name="地板碰撞箱" type="StaticBody2D" parent="."]
+collision_layer = 20
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(0, 900)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(1400, 900)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(700, 846)
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(700, -200)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="互动点" parent="." instance=ExtResource("9_ojied")]
+position = Vector2(1400, 824)
+type = "Teloport"
+battle = true
+place = "Chestnut_Den"
+new_scene_path = "uid://bqhqkx1v3c0cn"
+entry_point = "洞口"
+
+[node name="栗子栖息地入口" type="Marker2D" parent="."]
+position = Vector2(1344, 848)
 script = ExtResource("10_aegwp")
 metadata/_custom_type_script = "uid://cjdhf84anmnhm"

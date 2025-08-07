@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4uh70poyx5b2"]
+
+[ext_resource type="Script" uid="uid://b02wwqrpd3fs" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑落地粒子.gd" id="1_3mdl6"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.45)
+
+[sub_resource type="Gradient" id="Gradient_3mdl6"]
+offsets = PackedFloat32Array(0, 0.843333, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.508468, 0.248029, 0.200989, 1, 0.914481, 0, 0.0831346, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_we37m"]
+gradient = SubResource("Gradient_3mdl6")
+
+[sub_resource type="Gradient" id="Gradient_35f8r"]
+offsets = PackedFloat32Array(0.00536193, 1)
+colors = PackedColorArray(1, 1, 1, 0.784314, 0.932051, 0.0466823, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y50r8"]
+gradient = SubResource("Gradient_35f8r")
+
+[sub_resource type="Curve" id="Curve_wii5t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ow3yt"]
+curve = SubResource("Curve_wii5t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_copam"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(85, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_max = 800.0
+gravity = Vector3(0, 750, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ow3yt")
+color_ramp = SubResource("GradientTexture1D_y50r8")
+color_initial_ramp = SubResource("GradientTexture1D_we37m")
+
+[node name="石碑落地粒子" type="GPUParticles2D"]
+emitting = false
+amount = 70
+texture = SubResource("GradientTexture2D_2i6xf")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_copam")
+script = ExtResource("1_3mdl6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

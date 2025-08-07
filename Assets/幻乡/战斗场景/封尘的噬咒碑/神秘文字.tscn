@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://blkpoorrkxilx"]
+
+[ext_resource type="Texture2D" uid="uid://bjm350her0uxe" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/红神秘文字.png" id="1_5i24m"]
+[ext_resource type="Script" uid="uid://cvvmlnupvw0di" path="res://Assets/下城区/战斗场景/微小提琴哥/音符粒子.gd" id="2_ns05m"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ns05m"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_lni48"]
+offsets = PackedFloat32Array(0, 0.123333, 0.283333, 0.473333, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0519189, 1.44392e-07, 0.432271, 1, 0.0841614, 0.393263, 1, 1, 0.657361, 0.50573, 7.70092e-07, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fsxc2"]
+gradient = SubResource("Gradient_lni48")
+
+[sub_resource type="Gradient" id="Gradient_8x4fm"]
+offsets = PackedFloat32Array(0, 0.0466667, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnu82"]
+gradient = SubResource("Gradient_8x4fm")
+
+[sub_resource type="Curve" id="Curve_c6dax"]
+_data = [Vector2(0.00564972, 0.693603), 0.0, 0.0, 0, 0, Vector2(0.0480226, 0.912458), 0.0, 0.0, 0, 0, Vector2(0.257062, 1), 0.0, 0.0, 0, 0, Vector2(0.559322, 0.906205), 0.0, 0.0, 0, 0, Vector2(0.830508, 0.996873), 0.0, 0.0, 0, 0, Vector2(1, 0.809283), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_4yx0g"]
+curve = SubResource("Curve_c6dax")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_veo11"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(70, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, -90, 0)
+scale_min = 0.25
+scale_max = 1.75
+scale_curve = SubResource("CurveTexture_4yx0g")
+color = Color(2, 2, 2, 1)
+color_ramp = SubResource("GradientTexture1D_jnu82")
+color_initial_ramp = SubResource("GradientTexture1D_fsxc2")
+anim_offset_max = 1.0
+
+[node name="神秘文字" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_ns05m")
+emitting = false
+amount = 3
+texture = ExtResource("1_5i24m")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_veo11")
+script = ExtResource("2_ns05m")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
