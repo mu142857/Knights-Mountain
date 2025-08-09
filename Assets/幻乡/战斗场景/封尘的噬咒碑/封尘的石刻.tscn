@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://ptujmhih2wwt"]
+[gd_scene load_steps=87 format=3 uid="uid://ptujmhih2wwt"]
 
 [ext_resource type="Texture2D" uid="uid://b8c3ewsgqr85x" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑-Sheet.png" id="1_6u2ot"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="1_h015k"]
@@ -163,6 +163,18 @@ region = Rect2(2048, 0, 512, 512)
 atlas = ExtResource("1_6u2ot")
 region = Rect2(2048, 0, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_22qa4"]
+atlas = ExtResource("4_7mtg7")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2v6l"]
+atlas = ExtResource("4_7mtg7")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjufl"]
+atlas = ExtResource("4_7mtg7")
+region = Rect2(512, 512, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8ovo"]
 atlas = ExtResource("4_7mtg7")
 region = Rect2(0, 0, 512, 512)
@@ -190,18 +202,6 @@ region = Rect2(2560, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yf1vl"]
 atlas = ExtResource("4_7mtg7")
 region = Rect2(3072, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_22qa4"]
-atlas = ExtResource("4_7mtg7")
-region = Rect2(3584, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2v6l"]
-atlas = ExtResource("4_7mtg7")
-region = Rect2(0, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjufl"]
-atlas = ExtResource("4_7mtg7")
-region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3a6v"]
 atlas = ExtResource("1_6u2ot")
@@ -290,7 +290,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"CrazyDive",
-"speed": 25.0
+"speed": 17.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -439,6 +439,60 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yf1cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpwtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn6vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spfgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si71s")
+}],
+"loop": false,
+"name": &"SprintDigDown",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7a3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_difrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg2fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf8b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk1j8")
+}],
+"loop": false,
+"name": &"SprintDigUp",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22qa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2v6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjufl")
+}],
+"loop": false,
+"name": &"SprintDone",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t8ovo")
 }, {
 "duration": 1.0,
@@ -457,20 +511,42 @@ animations = [{
 "texture": SubResource("AtlasTexture_06o2s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yf1vl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_22qa4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v2v6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjufl")
+"texture": SubResource("AtlasTexture_06o2s")
 }],
 "loop": false,
-"name": &"Sprint",
+"name": &"SprintPrepare",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf1vl")
+}],
+"loop": true,
+"name": &"Sprinting",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuxsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hn0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4awp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eysta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kalco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w8xg")
+}],
+"loop": false,
+"name": &"Summon",
+"speed": 17.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -554,9 +630,147 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
+[sub_resource type="Animation" id="Animation_hk1j8"]
+resource_name = "sprint"
+length = 1.7
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [100.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [500.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [900.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1300.0],
+"method": &"release_barrage_underground_fire"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15, 0.45, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [300.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [700.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1100.0],
+"method": &"release_barrage_underground_fire"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hq1a3"]
+resource_name = "hardsprint"
+length = 2.6
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1200.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [300.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [500.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [700.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [900.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1100.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1300.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1400.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1200.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1000.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [800.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [600.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [400.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [200.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [0.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [],
+"method": &"change_to_idle"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hq1a3"]
+_data = {
+&"hardsprint": SubResource("Animation_hq1a3"),
+&"sprint": SubResource("Animation_hk1j8")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jf8b3"]
-radius = 82.0
+radius = 102.0
 height = 274.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hk1j8"]
+radius = 9.0
+height = 366.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq1a3"]
+radius = 9.0
+height = 396.0
 
 [node name="封尘的石刻" type="CharacterBody2D"]
 collision_layer = 8
@@ -567,10 +781,8 @@ script = ExtResource("1_jf8b3")
 material = SubResource("ShaderMaterial_rwr15")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_cej40")
-animation = &"Digdown"
+animation = &"Summon"
 autoplay = "Sleepping"
-frame = 4
-frame_progress = 1.0
 offset = Vector2(5.5, -138)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -591,6 +803,9 @@ libraries = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hq1a3")
+}
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("6_rwr15")
@@ -625,8 +840,17 @@ one_shot = true
 [node name="SkillLoop(5)" type="Node" parent="StateMachine"]
 script = ExtResource("12_adgxr")
 
+[node name="Timer" type="Timer" parent="StateMachine/SkillLoop(5)"]
+one_shot = true
+
 [node name="SprintAttack(6)" type="Node" parent="StateMachine"]
 script = ExtResource("13_kawhb")
+
+[node name="DigginigTime" type="Timer" parent="StateMachine/SprintAttack(6)"]
+one_shot = true
+
+[node name="SprintingTime" type="Timer" parent="StateMachine/SprintAttack(6)"]
+one_shot = true
 
 [node name="SummonPown(7)" type="Node" parent="StateMachine"]
 script = ExtResource("14_jg626")
@@ -648,17 +872,38 @@ script = ExtResource("15_tuxsq")
 [node name="冲撞" type="Area2D" parent="AttackCheck"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/冲撞"]
-position = Vector2(-1, -82)
+position = Vector2(-1, -33)
 shape = SubResource("CapsuleShape2D_jf8b3")
 debug_color = Color(0.534, 0.478, 0.814, 0.2)
+
+[node name="冲刺下" type="Area2D" parent="AttackCheck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/冲刺下"]
+position = Vector2(-60, -110)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_hk1j8")
+debug_color = Color(0.434, 0.593, 0.27, 0.3)
+
+[node name="冲刺上" type="Area2D" parent="AttackCheck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/冲刺上"]
+position = Vector2(-47, -453)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_hq1a3")
+debug_color = Color(0.141883, 0.519196, 1, 0.3)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Wake(0)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/TeloportWithDigging(3)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/DivingAttack(4)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SprintAttack(6)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/SummonPown(7)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/CrazyDivingAttack(8)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Wake(0)/WakingTime" to="StateMachine/Wake(0)" method="_on_waking_time_timeout"]
 [connection signal="timeout" from="StateMachine/Idle(1)/Timer" to="StateMachine/Idle(1)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/TeloportWithDigging(3)/Timer" to="StateMachine/TeloportWithDigging(3)" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/DivingAttack(4)/DiveTime" to="StateMachine/DivingAttack(4)" method="_on_dive_time_timeout"]
+[connection signal="timeout" from="StateMachine/SkillLoop(5)/Timer" to="StateMachine/SkillLoop(5)" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/SprintAttack(6)/DigginigTime" to="StateMachine/SprintAttack(6)" method="_on_digginig_time_timeout"]
+[connection signal="timeout" from="StateMachine/SprintAttack(6)/SprintingTime" to="StateMachine/SprintAttack(6)" method="_on_sprinting_time_timeout"]
+[connection signal="timeout" from="StateMachine/SummonPown(7)/DiveTime" to="StateMachine/SummonPown(7)" method="_on_dive_time_timeout"]
 [connection signal="timeout" from="StateMachine/CrazyDivingAttack(8)/DiveTime" to="StateMachine/CrazyDivingAttack(8)" method="_on_dive_time_timeout"]

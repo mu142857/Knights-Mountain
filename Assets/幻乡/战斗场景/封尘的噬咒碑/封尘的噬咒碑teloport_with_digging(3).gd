@@ -18,9 +18,15 @@ func enter() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if ani_2D.animation == "Digdown":
 		monster.global_position = Vector2(0, 0)
-		$Timer.start(1)
+		if monster.stage <= 1:
+			$Timer.start(1.5)
+		else:
+			$Timer.start(0.2)
 	if ani_2D.animation == "Digup":
-		get_parent().change_state(1)
+		if monster.stage <= 1:
+			get_parent().change_state(1)
+		else:
+			get_parent().change_state(5)
 
 func _on_timer_timeout() -> void:
 	new_pos()

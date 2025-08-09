@@ -8,7 +8,7 @@ var morning_grumpiness: bool = false
 func enter():
 	morning_grumpiness = false
 	monster.show()
-	if monster.health < 4999:
+	if monster.health < 1490:
 		ani_2D.play("Wake")
 	else:
 		get_parent().change_state(2)
@@ -25,7 +25,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 func _on_waking_time_timeout() -> void:
-	get_parent().change_state(1)
+	get_parent().change_state(6)
 
 func absorb_energy():
 	var tween = get_tree().create_tween()

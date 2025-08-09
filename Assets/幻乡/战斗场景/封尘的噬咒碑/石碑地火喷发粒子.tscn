@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://cn1kkv6dmb8rw"]
+
+[ext_resource type="Script" uid="uid://b02wwqrpd3fs" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑落地粒子.gd" id="1_wxp1d"]
+
+[sub_resource type="Gradient" id="Gradient_u152e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2i6xf"]
+gradient = SubResource("Gradient_u152e")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.45)
+
+[sub_resource type="Gradient" id="Gradient_wxp1d"]
+offsets = PackedFloat32Array(0, 0.223333, 0.42, 0.81)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.714448, 0.904029, 1, 0.390452, 0.182483, 0.145052, 1, 0.914481, 0, 0.0831346, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6mad1"]
+gradient = SubResource("Gradient_wxp1d")
+
+[sub_resource type="Gradient" id="Gradient_jjfdg"]
+offsets = PackedFloat32Array(0.00536193, 1)
+colors = PackedColorArray(1, 1, 1, 0.784314, 0.932051, 0.0466823, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lpweg"]
+gradient = SubResource("Gradient_jjfdg")
+
+[sub_resource type="Curve" id="Curve_i77ei"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4mxx0"]
+curve = SubResource("Curve_i77ei")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iqlmn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 1.0
+initial_velocity_min = 100.0
+initial_velocity_max = 3000.0
+gravity = Vector3(0, 750, 0)
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_4mxx0")
+color_ramp = SubResource("GradientTexture1D_lpweg")
+color_initial_ramp = SubResource("GradientTexture1D_6mad1")
+
+[node name="石碑地火喷发粒子" type="GPUParticles2D"]
+emitting = false
+amount = 30
+texture = SubResource("GradientTexture2D_2i6xf")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_iqlmn")
+script = ExtResource("1_wxp1d")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

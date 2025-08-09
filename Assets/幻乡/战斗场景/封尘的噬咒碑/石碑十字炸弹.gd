@@ -4,10 +4,10 @@ extends Area2D # 十字炸弹
 var player: CharacterBody2D = null
 
 @export var flight_time: float = 1  # 子弹飞行总时间（秒）
-var the_gravity: float = 2000.0       # 重力（像素/秒²）
+var the_gravity: float = 7000.0       # 重力（像素/秒²）
 
 var start_pos: Vector2                  # 子弹起始位置
-var target_pos: Vector2                 # 玩家初始位置（记录下来，不再更新）
+var target_pos: Vector2                 # 子弹目标位置
 var velocity: Vector2 = Vector2.ZERO    # 初始速度
 
 var yinfulizi = preload("res://Assets/幻乡/战斗场景/封尘的噬咒碑/神秘文字.tscn")
@@ -20,7 +20,7 @@ func _ready() -> void:
 	$Timer.start(10)
 	
 	flight_time = 0.75
-	the_gravity = 3000
+	the_gravity = 7000
 
 func _physics_process(delta: float) -> void:
 	
@@ -62,7 +62,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		
 	elif $AnimatedSprite2D.animation == "Exploding":
 		var note = yinfulizi.instantiate()
-
 		note.position = self.global_position # 释放粒子
 		note.emitting = true
 		get_tree().current_scene.add_child(note)

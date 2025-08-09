@@ -440,6 +440,7 @@ _data = {
 }
 
 [node name="战斗主角" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_xeuqt")
@@ -483,16 +484,16 @@ position = Vector2(101, 0)
 [node name="StatesMachine" type="Node" parent="."]
 script = ExtResource("2_w70qe")
 
-[node name="Idle" type="Node" parent="StatesMachine"]
+[node name="Idle(0)" type="Node" parent="StatesMachine"]
 script = ExtResource("3_04pd2")
 
-[node name="RunInitial" type="Node" parent="StatesMachine"]
+[node name="RunInitial(1)" type="Node" parent="StatesMachine"]
 script = ExtResource("4_k3noe")
 
-[node name="RunLoop" type="Node" parent="StatesMachine"]
+[node name="RunLoop(2)" type="Node" parent="StatesMachine"]
 script = ExtResource("5_x4x2o")
 
-[node name="RunStop" type="Node" parent="StatesMachine"]
+[node name="RunStop(3)" type="Node" parent="StatesMachine"]
 script = ExtResource("6_0beuy")
 
 [node name="Jump" type="Node" parent="StatesMachine"]
@@ -501,13 +502,13 @@ script = ExtResource("7_aumen")
 [node name="Timer" type="Timer" parent="StatesMachine/Jump"]
 wait_time = 3.0
 
-[node name="Fall" type="Node" parent="StatesMachine"]
+[node name="Fall(5)" type="Node" parent="StatesMachine"]
 script = ExtResource("8_axp1w")
 
-[node name="TakeHit" type="Node" parent="StatesMachine"]
+[node name="TakeHit(6)" type="Node" parent="StatesMachine"]
 script = ExtResource("9_axokg")
 
-[node name="Death" type="Node" parent="StatesMachine"]
+[node name="Death(7)" type="Node" parent="StatesMachine"]
 script = ExtResource("10_t2jsg")
 
 [node name="Attack1" type="Node" parent="StatesMachine"]
@@ -538,9 +539,9 @@ one_shot = true
 
 [node name="UI" parent="." instance=ExtResource("18_csmic")]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunInitial" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunStop" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/TakeHit" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunInitial(1)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunStop(3)" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/TakeHit(6)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/Attack1" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/Sprint" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StatesMachine/Jump/Timer" to="StatesMachine/Jump" method="_on_timer_timeout"]

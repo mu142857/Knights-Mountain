@@ -22,9 +22,9 @@ func _on_timer_timeout() -> void:
 	var attacks: Array
 	
 	if monster.stage == 1:
-		attacks = [4, 4]
+		attacks = [4, 5] # 4, 5
 	elif monster.stage == 2:
-		attacks = [8, 6, 5]
+		attacks = [8, 6]
 	else:
 		attacks = [7, 6]
 

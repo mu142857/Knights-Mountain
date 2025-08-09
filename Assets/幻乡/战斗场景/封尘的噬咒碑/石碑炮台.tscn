@@ -1,0 +1,166 @@
+[gd_scene load_steps=22 format=3 uid="uid://b4ieghwtewsjk"]
+
+[ext_resource type="Texture2D" uid="uid://crhdc0r808orl" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/炮台弹幕-Sheet.png" id="1_midqx"]
+[ext_resource type="Script" uid="uid://bxy8ltgmtqlan" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑炮台.gd" id="1_y3cdc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk7jr"]
+atlas = ExtResource("1_midqx")
+region = Rect2(0, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4cgk"]
+atlas = ExtResource("1_midqx")
+region = Rect2(441, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f72m4"]
+atlas = ExtResource("1_midqx")
+region = Rect2(378, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunip"]
+atlas = ExtResource("1_midqx")
+region = Rect2(252, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_midqx"]
+atlas = ExtResource("1_midqx")
+region = Rect2(189, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3cdc"]
+atlas = ExtResource("1_midqx")
+region = Rect2(252, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4enri"]
+atlas = ExtResource("1_midqx")
+region = Rect2(315, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdt7u"]
+atlas = ExtResource("1_midqx")
+region = Rect2(378, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie1u8"]
+atlas = ExtResource("1_midqx")
+region = Rect2(441, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ib4"]
+atlas = ExtResource("1_midqx")
+region = Rect2(0, 128, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdn37"]
+atlas = ExtResource("1_midqx")
+region = Rect2(63, 128, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo8at"]
+atlas = ExtResource("1_midqx")
+region = Rect2(0, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e72g"]
+atlas = ExtResource("1_midqx")
+region = Rect2(63, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpqwu"]
+atlas = ExtResource("1_midqx")
+region = Rect2(126, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox3bj"]
+atlas = ExtResource("1_midqx")
+region = Rect2(378, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jilbn"]
+atlas = ExtResource("1_midqx")
+region = Rect2(441, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp4vb"]
+atlas = ExtResource("1_midqx")
+region = Rect2(0, 64, 63, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3cdc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk7jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4cgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f72m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hunip")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_midqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3cdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4enri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdt7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie1u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8ib4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdn37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo8at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e72g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpqwu")
+}],
+"loop": false,
+"name": &"Firing",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox3bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jilbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp4vb")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_midqx"]
+size = Vector2(54, 124)
+
+[node name="石碑炮台" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_y3cdc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_y3cdc")
+animation = &"Firing"
+autoplay = "Open"
+offset = Vector2(-1.33333, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -39)
+shape = SubResource("RectangleShape2D_midqx")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

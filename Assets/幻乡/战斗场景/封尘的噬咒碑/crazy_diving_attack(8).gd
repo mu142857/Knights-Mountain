@@ -42,7 +42,7 @@ func process():
 		
 	if ready_to_dive:
 		sprint()
-		$DiveTime.start(0.22)
+		$DiveTime.start(0.3)
 		ready_to_dive = false
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -71,17 +71,17 @@ func sprint():
 	# 在 1 秒内，将 position 从当前值插值到 target_pos
 	tween.set_trans(Tween.TRANS_QUART)  # 四次缓动曲线
 	tween.set_ease(Tween.EASE_IN)       # 加速
-	tween.tween_property(monster, "position", target_pos, 0.22) 
+	tween.tween_property(monster, "position", target_pos, 0.3) 
 
 func release_effect():
 	
-	#attack_check()
+	attack_check()
 	
 	var expl = luodilizi.instantiate()
 	expl.position = monster.global_position
 	expl.emitting = true
 	get_tree().current_scene.add_child(expl)
-	Game.shake_camera(10)
+	Game.shake_camera(20)
 	var note = yinfulizi.instantiate()
 	note.position = monster.global_position
 	note.emitting = true
@@ -92,10 +92,10 @@ func exit():
 	$DiveTime.stop()
 
 func attack_check():
-	var arr = $"../../AttackCheck/SmallAttack3".get_overlapping_bodies()
+	var arr = $"../../AttackCheck/冲撞".get_overlapping_bodies()
 	for i in arr:
 		if i.is_in_group("player"):
-			i.take_hit(35)
+			i.take_hit(30)
 
 func _on_dive_time_timeout() -> void:
 	release_effect()
@@ -104,7 +104,7 @@ func _on_dive_time_timeout() -> void:
 		$DiveTime.stop()
 		dive_times -= 1
 		
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.3).timeout
 		
 		var shift = target_position_shift[randi() % target_position_shift.size()]
 		shift += get_player_info()[2].x
@@ -114,4 +114,4 @@ func _on_dive_time_timeout() -> void:
 		ani_2D.play("CrazyDive") # 二次冲刺
 		ready_to_dive = true
 	else:
-		get_parent().change_state(1)
+		get_parent().change_state(3)

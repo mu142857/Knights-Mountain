@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vucwwfxgiamd" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑十字炸弹.gd" id="1_28f7q"]
 [ext_resource type="Texture2D" uid="uid://cjlnhjugnuy8t" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑十字弹幕.png" id="2_fkjpx"]
-[ext_resource type="Script" uid="uid://cnpvs7sdx28uo" path="res://Assets/下城区/战斗场景/微小提琴哥/飞弹line_2d.gd" id="3_fkjpx"]
+[ext_resource type="Script" uid="uid://c5t2k5iju844x" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/子弹轨迹line_2d.gd" id="3_28f7q"]
 [ext_resource type="PackedScene" uid="uid://cq0n7wtrr4t3b" path="res://Assets/幻乡/战斗场景/封尘的噬咒碑/石碑激光.tscn" id="4_28f7q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5fmh"]
@@ -275,9 +275,9 @@ debug_color = Color(0.343, 0.549, 0.783, 0)
 [node name="Line2D" type="Line2D" parent="Node"]
 width = 20.0
 width_curve = SubResource("Curve_othyj")
+default_color = Color(0.595034, 0.426328, 1, 1)
 gradient = SubResource("Gradient_wqcv7")
-script = ExtResource("3_fkjpx")
-point_count = 100
+script = ExtResource("3_28f7q")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -307,7 +307,6 @@ position = Vector2(1400, -1400)
 
 [node name="石碑激光右下" parent="." instance=ExtResource("4_28f7q")]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="FlyingTime" to="." method="_on_flying_time_timeout"]

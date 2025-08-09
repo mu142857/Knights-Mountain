@@ -10,5 +10,5 @@ func enter():
 	ani_2D.modulate = Color(1, 1, 1)
 	
 func process():
-	if monster.health < 4999:
+	if monster.health < 1490:
 		get_parent().change_state(0)

@@ -2,14 +2,14 @@ extends CharacterBody2D # 封尘的石刻
 
 var scene_startx: float = 0.0
 var scene_endx: float = 1400.0
-var health = 5000
+var health = 1500
 var direct = 1 # 1 = 面向右边， -1 = 面向左边
 var last_attack: int = 0
 # const ANI_2D_SCALE: int = 1.5 不能写这行，得直接用数字
 
 @onready var attack_check_position: Node2D = $AttackCheck
 
-var stage: int = 1 # 1, 2, 3 Stages
+var stage: int = 1 # 1, 2, 3 Stages; boss有3阶段
 
 func _ready() -> void:
 	
@@ -42,9 +42,9 @@ func _physics_process(delta: float) -> void:
 	attack_check_position.scale.x = direct
 	attack_check_position.scale.y = 1
 	
-	if stage == 1 and health <= 3000:
+	if stage == 1 and health <= 1000:
 		stage = 2
-	elif stage == 2 and health <= 1000:
+	elif stage == 2 and health <= 500:
 		stage = 3
 	
 	#$CanvasLayer/Label.text = str(health)

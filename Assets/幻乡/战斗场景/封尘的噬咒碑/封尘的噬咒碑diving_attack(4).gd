@@ -65,8 +65,8 @@ func sprint():
 	var target_pos: Vector2
 	target_pos.x = monster.global_position.x
 	target_pos.y = 845.997
+	
 	var tween = create_tween()
-
 	# 在 1 秒内，将 position 从当前值插值到 target_pos
 	tween.set_trans(Tween.TRANS_QUART)  # 四次缓动曲线
 	tween.set_ease(Tween.EASE_IN)       # 加速
@@ -90,12 +90,13 @@ func exit():
 	$DiveTime.stop()
 
 func attack_check():
-	var arr = $"../../AttackCheck/SmallAttack3".get_overlapping_bodies()
+	var arr = $"../../AttackCheck/冲撞".get_overlapping_bodies()
 	for i in arr:
 		if i.is_in_group("player"):
-			i.take_hit(35)
+			i.take_hit(30)
 
 func _on_dive_time_timeout() -> void:
+	attack_check()
 	release_effect()
 	#print(dive_times)
 		
