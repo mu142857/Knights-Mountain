@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://w4juqb5a2egh"]
+
+[ext_resource type="Texture2D" uid="uid://cyhcp0v1hbxvb" path="res://Assets/幽盲区/战斗场景/阴险守卫/险恶地火-Sheet.png" id="1_3bc26"]
+[ext_resource type="Script" uid="uid://dp7i2fnfbgxow" path="res://Assets/幽盲区/战斗场景/阴险守卫/阴险守卫地火.gd" id="1_k0b8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk1wm"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(385, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kox6m"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(0, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2pbt"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(220, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7u35"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(275, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rve8t"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(330, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0b8c"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(0, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ql04"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(55, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbhi2"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(110, 0, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1cmo"]
+atlas = ExtResource("1_3bc26")
+region = Rect2(165, 0, 55, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3l0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk1wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kox6m")
+}],
+"loop": false,
+"name": &"Done",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2pbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7u35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rve8t")
+}],
+"loop": false,
+"name": &"Firing",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0b8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ql04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbhi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1cmo")
+}],
+"loop": false,
+"name": &"Ready",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0b8c"]
+size = Vector2(52, 233)
+
+[node name="阴险守卫地火" type="Area2D"]
+script = ExtResource("1_k0b8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_c3l0k")
+animation = &"Ready"
+autoplay = "Ready"
+offset = Vector2(0, -82.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -116)
+shape = SubResource("RectangleShape2D_k0b8c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

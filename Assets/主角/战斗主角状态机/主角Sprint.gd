@@ -5,9 +5,11 @@ var is_sprinting: bool = false
 var ready_to_sprint: bool = true
 @onready var player: CharacterBody2D = $"../.."
 @onready var ani_sprite2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var sprint_effect: GPUParticles2D = $"../../冲刺加速度粒子"
 
 func enter():
 	if ready_to_sprint:
+		sprint_effect.emitting = true
 		is_sprinting = true
 		ready_to_sprint = false
 		$Timer.start(0.7)
@@ -22,6 +24,7 @@ func process():
 	player.move_and_slide() 
 
 func exit():
+	sprint_effect.emitting = false
 	is_sprinting = false
 
 func _on_timer_timeout() -> void:

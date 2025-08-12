@@ -1,0 +1,295 @@
+[gd_scene load_steps=23 format=4 uid="uid://b644e8ukf8h70"]
+
+[ext_resource type="Script" uid="uid://c7vljxylqfx0q" path="res://Assets/幽盲区/战斗管理器/阴险守卫场地.gd" id="1_mw1pv"]
+[ext_resource type="Shader" uid="uid://coutsk7ij30gj" path="res://Assets/主游戏/教徒念咒.tres" id="2_ebcp5"]
+[ext_resource type="PackedScene" uid="uid://5trjcac1kkur" path="res://Assets/下城区/战斗场景/邪帽/云雾.tscn" id="2_swo07"]
+[ext_resource type="Texture2D" uid="uid://cc2x46jyt7olo" path="res://Assets/幽盲区/战斗场景/场景元素/险恶底景(墨绿).png" id="3_65pje"]
+[ext_resource type="Texture2D" uid="uid://cqnhff48wj3dq" path="res://Assets/下城区/战斗场景/场景元素/腐败林瓦片地图.png" id="3_oa2ga"]
+[ext_resource type="Shader" uid="uid://wi18evqtb8eg" path="res://Assets/主游戏/低矮灌木摇晃.tres" id="4_eyr8a"]
+[ext_resource type="Script" uid="uid://cjdhf84anmnhm" path="res://Assets/主角/主角互动/entry_point.gd" id="4_uqdvl"]
+[ext_resource type="Texture2D" uid="uid://c1gyxpjkii4lp" path="res://Assets/幽盲区/战斗场景/场景元素/险恶背景(墨绿).png" id="5_3sfvj"]
+[ext_resource type="PackedScene" uid="uid://coq234mcllmi" path="res://Assets/主角/主角互动/互动节点.tscn" id="5_ebcp5"]
+[ext_resource type="Texture2D" uid="uid://cufeak4m1grnq" path="res://Assets/下城区/战斗场景/背景/孤弦琴房氛围滤镜.png" id="6_65pje"]
+[ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://Assets/主游戏/大树摇晃.tres" id="7_eyr8a"]
+[ext_resource type="Texture2D" uid="uid://bkh4hw4th0vrq" path="res://Assets/幽盲区/战斗场景/场景元素/险恶平台(墨绿).png" id="8_q5rgr"]
+[ext_resource type="PackedScene" uid="uid://b5823b02ilqvl" path="res://Assets/幽盲区/战斗场景/阴险守卫/阴险守卫.tscn" id="12_65pje"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xt35h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sfvj"]
+shader = ExtResource("7_eyr8a")
+shader_parameter/WindStrength = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oa2ga"]
+shader = ExtResource("4_eyr8a")
+shader_parameter/WindStrength = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65pje"]
+shader = ExtResource("2_ebcp5")
+shader_parameter/Strength = 1.0
+shader_parameter/Speed = 3.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e87hd"]
+texture = ExtResource("3_oa2ga")
+25:9/0 = 0
+26:9/0 = 0
+27:9/0 = 0
+24:10/0 = 0
+25:10/0 = 0
+26:10/0 = 0
+27:10/0 = 0
+24:11/0 = 0
+25:11/0 = 0
+26:11/0 = 0
+27:11/0 = 0
+28:11/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+20:12/0 = 0
+21:12/0 = 0
+22:12/0 = 0
+23:12/0 = 0
+24:12/0 = 0
+25:12/0 = 0
+26:12/0 = 0
+27:12/0 = 0
+28:12/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+20:13/0 = 0
+21:13/0 = 0
+22:13/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+25:13/0 = 0
+26:13/0 = 0
+27:13/0 = 0
+28:13/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+24:14/0 = 0
+25:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+11:18/0 = 0
+11:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:18/0 = 0
+12:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:19/0 = 0
+11:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:19/0 = 0
+12:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:29/0 = 0
+12:29/0 = 0
+13:29/0 = 0
+1:30/0 = 0
+2:30/0 = 0
+3:30/0 = 0
+4:30/0 = 0
+6:30/0 = 0
+7:30/0 = 0
+8:30/0 = 0
+9:30/0 = 0
+10:30/0 = 0
+11:30/0 = 0
+12:30/0 = 0
+13:30/0 = 0
+1:31/0 = 0
+2:31/0 = 0
+3:31/0 = 0
+4:31/0 = 0
+6:31/0 = 0
+7:31/0 = 0
+8:31/0 = 0
+9:31/0 = 0
+10:31/0 = 0
+11:31/0 = 0
+12:31/0 = 0
+13:31/0 = 0
+1:32/0 = 0
+2:32/0 = 0
+3:32/0 = 0
+4:32/0 = 0
+6:32/0 = 0
+7:32/0 = 0
+8:32/0 = 0
+9:32/0 = 0
+6:33/0 = 0
+7:33/0 = 0
+26:24/0 = 0
+26:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:24/0 = 0
+27:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:23/0 = 0
+27:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:23/0 = 0
+28:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:22/0 = 0
+27:22/0 = 0
+26:22/0 = 0
+26:23/0 = 0
+26:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:22/0 = 0
+29:23/0 = 0
+29:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:24/0 = 0
+29:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+28:24/0 = 0
+28:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_1pt0v"]
+physics_layer_0/collision_layer = 31
+physics_layer_0/collision_mask = 31
+sources/0 = SubResource("TileSetAtlasSource_e87hd")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01syd"]
+load_path = "res://.godot/imported/black.jpg-1324969777668121050c88ba2be916c7.ctex"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m5p4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw1pv"]
+size = Vector2(682, 23)
+
+[node name="阴险守卫场地" type="Node2D"]
+script = ExtResource("1_mw1pv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xt35h")
+offset_left = -145.0
+offset_top = -264.0
+offset_right = 1606.0
+offset_bottom = 915.0
+color = Color(0.0190215, 0.131669, 0.00634704, 1)
+
+[node name="背景" type="Node2D" parent="."]
+modulate = Color(0.686958, 0.700063, 0.809198, 1)
+
+[node name="云雾" parent="背景" instance=ExtResource("2_swo07")]
+
+[node name="险恶底景" type="Sprite2D" parent="背景"]
+material = SubResource("ShaderMaterial_3sfvj")
+position = Vector2(715, 417)
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("3_65pje")
+
+[node name="险恶背景" type="Sprite2D" parent="背景"]
+material = SubResource("ShaderMaterial_oa2ga")
+position = Vector2(715, 417)
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("5_3sfvj")
+
+[node name="残烟骑士效果滤镜" type="Sprite2D" parent="背景"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(717.5, 364)
+scale = Vector2(1.075, 0.937778)
+texture = ExtResource("6_65pje")
+
+[node name="险恶平台" type="Sprite2D" parent="背景"]
+material = SubResource("ShaderMaterial_65pje")
+position = Vector2(716, 739)
+scale = Vector2(4.93818, 4.93818)
+texture = ExtResource("8_q5rgr")
+
+[node name="地板间隔黑影" type="Sprite2D" parent="背景"]
+modulate = Color(0, 0, 0, 0.85)
+position = Vector2(756, 804.062)
+scale = Vector2(1.36571, -0.16875)
+texture = ExtResource("6_65pje")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(0.551695, 0.574533, 0.276626, 1)
+tile_map_data = PackedByteArray("AAAAADQAAAAcABYAAAAAADUAAAAcABcAAAAAADYAAAAcABgAAAABADQAAAAdABYAAAABADUAAAAdABcAAAABADYAAAAdABgAAAACADQAAAAaABYAAAACADUAAAAaABcAAAACADYAAAAaABgAAAADADQAAAAbABYAAAADADUAAAAbABcAAAADADYAAAAbABgAAAAEADQAAAAcABYAAAAEADUAAAAcABcAAAAEADYAAAAcABgAAAAFADQAAAAdABYAAAAFADUAAAAdABcAAAAFADYAAAAdABgAAAAGADQAAAAaABYAAAAGADUAAAAaABcAAAAGADYAAAAaABgAAAAHADQAAAAbABYAAAAHADUAAAAbABcAAAAHADYAAAAbABgAAAAIADQAAAAcABYAAAAIADUAAAAcABcAAAAIADYAAAAcABgAAAAJADQAAAAdABYAAAAJADUAAAAdABcAAAAJADYAAAAdABgAAAAKADQAAAAaABYAAAAKADUAAAAaABcAAAAKADYAAAAaABgAAAALADQAAAAbABYAAAALADUAAAAbABcAAAALADYAAAAbABgAAAAMADQAAAAcABYAAAAMADUAAAAcABcAAAAMADYAAAAcABgAAAANADQAAAAdABYAAAANADUAAAAdABcAAAANADYAAAAdABgAAAAOADQAAAAaABYAAAAOADUAAAAaABcAAAAOADYAAAAaABgAAAAPADQAAAAbABYAAAAPADUAAAAbABcAAAAPADYAAAAbABgAAAAQADQAAAAcABYAAAAQADUAAAAcABcAAAAQADYAAAAcABgAAAARADQAAAAdABYAAAARADUAAAAdABcAAAARADYAAAAdABgAAAASADQAAAAaABYAAAASADUAAAAaABcAAAASADYAAAAaABgAAAATADQAAAAbABYAAAATADUAAAAbABcAAAATADYAAAAbABgAAAAUADQAAAAcABYAAAAUADUAAAAcABcAAAAUADYAAAAcABgAAAAVADQAAAAdABYAAAAVADUAAAAdABcAAAAVADYAAAAdABgAAAAWADQAAAAaABYAAAAWADUAAAAaABcAAAAWADYAAAAaABgAAAAXADQAAAAbABYAAAAXADUAAAAbABcAAAAXADYAAAAbABgAAAAYADQAAAAcABYAAAAYADUAAAAcABcAAAAYADYAAAAcABgAAAAZADQAAAAdABYAAAAZADUAAAAdABcAAAAZADYAAAAdABgAAAAaADQAAAAaABYAAAAaADUAAAAaABcAAAAaADYAAAAaABgAAAAbADQAAAAbABYAAAAbADUAAAAbABcAAAAbADYAAAAbABgAAAAcADQAAAAcABYAAAAcADUAAAAcABcAAAAcADYAAAAcABgAAAAdADQAAAAdABYAAAAdADUAAAAdABcAAAAdADYAAAAdABgAAAAeADQAAAAaABYAAAAeADUAAAAaABcAAAAeADYAAAAaABgAAAAfADQAAAAbABYAAAAfADUAAAAbABcAAAAfADYAAAAbABgAAAAgADQAAAAcABYAAAAgADUAAAAcABcAAAAgADYAAAAcABgAAAAhADQAAAAdABYAAAAhADUAAAAdABcAAAAhADYAAAAdABgAAAAiADQAAAAaABYAAAAiADUAAAAaABcAAAAiADYAAAAaABgAAAAjADQAAAAbABYAAAAjADUAAAAbABcAAAAjADYAAAAbABgAAAAkADQAAAAcABYAAAAkADUAAAAcABcAAAAkADYAAAAcABgAAAAlADQAAAAdABYAAAAlADUAAAAdABcAAAAlADYAAAAdABgAAAAmADQAAAAaABYAAAAmADUAAAAaABcAAAAmADYAAAAaABgAAAAnADQAAAAbABYAAAAnADUAAAAbABcAAAAnADYAAAAbABgAAAAoADQAAAAcABYAAAAoADUAAAAcABcAAAAoADYAAAAcABgAAAApADQAAAAdABYAAAApADUAAAAdABcAAAApADYAAAAdABgAAAAqADQAAAAaABYAAAAqADUAAAAaABcAAAAqADYAAAAaABgAAAArADQAAAAbABYAAAArADUAAAAbABcAAAArADYAAAAbABgAAAAsADQAAAAcABYAAAAsADUAAAAcABcAAAAsADYAAAAcABgAAAAtADQAAAAdABYAAAAtADUAAAAdABcAAAAtADYAAAAdABgAAAAuADQAAAAaABYAAAAuADUAAAAaABcAAAAuADYAAAAaABgAAAAvADQAAAAbABYAAAAvADUAAAAbABcAAAAvADYAAAAbABgAAAAwADQAAAAcABYAAAAwADUAAAAcABcAAAAwADYAAAAcABgAAAAxADQAAAAdABYAAAAxADUAAAAdABcAAAAxADYAAAAdABgAAAAyADQAAAAaABYAAAAyADUAAAAaABcAAAAyADYAAAAaABgAAAAzADQAAAAbABYAAAAzADUAAAAbABcAAAAzADYAAAAbABgAAAA0ADQAAAAcABYAAAA0ADUAAAAcABcAAAA0ADYAAAAcABgAAAA1ADQAAAAdABYAAAA1ADUAAAAdABcAAAA1ADYAAAAdABgAAAA2ADQAAAAaABYAAAA2ADUAAAAaABcAAAA2ADYAAAAaABgAAAA3ADQAAAAbABYAAAA3ADUAAAAbABcAAAA3ADYAAAAbABgAAAA4ADQAAAAcABYAAAA4ADUAAAAcABcAAAA4ADYAAAAcABgAAAA5ADQAAAAdABYAAAA5ADUAAAAdABcAAAA5ADYAAAAdABgAAAA6ADQAAAAaABYAAAA6ADUAAAAaABcAAAA6ADYAAAAaABgAAAA7ADQAAAAbABYAAAA7ADUAAAAbABcAAAA7ADYAAAAbABgAAAA8ADQAAAAcABYAAAA8ADUAAAAcABcAAAA8ADYAAAAcABgAAAA9ADQAAAAdABYAAAA9ADUAAAAdABcAAAA9ADYAAAAdABgAAAA+ADQAAAAaABYAAAA+ADUAAAAaABcAAAA+ADYAAAAaABgAAAA/ADQAAAAbABYAAAA/ADUAAAAbABcAAAA/ADYAAAAbABgAAABAADQAAAAcABYAAABAADUAAAAcABcAAABAADYAAAAcABgAAABBADQAAAAdABYAAABBADUAAAAdABcAAABBADYAAAAdABgAAABCADQAAAAaABYAAABCADUAAAAaABcAAABCADYAAAAaABgAAABDADQAAAAbABYAAABDADUAAAAbABcAAABDADYAAAAbABgAAABEADQAAAAcABYAAABEADUAAAAcABcAAABEADYAAAAcABgAAABFADQAAAAdABYAAABFADUAAAAdABcAAABFADYAAAAdABgAAABGADQAAAAaABYAAABGADUAAAAaABcAAABGADYAAAAaABgAAABHADQAAAAbABYAAABHADUAAAAbABcAAABHADYAAAAbABgAAABIADQAAAAcABYAAABIADUAAAAcABcAAABIADYAAAAcABgAAABJADQAAAAdABYAAABJADUAAAAdABcAAABJADYAAAAdABgAAABKADQAAAAaABYAAABKADUAAAAaABcAAABKADYAAAAaABgAAABLADQAAAAbABYAAABLADUAAAAbABcAAABLADYAAAAbABgAAABMADQAAAAcABYAAABMADUAAAAcABcAAABMADYAAAAcABgAAABNADQAAAAdABYAAABNADUAAAAdABcAAABNADYAAAAdABgAAABOADQAAAAaABYAAABOADUAAAAaABcAAABOADYAAAAaABgAAABPADQAAAAbABYAAABPADUAAAAbABcAAABPADYAAAAbABgAAABQADQAAAAcABYAAABQADUAAAAcABcAAABQADYAAAAcABgAAABRADQAAAAdABYAAABRADUAAAAdABcAAABRADYAAAAdABgAAABSADQAAAAaABYAAABSADUAAAAaABcAAABSADYAAAAaABgAAABTADQAAAAbABYAAABTADUAAAAbABcAAABTADYAAAAbABgAAABUADQAAAAcABYAAABUADUAAAAcABcAAABUADYAAAAcABgAAABVADQAAAAdABYAAABVADUAAAAdABcAAABVADYAAAAdABgAAABWADQAAAAaABYAAABWADUAAAAaABcAAABWADYAAAAaABgAAABXADQAAAAbABYAAABXADUAAAAbABcAAABXADYAAAAbABgAAABYADQAAAAcABYAAABYADUAAAAcABcAAABYADYAAAAcABgAAABZADQAAAAdABYAAABZADUAAAAdABcAAABZADYAAAAdABgAAABaADQAAAAaABYAAABaADUAAAAaABcAAABaADYAAAAaABgAAABbADQAAAAbABYAAABbADUAAAAbABcAAABbADYAAAAbABgAAABcADQAAAAcABYAAABcADUAAAAcABcAAABcADYAAAAcABgAAABdADQAAAAdABYAAABdADUAAAAdABcAAABdADYAAAAdABgAAABeADQAAAAaABYAAABeADUAAAAaABcAAABeADYAAAAaABgAAABfADQAAAAbABYAAABfADUAAAAbABcAAABfADYAAAAbABgAAABgADQAAAAcABYAAABgADUAAAAcABcAAABgADYAAAAcABgAAABhADQAAAAdABYAAABhADUAAAAdABcAAABhADYAAAAdABgAAABiADQAAAAaABYAAABiADUAAAAaABcAAABiADYAAAAaABgAAABjADQAAAAbABYAAABjADUAAAAbABcAAABjADYAAAAbABgAAABkADQAAAAcABYAAABkADUAAAAcABcAAABkADYAAAAcABgAAABlADQAAAAdABYAAABlADUAAAAdABcAAABlADYAAAAdABgAAABmADQAAAAaABYAAABmADUAAAAaABcAAABmADYAAAAaABgAAABnADQAAAAbABYAAABnADUAAAAbABcAAABnADYAAAAbABgAAABoADQAAAAcABYAAABoADUAAAAcABcAAABoADYAAAAcABgAAABpADQAAAAdABYAAABpADUAAAAdABcAAABpADYAAAAdABgAAAD+/zQAAAAaABYAAAD+/zUAAAAaABcAAAD+/zYAAAAaABgAAAD//zQAAAAbABYAAAD//zUAAAAbABcAAAD//zYAAAAbABgAAAD8/zQAAAAcABYAAAD8/zUAAAAcABcAAAD8/zYAAAAcABgAAAD9/zQAAAAdABYAAAD9/zUAAAAdABcAAAD9/zYAAAAdABgAAAD6/zQAAAAaABYAAAD6/zUAAAAaABcAAAD6/zYAAAAaABgAAAD7/zQAAAAbABYAAAD7/zUAAAAbABcAAAD7/zYAAAAbABgAAAD4/zQAAAAcABYAAAD4/zUAAAAcABcAAAD4/zYAAAAcABgAAAD5/zQAAAAdABYAAAD5/zUAAAAdABcAAAD5/zYAAAAdABgAAAD2/zQAAAAaABYAAAD2/zUAAAAaABcAAAD2/zYAAAAaABgAAAD3/zQAAAAbABYAAAD3/zUAAAAbABcAAAD3/zYAAAAbABgAAAD0/zQAAAAcABYAAAD0/zUAAAAcABcAAAD0/zYAAAAcABgAAAD1/zQAAAAdABYAAAD1/zUAAAAdABcAAAD1/zYAAAAdABgAAADy/zQAAAAaABYAAADy/zUAAAAaABcAAADy/zYAAAAaABgAAADz/zQAAAAbABYAAADz/zUAAAAbABcAAADz/zYAAAAbABgAAADw/zQAAAAcABYAAADw/zUAAAAcABcAAADw/zYAAAAcABgAAADx/zQAAAAdABYAAADx/zUAAAAdABcAAADx/zYAAAAdABgAAADu/zQAAAAaABYAAADu/zUAAAAaABcAAADu/zYAAAAaABgAAADv/zQAAAAbABYAAADv/zUAAAAbABcAAADv/zYAAAAbABgAAAA=")
+tile_set = SubResource("TileSet_1pt0v")
+
+[node name="Black" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(737, 976)
+scale = Vector2(6.77992, 1)
+texture = SubResource("CompressedTexture2D_01syd")
+
+[node name="出怪点1" type="Node2D" parent="."]
+position = Vector2(700, 850)
+
+[node name="主角生成点" type="Node2D" parent="."]
+position = Vector2(240, 800)
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(737, 976)
+scale = Vector2(6.77992, 1)
+texture = SubResource("CompressedTexture2D_01syd")
+metadata/_edit_lock_ = true
+
+[node name="墨晶林入口" type="Marker2D" parent="."]
+position = Vector2(1345, 848)
+script = ExtResource("4_uqdvl")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
+[node name="地板碰撞箱" type="StaticBody2D" parent="."]
+collision_layer = 20
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(0, 900)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(1400, 900)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(700, 846)
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(700, -200)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_m5p4u")
+
+[node name="险恶平台碰撞箱子" type="CollisionShape2D" parent="地板碰撞箱"]
+position = Vector2(700, 700)
+shape = SubResource("RectangleShape2D_mw1pv")
+
+[node name="互动点" parent="." instance=ExtResource("5_ebcp5")]
+position = Vector2(1400, 824)
+type = "Teloport"
+battle = true
+place = "Chestnut_Den"
+new_scene_path = "uid://bqhqkx1v3c0cn"
+entry_point = "洞口"
+
+[node name="阴险守卫场地入口" type="Marker2D" parent="."]
+position = Vector2(1344, 848)
+script = ExtResource("4_uqdvl")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
+[node name="阴险守卫" parent="." instance=ExtResource("12_65pje")]
+position = Vector2(974, 847)

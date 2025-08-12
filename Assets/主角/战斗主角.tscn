@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bchmoxr8a01g4"]
+[gd_scene load_steps=69 format=3 uid="uid://bchmoxr8a01g4"]
 
 [ext_resource type="Script" uid="uid://dhldqprmqtide" path="res://Assets/主角/战斗主角.gd" id="1_xeuqt"]
 [ext_resource type="Shader" uid="uid://dpblmta1unm0n" path="res://Assets/主游戏/哥布林受击.tres" id="2_s8a1f"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cm7j8ikn71tlj" path="res://Assets/主角/战斗主角状态机/主角Attack_1.gd" id="14_wm271"]
 [ext_resource type="Script" uid="uid://d3f0nvi8x5mc0" path="res://Assets/主角/战斗主角状态机/主角Sprint.gd" id="16_1e2u8"]
 [ext_resource type="PackedScene" uid="uid://devot6l46iisd" path="res://Assets/主角/ui.tscn" id="18_csmic"]
+[ext_resource type="PackedScene" uid="uid://2t0kodqtwjsw" path="res://Assets/主角/跳跃加速度粒子.tscn" id="18_hdskc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_csmic"]
 shader = ExtResource("2_s8a1f")
@@ -538,6 +539,14 @@ libraries = {
 one_shot = true
 
 [node name="UI" parent="." instance=ExtResource("18_csmic")]
+
+[node name="跳跃加速度粒子" parent="." instance=ExtResource("18_hdskc")]
+z_index = -1
+
+[node name="冲刺加速度粒子" parent="." instance=ExtResource("18_hdskc")]
+z_index = -1
+position = Vector2(0, -77)
+amount = 10
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunInitial(1)" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StatesMachine/RunStop(3)" method="_on_animated_sprite_2d_animation_finished"]

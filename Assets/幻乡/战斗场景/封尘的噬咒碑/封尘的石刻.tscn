@@ -630,67 +630,6 @@ _data = {
 &"RESET": SubResource("Animation_15jx2")
 }
 
-[sub_resource type="Animation" id="Animation_hk1j8"]
-resource_name = "sprint"
-length = 1.7
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StateMachine/SprintAttack(6)")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [100.0],
-"method": &"release_barrage_underground_fire"
-}, {
-"args": [500.0],
-"method": &"release_barrage_underground_fire"
-}, {
-"args": [900.0],
-"method": &"release_barrage_underground_fire"
-}, {
-"args": [1300.0],
-"method": &"release_barrage_underground_fire"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StateMachine/SprintAttack(6)")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.15, 0.45, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [300.0],
-"method": &"release_barrage_underground_fire"
-}, {
-"args": [700.0],
-"method": &"release_barrage_underground_fire"
-}, {
-"args": [1100.0],
-"method": &"release_barrage_underground_fire"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StateMachine/SprintAttack(6)")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"change_to_idle"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_hq1a3"]
 resource_name = "hardsprint"
 length = 2.6
@@ -754,6 +693,67 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_hk1j8"]
+resource_name = "sprint"
+length = 1.7
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [100.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [500.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [900.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1300.0],
+"method": &"release_barrage_underground_fire"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15, 0.45, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [300.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [700.0],
+"method": &"release_barrage_underground_fire"
+}, {
+"args": [1100.0],
+"method": &"release_barrage_underground_fire"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/SprintAttack(6)")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_idle"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hq1a3"]
 _data = {
 &"hardsprint": SubResource("Animation_hq1a3"),
@@ -761,8 +761,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jf8b3"]
-radius = 102.0
-height = 274.0
+radius = 59.0
+height = 202.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hk1j8"]
 radius = 9.0
@@ -781,7 +781,7 @@ script = ExtResource("1_jf8b3")
 material = SubResource("ShaderMaterial_rwr15")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_cej40")
-animation = &"Summon"
+animation = &"Idle"
 autoplay = "Sleepping"
 offset = Vector2(5.5, -138)
 
@@ -793,6 +793,7 @@ shape = SubResource("RectangleShape2D_6u2ot")
 position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_7mtg7")
 debug_color = Color(0.343, 0.549, 0.783, 0)
 
@@ -872,7 +873,7 @@ script = ExtResource("15_tuxsq")
 [node name="冲撞" type="Area2D" parent="AttackCheck"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck/冲撞"]
-position = Vector2(-1, -33)
+rotation = -1.57079
 shape = SubResource("CapsuleShape2D_jf8b3")
 debug_color = Color(0.534, 0.478, 0.814, 0.2)
 

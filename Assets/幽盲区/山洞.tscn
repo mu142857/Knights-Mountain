@@ -1125,6 +1125,11 @@ position = Vector2(2255, 840)
 script = ExtResource("2_7640u")
 metadata/_custom_type_script = "uid://cjdhf84anmnhm"
 
+[node name="阴险守卫出口" type="Marker2D" parent="."]
+position = Vector2(3982, 840)
+script = ExtResource("2_7640u")
+metadata/_custom_type_script = "uid://cjdhf84anmnhm"
+
 [node name="互动节点左" parent="." instance=ExtResource("3_mbon7")]
 position = Vector2(0, 824)
 type = "Teloport"
@@ -1157,4 +1162,12 @@ battle = true
 place = "Chestnut_Den"
 new_scene_path = "uid://bd0ms57kcnv56"
 entry_point = "栗子栖息地入口"
+available = true
+
+[node name="阴险守卫场地互动点" parent="." instance=ExtResource("3_mbon7")]
+position = Vector2(3981, 816)
+type = "Conditionedteloport"
+battle = true
+new_scene_path = "uid://b644e8ukf8h70"
+entry_point = "阴险守卫场地入口"
 available = true

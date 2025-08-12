@@ -21,7 +21,7 @@ func process():
 	if ani_2D.animation == "Sprinting": # 碰撞伤害开
 		monster.global_position.y = 900
 		attack_check()
-	else:
+	elif ani_2D.animation == "SprintDone":
 		monster.global_position.y = 845.997
 
 func exit():
