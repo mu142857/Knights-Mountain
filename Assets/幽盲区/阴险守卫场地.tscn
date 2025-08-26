@@ -292,4 +292,4 @@ script = ExtResource("4_uqdvl")
 metadata/_custom_type_script = "uid://cjdhf84anmnhm"
 
 [node name="阴险守卫" parent="." instance=ExtResource("12_65pje")]
-position = Vector2(974, 847)
+position = Vector2(1200, 845)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://n35vps6snvti"]
 
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/执杖影子怪/执法杖影子怪子弹.gd" id="1_bd84i"]
-[ext_resource type="Script" path="res://Assets/幻乡/战斗场景/执杖影子怪/子弹轨迹.gd" id="2_fc4pu"]
+[ext_resource type="Script" uid="uid://b7nxunprjb8vc" path="res://Assets/幻乡/战斗场景/执杖影子怪/执法杖影子怪子弹.gd" id="1_bd84i"]
+[ext_resource type="Script" uid="uid://w8nupybdnqt3" path="res://Assets/幻乡/战斗场景/执杖影子怪/子弹轨迹.gd" id="2_fc4pu"]
 [ext_resource type="Texture2D" uid="uid://0ncpetk3v8v" path="res://Assets/幻乡/战斗场景/执杖影子怪/执杖幽灵子弹.png" id="2_sujjg"]
 
 [sub_resource type="Curve" id="Curve_8383x"]

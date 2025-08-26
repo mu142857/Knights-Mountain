@@ -19,3 +19,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if ani_2D.animation == "Attack1":
 		monster.position = Vector2(0, -500)
 		get_parent().change_state(1)
+
+func attack1_check():
+	var arr = $"../../AttackCheck/Attack1Check".get_overlapping_bodies()
+	attack_body(arr, 20)
+
+func attack_body(arr: Array, damage: float):
+	for i in arr:
+		if i.is_in_group("player"):
+			i.take_hit(damage)

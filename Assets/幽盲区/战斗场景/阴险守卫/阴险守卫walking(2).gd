@@ -7,8 +7,8 @@ extends Basic_State
 var tween: Tween
 
 var player_pos: Vector2
-var time: float = 2.5
-var pos_list: Array = [Vector2(1570, 846), Vector2(-170, 846), Vector2(1570, 690), Vector2(-170, 690)]
+var time: float = 3.5
+var pos_list: Array = [Vector2(1620, 846), Vector2(-220, 846), Vector2(1620, 690), Vector2(-220, 690)]
 var random_pos: int = 1
 
 var summon = preload("res://Assets/幽盲区/战斗场景/阴险守卫/虚假阴险守卫.tscn")
@@ -18,7 +18,7 @@ func enter():
 	monster.modulate = Color(0.2, 0.2, 0.2, 0.1)
 	
 	ani_2D.play("Walking")
-	time = 2.5
+	time = 4.0
 	
 	random_pos = randi_range(0, 3)
 	monster.global_position = pos_list[random_pos] # 随机选取列表里的位置
@@ -72,13 +72,13 @@ func run():
 	tween = create_tween()
 	
 	if random_pos == 0:
-		tween.tween_property(monster, "position", Vector2(-170, 846), time)  
+		tween.tween_property(monster, "position", Vector2(-220, 846), time)  
 	elif random_pos == 1:
-		tween.tween_property(monster, "position", Vector2(1570, 846), time) 
+		tween.tween_property(monster, "position", Vector2(1620, 846), time) 
 	elif random_pos == 2:
-		tween.tween_property(monster, "position", Vector2(-170, 690), time) 
+		tween.tween_property(monster, "position", Vector2(-220, 690), time) 
 	else:
-		tween.tween_property(monster, "position", Vector2(1570, 690), time) 
+		tween.tween_property(monster, "position", Vector2(1620, 690), time) 
 		
 		
 	tween.set_trans(Tween.TRANS_QUART)  # 四次缓动曲线

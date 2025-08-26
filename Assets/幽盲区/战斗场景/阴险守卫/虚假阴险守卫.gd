@@ -5,7 +5,7 @@ var low_road: bool = true
 var time: float = 3.0
 
 func _ready() -> void:
-	time = 3.0
+	time = 4.75
 	self.modulate = Color(0.1, 0.1, 0.1, 0.2)
 	$AnimatedSprite2D.play("Walking")
 	$DeathTimer.start(3.5)

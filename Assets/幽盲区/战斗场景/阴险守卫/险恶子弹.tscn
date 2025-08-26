@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://b2uxl6h3xrt17"]
+
+[ext_resource type="Script" uid="uid://citqyr72ngwie" path="res://Assets/幽盲区/战斗场景/阴险守卫/险恶子弹.gd" id="1_ig1yt"]
+[ext_resource type="Texture2D" uid="uid://cyhcp0v1hbxvb" path="res://Assets/幽盲区/战斗场景/阴险守卫/险恶地火-Sheet.png" id="2_q8buu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vta84"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(55, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18d8o"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(110, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urc2y"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(165, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lib10"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(220, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqi0q"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(275, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pieic"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(330, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt742"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(385, 165, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og2b3"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(0, 330, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg62e"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(55, 330, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2pwd"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(110, 330, 55, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfynx"]
+atlas = ExtResource("2_q8buu")
+region = Rect2(165, 330, 55, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eiyp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vta84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18d8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urc2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lib10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqi0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pieic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt742")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og2b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg62e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2pwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfynx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8buu"]
+radius = 14.0
+
+[node name="险恶子弹" type="Area2D"]
+script = ExtResource("1_ig1yt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_eiyp2")
+autoplay = "default"
+frame_progress = 0.0258724
+offset = Vector2(-3, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q8buu")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
