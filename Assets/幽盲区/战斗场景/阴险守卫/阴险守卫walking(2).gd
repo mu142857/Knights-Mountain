@@ -23,28 +23,55 @@ func enter():
 	random_pos = randi_range(0, 3)
 	monster.global_position = pos_list[random_pos] # 随机选取列表里的位置
 	
-	var summoner = summon.instantiate()
+	# 召唤虚假幻影
+	var summoner1 = summon.instantiate()
 	
 	if random_pos == 0: # 召唤物面向相反的方向，走不同的路线
 		monster.face_right()
-		summoner.direct = 1
-		summoner.low_road = false
+		summoner1.direct = 1
+		summoner1.low_road = false
 	elif random_pos == 1:
 		monster.face_left()
-		summoner.direct = -1
-		summoner.low_road = false
+		summoner1.direct = -1
+		summoner1.low_road = false
 	elif random_pos == 2:
 		monster.face_right()
-		summoner.direct = 1
-		summoner.low_road = true
+		summoner1.direct = 1
+		summoner1.low_road = true
 	else:
 		monster.face_left()
-		summoner.direct = -1
-		summoner.low_road = true
+		summoner1.direct = -1
+		summoner1.low_road = true
 		
-	get_tree().current_scene.add_child(summoner)
+	get_tree().current_scene.add_child(summoner1)
+	
+	if monster.stage > 1:
+		summon2()
+
+	# 冲!
 	run()
 	$Timer.start(time)
+
+func summon2():
+	var summoner2 = summon.instantiate()
+	if random_pos == 0: # 第二阶段召唤物品
+		monster.face_right()
+		summoner2.direct = 1
+		summoner2.low_road = true
+	elif random_pos == 1:
+		monster.face_left()
+		summoner2.direct = -1
+		summoner2.low_road = true
+	elif random_pos == 2:
+		monster.face_right()
+		summoner2.direct = 1
+		summoner2.low_road = false
+	else:
+		monster.face_left()
+		summoner2.direct = -1
+		summoner2.low_road = false
+		
+	get_tree().current_scene.add_child(summoner2)
 
 func process():
 	pass

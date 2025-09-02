@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://ko2ig7qwihs8"]
+
+[ext_resource type="Texture2D" uid="uid://ctnejjrwfnpq5" path="res://Assets/幽盲区/战斗场景/阴险守卫/阴险守卫-Sheet.png" id="1_ckhnx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckhnx"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(0, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uqfh"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(230, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lptgy"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(460, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrcyu"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(690, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3gff"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(920, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwawv"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(1150, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc76o"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(1380, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in14u"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(1610, 1477, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhajl"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(920, 1266, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4bsu"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(1150, 1266, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m55s2"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(1380, 1266, 230, 211)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxur1"]
+atlas = ExtResource("1_ckhnx")
+region = Rect2(1610, 1266, 230, 211)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uqfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckhnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uqfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lptgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrcyu")
+}],
+"loop": true,
+"name": &"Craw",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3gff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwawv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc76o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in14u")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhajl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4bsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m55s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxur1")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 8.0
+}]
+
+[node name="阴险守卫召唤物" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(56, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3uqfh")
+animation = &"Craw"
+frame_progress = 0.506923
+offset = Vector2(-42.5, -88.5)

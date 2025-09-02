@@ -8,7 +8,7 @@ func _ready() -> void:
 	time = 4.75
 	self.modulate = Color(0.1, 0.1, 0.1, 0.2)
 	$AnimatedSprite2D.play("Walking")
-	$DeathTimer.start(3.5)
+	$DeathTimer.start(5)
 
 	if low_road:
 		self.global_position.y = 846

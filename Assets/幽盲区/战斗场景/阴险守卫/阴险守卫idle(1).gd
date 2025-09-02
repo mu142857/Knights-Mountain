@@ -24,7 +24,7 @@ func _on_timer_timeout() -> void:
 	if monster.stage == 1:
 		attacks = [2, 3] # 2, 3
 	elif monster.stage == 2:
-		attacks = [6, 6] # 6, 6
+		attacks = [2, 6] # 6, 6
 	else:
 		attacks = [7, 6]
 

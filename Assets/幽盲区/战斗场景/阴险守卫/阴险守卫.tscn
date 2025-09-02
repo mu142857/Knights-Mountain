@@ -628,7 +628,7 @@ tracks/0/path = NodePath("AnimatedSprite2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.05),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"ReleaseBullet", 1.0, false],
@@ -642,9 +642,12 @@ tracks/1/path = NodePath("StateMachine/ReleaseBullet(6)")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.06, 0.95),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"show_monst"
+}, {
 "args": [],
 "method": &"release_bullet"
 }]
@@ -665,14 +668,11 @@ script = ExtResource("1_kp65f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_1vruy")
-position = Vector2(-55, -101)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_c0lsc")
-animation = &"ReleaseBullet"
+animation = &"Attack2"
 autoplay = "Idle"
-frame = 9
-frame_progress = 1.0
-offset = Vector2(1.5, -37)
+offset = Vector2(-26, -87.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -78)

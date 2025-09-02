@@ -7,20 +7,21 @@ extends Basic_State
 @onready var ani_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var zd = preload("res://Assets/幽盲区/战斗场景/阴险守卫/险恶子弹.tscn") # 子弹
+var bz = preload("res://Assets/下城区/战斗场景/邪帽/镰刀爆炸.tscn") # 粒子效果
 
 var attack_times: int = 4 # 攻击次数
-var position_list: Array = [Vector2(1350,846), Vector2(50,846), Vector2(940,690), Vector2(460,690),
-							Vector2(1300,846), Vector2(100,846), Vector2(890,846), Vector2(510,846),]
+var position_list: Array = [Vector2(940,690), Vector2(460,690),
+							Vector2(1100,846), Vector2(300,846), Vector2(890,846), Vector2(510,846),]
 var random_pos: int
 
 func enter():
-	random_pos = randi_range(0, 7)
+	monster.hide()
+	random_pos = randi_range(0, 5)
 	monster.global_position = position_list[random_pos]
 	if monster.global_position.x < 700:
 		monster.face_left()
 	else:
 		monster.face_right()
-
 	ani_player.play("ReleaseBullet")
 
 func process():
@@ -70,6 +71,10 @@ func release_bullet():
 	bullet8.type = 7
 	bullet8.position = $"../../AttackCheck/Bullet".global_position
 	get_tree().current_scene.add_child(bullet8)
+	var expl = bz.instantiate()
+	expl.position = $"../../AttackCheck/Bullet".global_position
+	expl.emitting = true
+	get_tree().current_scene.add_child(expl)
 
 func get_player_info() -> Array:
 	var direction: int = 0
@@ -83,3 +88,6 @@ func get_player_info() -> Array:
 				distance = abs(i.global_position.x - monster.global_position.x)
 				position = i.global_position
 	return [distance, direction, position] # direction中，-1表示(在主角)左边，1表示右边，0表示未知
+
+func show_monst():
+	monster.show()
